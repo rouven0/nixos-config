@@ -11,6 +11,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/thinkpad/configuration.nix
+          ./users/rouven
           home-manager.nixosModules.home-manager
         ];
       };

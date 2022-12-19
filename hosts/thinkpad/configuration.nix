@@ -5,7 +5,6 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../users/rouven
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
