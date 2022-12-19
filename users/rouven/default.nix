@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
-  # Define a user account.
   users.users.rouven = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "libvirtd" ];
@@ -13,6 +12,8 @@
     imports = [ ./modules ];
 
     config = {
+      home.username = "rouven";
+      home.homeDirectory = "/home/rouven";
       home.stateVersion = config.system.stateVersion;
     };
   };
