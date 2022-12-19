@@ -4,6 +4,7 @@
     imports =
       [
         ./vifm
+        ./alacritty
       ];
     home.username = "rouven";
     home.homeDirectory = "/home/rouven";
@@ -32,7 +33,6 @@
 
         # sound
         pavucontrol
-        yadm
 
         # bluetooth
         blueman
@@ -275,8 +275,6 @@
     services.picom = {
         enable = true;
     };
-
-    home.stateVersion = "22.11";
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
