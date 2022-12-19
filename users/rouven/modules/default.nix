@@ -9,6 +9,7 @@
       ./tmux
       ./git
       ./neovim
+      ./kdeconnect
       ./packages.nix
     ];
 
