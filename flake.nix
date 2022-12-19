@@ -10,7 +10,7 @@
       thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/thinkpad/configuration.nix
+          ./hosts/thinkpad
           ./users/rouven
           home-manager.nixosModules.home-manager
         ];
