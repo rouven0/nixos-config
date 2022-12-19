@@ -69,7 +69,6 @@
     dig
     traceroute
     killall
-    xorg.xmodmap
     # dev
     jdk
     maven

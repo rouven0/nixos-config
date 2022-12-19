@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    xorg.xmodmap
+  ];
   # Configure keymap in X11
   services.xserver.layout = "us";
   services.xserver.xkbVariant = "dvorak-alt-intl";
