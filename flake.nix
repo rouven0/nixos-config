@@ -1,5 +1,5 @@
 {
-  description = "My hardware setup";
+  description = "My nix setup";
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixos-22.11;
     home-manager.url = github:nix-community/home-manager;
