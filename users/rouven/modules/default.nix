@@ -1,8 +1,10 @@
 { config, pkgs, ... }:
 
 {
-    # Home Manager needs a bit of information about you and the
-    # paths it should manage.
+    imports =
+      [
+        ./vifm
+      ];
     home.username = "rouven";
     home.homeDirectory = "/home/rouven";
 
@@ -11,7 +13,7 @@
         alacritty
         networkmanagerapplet
         pcmanfm
-        vifm
+        # vifm
         xsel
         lightlocker
         vlc
@@ -60,13 +62,21 @@
         pass
 
         # misc
+        fzf
         neofetch
         trash-cli
         spotify
         plover.dev
         nixpkgs-fmt
+        virt-manager
+
+        # libs
+        libyubikey
+        libfido2
     ];
 
+    # programs.light.enable = true; # display brightness manager
+    # programs.kdeconnect.enable = true;
     programs.git = {
         enable = true;
         userName = "Rouven Seifert";
@@ -152,7 +162,7 @@
         clock24 = true;
         extraConfig =
         ''
-            set -g default-shell /home/rouven/.nix-profile/bin/zsh
+            set -g default-shell /etc/profiles/per-user/rouven/bin/zsh
             bind P display-popup
         '';
         plugins = with pkgs.tmuxPlugins; [
@@ -262,20 +272,10 @@
         '';
     };
 
-
     services.picom = {
         enable = true;
     };
 
-
-    # This value determines the Home Manager release that your
-    # configuration is compatible with. This helps avoid breakage
-    # when a new Home Manager release introduces backwards
-    # incompatible changes.
-    #
-    # You can update Home Manager without changing this value. See
-    # the Home Manager release notes for a list of state version
-    # changes in each release.
     home.stateVersion = "22.11";
 
     # Let Home Manager install and manage itself.

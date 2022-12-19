@@ -49,8 +49,6 @@
     libinput.enable = true;
   };
 
-
-
   # Configure keymap in X11
   services.xserver.layout = "us";
   services.xserver.xkbVariant = "dvorak-alt-intl";
@@ -146,14 +144,9 @@
     traceroute
     killall
     xorg.xmodmap
-    # libs
-    libyubikey
-    libfido2
     # dev
     jdk
     maven
-    # virtualisation
-    virt-manager
   ];
 
   programs.gnupg.agent = {
@@ -161,8 +154,6 @@
     enableSSHSupport = true;
   };
 
-  programs.light.enable = true; # display brightness manager
-  programs.kdeconnect.enable = true;
 
   # List services that you want to enable:
   services.blueman.enable = true;
@@ -174,24 +165,12 @@
   # Automatically configure displays
   services.autorandr.enable = true;
 
-
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-original"
-    "steam-runtime"
-    "steam-run"
-  ];
-
-  programs.steam.enable = true;
+  programs.steam.enable = true; # putting steam in here since home manager weirdly complains about it
+  programs.kdeconnect.enable = true; # same as above
 
   services.udev.packages = [ pkgs.yubikey-personalization ];
 
   virtualisation.libvirtd.enable = true;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
