@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./modules/autorandr
       ../../shared/vim.nix
       ../../shared/input.nix
     ];
@@ -91,13 +92,7 @@
     picom.enable = true;
   };
 
-  # Automatically configure displays
-  services.autorandr.enable = true;
-
   programs.steam.enable = true; # putting steam in here since home manager weirdly complains about it
-  programs.kdeconnect.enable = true; # same as above
-
-  services.udev.packages = [ pkgs.yubikey-personalization ];
 
   virtualisation.libvirtd.enable = true;
 
