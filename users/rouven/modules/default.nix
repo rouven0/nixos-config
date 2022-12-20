@@ -13,7 +13,4 @@
       ./zsh
       ./packages.nix
     ];
-
-
-  # programs.kdeconnect.enable = true; # doesn't work yet
 }
