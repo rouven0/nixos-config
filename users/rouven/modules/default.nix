@@ -3,13 +3,14 @@
 {
   imports =
     [
-      ./vifm
       ./alacritty
-      ./zsh
-      ./tmux
+      ./awesome
       ./git
-      ./neovim
       ./kdeconnect
+      ./neovim
+      ./tmux
+      ./vifm
+      ./zsh
       ./packages.nix
     ];
 
