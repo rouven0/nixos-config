@@ -3,7 +3,7 @@
   programs.neovim = {
     enable = true;
     # defaultEditor = true; why the hell doesn't this work :(
-    # vimAlias = true;
+    vimAlias = true;
     plugins = with pkgs.vimPlugins; [
       nerdtree
       nerdcommenter

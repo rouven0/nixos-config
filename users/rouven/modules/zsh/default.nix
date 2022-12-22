@@ -13,7 +13,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "gh" ];
+      plugins = [ "gh" "pass" ];
       theme = "agnoster";
     };
 

@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [ vifm ];
-  home.file.".config/vifm/vifmrc".source = ./vifmrc;
-  home.file.".config/vifm/colors/dracula.vifm".source = ./dracula.vifm;
+  xdg.configFile."vifm/vifmrc".source = ./vifmrc;
+  xdg.configFile."vifm/colors/dracula.vifm".source = ./dracula.vifm;
 }
