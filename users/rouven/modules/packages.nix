@@ -21,6 +21,8 @@
     fzf
     powerline-fonts
 
+    gh # github cli tool
+
     # sound
     pavucontrol
 

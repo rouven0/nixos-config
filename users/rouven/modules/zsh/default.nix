@@ -13,7 +13,7 @@
 
     oh-my-zsh = {
       enable = true;
-      # plugins = [ "zsh-autosuggestions" "fzf-tab"  ];
+      plugins = [ "gh" ];
       theme = "agnoster";
     };
 
