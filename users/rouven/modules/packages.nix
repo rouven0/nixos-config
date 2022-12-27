@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     # essentials
-    alacritty
     networkmanagerapplet
     pcmanfm
     xsel
@@ -60,6 +59,7 @@
     spotify
     nixpkgs-fmt
     virt-manager
+    remmina
 
     # libs
     libyubikey

@@ -95,6 +95,8 @@
   programs.steam.enable = true; # putting steam in here since home manager weirdly complains about it
 
   virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
