@@ -7,4 +7,4 @@ creation_rules:
     - pgp:
       - *rouven
       age:
-        - *thinkpad
+      - *thinkpad
