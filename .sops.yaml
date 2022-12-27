@@ -1,0 +1,10 @@
+keys:
+  - &rouven 116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09
+  - &thinkpad age1s5aes35ku7d2600mwxu8jndvngqrpuuu2h6yrcetytgstkuzlsvstut3ge
+creation_rules:
+  - path_regex: secrets/thinkpad\.yaml$
+    key_groups:
+    - pgp:
+      - *rouven
+      age:
+        - *thinkpad

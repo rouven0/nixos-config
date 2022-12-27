@@ -7,6 +7,7 @@
       ./modules/autorandr
       ../../shared/vim.nix
       ../../shared/input.nix
+      ../../shared/sops.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -15,8 +16,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "thinkpad"; # Define your hostname.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.hostName = "thinkpad";
+  sops.defaultSopsFile = ../../secrets/thinkpad.yaml;
+  networking.networkmanager.enable = true; 
   networking.firewall = {
     allowedUDPPorts = [ 51820 ]; # used for wireguard
     checkReversePath = false;
@@ -90,6 +92,7 @@
     printing.enable = true;
     fprintd.enable = true; # log in using fingerprint
     picom.enable = true;
+    openssh.enable = true;
   };
 
   programs.steam.enable = true; # putting steam in here since home manager weirdly complains about it
