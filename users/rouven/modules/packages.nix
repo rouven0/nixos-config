@@ -9,9 +9,8 @@
     vlc
 
     # graphics
-    lxappearance
     feh
-    flameshot
+    flameshot #TODO configure it in nix
     picom
     okular
     gimp
@@ -29,11 +28,10 @@
     blueman
 
     # internet
-    thunderbird
+    thunderbird # TODO configure
     discord
     google-chrome
     nextcloud-client
-    zoom-us
 
     # messaging
     tdesktop
@@ -44,7 +42,6 @@
     minecraft
     superTuxKart
     extremetuxracer
-    wine
 
     # yubikey and password stuff
     yubikey-manager

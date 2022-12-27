@@ -17,8 +17,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "thinkpad";
-  sops.defaultSopsFile = ../../secrets/thinkpad.yaml;
-  networking.networkmanager.enable = true; 
+  networking.networkmanager.enable = true;
   networking.firewall = {
     allowedUDPPorts = [ 51820 ]; # used for wireguard
     checkReversePath = false;
@@ -64,10 +63,8 @@
   environment.systemPackages = with pkgs; [
     # essentials
     wget
-    git
     gcc
     htop
-    tmux
     dig
     traceroute
     killall
@@ -76,6 +73,7 @@
     maven
   ];
 
+  # control display backlight
   programs.light.enable = true;
 
   programs.gnupg.agent = {
@@ -83,31 +81,21 @@
     enableSSHSupport = true;
   };
 
-
-  # List services that you want to enable:
   services = {
-    blueman.enable = true;
-    devmon.enable = true;
-    pcscd.enable = true; # yubikey and smartcard stuff
+    blueman.enable = true; # bluetooth
+    devmon.enable = true; # automount stuff
+    pcscd.enable = true; # yubikey and smartcard handling
     printing.enable = true;
     fprintd.enable = true; # log in using fingerprint
-    picom.enable = true;
-    openssh.enable = true;
+    picom.enable = true; # window transparency
+    openssh.enable = true; # enabled ssh to have the host keys
   };
 
-  programs.steam.enable = true; # putting steam in here since home manager weirdly complains about it
+  programs.steam.enable = true; # putting steam in here cause in home manager it doesn't work
 
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
-
+  system.stateVersion = "22.11";
 }
 

@@ -5,7 +5,7 @@
     ((vim_configurable.override { }).customize {
       name = "vim";
       vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ vim-nix vim-lastplace ];
+        start = [ vim-nix ];
         opt = [ ];
       };
       vimrcConfig.customRC = ''

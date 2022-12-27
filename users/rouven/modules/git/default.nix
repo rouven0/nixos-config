@@ -10,6 +10,5 @@
       init.defaultBranch = "main";
       commit.gpgsign = true;
     };
-
   };
 }
