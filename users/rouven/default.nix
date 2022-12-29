@@ -3,7 +3,7 @@
   nixpkgs.config.allowUnfree = true;
   users.users.rouven = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "libvirtd" "networkmanager" ];
+    extraGroups = [ "wheel" "video" "libvirtd" ];
   };
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
