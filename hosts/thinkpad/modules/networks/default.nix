@@ -21,6 +21,9 @@
         "@DORM_SSID@" = {
           psk = "@DORM_PSK@";
           authProtocols = [ "WPA-PSK" ];
+          extraConfig = ''
+            disabled=1
+          '';
         };
       };
     };
