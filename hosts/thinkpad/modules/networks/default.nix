@@ -2,7 +2,7 @@
 {
   imports = [ ./uni.nix ];
 
-  sops.secrets."wireless-env" = {};
+  sops.secrets."wireless-env" = { };
   networking = {
     hostName = "thinkpad";
     firewall = {

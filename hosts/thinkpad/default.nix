@@ -14,7 +14,6 @@
       ../../shared/gpg.nix
     ];
 
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -47,7 +46,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
-
 
   # control display backlight
   programs.light.enable = true;

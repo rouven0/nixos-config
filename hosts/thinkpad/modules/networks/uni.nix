@@ -1,9 +1,9 @@
 { config, ... }:
 {
-  sops.secrets."uni/zih" = {};
+  sops.secrets."uni/zih" = { };
   networking = {
     wireless.networks = {
-      eduroam ={
+      eduroam = {
         auth = ''
           eap=PEAP
           anonymous_identity="anonymous@tu-dresden.de"
@@ -15,7 +15,7 @@
         '';
         authProtocols = [ "WPA-EAP" ];
       };
-      agdsn ={
+      agdsn = {
         auth = ''
           eap=TTLS
           anonymous_identity="anonymous@agdsn.de"
