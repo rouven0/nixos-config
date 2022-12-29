@@ -21,9 +21,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- Autstart some stuff
-awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("light-locker --lock-on-lid")
--- awful.spawn.with_shell("nextcloud")
 
 -- Handle runtime errors after startup
 do

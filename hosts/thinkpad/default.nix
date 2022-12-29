@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ./modules/autorandr
+      ./modules/networks
       ../../shared/vim.nix
       ../../shared/input.nix
       ../../shared/sops.nix
@@ -15,13 +16,6 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "thinkpad";
-  networking.networkmanager.enable = true;
-  networking.firewall = {
-    allowedUDPPorts = [ 51820 ]; # used for wireguard
-    checkReversePath = false;
-  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";

@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     # essentials
-    networkmanagerapplet
     pcmanfm
     xsel
     lightlocker
