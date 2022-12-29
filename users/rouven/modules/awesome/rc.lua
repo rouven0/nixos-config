@@ -22,6 +22,7 @@ require("awful.hotkeys_popup.keys")
 
 -- Autstart some stuff
 awful.spawn.with_shell("light-locker --lock-on-lid")
+awful.spawn.with_shell("wpa_gui -t")
 
 -- Handle runtime errors after startup
 do

@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     # essentials
+    wpa_supplicant_gui
     pcmanfm
     xsel
     lightlocker
