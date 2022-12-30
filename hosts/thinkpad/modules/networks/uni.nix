@@ -27,6 +27,11 @@
         '';
         authProtocols = [ "WPA-EAP" ];
       };
+      FSR = {
+        psk = "@FSR_PSK@";
+        authProtocols = [ "WPA-PSK" ];
+        extraConfig = "disabled=1";
+      };
     };
     openconnect.interfaces = {
       TU-Dresden = {
