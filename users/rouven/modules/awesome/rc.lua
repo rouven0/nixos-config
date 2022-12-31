@@ -162,7 +162,7 @@ local tasklist_buttons = gears.table.join(
 
 local function set_wallpaper(s)
 	-- Wallpaper
-	awful.spawn.easy_async_with_shell("feh --no-fehbg --bg-scale $HOME/.wallpaper.jpg")
+	awful.spawn.easy_async_with_shell("feh --no-fehbg --bg-scale $HOME/.wallpaper.png")
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)

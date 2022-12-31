@@ -8,6 +8,7 @@
       ./hardware-configuration.nix
       ./modules/autorandr
       ./modules/networks
+      ./modules/lightdm
       ../../shared/vim.nix
       ../../shared/input.nix
       ../../shared/sops.nix
@@ -27,9 +28,7 @@
 
   services.xserver = {
     enable = true;
-
     displayManager = {
-      lightdm.enable = true;
       defaultSession = "none+awesome";
     };
     windowManager.awesome = {
@@ -46,6 +45,8 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
+
+  programs.dconf.enable = true;
 
   # control display backlight
   programs.light.enable = true;
