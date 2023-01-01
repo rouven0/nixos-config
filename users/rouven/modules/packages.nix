@@ -10,8 +10,6 @@
 
     # graphics
     feh
-    flameshot #TODO configure it in nix
-    picom
     okular
     gimp
 

@@ -56,7 +56,6 @@
     devmon.enable = true; # automount stuff
     printing.enable = true;
     fprintd.enable = true; # log in using fingerprint
-    picom.enable = true; # window transparency
     openssh.enable = true; # enabled ssh to have the host keys
   };
 
