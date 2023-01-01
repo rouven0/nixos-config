@@ -2,9 +2,11 @@
 {
   imports =
     [
+      ./accounts
       ./alacritty
       ./awesome
       ./flameshot
+      ./fzf
       ./git
       ./kdeconnect
       ./neovim

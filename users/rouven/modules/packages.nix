@@ -13,7 +13,6 @@
     okular
     gimp
 
-
     gh # github cli tool
 
     # sound
@@ -23,12 +22,11 @@
     blueman
 
     # internet
-    thunderbird # TODO configure
-    discord
     google-chrome
     nextcloud-client
 
     # messaging
+    discord
     tdesktop
     element-desktop
     whatsapp-for-linux
