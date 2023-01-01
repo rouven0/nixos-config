@@ -5,7 +5,7 @@
     settings = {
       General = {
         contrastOpacity = 188;
-        disabledTrayIcon=true;
+        disabledTrayIcon = true;
       };
       Shortcuts = {
         TYPE_COPY = "Return";
