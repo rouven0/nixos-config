@@ -20,6 +20,7 @@
           set -g @dracula-show-powerline true
         '';
       }
+      tmux-fzf
     ];
   };
 

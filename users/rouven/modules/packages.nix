@@ -13,9 +13,6 @@
     okular
     gimp
 
-    # editing
-    fzf
-    powerline-fonts
 
     gh # github cli tool
 
@@ -48,13 +45,13 @@
     pass
 
     # misc
-    fzf
     neofetch
     trash-cli
     spotify
     nixpkgs-fmt
     virt-manager
     remmina
+    powerline-fonts
 
     # libs
     libyubikey
