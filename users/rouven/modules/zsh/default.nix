@@ -55,8 +55,8 @@
             fi
         }
  
-        function sn() {
-            nmcli connection up $(nmcli connection show | tail -n +2 | cut -d " " -f1 | fzf --preview 'nmcli connection show {}')
+        function svpn() {
+          systemctl $(echo "start\nstop\nstatus"|fzf) $(systemctl list-unit-files | grep "openconnect\|wg-quick\|wireguard\|openvpn" | cut -d "." -f1 | fzf)
         }
  
         prompt_dir() {
