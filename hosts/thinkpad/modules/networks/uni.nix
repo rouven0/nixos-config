@@ -34,7 +34,7 @@
       };
     };
     openconnect.interfaces = {
-      TU-Dresden = {
+      TUD-A-Tunnel = { # apparently device names have a character limit
         protocol = "anyconnect";
         gateway = "vpn2.zih.tu-dresden.de";
         user = "rose159e@tu-dresden.de";
@@ -42,6 +42,17 @@
         autoStart = false;
         extraOptions = {
           authgroup = "A-Tunnel-TU-Networks";
+          compression = "stateless";
+        };
+      };
+      TUD-C-Tunnel= {
+        protocol = "anyconnect";
+        gateway = "vpn2.zih.tu-dresden.de";
+        user = "rose159e@tu-dresden.de";
+        passwordFile = config.sops.secrets."uni/zih".path;
+        autoStart = false;
+        extraOptions = {
+          authgroup = "C-Tunnel-All-Networks";
           compression = "stateless";
         };
       };
