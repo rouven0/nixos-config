@@ -13,6 +13,7 @@
       ../../shared/input.nix
       ../../shared/sops.nix
       ../../shared/gpg.nix
+      ../../shared/zsh-fix.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
