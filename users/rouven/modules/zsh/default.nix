@@ -47,7 +47,6 @@
     initExtra =
       ''
         function c() {
-            cd
             if [ $# -eq 0 ]; then
                 cd $(find -maxdepth 4 -not -path '*[cC]ache*' -not -path '*[tT]rash*' -type d | fzf --preview 'tree -C {}')
             else
