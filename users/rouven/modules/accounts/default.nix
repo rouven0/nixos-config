@@ -46,7 +46,7 @@ in
       };
       thunderbird.enable = true;
     };
-    GMail = rec {
+    "Gmail" = rec {
       address = "seifertrouven@gmail.com";
       realName = "Rouven Seifert";
       userName = address;
