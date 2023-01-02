@@ -26,6 +26,7 @@ in
       smtp = {
         host = "pro1.mail.ovh.net";
         port = 587;
+        tls.useStartTls = true;
       };
       thunderbird.enable = true;
     };
@@ -41,6 +42,7 @@ in
       smtp = {
         host = "msx.tu-dresden.de";
         port = 587;
+        tls.useStartTls = true;
       };
       thunderbird.enable = true;
     };
@@ -54,7 +56,7 @@ in
       };
       smtp = {
         host = "smtp.gmail.com";
-        port = 587;
+        port = 465;
       };
       thunderbird.enable = true;
     };
