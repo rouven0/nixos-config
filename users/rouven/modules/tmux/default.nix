@@ -7,7 +7,7 @@
     clock24 = true;
     extraConfig =
       ''
-        set -g default-shell /etc/profiles/per-user/rouven/bin/zsh
+        set -g default-shell ${pkgs.zsh}/bin/zsh
         bind P display-popup
       '';
     plugins = with pkgs.tmuxPlugins; [
