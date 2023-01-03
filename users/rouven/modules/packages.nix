@@ -24,6 +24,7 @@
     # internet
     google-chrome
     nextcloud-client
+    qbittorrent
 
     # messaging
     discord
