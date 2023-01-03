@@ -55,7 +55,12 @@
         }
  
         function svpn() {
-          systemctl $(echo "start\nstop\nstatus"|fzf) $(systemctl list-unit-files | grep "openconnect\|wg-quick\|wireguard\|openvpn" | cut -d "." -f1 | fzf)
+          unit=$(systemctl list-unit-files | grep "openconnect\|wg-quick\|wireguard\|openvpn" | cut -d "." -f1 | fzf --preview 'systemctl status {}')
+          if [ $(systemctl is-active $unit) = "inactive" ]; then
+          	systemctl start $unit
+          else
+          	systemctl stop $unit
+          fi
         }
  
         prompt_dir() {
