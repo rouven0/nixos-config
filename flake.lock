@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "awesome-config": {
+      "locked": {
+        "lastModified": 1672845131,
+        "narHash": "sha256-K68oH+0ZbLRcRr9XN1dzgO3MzdWlyNGcbVqEg5ShpwA=",
+        "owner": "therealr5",
+        "repo": "awesome-config",
+        "rev": "2fa061004ca0581dd57645d8c85e1ac924b35c20",
+        "type": "github"
+      },
+      "original": {
+        "owner": "therealr5",
+        "repo": "awesome-config",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -8,11 +23,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1672688183,
-        "narHash": "sha256-3sNEWKTg3XXVDnvzVatdyetiUQWL+ibJ1YkvxSk3PuM=",
+        "lastModified": 1672780900,
+        "narHash": "sha256-DxuSn6BdkZapIbg76xzYx1KhVPEZeBexMkt1q/sMVPA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c1a830c8fabb13f95f51ecf48552f0a794d8718a",
+        "rev": "54245e1820caabd8a0b53ce4d47e4d0fefe04cd4",
         "type": "github"
       },
       "original": {
@@ -55,6 +70,7 @@
     },
     "root": {
       "inputs": {
+        "awesome-config": "awesome-config",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix"

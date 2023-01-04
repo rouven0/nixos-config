@@ -2,7 +2,7 @@
 {
   services.xserver.displayManager.lightdm = {
     enable = true;
-    background = ../../../../images/wallpaper-blurred.png;
+    background = ../../../../images/lockscreen.png;
     greeters.slick = {
       enable = true;
       extraConfig = ''

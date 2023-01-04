@@ -4,7 +4,6 @@
     [
       ./accounts
       ./alacritty
-      ./awesome
       ./flameshot
       ./fzf
       ./git
