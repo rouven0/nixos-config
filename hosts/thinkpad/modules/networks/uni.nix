@@ -11,7 +11,7 @@
           domain_suffix_match="radius-eduroam.zih.tu-dresden.de"
           identity="rose159e@tu-dresden.de"
           password="@EDUROAM_AUTH@"
-          phase2="auth=mschapv2"
+          phase2="auth=MSCHAPV2"
         '';
         authProtocols = [ "WPA-EAP" ];
       };
