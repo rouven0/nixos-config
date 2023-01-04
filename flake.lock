@@ -2,11 +2,11 @@
   "nodes": {
     "awesome-config": {
       "locked": {
-        "lastModified": 1672845131,
-        "narHash": "sha256-K68oH+0ZbLRcRr9XN1dzgO3MzdWlyNGcbVqEg5ShpwA=",
+        "lastModified": 1672847112,
+        "narHash": "sha256-ypxTR3GlS3DcdnMJD9xrFMfKghEC+rQlwMxoGUP3yd8=",
         "owner": "therealr5",
         "repo": "awesome-config",
-        "rev": "2fa061004ca0581dd57645d8c85e1ac924b35c20",
+        "rev": "06ac1903096c57f29aa1e4884a78345bc0302f2c",
         "type": "github"
       },
       "original": {
