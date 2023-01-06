@@ -10,6 +10,7 @@
       ./kdeconnect
       ./neovim
       ./picom
+      ./ssh
       ./tmux
       ./vifm
       ./zsh

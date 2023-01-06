@@ -2,11 +2,11 @@
   "nodes": {
     "awesome-config": {
       "locked": {
-        "lastModified": 1672926110,
-        "narHash": "sha256-t+cVX6bbrv9cLZuBcxHAAX3LtKB1K4LndxYEqrINCaY=",
+        "lastModified": 1672956188,
+        "narHash": "sha256-0WlCdgF2WcIHO/Xn1CHKm7aqsO2T2vSV5NGE7bmAd98=",
         "owner": "therealr5",
         "repo": "awesome-config",
-        "rev": "00c4f6b17c56607df42aa03f55e5f3c442c76980",
+        "rev": "ea8efd6ee4a5db410625085160b1336e3de459c5",
         "type": "github"
       },
       "original": {
@@ -23,11 +23,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1672780900,
-        "narHash": "sha256-DxuSn6BdkZapIbg76xzYx1KhVPEZeBexMkt1q/sMVPA=",
+        "lastModified": 1672980560,
+        "narHash": "sha256-Pzx7az57SiUS1xhvKesTb1rhO9w9lWy9mecIqVjcKzo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "54245e1820caabd8a0b53ce4d47e4d0fefe04cd4",
+        "rev": "1786883425208d3bf726ab6a1889beddeb46cdbc",
         "type": "github"
       },
       "original": {
