@@ -7,6 +7,7 @@
       ./flameshot
       ./fzf
       ./git
+      ./gpg
       ./kdeconnect
       ./neovim
       ./picom

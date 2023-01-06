@@ -13,8 +13,6 @@
     okular
     gimp
 
-    gh # github cli tool
-
     # sound
     pavucontrol
 
