@@ -32,6 +32,7 @@
 
     # games
     minecraft
+    prismlauncher
     superTuxKart
     extremetuxracer
 
