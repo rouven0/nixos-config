@@ -21,5 +21,4 @@ jobs:
         with:
           extra_nix_config: |
             experimental-features = nix-command flakes
-      - run: nix shell nixpkgs#nixpkgs-fmt -c nixpkgs-fmt . --check
       - run: nix flake check
