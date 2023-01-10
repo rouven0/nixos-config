@@ -1,0 +1,25 @@
+name: Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-flake:
+    name: Nixpkgs Formatting and Flake check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v18
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - run: nix shell nixpkgs#nixpkgs-fmt -c nixpkgs-fmt . --check
+      - run: nix flake check
