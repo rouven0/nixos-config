@@ -6,11 +6,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = github:Mic92/sops-nix;
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    awesome-config.url=github:therealr5/awesome-config;
-    nix-colors.url=github:Misterio77/nix-colors;
+    awesome-config.url = github:therealr5/awesome-config;
+    nix-colors.url = github:Misterio77/nix-colors;
   };
 
   outputs = { self, nixpkgs, home-manager, sops-nix, awesome-config, nix-colors }: {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     nixosConfigurations = {
       thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

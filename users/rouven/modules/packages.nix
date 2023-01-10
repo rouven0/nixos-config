@@ -32,7 +32,7 @@
 
     # games
     minecraft
-    prismlauncher
+    prismlauncher # minecraft, but it actually works
     superTuxKart
     extremetuxracer
 
@@ -40,6 +40,7 @@
     yubikey-manager
     yubikey-manager-qt
     yubioath-desktop
+    #yubioath-flutter # do as soon as thing is done
     pass
 
     # misc
@@ -48,7 +49,6 @@
     spotify
     nixpkgs-fmt
     virt-manager
-    remmina
     powerline-fonts
 
     # libs

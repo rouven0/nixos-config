@@ -34,7 +34,8 @@
       };
     };
     openconnect.interfaces = {
-      TUD-A-Tunnel = { # apparently device names have a character limit
+      TUD-A-Tunnel = {
+        # apparently device names have a character limit
         protocol = "anyconnect";
         gateway = "vpn2.zih.tu-dresden.de";
         user = "rose159e@tu-dresden.de";
@@ -45,7 +46,7 @@
           compression = "stateless";
         };
       };
-      TUD-C-Tunnel= {
+      TUD-C-Tunnel = {
         protocol = "anyconnect";
         gateway = "vpn2.zih.tu-dresden.de";
         user = "rose159e@tu-dresden.de";
