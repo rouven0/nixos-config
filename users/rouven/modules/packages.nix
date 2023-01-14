@@ -31,7 +31,6 @@
     whatsapp-for-linux
 
     # games
-    minecraft
     prismlauncher # minecraft, but it actually works
     superTuxKart
     extremetuxracer
@@ -50,6 +49,7 @@
     nixpkgs-fmt
     virt-manager
     powerline-fonts
+    ventoy-bin
 
     # libs
     libyubikey

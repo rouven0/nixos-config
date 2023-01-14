@@ -1,1 +1,2 @@
-nix fmt .
+nix fmt
+git add $(git diff --name-only --cached)
