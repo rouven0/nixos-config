@@ -47,7 +47,24 @@
         RouteMetric = 10;
       };
     };
-    networks."10-wireless" = {
+    networks."10-wireless-home" = {
+      matchConfig = {
+        Name = "wlp9s0";
+        SSID = "Smoerrebroed";
+      };
+      networkConfig = {
+        DHCP = "yes";
+        IgnoreCarrierLoss = "3s";
+      };
+      dhcpV4Config = {
+        RouteMetric = 20;
+      };
+      routes = [
+        # Route to the Model train network via raspi
+        { routeConfig = { Gateway = "192.168.178.63"; Destination = "192.168.179.0/24"; }; }
+      ];
+    };
+    networks."15-wireless-default" = {
       matchConfig.Name = "wlp9s0";
       networkConfig = {
         DHCP = "yes";
