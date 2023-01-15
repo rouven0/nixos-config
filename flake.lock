@@ -1,12 +1,17 @@
 {
   "nodes": {
     "awesome-config": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1672956188,
-        "narHash": "sha256-0WlCdgF2WcIHO/Xn1CHKm7aqsO2T2vSV5NGE7bmAd98=",
+        "lastModified": 1673817186,
+        "narHash": "sha256-lgM53vY3W/9i1PNByO6UC/qp24mRKb4cLQwElqGGYAU=",
         "owner": "therealr5",
         "repo": "awesome-config",
-        "rev": "ea8efd6ee4a5db410625085160b1336e3de459c5",
+        "rev": "151afc549364e723639b7ab40d27dee6961cc0d1",
         "type": "github"
       },
       "original": {
@@ -39,11 +44,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1673737886,
-        "narHash": "sha256-hNTqD0uIgpbtTI2Nuj/Q1lEFOOdZqqXpxoc8rMno2F0=",
+        "lastModified": 1673815682,
+        "narHash": "sha256-zG7Rroki+89poCTr1D8BM/wTCl+DZJvU4IUE+5hxG7U=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2827b5306462d91edec16a3d069b2d6e54c3079f",
+        "rev": "3e42035fc013ed4d8af6ee8dc0079c0c551c45a5",
         "type": "github"
       },
       "original": {

@@ -7,6 +7,7 @@
     sops-nix.url = github:Mic92/sops-nix;
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     awesome-config.url = github:therealr5/awesome-config;
+    awesome-config.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = github:Misterio77/nix-colors;
   };
 
