@@ -10,6 +10,7 @@
       ./modules/networks
       ./modules/lightdm
       ../../shared/vim.nix
+      ../../shared/ausweisapp.nix
       ../../shared/input.nix
       ../../shared/sops.nix
       ../../shared/gpg.nix

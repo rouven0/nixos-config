@@ -99,20 +99,16 @@
     };
     networks."30-dorm" = {
       matchConfig.Name = "dorm";
-      networkConfig = {
-        Address = "10.10.10.3/24";
-        DNS = "10.10.10.1";
-        DNSDefaultRoute = true;
-      };
-      linkConfig = {
-        ActivationPolicy = "manual"; #manual activation cause sometimes the endpoint can't be resolved
-      };
+      addresses = [
+        {
+          addressConfig = {
+            Address = "10.10.10.3/24";
+            RouteMetric = 30;
+          };
+        }
+      ];
       routes = [
-        # Somehow systemd-networkd always creates a route to 10.10.10.0/24 with metric 0 and regardless how I set it,
-        # my settings are ignored and set to 0. Route below would do it right, as soon as I find out how I can deacivate
-        # the metric 0 one, this will be uncommented
-        #{ routeConfig = { Gateway = "0.0.0.0"; Destination = "10.10.10.0/24"; Metric = 50; }; }
-        { routeConfig = { Gateway = "0.0.0.0"; Destination = "192.168.10.0/24"; Metric = 50; }; }
+        { routeConfig = { Gateway = "0.0.0.0"; Destination = "192.168.10.0/24"; Metric = 30; }; }
       ];
     };
   };
