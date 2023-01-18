@@ -38,8 +38,7 @@
     # yubikey and password stuff
     yubikey-manager
     yubikey-manager-qt
-    yubioath-desktop
-    #yubioath-flutter # do as soon as thing is done
+    yubioath-flutter
     pass
 
     # misc
