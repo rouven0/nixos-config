@@ -3,6 +3,7 @@
   imports =
     [
       ./accounts
+      ./awesome
       ./alacritty
       ./flameshot
       ./fzf

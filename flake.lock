@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "awesome-config": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1673817186,
-        "narHash": "sha256-lgM53vY3W/9i1PNByO6UC/qp24mRKb4cLQwElqGGYAU=",
-        "owner": "therealr5",
-        "repo": "awesome-config",
-        "rev": "151afc549364e723639b7ab40d27dee6961cc0d1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "therealr5",
-        "repo": "awesome-config",
-        "type": "github"
-      }
-    },
     "base16-schemes": {
       "flake": false,
       "locked": {
@@ -44,11 +24,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1674041176,
-        "narHash": "sha256-cMf1BQzI39nHQ0H/mOatthbbI3392qLmJ9gU0u520P4=",
+        "lastModified": 1674082145,
+        "narHash": "sha256-4IpEt5Jc6VrNcpIcrKMCZAyeJMLXaaHk+yOV9HusO/A=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2c29ae48f9a149151bdd82f429ac61d4412c312a",
+        "rev": "7026e1a934abfa02623c9870378dbcdac3cd7f80",
         "type": "github"
       },
       "original": {
@@ -125,7 +105,6 @@
     },
     "root": {
       "inputs": {
-        "awesome-config": "awesome-config",
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs",
