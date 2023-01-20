@@ -1,12 +1,16 @@
-{ config, pkgs, ... }:
+{ config, pkgs, hyprpaper, ... }:
 {
   wayland.windowManager.hyprland.enable = true;
   xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+  xdg.configFile."hypr/hyprpaper.conf".text = ''
+    preload = ${../../../../images/wallpaper.png}
+    wallpaper =, ${../../../../images/wallpaper.png}
+  '';
   # TODO integrate this to nix-colors
   xdg.configFile."wofi".source = ./wofi-config;
-  home.packages = with pkgs; [
-    wofi
-    #noto-fonts-emoji
+  home.packages = [
+    pkgs.wofi
+    hyprpaper.packages.x86_64-linux.default
   ];
 
   programs.waybar = {
@@ -17,5 +21,10 @@
     #position = "top";
     #};
     #};
+  };
+
+  programs.mako = {
+    enable = true;
+    backgroundColor = "#${config.colorScheme.colors.base00}FF";
   };
 }
