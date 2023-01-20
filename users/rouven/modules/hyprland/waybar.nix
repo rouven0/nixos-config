@@ -24,6 +24,7 @@
           format = "{usage}% ";
         };
         temperature = {
+          hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
           critical-threshold = 80;
           format = "{temperatureC}°C {icon}";
           format-icons = [ "" ];
