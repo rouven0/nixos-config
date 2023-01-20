@@ -3,16 +3,14 @@
   imports =
     [
       ./accounts
-      ./awesome
       ./alacritty
-      ./flameshot
+      ./flameshot # TODO fix
       ./fzf
       ./git
       ./gpg
       ./hyprland
-      ./kdeconnect
+      ./kdeconnect #TODO fix
       ./neovim
-      #./picom
       ./ssh
       ./tmux
       ./vifm

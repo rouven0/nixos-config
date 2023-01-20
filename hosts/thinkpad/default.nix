@@ -6,12 +6,8 @@
   imports =
     [
       ./hardware-configuration.nix
-      #./modules/autorandr
       ./modules/networks
-      #./modules/lightdm
-      #./modules/gdm
       ../../shared/vim.nix
-      #../../shared/input.nix
       ../../shared/sops.nix
       ../../shared/gpg.nix
       ../../shared/zsh-fix.nix
@@ -26,23 +22,14 @@
   console = {
     keyMap = "dvorak";
     font = "Lat2-Terminus16";
-    #useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  services.xserver = {
-    enable = true;
-    #displayManager = {
-    #defaultSession = "none+awesome";
-    #};
-    windowManager.awesome = {
-      enable = true;
-      luaModules = with pkgs.luaPackages; [
-        luarocks
-        vicious
-      ];
-    };
-    libinput.enable = true;
-  };
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    dejavu_fonts
+  ];
 
   # Enable sound.
   sound.enable = true;
@@ -81,7 +68,6 @@
 
 
   environment.systemPackages = with pkgs; [
-    # essentials
     wget
     gcc
     git
