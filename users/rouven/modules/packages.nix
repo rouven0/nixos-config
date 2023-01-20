@@ -46,7 +46,6 @@
     virt-manager
     powerline-fonts
     ventoy-bin
-    mpd
 
     # libs
     libyubikey

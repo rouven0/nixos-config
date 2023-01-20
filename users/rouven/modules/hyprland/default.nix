@@ -1,30 +1,68 @@
 { config, pkgs, hyprpaper, ... }:
 {
+  imports = [ ./waybar.nix ];
   wayland.windowManager.hyprland.enable = true;
   xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     preload = ${../../../../images/wallpaper.png}
-    wallpaper =, ${../../../../images/wallpaper.png}
+    wallpaper =eDP-1, ${../../../../images/wallpaper.png}
+    wallpaper =HDMI-A-1, ${../../../../images/wallpaper.png}
   '';
-  # TODO integrate this to nix-colors
-  xdg.configFile."wofi".source = ./wofi-config;
-  home.packages = [
-    pkgs.wofi
+  home.packages = with pkgs; [
+    wofi
+    font-awesome
     hyprpaper.packages.x86_64-linux.default
   ];
 
-  programs.waybar = {
-    enable = true;
-    #settings = {
-    #mainBar = {
-    #layer = "top";
-    #position = "top";
-    #};
-    #};
-  };
+  xdg.configFile."wofi/config".text = ''
+    allow_images = true
+    term = alacritty
+  '';
+
+  xdg.configFile."wofi/style.css".text = ''
+    window {
+      margin: 0px;
+      border: 1px solid #${config.colorScheme.colors.base0D};
+      background-color: #${config.colorScheme.colors.base00};
+    }
+    
+    #input {
+      margin: 5px;
+      border: none;
+      color: #${config.colorScheme.colors.base05};
+      background-color: #${config.colorScheme.colors.base02};
+    }
+    
+    
+    #inner-box,
+    #outer-box {
+      margin: 5px;
+      border: none;
+      background-color: #${config.colorScheme.colors.base00};
+    }
+    
+    
+    #text {
+      margin: 5px;
+      border: none;
+      color: #${config.colorScheme.colors.base05};
+    }
+    
+    #entry:selected {
+      background-color: #${config.colorScheme.colors.base01};
+    }
+    
+    #entry:nth-child(even),
+    #entry:nth-child(odd){
+      background-color: #${config.colorScheme.colors.base02};
+    }
+  '';
+
 
   programs.mako = {
     enable = true;
     backgroundColor = "#${config.colorScheme.colors.base00}FF";
+    textColor = "#${config.colorScheme.colors.base05}FF";
+    #defaultTimeout = 10;
   };
 }
