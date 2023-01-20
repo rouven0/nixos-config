@@ -7,7 +7,7 @@
         TERM = "xterm-256color";
       };
       font = {
-        size = 8;
+        size = 10;
       };
       shell.program = "${pkgs.zsh}/bin/zsh";
       window.opacity = 0.7;

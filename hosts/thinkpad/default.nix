@@ -6,7 +6,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./modules/autorandr
+      #./modules/autorandr
       ./modules/networks
       #./modules/lightdm
       #./modules/gdm
@@ -24,8 +24,9 @@
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
+    keyMap = "dvorak";
     font = "Lat2-Terminus16";
-    useXkbConfig = true; # use xkbOptions in tty.
+    #useXkbConfig = true; # use xkbOptions in tty.
   };
 
   services.xserver = {
