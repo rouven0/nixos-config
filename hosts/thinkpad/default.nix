@@ -8,9 +8,10 @@
       ./hardware-configuration.nix
       ./modules/autorandr
       ./modules/networks
-      ./modules/lightdm
+      #./modules/lightdm
+      #./modules/gdm
       ../../shared/vim.nix
-      ../../shared/input.nix
+      #../../shared/input.nix
       ../../shared/sops.nix
       ../../shared/gpg.nix
       ../../shared/zsh-fix.nix
@@ -29,9 +30,9 @@
 
   services.xserver = {
     enable = true;
-    displayManager = {
-      defaultSession = "none+awesome";
-    };
+    #displayManager = {
+    #defaultSession = "none+awesome";
+    #};
     windowManager.awesome = {
       enable = true;
       luaModules = with pkgs.luaPackages; [

@@ -9,9 +9,10 @@
       ./fzf
       ./git
       ./gpg
+      ./hyprland
       ./kdeconnect
       ./neovim
-      ./picom
+      #./picom
       ./ssh
       ./tmux
       ./vifm
