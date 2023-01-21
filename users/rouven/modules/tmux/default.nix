@@ -14,8 +14,7 @@
       {
         plugin = dracula;
         extraConfig = ''
-          set -g @dracula-show-fahrenheit false
-          set -g @dracula-plugins "weather time"
+          set -g @dracula-plugins "time"
           set -g @dracula-show-left-icon session
           set -g @dracula-show-powerline true
         '';

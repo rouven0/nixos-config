@@ -8,7 +8,6 @@
       ./git
       ./gpg
       ./hyprland
-      ./kdeconnect #TODO fix
       ./neovim
       ./ssh
       ./tmux

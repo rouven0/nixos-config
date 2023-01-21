@@ -46,6 +46,7 @@
     virt-manager
     powerline-fonts
     ventoy-bin
+    ripgrep
 
     # libs
     libyubikey
