@@ -1,5 +1,4 @@
 { config, pkgs, lib, ... }:
-
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -10,7 +9,6 @@
       ../../shared/vim.nix
       ../../shared/sops.nix
       ../../shared/gpg.nix
-      ../../shared/zsh-fix.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -61,6 +59,7 @@
 
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
+
   # fix to enable secure boot in vms
   environment.etc = {
     "ovmf/edk2-x86_64-secure-code.fd" = {
@@ -73,7 +72,6 @@
       user = "libvirtd";
     };
   };
-
 
   environment.systemPackages = with pkgs; [
     wget
