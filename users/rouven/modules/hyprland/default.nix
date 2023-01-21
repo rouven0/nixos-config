@@ -33,7 +33,6 @@
       background-color: #${config.colorScheme.colors.base02};
     }
     
-    
     #inner-box,
     #outer-box {
       margin: 5px;
@@ -41,28 +40,34 @@
       background-color: #${config.colorScheme.colors.base00};
     }
     
-    
     #text {
       margin: 5px;
       border: none;
       color: #${config.colorScheme.colors.base05};
     }
+
+    #entry {
+      background-color: #${config.colorScheme.colors.base00};
+    }
     
     #entry:selected {
-      background-color: #${config.colorScheme.colors.base01};
+      background-color: #${config.colorScheme.colors.base03};
     }
     
-    #entry:nth-child(even),
-    #entry:nth-child(odd){
-      background-color: #${config.colorScheme.colors.base02};
-    }
   '';
 
 
   programs.mako = {
     enable = true;
-    backgroundColor = "#${config.colorScheme.colors.base00}FF";
+    backgroundColor = "#${config.colorScheme.colors.base02}FF";
+    borderRadius = 20;
     textColor = "#${config.colorScheme.colors.base05}FF";
-    #defaultTimeout = 10;
+    layer = "overlay";
+    defaultTimeout = 10000;
+    extraConfig = ''
+      [urgency=high]
+      background-color=#${config.colorScheme.colors.base08}
+      default-timeout=0
+    '';
   };
 }
