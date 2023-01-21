@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+  imports = [ ./fixes.nix ];
   nixpkgs.config.allowUnfree = true;
   users.users.rouven = {
     isNormalUser = true;

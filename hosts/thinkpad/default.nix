@@ -1,19 +1,14 @@
 { config, pkgs, lib, ... }:
-
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports =
     [
       ./hardware-configuration.nix
-      ./modules/autorandr
       ./modules/networks
-      ./modules/lightdm
       ../../shared/vim.nix
-      ../../shared/input.nix
       ../../shared/sops.nix
       ../../shared/gpg.nix
-      ../../shared/zsh-fix.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -23,29 +18,29 @@
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
+    keyMap = "dvorak";
     font = "Lat2-Terminus16";
-    useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  services.xserver = {
-    enable = true;
-    displayManager = {
-      defaultSession = "none+awesome";
-    };
-    windowManager.awesome = {
-      enable = true;
-      luaModules = with pkgs.luaPackages; [
-        luarocks
-        vicious
-      ];
-    };
-    libinput.enable = true;
-  };
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    dejavu_fonts
+  ];
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  #hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+  xdg.portal.wlr.enable = true;
 
   programs.dconf.enable = true;
 
@@ -64,6 +59,7 @@
 
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
+
   # fix to enable secure boot in vms
   environment.etc = {
     "ovmf/edk2-x86_64-secure-code.fd" = {
@@ -77,9 +73,7 @@
     };
   };
 
-
   environment.systemPackages = with pkgs; [
-    # essentials
     wget
     gcc
     git

@@ -7,7 +7,7 @@
         TERM = "xterm-256color";
       };
       font = {
-        size = 8;
+        size = 10;
       };
       shell.program = "${pkgs.zsh}/bin/zsh";
       window.opacity = 0.7;
@@ -25,20 +25,6 @@
           text = "CellBackground";
           cursor = "CellForeground";
         };
-        #search = {
-        #matches = {
-        #foreground = "#44475a";
-        #background = "#50fa7b";
-        #};
-        #focused_match = {
-        #foreground = "#44475a";
-        #background = "#ffb86c";
-        #};
-        #footer_bar = {
-        #background = "#282a36";
-        #foreground = "#f8f8f2";
-        #};
-        #};
         selection = {
           text = "CellForeground";
           background = "#${config.colorScheme.colors.base03}";

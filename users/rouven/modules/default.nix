@@ -3,15 +3,12 @@
   imports =
     [
       ./accounts
-      ./awesome
       ./alacritty
-      ./flameshot
       ./fzf
       ./git
       ./gpg
-      ./kdeconnect
+      ./hyprland
       ./neovim
-      ./picom
       ./ssh
       ./tmux
       ./vifm

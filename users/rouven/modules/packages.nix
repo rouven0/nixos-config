@@ -5,11 +5,9 @@
     wpa_supplicant_gui
     pcmanfm
     xsel
-    lightlocker
     vlc
 
     # graphics
-    feh
     okular
     gimp
 
@@ -45,10 +43,10 @@
     neofetch
     trash-cli
     spotify
-    nixpkgs-fmt
     virt-manager
     powerline-fonts
     ventoy-bin
+    ripgrep
 
     # libs
     libyubikey
