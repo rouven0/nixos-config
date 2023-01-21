@@ -8,6 +8,8 @@
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hyprpaper.url = github:hyprwm/hyprpaper;
     hyprpaper.inputs.nixpkgs.follows = "nixpkgs";
+    #xdph.url = github:hyprwm/xdg-desktop-portal-hyprland;
+    #xdph.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = github:Mic92/sops-nix;
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = github:Misterio77/nix-colors;

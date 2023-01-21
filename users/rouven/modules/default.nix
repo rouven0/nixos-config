@@ -4,7 +4,6 @@
     [
       ./accounts
       ./alacritty
-      ./flameshot # TODO fix
       ./fzf
       ./git
       ./gpg

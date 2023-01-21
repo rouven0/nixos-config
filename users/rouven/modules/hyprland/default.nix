@@ -10,8 +10,12 @@
   '';
   home.packages = with pkgs; [
     wofi
+    wl-clipboard
+    grim
+    slurp
     font-awesome
     hyprpaper.packages.x86_64-linux.default
+    #xdph.packages.x86_64-linux.default
   ];
 
   xdg.configFile."wofi/config".text = ''
