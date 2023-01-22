@@ -5,11 +5,11 @@
     wpa_supplicant_gui
     pcmanfm
     xsel
-    vlc
 
     # graphics
-    okular
+    evince
     gimp
+    mpv
 
     # sound
     pavucontrol
@@ -20,7 +20,7 @@
     # internet
     google-chrome
     nextcloud-client
-    qbittorrent
+    transmission-gtk
 
     # messaging
     discord
@@ -31,7 +31,6 @@
     # games
     prismlauncher # minecraft, but it actually works
     superTuxKart
-    extremetuxracer
 
     # yubikey and password stuff
     yubikey-manager

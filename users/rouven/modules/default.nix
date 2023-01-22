@@ -12,6 +12,7 @@
       ./ssh
       ./tmux
       ./vifm
+      ./theme
       ./zsh
       ./packages.nix
     ];
