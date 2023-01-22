@@ -11,6 +11,7 @@
     wl-clipboard
     grim
     slurp
+    swappy
     font-awesome
     hyprpaper.packages.x86_64-linux.default
     swaylock-effects
@@ -71,6 +72,11 @@
       #entry:selected {
         background-color: #${config.colorScheme.colors.base03};
       }
+    '';
+    "swappy/config".text = ''
+      [Default]
+      save_dir = ~/Pictures/Screenshots/
+      early_exit = true
     '';
   };
 
