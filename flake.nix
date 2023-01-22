@@ -3,16 +3,15 @@
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
     home-manager.url = github:nix-community/home-manager;
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = github:hyprwm/Hyprland;
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    hyprpaper.url = github:hyprwm/hyprpaper;
-    hyprpaper.inputs.nixpkgs.follows = "nixpkgs";
-    #xdph.url = github:hyprwm/xdg-desktop-portal-hyprland;
-    #xdph.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = github:Mic92/sops-nix;
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = github:Misterio77/nix-colors;
+    hyprpaper.url = github:hyprwm/hyprpaper;
+
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprpaper.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, hyprpaper, sops-nix, nix-colors }@attrs: {
