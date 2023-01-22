@@ -1,6 +1,6 @@
 # Rouven's NixOS configuariton files
 
-![image](https://user-images.githubusercontent.com/72568063/213919351-ae4ad182-861f-4ba5-bbc5-9d48c35802e2.png)
+![image](https://user-images.githubusercontent.com/72568063/213921069-670965f7-ad51-43ad-a211-63bb45a02648.png)
 
 ## Installation
 Should work out of the box:\
