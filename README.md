@@ -15,7 +15,7 @@
 
 ## Installation
 Should work out of the box:\
-Clone the repo, copy your hardware configuration to `./hosts/<hostname>`, run `nixos-rebuild switch --flake .#<hostname>/hardware-configuration.nix` and you are good to go.
+Clone the repo, copy your hardware configuration to `./hosts/<hostname>/hardware-configuration.nix`, run `nixos-rebuild switch --flake .#<hostname>` and you are good to go.
 
 ## Currently configured machines (aka available hostnames)
 ### thinkpad
