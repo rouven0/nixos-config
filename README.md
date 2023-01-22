@@ -1,5 +1,7 @@
 # Rouven's NixOS configuariton files
 
+![image](https://user-images.githubusercontent.com/72568063/213919351-ae4ad182-861f-4ba5-bbc5-9d48c35802e2.png)
+
 ## Installation
 Should work out of the box:\
 Clone the repo, copy your hardware configuration to `./hosts/<hostname>`, run `nixos-rebuild switch --flake .#<hostname>` and you are good to go.
