@@ -1,20 +1,15 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
-
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/networks
       ../../shared/vim.nix
       # ../../shared/sops.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
@@ -24,8 +19,6 @@
   services.zfs.autoScrub.enable = true;
   services.zfs.autoSnapshot.enable = true;
 
-  networking.hostName = "nuc"; # Define your hostname.
-  networking.hostId = "795a4952";
 
   time.timeZone = "Europe/Berlin";
 
@@ -48,7 +41,6 @@
       user.email = "rouven@rfive.de";
     };
   };
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

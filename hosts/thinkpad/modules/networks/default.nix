@@ -37,6 +37,7 @@
     wait-online.anyInterface = true;
     networks."10-loopback" = {
       matchConfig.Name = "lo";
+      linkConfig.RequiredForOnline = false;
     };
     networks."10-wired" = {
       matchConfig.Name = "enp0s31f6";
