@@ -37,6 +37,14 @@
           }
         ];
       };
+      nuc = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs.inputs = attrs;
+        modules = [
+          ./hosts/nuc
+          sops-nix.nixosModules.sops
+        ];
+      };
     };
   };
 }
