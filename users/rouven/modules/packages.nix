@@ -26,7 +26,6 @@
     discord
     tdesktop
     element-desktop
-    whatsapp-for-linux
 
     # games
     prismlauncher # minecraft, but it actually works
