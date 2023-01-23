@@ -9,6 +9,10 @@
       "rfive.de" = {
         user = "fedora";
       };
+      "nuc" = {
+        hostname = "192.168.10.2";
+        user = "root";
+      };
       "git@rfive.de" = {
         match = "Host rfive.de User git";
         identityFile = "~/.ssh/git";
