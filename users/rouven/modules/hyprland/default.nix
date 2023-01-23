@@ -7,6 +7,8 @@
   };
   home.packages = with pkgs; [
     pulseaudio # installed to have pactl
+    jq
+    notify-desktop
     wofi
     wl-clipboard
     grim
@@ -78,6 +80,16 @@
       save_dir = ~/Pictures/Screenshots/
       early_exit = true
     '';
+    "mako/do-not-disturb.sh".text = ''
+      if [[ $(makoctl mode) = 'default' ]];then
+        notify-desktop 'Enabled Do Not Disturb mode'
+        sleep 5
+        makoctl mode -s do-not-disturb
+      else
+        makoctl mode -s default
+        notify-desktop 'Disabled Do Not Disturb mode'
+      fi
+    '';
   };
 
   programs.mako = {
@@ -91,6 +103,8 @@
       [urgency=high]
       background-color=#${config.colorScheme.colors.base08}
       default-timeout=0
+      [mode=do-not-disturb]
+      invisible=1
     '';
   };
 }
