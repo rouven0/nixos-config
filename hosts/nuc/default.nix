@@ -21,6 +21,8 @@
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     supportedFilesystems = [ "zfs" ];
   };
+  services.zfs.autoScrub.enable = true;
+  services.zfs.autoSnapshot.enable = true;
 
   networking.hostName = "nuc"; # Define your hostname.
   networking.hostId = "795a4952";
