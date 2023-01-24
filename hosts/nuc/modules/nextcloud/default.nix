@@ -40,7 +40,7 @@ in
         dbname = "nextcloud";
         dbpassFile = config.sops.secrets."nextcloud/dbpass".path;
         adminpassFile = config.sops.secrets."nextcloud/adminpass".path;
-        adminuser = "admin";
+        adminuser = "rouven";
       };
     };
 
