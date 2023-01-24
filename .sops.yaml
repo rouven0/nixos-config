@@ -1,6 +1,7 @@
 keys:
   - &rouven 116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09
   - &thinkpad age1s5aes35ku7d2600mwxu8jndvngqrpuuu2h6yrcetytgstkuzlsvstut3ge
+  - &nuc age1930r9v2y57zkwghlxapj348c4rfnmr70de898cdhu5rue5cpagzq74wymk
 creation_rules:
   - path_regex: secrets/thinkpad\.yaml$
     key_groups:
@@ -8,3 +9,9 @@ creation_rules:
       - *rouven
       age:
       - *thinkpad
+  - path_regex: secrets/nuc\.yaml$
+    key_groups:
+    - pgp:
+      - *rouven
+      age:
+      - *nuc

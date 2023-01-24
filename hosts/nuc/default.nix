@@ -7,7 +7,7 @@
       ./hardware-configuration.nix
       ./modules/networks
       ../../shared/vim.nix
-      # ../../shared/sops.nix
+      ../../shared/sops.nix
     ];
 
   boot = {
