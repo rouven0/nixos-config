@@ -6,6 +6,8 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/networks
+      ./modules/nextcloud
+      ./modules/nginx
       ../../shared/vim.nix
       ../../shared/sops.nix
     ];
