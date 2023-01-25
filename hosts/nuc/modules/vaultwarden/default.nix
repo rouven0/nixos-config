@@ -3,22 +3,36 @@ let
   domain = "vault.rfive.de";
 in
 {
-  config.sops.secrets."vaultwarden/env" = { };
+  sops.secrets."vaultwarden/env".owner = "vaultwarden";
   services.vaultwarden = {
     enable = true;
     dbBackend = "postgresql";
     environmentFile = config.sops.secrets."vaultwarden/env".path;
     config = {
-      domain = domain;
+      domain = "https://${domain}";
       signupsAllowed = false;
+      # somehow this works
+      databaseUrl = "postgresql://vaultwarden@%2Frun%2Fpostgresql/vaultwarden";
       rocketPort = 8000;
     };
-    services.nginx.virtualHosts."bitwarden.example.com" = {
-      enableACME = true;
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:${toString config.services.vaultwarden.config.ROCKET_PORT}";
-      };
+  };
+  services.postgresql = {
+    enable = true;
+    ensureUsers = [
+      {
+        name = "vaultwarden";
+        ensurePermissions = {
+          "DATABASE vaultwarden" = "ALL PRIVILEGES";
+        };
+      }
+    ];
+    ensureDatabases = [ "vaultwarden" ];
+  };
+  services.nginx.virtualHosts."${domain}" = {
+    enableACME = true;
+    forceSSL = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${toString config.services.vaultwarden.config.rocketPort}";
     };
   };
 }

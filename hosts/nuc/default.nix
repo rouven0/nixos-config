@@ -7,6 +7,7 @@
       ./hardware-configuration.nix
       ./modules/networks
       ./modules/nextcloud
+      ./modules/vaultwarden
       ./modules/nginx
       ../../shared/vim.nix
       ../../shared/sops.nix
