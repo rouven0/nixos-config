@@ -21,9 +21,6 @@
         match = "Host raspi User git";
         identityFile = "~/.ssh/git";
       };
-      "*" = {
-        identityFile = "~/.ssh/id_ed25519";
-      };
     };
     extraConfig = ''
       IdentityFile ~/.ssh/id_ed25519
