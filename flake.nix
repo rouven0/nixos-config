@@ -26,18 +26,15 @@
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
           {
-            nix.settings = {
-              substituters = [ "https://hyprland.cachix.org" ];
-              trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-            };
-
             home-manager.extraSpecialArgs = attrs;
             home-manager.users.rouven = {
               imports = [
                 nix-colors.homeManagerModule
                 hyprland.homeManagerModules.default
               ];
-              config.colorScheme = nix-colors.colorSchemes.dracula;
+              config = {
+                colorScheme = nix-colors.colorSchemes.dracula;
+              };
             };
           }
         ];
