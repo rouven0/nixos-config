@@ -4,10 +4,6 @@ let
 in
 {
   sops.secrets = {
-    "nextcloud/dbpass" = {
-      owner = "nextcloud";
-      group = "nextcloud";
-    };
     "nextcloud/adminpass" = {
       owner = "nextcloud";
       group = "nextcloud";
@@ -38,7 +34,6 @@ in
         dbuser = "nextcloud";
         dbhost = "/run/postgresql";
         dbname = "nextcloud";
-        dbpassFile = config.sops.secrets."nextcloud/dbpass".path;
         adminpassFile = config.sops.secrets."nextcloud/adminpass".path;
         adminuser = "rouven";
       };
