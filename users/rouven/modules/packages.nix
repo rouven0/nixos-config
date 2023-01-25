@@ -35,7 +35,8 @@
     yubikey-manager
     yubikey-manager-qt
     yubioath-flutter
-    pass
+    bitwarden
+    bitwarden-cli
 
     # misc
     neofetch

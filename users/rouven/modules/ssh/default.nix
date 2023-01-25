@@ -7,7 +7,7 @@
         identityFile = "~/.ssh/git";
       };
       "rfive.de" = {
-        user = "fedora";
+        user = "debian";
       };
       "nuc" = {
         hostname = "192.168.10.2";
