@@ -12,6 +12,17 @@ in
       };
     };
   };
+  programs = {
+    neomutt = {
+      enable = true;
+      sidebar.enable = true;
+      extraConfig = ''
+        source ${./dracula.muttrc}
+      '';
+    };
+    mbsync.enable = true;
+    msmtp.enable = true;
+  };
   accounts.email.accounts = {
     "rouven@rfive.de" = rec {
       primary = true;
@@ -19,6 +30,9 @@ in
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = address;
+      # we use pass here since bitwarden's password input can't be reached frow within neomutt
+      # maybe we can replace this with sops as soon as the home manager module is merged
+      passwordCommand = "pass mail/rouven@rfive.de";
       imap = {
         host = "pro1.mail.ovh.net";
         port = 993;
@@ -29,12 +43,28 @@ in
         tls.useStartTls = true;
       };
       thunderbird.enable = true;
+      mbsync = {
+        enable = true;
+        create = "maildir";
+        extraConfig = {
+          account = {
+            AuthMechs = "Login";
+          };
+        };
+        subFolders = "Verbatim";
+      };
+      neomutt = {
+        enable = true;
+        mailboxName = "--rouven@rfive.de--";
+        extraMailboxes = [ "Sent" "Trash" "Junk-E-Mail" "Drafts" ];
+      };
     };
-    "TU Dresden" = {
+    "TU-Dresden" = {
       address = "rouven.seifert@mailbox.tu-dresden.de";
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
-      userName = "user\\rose159e";
+      userName = "rose159e";
+      passwordCommand = "pass mail/tu-dresden";
       imap = {
         host = "msx.tu-dresden.de";
         port = 993;
@@ -45,20 +75,22 @@ in
         tls.useStartTls = true;
       };
       thunderbird.enable = true;
-    };
-    "Gmail" = rec {
-      address = "seifertrouven@gmail.com";
-      realName = "Rouven Seifert";
-      userName = address;
-      imap = {
-        host = "imap.gmail.com";
-        port = 993;
+      mbsync = {
+        enable = true;
+        create = "maildir";
+        extraConfig = {
+          account = {
+            AuthMechs = "Login";
+          };
+        };
+        subFolders = "Verbatim";
       };
-      smtp = {
-        host = "smtp.gmail.com";
-        port = 465;
+      msmtp.enable = true;
+      neomutt = {
+        enable = true;
+        mailboxName = "--TU Dresden-------";
+        extraMailboxes = [ "Sent" "Opal" "Trash" "Junk-E-Mail" "Drafts" ];
       };
-      thunderbird.enable = true;
     };
   };
 }

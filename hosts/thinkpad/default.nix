@@ -82,6 +82,8 @@
     traceroute
     killall
     python3
+    zip
+    unzip
   ];
 
   system.stateVersion = "22.11";
