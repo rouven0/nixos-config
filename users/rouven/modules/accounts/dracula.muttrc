@@ -40,3 +40,12 @@ color quoted2		color84		default
 color quoted3		color215	default
 color quoted4		color212	default
 color signature		color212	default
+
+color sidebar_indicator cyan black
+color sidebar_highlight white color8
+color sidebar_divider color8 black
+color sidebar_flagged red black
+color sidebar_new green black
+color sidebar_ordinary color245 default
+color sidebar_spool_file color207 default
+color sidebar_unread color136 default
