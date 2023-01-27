@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 {
+  # email passwords
+  sops.secrets."email/tu-dresden".owner = "rouven";
+  sops.secrets."email/rfive".owner = "rouven";
+  sops.secrets."email/google".owner = "rouven";
+
   # generate system completions
   programs.zsh.enable = true;
 

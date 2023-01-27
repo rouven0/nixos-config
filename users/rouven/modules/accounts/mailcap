@@ -1,0 +1,6 @@
+text/plain; w3m -I %{charset} -T text/plain; copiousoutput;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+image/*; setsid imv %s >/dev/null & ;
+video/*; setsid mpv --quiet %s >/dev/null &;
+audio/*; mpv %s ;
+application/pdf; setsid evince %s >/dev/null & ;
