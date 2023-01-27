@@ -14,7 +14,6 @@ bind pager                      j   next-line
 
 # Scrolling
 bind attach,browser,pager,index \CF next-page
-bind attach,browser,pager,index \CB previous-page
 bind attach,browser,pager,index \Cu half-up
 bind attach,browser,pager,index \Cd half-down
 bind browser,pager              \Ce next-line

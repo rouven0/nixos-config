@@ -51,6 +51,24 @@ in
       mbsync = {
         enable = true;
         create = "maildir";
+        expunge = "both";
+        groups.rfive = {
+          channels.trash = {
+            nearPattern = "Trash";
+            farPattern = "Gel&APY-schte Elemente";
+            extraConfig.Create = "near";
+          };
+          channels.sent = {
+            nearPattern = "Sent";
+            farPattern = "Gesendete Elemente";
+            extraConfig.Create = "near";
+          };
+          channels.drafts = {
+            nearPattern = "Drafts";
+            farPattern = "Entw&APw-rfe";
+            extraConfig.Create = "near";
+          };
+        };
         extraConfig = {
           account = {
             AuthMechs = "Login";
@@ -82,6 +100,24 @@ in
       mbsync = {
         enable = true;
         create = "maildir";
+        expunge = "both";
+        groups.tud = {
+          channels.trash = {
+            nearPattern = "Trash";
+            farPattern = "Gel&APY-schte Elemente";
+            extraConfig.Create = "near";
+          };
+          channels.sent = {
+            nearPattern = "Sent";
+            farPattern = "Gesendete Elemente";
+            extraConfig.Create = "near";
+          };
+          channels.drafts = {
+            nearPattern = "Drafts";
+            farPattern = "Entw&APw-rfe";
+            extraConfig.Create = "near";
+          };
+        };
         extraConfig = {
           account = {
             AuthMechs = "Login";
@@ -93,15 +129,7 @@ in
         enable = true;
         mailboxName = "--TU Dresden-------";
         # mbsync can't handle umlauts, crap
-        extraMailboxes = [ "Gesendete Elemente" "Opal" "Gel&APY-schte Elemente" "Junk-E-Mail" "Entw&APw-rfe" ];
-        extraConfig = ''
-          unset postponed
-          unset trash
-          unset record
-          set postponed='+Entw&APw-rfe'
-          set trash='+Gel&APY-schte Elemente'
-          set record='+Gesendete Elemente'
-        '';
+        extraMailboxes = [ "Opal" "Sent" "Trash" "Junk-E-Mail" "Drafts" ];
       };
     };
     "gmail" = rec {
@@ -120,6 +148,24 @@ in
       mbsync = {
         enable = true;
         create = "maildir";
+        expunge = "both";
+        groups.googlemail = {
+          channels.trash = {
+            nearPattern = "Trash";
+            farPattern = "[Gmail]/Papierkorb";
+            extraConfig.Create = "near";
+          };
+          channels.sent = {
+            nearPattern = "Sent";
+            farPattern = "[Gmail]/Gesendet";
+            extraConfig.Create = "near";
+          };
+          channels.drafts = {
+            nearPattern = "Drafts";
+            farPattern = "[Gmail]/Entw&APw-rfe";
+            extraConfig.Create = "near";
+          };
+        };
         extraConfig = {
           account = {
             AuthMechs = "Login";
@@ -130,15 +176,7 @@ in
       neomutt = {
         enable = true;
         mailboxName = "--gmail------------";
-        extraMailboxes = [ "[Gmail]/Gesendet" "[Gmail]/Papierkorb" "[Gmail]/Spam" "[Gmail]/Entw&APw-rfe" ];
-        extraConfig = ''
-          unset postponed
-          unset trash
-          unset record
-          set postponed='+[Gmail]/Entw&APw-rfe'
-          set trash='+[Gmail]/Papierkorb'
-          set record='+[Gmail/Gesendet]'
-        '';
+        extraMailboxes = [ "Sent" "Trash" "[Gmail]/Spam" "Drafts" ];
       };
     };
   };
