@@ -1,8 +1,13 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   gpg-default-key = "116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09";
 in
 {
+  home.packages = with pkgs; [
+    imv
+    w3m
+  ];
+  services.mbsync.enable = true;
   programs = {
     neomutt = {
       enable = true;
@@ -15,6 +20,7 @@ in
         bind index,pager \Cn sidebar-next
         # Open the highlighted mailbox
         bind index,pager <space><return> sidebar-open
+        set mailcap_path = ${./mailcap}
         source ${./dracula.muttrc}
         source ${./powerline.neomuttrc}
       '';
@@ -29,9 +35,7 @@ in
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = address;
-      # we use pass here since bitwarden's password input can't be reached frow within neomutt
-      # maybe we can replace this with sops as soon as the home manager module is merged
-      passwordCommand = "pass mail/rouven@rfive.de";
+      passwordCommand = "${pkgs.coreutils}/bin/cat /run/secrets/email/rfive";
       imap = {
         host = "pro1.mail.ovh.net";
         port = 993;
@@ -50,7 +54,6 @@ in
             AuthMechs = "Login";
           };
         };
-        subFolders = "Verbatim";
       };
       neomutt = {
         enable = true;
@@ -63,7 +66,7 @@ in
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = "rose159e";
-      passwordCommand = "pass mail/tu-dresden";
+      passwordCommand = "${pkgs.coreutils}/bin/cat /run/secrets/email/tu-dresden";
       imap = {
         host = "msx.tu-dresden.de";
         port = 993;
@@ -82,13 +85,12 @@ in
             AuthMechs = "Login";
           };
         };
-        subFolders = "Verbatim";
       };
       msmtp.enable = true;
       neomutt = {
         enable = true;
         mailboxName = "--TU Dresden-------";
-        # mbsync can't handle umlauts, rap
+        # mbsync can't handle umlauts, crap
         extraMailboxes = [ "Gesendete Elemente" "Opal" "Gel&APY-schte Elemente" "Junk-E-Mail" "Entw&APw-rfe" ];
         extraConfig = ''
           unset postponed
@@ -104,7 +106,7 @@ in
       address = "seifertrouven@gmail.com";
       realName = "Rouven Seifert";
       userName = address;
-      passwordCommand = "pass mail/google";
+      passwordCommand = "${pkgs.coreutils}/bin/cat /run/secrets/email/google";
       imap = {
         host = "imap.gmail.com";
         port = 993;
@@ -121,7 +123,6 @@ in
             AuthMechs = "Login";
           };
         };
-        subFolders = "Verbatim";
       };
       msmtp.enable = true;
       neomutt = {
@@ -138,6 +139,7 @@ in
         '';
       };
     };
-
   };
+
+
 }

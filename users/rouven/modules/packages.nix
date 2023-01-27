@@ -37,7 +37,6 @@
     yubioath-flutter
     bitwarden
     bitwarden-cli
-    pass
 
     # misc
     neofetch
