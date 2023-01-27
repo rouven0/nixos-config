@@ -6,6 +6,7 @@ in
   home.packages = with pkgs; [
     imv
     w3m
+    urlview
   ];
   services.mbsync.enable = true;
   programs = {
@@ -21,6 +22,7 @@ in
         # Open the highlighted mailbox
         bind index,pager <space><return> sidebar-open
         set mailcap_path = ${./mailcap}
+        source ${./vim-keys.rc}
         source ${./dracula.muttrc}
         source ${./powerline.neomuttrc}
       '';
@@ -140,6 +142,7 @@ in
       };
     };
   };
-
-
+  home.file.".urlview".text = ''
+    COMMAND google-chrome-stable %s &> /dev/null
+  '';
 }
