@@ -21,6 +21,7 @@
   };
   services.zfs.autoScrub.enable = true;
   services.zfs.autoSnapshot.enable = true;
+  services.zfs.trim.enable = true;
 
 
   time.timeZone = "Europe/Berlin";
@@ -35,7 +36,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    htop
+    htop-vim
   ];
   programs.git = {
     enable = true;

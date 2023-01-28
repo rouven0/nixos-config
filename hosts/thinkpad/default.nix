@@ -76,6 +76,8 @@
     printing.enable = true;
     fprintd.enable = true; # log in using fingerprint
     openssh.enable = true; # enabled ssh to have the host keys
+    zfs.autoScrub.enable = true; # periodically check filesystem and repair it
+    zfs.trim.enable = true; # weekly ssd trimming
   };
 
   programs.steam.enable = true; # putting steam in here cause in home manager it doesn't work
@@ -100,7 +102,7 @@
     wget
     gcc
     git
-    htop
+    htop-vim
     dig
     traceroute
     killall

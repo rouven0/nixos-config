@@ -4,7 +4,6 @@
     # essentials
     wpa_supplicant_gui
     pcmanfm
-    xsel
 
     # graphics
     evince
@@ -46,6 +45,7 @@
     powerline-fonts
     ventoy-bin
     ripgrep
+    baobab
 
     # libs
     libyubikey
