@@ -53,6 +53,11 @@ in
         create = "maildir";
         expunge = "both";
         groups.rfive = {
+          channels.inbox = {
+            nearPattern = "INBOX";
+            farPattern = "INBOX";
+            extraConfig.Create = "near";
+          };
           channels.trash = {
             nearPattern = "Trash";
             farPattern = "Gel&APY-schte Elemente";
@@ -61,6 +66,11 @@ in
           channels.sent = {
             nearPattern = "Sent";
             farPattern = "Gesendete Elemente";
+            extraConfig.Create = "near";
+          };
+          channels.junk = {
+            nearPattern = "Junk";
+            farPattern = "Junk-E-Mail";
             extraConfig.Create = "near";
           };
           channels.drafts = {
@@ -78,7 +88,7 @@ in
       neomutt = {
         enable = true;
         mailboxName = "--rouven@rfive.de--";
-        extraMailboxes = [ "Sent" "Trash" "Junk-E-Mail" "Drafts" ];
+        extraMailboxes = [ "Sent" "Trash" "Junk" "Drafts" ];
       };
     };
     "TU-Dresden" = {
@@ -102,6 +112,16 @@ in
         create = "maildir";
         expunge = "both";
         groups.tud = {
+          channels.inbox = {
+            nearPattern = "INBOX";
+            farPattern = "INBOX";
+            extraConfig.Create = "near";
+          };
+          channels.opal = {
+            nearPattern = "Opal";
+            farPattern = "Opal";
+            extraConfig.Create = "near";
+          };
           channels.trash = {
             nearPattern = "Trash";
             farPattern = "Gel&APY-schte Elemente";
@@ -110,6 +130,11 @@ in
           channels.sent = {
             nearPattern = "Sent";
             farPattern = "Gesendete Elemente";
+            extraConfig.Create = "near";
+          };
+          channels.junk = {
+            nearPattern = "Junk";
+            farPattern = "Junk-E-Mail";
             extraConfig.Create = "near";
           };
           channels.drafts = {
@@ -128,8 +153,7 @@ in
       neomutt = {
         enable = true;
         mailboxName = "--TU Dresden-------";
-        # mbsync can't handle umlauts, crap
-        extraMailboxes = [ "Opal" "Sent" "Trash" "Junk-E-Mail" "Drafts" ];
+        extraMailboxes = [ "Opal" "Sent" "Trash" "Junk" "Drafts" ];
       };
     };
     "gmail" = rec {
@@ -150,6 +174,11 @@ in
         create = "maildir";
         expunge = "both";
         groups.googlemail = {
+          channels.inbox = {
+            nearPattern = "INBOX";
+            farPattern = "INBOX";
+            extraConfig.Create = "near";
+          };
           channels.trash = {
             nearPattern = "Trash";
             farPattern = "[Gmail]/Papierkorb";
@@ -158,6 +187,11 @@ in
           channels.sent = {
             nearPattern = "Sent";
             farPattern = "[Gmail]/Gesendet";
+            extraConfig.Create = "near";
+          };
+          channels.junk = {
+            nearPattern = "Junk";
+            farPattern = "[Gmail]/Spam";
             extraConfig.Create = "near";
           };
           channels.drafts = {
@@ -176,7 +210,7 @@ in
       neomutt = {
         enable = true;
         mailboxName = "--gmail------------";
-        extraMailboxes = [ "Sent" "Trash" "[Gmail]/Spam" "Drafts" ];
+        extraMailboxes = [ "Sent" "Trash" "Junk" "Drafts" ];
       };
     };
   };

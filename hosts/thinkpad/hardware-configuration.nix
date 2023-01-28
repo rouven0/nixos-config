@@ -9,20 +9,42 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "usbhid" "sd_mod" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/8633a706-bf54-4d29-9fba-dbcffd723ab6";
-      fsType = "ext4";
+      device = "rpool/nixos/root";
+      fsType = "zfs";
+      options = [ "zfsutil" ];
+    };
+
+  fileSystems."/home" =
+    {
+      device = "rpool/nixos/home";
+      fsType = "zfs";
+      options = [ "zfsutil" ];
+    };
+
+  fileSystems."/var/lib" =
+    {
+      device = "rpool/nixos/var/lib";
+      fsType = "zfs";
+      options = [ "zfsutil" ];
+    };
+
+  fileSystems."/var/log" =
+    {
+      device = "rpool/nixos/var/log";
+      fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/3A2E-1AB6";
+      device = "/dev/disk/by-uuid/96DD-4C81";
       fsType = "vfat";
     };
 
@@ -36,6 +58,7 @@
   # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp9s0.useDHCP = lib.mkDefault true;
 
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

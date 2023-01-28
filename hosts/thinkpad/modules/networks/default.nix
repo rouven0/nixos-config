@@ -14,6 +14,7 @@
   networking = {
     useNetworkd = true;
     hostName = "thinkpad";
+    hostId = "79353b92"; # Define your hostname.
     firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }]; # open ports for kde connect
     firewall.allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
     wireless = {
