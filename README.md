@@ -20,3 +20,5 @@ Clone the repo, copy your hardware configuration to `./hosts/<hostname>/hardware
 ## Currently configured machines (aka available hostnames)
 ### thinkpad
 A ThinkPad L15 that I use for almost everything that one needs a monitor to.
+### nuc
+Old Intel Nuc that I got from @LeBogoo. Running a few personal services.
