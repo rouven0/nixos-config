@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   # theme hardcoded to dracula, too lazy to make all this base16
+  home.sessionVariables.GTK_THEME = "Dracula";
   gtk = {
     enable = true;
     theme = {
