@@ -106,7 +106,6 @@ in
         port = 587;
         tls.useStartTls = true;
       };
-      thunderbird.enable = true;
       mbsync = {
         enable = true;
         create = "maildir";
@@ -154,6 +153,67 @@ in
         enable = true;
         mailboxName = "--TU Dresden-------";
         extraMailboxes = [ "Opal" "Sent" "Trash" "Junk" "Drafts" ];
+      };
+    };
+    "iFSR" = {
+      address = "rouven.seifert@ifsr.de";
+      gpg.key = gpg-default-key;
+      realName = "Rouven Seifert";
+      userName = "rouven.seifert";
+      passwordCommand = "${pkgs.coreutils}/bin/cat /run/secrets/email/ifsr";
+      imap = {
+        host = "mail.ifsr.de";
+        port = 143;
+        tls.useStartTls = true;
+      };
+      smtp = {
+        host = "mail.ifsr.de";
+        port = 587;
+        tls.useStartTls = true;
+      };
+      mbsync = {
+        enable = true;
+        create = "maildir";
+        expunge = "both";
+        groups.ifsr = {
+          channels.inbox = {
+            nearPattern = "INBOX";
+            farPattern = "INBOX";
+            extraConfig.Create = "near";
+          };
+          channels.trash = {
+            nearPattern = "Trash";
+            farPattern = "Trash";
+            extraConfig.Create = "near";
+          };
+          channels.sent = {
+            nearPattern = "Sent";
+            farPattern = "Sent";
+            extraConfig.Create = "near";
+          };
+          # There is a lot of spam around, maybe we should not include that folder
+          #channels.junk = {
+          #nearPattern = "Junk";
+          #farPattern = "Public/Spam";
+          #extraConfig.Create = "near";
+          #};
+          channels.drafts = {
+            nearPattern = "Drafts";
+            farPattern = "Drafts";
+            extraConfig.Create = "near";
+          };
+        };
+        extraConfig = {
+          account = {
+            AuthMechs = "Login";
+          };
+        };
+      };
+      msmtp.enable = true;
+      neomutt = {
+        enable = true;
+        mailboxName = "--iFSR-------------";
+        extraMailboxes = [ "Sent" "Trash" "Drafts" ];
       };
     };
     "gmail" = rec {
