@@ -192,11 +192,11 @@ in
             extraConfig.Create = "near";
           };
           # There is a lot of spam around, maybe we should not include that folder
-          #channels.junk = {
-          #nearPattern = "Junk";
-          #farPattern = "Public/Spam";
-          #extraConfig.Create = "near";
-          #};
+          channels.junk = {
+            nearPattern = "Junk";
+            farPattern = "Public/Spam";
+            extraConfig.Create = "near";
+          };
           channels.drafts = {
             nearPattern = "Drafts";
             farPattern = "Drafts";

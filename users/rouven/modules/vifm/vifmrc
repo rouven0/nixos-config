@@ -141,7 +141,7 @@ command! reload :write | restart
 " program.
 
 " Pdf
-filextype *.pdf okular 
+filextype *.pdf evince
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
