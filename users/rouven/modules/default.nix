@@ -9,6 +9,7 @@
       ./gpg
       ./hyprland
       ./neovim
+      ./qutebrowser
       ./ssh
       ./tmux
       ./vifm
