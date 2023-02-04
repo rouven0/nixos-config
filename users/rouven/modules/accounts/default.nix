@@ -275,6 +275,6 @@ in
     };
   };
   home.file.".urlview".text = ''
-    COMMAND google-chrome-stable %s &> /dev/null
+    COMMAND qutebrowser %s &> /dev/null
   '';
 }

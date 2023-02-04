@@ -51,5 +51,25 @@
     libyubikey
     libfido2
   ];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications =
+      let
+        image-viewers = [ "imv.desktop" "gimp.desktop" "swappy.desktop" "org.qutebrowser.qutebrowser.desktop" "google-chrome.desktop" ];
+        browsers = [ "org.qutebrowser.qutebrowser.desktop" "google-chrome.desktop" ];
+      in
+      {
+        "application/pdf" = [ "org.gnome.Evince.desktop" ];
+        "image/png" = image-viewers;
+        "image/jpg" = image-viewers;
+        "image/jpeg" = image-viewers;
+        "image/tiff" = image-viewers;
+        "image/gif" = image-viewers;
+        "image/webp" = image-viewers;
+        "image/ico" = image-viewers;
+        "x-scheme-handler/http" = browsers;
+        "x-scheme-handler/https" = browsers;
+      };
+  };
 }
 
