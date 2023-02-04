@@ -10,7 +10,7 @@
         size = 10;
       };
       shell.program = "${pkgs.zsh}/bin/zsh";
-      window.opacity = 0.7;
+      window.opacity = 0.0;
 
       colors = {
         primary = {
