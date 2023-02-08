@@ -18,6 +18,11 @@
       opal = "https://bildungsportal.sachsen.de/opal/home?2";
       fruitbasket = "https://github.com/fsr/fruitbasket";
     };
+    keyBindings = {
+      normal = {
+        "<Ctrl-m>" = "hint links spawn mpv {hint-url}";
+      };
+    };
     settings = {
       colors.webpage = {
         darkmode.enabled = false;
@@ -27,6 +32,8 @@
         enabled = true;
         method = "both";
       };
+      statusbar.show = "in-mode";
+      tabs.show = "switching";
     };
   };
 }
