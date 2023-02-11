@@ -3,7 +3,7 @@
   imports =
     [
       ./accounts
-      ./alacritty
+      ./foot
       ./fzf
       ./git
       ./gpg

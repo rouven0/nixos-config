@@ -52,7 +52,7 @@
     networks."10-wireless-home" = {
       matchConfig = {
         Name = "wlp9s0";
-        SSID = "Smoerrebroed";
+        BSSID = "3c:a6:2f:6f:63:eb 3c:a6:2f:6f:63:ea";
       };
       networkConfig = {
         DHCP = "yes";
