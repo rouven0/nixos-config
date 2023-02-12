@@ -13,27 +13,31 @@
         font = "monospace:size=8";
       };
       cursor.color = "${colors.background} ${colors.foreground}";
-      colors = {
-        alpha = 0.0;
-        background = config.colorScheme.colors.base00;
-        foreground = config.colorScheme.colors.base05;
-        regular0 = config.colorScheme.colors.base00;
-        regular1 = config.colorScheme.colors.base01;
-        regular2 = config.colorScheme.colors.base02;
-        regular3 = config.colorScheme.colors.base03;
-        regular4 = config.colorScheme.colors.base04;
-        regular5 = config.colorScheme.colors.base05;
-        regular6 = config.colorScheme.colors.base06;
-        regular7 = config.colorScheme.colors.base07;
-        bright0 = config.colorScheme.colors.base08;
-        bright1 = config.colorScheme.colors.base09;
-        bright2 = config.colorScheme.colors.base0A;
-        bright3 = config.colorScheme.colors.base0B;
-        bright4 = config.colorScheme.colors.base0C;
-        bright5 = config.colorScheme.colors.base0D;
-        bright6 = config.colorScheme.colors.base0E;
-        bright7 = config.colorScheme.colors.base0F;
-      };
+      colors =
+        let
+          colors = config.colorScheme.colors;
+        in
+        {
+          alpha = 0.0;
+          background = colors.base00;
+          foreground = colors.base05;
+          regular0 = colors.base02;
+          regular1 = colors.base08;
+          regular2 = colors.base0A;
+          regular3 = colors.base0B;
+          regular4 = colors.base0D;
+          regular5 = colors.base0E;
+          regular6 = colors.base0C;
+          regular7 = colors.base05;
+          bright0 = colors.base03;
+          bright1 = colors.base08;
+          bright2 = colors.base0A;
+          bright3 = colors.base0B;
+          bright4 = colors.base0D;
+          bright5 = colors.base0E;
+          bright6 = colors.base0C;
+          bright7 = colors.base07;
+        };
     };
   };
 }
