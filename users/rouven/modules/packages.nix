@@ -4,11 +4,13 @@
     # essentials
     wpa_supplicant_gui
     pcmanfm
+    xdg-utils
 
     # graphics
     evince
     gimp
     mpv
+    ffmpeg
 
     # sound
     pavucontrol

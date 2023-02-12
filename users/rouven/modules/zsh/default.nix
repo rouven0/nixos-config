@@ -4,7 +4,6 @@
     enable = true;
     shellAliases = {
       rm = "trash";
-      vifm = "vifm .";
     };
     history = {
       size = 10000;
