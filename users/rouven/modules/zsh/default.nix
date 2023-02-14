@@ -52,19 +52,20 @@
                 $1 $(find -maxdepth 5 -not -path '*[cC]ache*' -not -path '*[tT]rash*' | fzf --preview 'tree -C {}')
             fi
         }
- 
+
         function svpn() {
           unit=$(systemctl list-unit-files | grep "openconnect\|wg-quick\|wireguard\|openvpn" | cut -d "." -f1 | fzf --preview 'systemctl status {}')
           if [ $(systemctl is-active $unit) = "inactive" ]; then
-          	systemctl start $unit
+            systemctl start $unit
           else
-          	systemctl stop $unit
+            systemctl stop $unit
           fi
         }
- 
+
         prompt_dir() {
             prompt_segment blue $CURRENT_FG '%c'
         }
+        cat ${../../../../images/cat.sixel}
       '';
   };
 }

@@ -86,6 +86,11 @@
 
   programs.steam.enable = true; # putting steam in here cause in home manager it doesn't work
 
+  programs.ausweisapp = {
+    enable = true;
+    openFirewall = true;
+  };
+
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 

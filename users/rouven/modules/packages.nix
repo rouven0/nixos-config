@@ -42,7 +42,7 @@
     # misc
     neofetch
     trash-cli
-    spotify
+    #spotify # make probles atm
     virt-manager
     powerline-fonts
     ventoy-bin
