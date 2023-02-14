@@ -35,13 +35,13 @@
   };
   systemd.network = {
     enable = true;
-    wait-online.anyInterface = true;
     networks."10-loopback" = {
       matchConfig.Name = "lo";
       linkConfig.RequiredForOnline = false;
     };
     networks."10-wired" = {
       matchConfig.Name = "enp0s31f6";
+      linkConfig.RequiredForOnline = false;
       networkConfig = {
         DHCP = "yes";
       };
@@ -68,6 +68,7 @@
     };
     networks."15-wireless-default" = {
       matchConfig.Name = "wlp9s0";
+      linkConfig.RequiredForOnline = false;
       networkConfig = {
         DHCP = "yes";
         IgnoreCarrierLoss = "3s";

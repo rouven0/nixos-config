@@ -18,7 +18,7 @@
           colors = config.colorScheme.colors;
         in
         {
-          alpha = 0.0;
+          alpha = if (config.colorScheme.kind == "dark") then 0.0 else 1.0;
           background = colors.base00;
           foreground = colors.base05;
           regular0 = colors.base02;
