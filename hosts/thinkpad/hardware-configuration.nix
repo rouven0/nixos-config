@@ -13,38 +13,50 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.initrd.luks.devices."luksroot" = {
+    device = "/dev/disk/by-uuid/6b89181c-71e0-4e84-8523-2456d3e28400";
+    allowDiscards = true;
+  };
 
   fileSystems."/" =
     {
-      device = "rpool/nixos/root";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
+      device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=zstd" "discard=async" "noatime" ];
     };
+
 
   fileSystems."/home" =
     {
-      device = "rpool/nixos/home";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
+      device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" "discard=async" "noatime" ];
     };
 
   fileSystems."/var/lib" =
     {
-      device = "rpool/nixos/var/lib";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
+      device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
+      fsType = "btrfs";
+      options = [ "subvol=lib" "compress=zstd" "discard=async" "noatime" ];
     };
 
   fileSystems."/var/log" =
     {
-      device = "rpool/nixos/var/log";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
+      device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
+      fsType = "btrfs";
+      options = [ "subvol=log" "compress=zstd" "discard=async" "noatime" ];
+    };
+
+  fileSystems."/nix/store" =
+    {
+      device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
+      fsType = "btrfs";
+      options = [ "subvol=store" "compress=zstd" "discard=async" "noatime" ];
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/96DD-4C81";
+      device = "/dev/disk/by-uuid/B174-4DAE";
       fsType = "vfat";
     };
 

@@ -15,8 +15,7 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    supportedFilesystems = [ "zfs" ];
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   time.timeZone = "Europe/Berlin";
@@ -80,8 +79,7 @@
     printing.enable = true;
     fprintd.enable = true; # log in using fingerprint
     openssh.enable = true; # enabled ssh to have the host keys
-    zfs.autoScrub.enable = true; # periodically check filesystem and repair it
-    zfs.trim.enable = true; # weekly ssd trimming
+    btrfs.autoScrub.enable = true; # periodically check filesystem and repair it
   };
 
   programs.steam.enable = true; # putting steam in here cause in home manager it doesn't work
