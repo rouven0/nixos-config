@@ -5,6 +5,7 @@
     wpa_supplicant_gui
     pcmanfm
     xdg-utils
+    snapper-gui
 
     # graphics
     evince

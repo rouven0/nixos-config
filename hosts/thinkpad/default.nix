@@ -6,6 +6,7 @@
     [
       ./hardware-configuration.nix
       ./modules/networks
+      ./modules/snapper
       ../../shared/vim.nix
       ../../shared/sops.nix
       ../../shared/gpg.nix
