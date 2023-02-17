@@ -9,40 +9,47 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     {
-      device = "rpool/nixos/root";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
+      device = "/dev/disk/by-uuid/16b0bd14-1b07-477d-a20d-982f9467f6df";
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=zstd" "discard=async" "noatime" ];
     };
 
   fileSystems."/var/lib" =
     {
-      device = "rpool/nixos/var/lib";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
+      device = "/dev/disk/by-uuid/16b0bd14-1b07-477d-a20d-982f9467f6df";
+      fsType = "btrfs";
+      options = [ "subvol=lib" "compress=zstd" "discard=async" "noatime" ];
     };
 
   fileSystems."/var/log" =
     {
-      device = "rpool/nixos/var/log";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
+      device = "/dev/disk/by-uuid/16b0bd14-1b07-477d-a20d-982f9467f6df";
+      fsType = "btrfs";
+      options = [ "subvol=log" "compress=zstd" "discard=async" "noatime" ];
+    };
+
+  fileSystems."/nix/store" =
+    {
+      device = "/dev/disk/by-uuid/16b0bd14-1b07-477d-a20d-982f9467f6df";
+      fsType = "btrfs";
+      options = [ "subvol=store" "compress=zstd" "discard=async" "noatime" ];
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/7026-251E";
+      device = "/dev/disk/by-uuid/0135-7C8C";
       fsType = "vfat";
     };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/a861a381-3a9d-4fc7-a4d0-facbe130c219"; }];
+    [{ device = "/dev/disk/by-uuid/fdedb47c-a370-4005-ac37-1c186e667de0"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
