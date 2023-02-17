@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    # temp here for testing
+    thunderbird
+
     # essentials
     wpa_supplicant_gui
     pcmanfm
@@ -11,6 +14,7 @@
     evince
     gimp
     mpv
+    yt-dlp
     ffmpeg
 
     # sound

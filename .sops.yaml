@@ -1,7 +1,7 @@
 keys:
   - &rouven 116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09
   - &thinkpad age1pwdahgk2yty9w8cw5ht90mral76h0ndp3vkp93xm4g0cttjlsvgqn8vlys
-  - &nuc age1930r9v2y57zkwghlxapj348c4rfnmr70de898cdhu5rue5cpagzq74wymk
+  - &nuc age18z4z5pgw8eluu32xe3krg4sxd2rncsnjw6e2axcun7x3vrj62vhq8eyz00
 creation_rules:
   - path_regex: secrets/thinkpad\.yaml$
     key_groups:

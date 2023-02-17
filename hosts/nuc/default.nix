@@ -16,13 +16,9 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    supportedFilesystems = [ "zfs" ];
+    kernelPackages = pkgs.linuxPackages_latest;
   };
-  services.zfs.autoScrub.enable = true;
-  services.zfs.autoSnapshot.enable = true;
-  services.zfs.trim.enable = true;
-
+  services.btrfs.autoScrub.enable = true;
 
   time.timeZone = "Europe/Berlin";
 

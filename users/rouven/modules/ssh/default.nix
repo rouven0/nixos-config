@@ -34,7 +34,7 @@
         identityFile = "~/.ssh/git";
       };
       "git@ifsr.de" = {
-        match = "Host raspi User git";
+        match = "Host ifsr.de User git";
         identityFile = "~/.ssh/git";
       };
     };
