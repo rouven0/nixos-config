@@ -13,6 +13,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.initrd.systemd.enable = true;
   boot.initrd.luks.devices."luksroot" = {
     device = "/dev/disk/by-uuid/6b89181c-71e0-4e84-8523-2456d3e28400";
     allowDiscards = true;
