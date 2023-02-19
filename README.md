@@ -20,5 +20,31 @@ Clone the repo, copy your hardware configuration to `./hosts/<hostname>/hardware
 ## Currently configured machines (aka available hostnames)
 ### thinkpad
 A ThinkPad L15 that I use for almost everything that one needs a monitor to.
+#### Disk Layout
+```
+NAME         MOUNTPOINT  COMMENT
+nvme0n1
+├─nvme0n1p1  /boot
+└─nvme0n1p2              # LUKS-encrypted partition
+  └─luksroot             # btrfs with some subvolumes
+    └─root   /
+    └─home   /home
+    └─lib    /var/lib
+    └─log    /var/log
+    └─store  /nix/store
+```
+
 ### nuc
 Old Intel Nuc that I got from @LeBogoo. Running a few personal services.
+#### Disk layout
+```
+NAME      MOUNTPOINT  COMMENT
+sda
+├─sda1    /boot
+└─sda2    [SWAP]
+└─sda3                # btrfs
+  └─root  /
+  └─lib   /var/lib
+  └─log   /var/log
+  └─store /nix/store
+```
