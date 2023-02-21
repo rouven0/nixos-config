@@ -1,6 +1,9 @@
-{ config, pkgs, hyprpaper, ... }:
+{ config, pkgs, ... }:
 {
-  imports = [ ./waybar.nix ];
+  imports = [ 
+    ./hyprpaper.nix
+    ./waybar.nix
+  ];
   wayland.windowManager.hyprland.enable = true;
   home.sessionVariables = {
     GRIM_DEFAULT_DIR = "~/Pictures/Screenshots/";
@@ -15,18 +18,11 @@
     slurp
     swappy
     font-awesome
-    hyprpaper.packages.x86_64-linux.default
     swaylock-effects
   ];
 
   xdg.configFile = {
     "hypr/hyprland.conf".source = ./hyprland.conf;
-
-    "hypr/hyprpaper.conf".text = ''
-      preload = ${../../../../images/wallpaper.png}
-      wallpaper =eDP-1, ${../../../../images/wallpaper.png}
-      wallpaper =HDMI-A-1, ${../../../../images/wallpaper.png}
-    '';
 
     "swaylock/config".text = ''
       indicator-radius=200

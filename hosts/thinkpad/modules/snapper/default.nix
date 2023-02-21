@@ -9,6 +9,8 @@
           ALLOW_USERS="rouven"
           TIMELINE_CREATE=yes
           TIMELINE_CLEANUP=yes
+          NUMBER_LIMIT=10
+          NUMBER_CLEANUP=yes
         '';
       };
       home = {
