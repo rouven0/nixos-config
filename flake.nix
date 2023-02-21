@@ -24,7 +24,7 @@
         modules = [
           ./hosts/thinkpad
           ./users/rouven
-          nixos-hardware.nixosModules.lenovo-thinkpad-l14-intel
+          nixos-hardware.nixosModules.common-pc-laptop-ssd
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
           {
