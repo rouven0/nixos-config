@@ -1,7 +1,12 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    # a few language servers
     python310Packages.python-lsp-server
+    python310Packages.python-lsp-black
+    python310Packages.black
+    python310Packages.pylint
+    rnix-lsp
   ];
   programs.neovim = {
     enable = true;
@@ -16,10 +21,11 @@
       vim-nix # this destroys my tab settings, ffs
       nvim-lspconfig
       nvim-cmp
+      lsp-format-nvim
       cmp-buffer
       cmp-nvim-lsp
       cmp-path
     ];
   };
-  xdg.configFile."nvim/init.lua".source = ./nvim.lua;
+  xdg.configFile."nvim/init.lua".source = ./init.lua;
 }

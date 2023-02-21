@@ -16,8 +16,7 @@ cmd('highlight ColorColumn ctermbg=darkgray')
 
 local function map(mode, lhs, rhs, opts)
 	local options = { noremap=true }
-	if opts then
-		options = vim.tbl_extend('force', options, opts)
+	if opts then options = vim.tbl_extend('force', options, opts)
 	end
 	vim.keymap.set(mode, lhs, rhs, options)
 end
@@ -74,6 +73,7 @@ g.dracula_colorterm = 0
 cmd('colorscheme dracula')
 
 local lsp = require("lspconfig")
+local lsp_format = require("lsp-format") 
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -83,6 +83,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+	lsp_format.on_attach(client)	
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -108,9 +109,23 @@ end
 
 
 lsp.pylsp.setup {
-	on_attach = on_attach
+	on_attach = on_attach,
+	settings = {
+		pylsp = {
+			plugins = {
+				pylint = { enable = true },
+				black = {
+					enable = true,
+					line_legth=120,
+				},
+			},
+		},
+	},
 }
 
+lsp.rnix.setup {
+	on_attach = on_attach
+}
 
 local cmp = require("cmp")
 
@@ -120,15 +135,6 @@ cmp.setup {
 		['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
 		['<CR>'] = cmp.mapping.confirm({ select = false }),
 
-		['<Tab>'] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback()
-			end
-		end, { 'i', 's' }),
 
 		['<S-Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -150,4 +156,5 @@ cmp.setup {
 		}
 	}),
 }
+
 
