@@ -7,6 +7,7 @@
     sops-nix.url = github:Mic92/sops-nix;
     nix-colors.url = github:Misterio77/nix-colors;
     hyprpaper.url = github:hyprwm/hyprpaper;
+    nixos-hardware.url = github:nixos/nixos-hardware;
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +15,7 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, hyprpaper, sops-nix, nix-colors }@attrs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, hyprpaper, sops-nix, nix-colors, nixos-hardware }@attrs: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     nixosConfigurations = {
       thinkpad = nixpkgs.lib.nixosSystem {
@@ -23,6 +24,7 @@
         modules = [
           ./hosts/thinkpad
           ./users/rouven
+          nixos-hardware.nixosModules.lenovo-thinkpad-l14-intel
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
           {
@@ -43,6 +45,7 @@
         system = "x86_64-linux";
         specialArgs.inputs = attrs;
         modules = [
+          nixos-hardware.nixosModules.intel-nuc-8i7beh
           ./hosts/nuc
           sops-nix.nixosModules.sops
         ];

@@ -37,10 +37,10 @@ map('n', '<leader>n :NERDTreeFocus<CR>', ':NERDTreeRefreshRoot<CR>')
 autocmd('VimEnter', {command = 'NERDTree | wincmd p'})
 
 --Close the tab if NERDTree is the only window remaining in it.
-autocmd("BufEnter", {
-	pattern = "*",
-	command = "if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif"
-})
+--autocmd("BufEnter", {
+	--pattern = "*",
+	--command = "if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif"
+--})
 
 -- remove ex-mode shortcut
 map('n', 'Q', '<Nop>')
