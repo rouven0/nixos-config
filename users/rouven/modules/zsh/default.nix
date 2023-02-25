@@ -4,6 +4,7 @@
     enable = true;
     shellAliases = {
       rm = "trash";
+      ls = "exa --icons";
     };
     history = {
       size = 10000;

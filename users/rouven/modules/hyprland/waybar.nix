@@ -14,7 +14,7 @@
         modules-left = [ "wlr/workspaces" ];
         modules-right = [ "network" "cpu" "temperature" "pulseaudio" "battery" "tray" "clock" ];
         network = {
-          format-wifi = " {essid} ({signalStrength}%)";
+          format-wifi = "  {essid} ({signalStrength}%)";
           format-ethernet = " {ipaddr}/{cidr}";
           tooltip-format = " {ifname} via {gwaddr}";
           format-linked = " {ifname} (No IP)";
@@ -32,11 +32,11 @@
         };
         pulseaudio = {
           format = "{volume}% {icon} {format_source}";
-          format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
-          format-source = "{volume}% ";
-          format-source-muted = "";
+          format-bluetooth = "{volume}% {icon} {format_source} ";
+          format-bluetooth-muted = " {icon} {format_source}";
+          format-muted = " {format_source}";
+          format-source = " {volume}% ";
+          format-source-muted = " ";
           format-icons = {
             headphone = "";
             headset = "";
@@ -49,7 +49,7 @@
             warning = 30;
             critical = 15;
           };
-          format = "{capacity}% {icon}";
+          format = "{capacity}% {icon} ";
           format-charging = "{capacity}% ";
           format-plugged = "{capacity}% ";
           format-icons = [ "" "" "" "" "" ];
@@ -63,7 +63,7 @@
 
   xdg.configFile."waybar/style.css".text = ''
     * {
-        font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+        font-family: Roboto, Helvetica, Arial, sans-serif, Iosevka Nerd Font;
         font-size: 13px;
     }
     

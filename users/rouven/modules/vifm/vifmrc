@@ -203,8 +203,8 @@ fileviewer *.docx docx2txt.pl %f -
 
 filetype * xdg-open
 
-" Better quit command"
-command Q :q
+nnoremap : ;
+nnoremap ; :
 
 " Start shell in current directory
 nnoremap S :shell<cr>

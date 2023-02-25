@@ -49,10 +49,14 @@
     trash-cli
     #spotify # make probles atm
     virt-manager
-    powerline-fonts
     ventoy-bin
     ripgrep
     baobab
+
+    # font and icon stuff
+    exa # ls but with icons
+    powerline-fonts
+
 
     # libs
     libyubikey

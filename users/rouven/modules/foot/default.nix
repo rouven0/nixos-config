@@ -10,7 +10,7 @@
       main = {
         shell = "${pkgs.zsh}/bin/zsh";
         dpi-aware = "yes";
-        font = "monospace:size=8";
+        font = "monospace:family=Iosevka Nerd Font, size=8";
       };
       cursor.color = "${colors.background} ${colors.foreground}";
       colors =

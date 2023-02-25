@@ -17,7 +17,7 @@
     grim
     slurp
     swappy
-    font-awesome
+#    font-awesome
     swaylock-effects
   ];
 

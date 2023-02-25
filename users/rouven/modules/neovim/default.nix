@@ -1,13 +1,7 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # a few language servers
     ripgrep
-    #python310Packages.python-lsp-server
-    #python310Packages.python-lsp-black
-    #python310Packages.black
-    #python310Packages.pylint
-    #rnix-lsp
   ];
   programs.nixvim = {
     enable = true;
@@ -37,11 +31,12 @@
       normal = {
         # remove ex mode shortcut
         "Q" = "<Nop>";
-        #trigger the fuzzy finder (fzf)
-        "<leader>f" = ":Files<CR>";
-        "<leader>g" = ":GFiles<CR>";
-        "<leader>b" = ":Buffers<CR>";
-        "<leader>r" = ":Rg<CR>";
+        # Open the tree
+        "<leader>n" = ":NvimTreeFocus<CR>";
+        #trigger the fuzzy finder (telescope)
+        "<leader>f" = ":Telescope find_files<CR>";
+        "<leader>g" = ":Telescope git_files<CR>";
+        "<leader>r" = ":Telescope live_grep<CR>";
         # diacnostics
         "<leader>e" = "vim.diagnostic.open_float";
         "<leader>q" = "vim.diagnostic.setloclist";
@@ -72,8 +67,12 @@
       nvim-tree = {
         enable = true;
         autoClose = true;
+        openOnSetup = true;
+        openOnSetupFile = true;
       };
-      comment-nvim.enable = true;
+      telescope = {
+        enable = true;
+      };
       lsp = {
         enable = true;
         onAttach = ''
@@ -93,7 +92,6 @@
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
           vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-          vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
         '';
         servers = {
           pyright = {
@@ -117,6 +115,7 @@
     };
     extraPlugins = with pkgs.vimPlugins;
       [
+        vim-nix
         dracula-vim
         nerdcommenter
         lsp-format-nvim
