@@ -5,16 +5,16 @@
     thunderbird
 
     # essentials
-    wpa_supplicant_gui
-    pcmanfm
-    xdg-utils
+    wpa_supplicant_gui # manage wifi
+    pcmanfm # rock solid file manager
+    xdg-utils # used for xdg-open
     snapper-gui
 
     # graphics
-    evince
+    evince # pdf viewer
     gimp
-    mpv
-    yt-dlp
+    mpv # best video player out there
+    yt-dlp # youtube downloader
     ffmpeg
 
     # sound
@@ -45,18 +45,18 @@
     bitwarden-cli
 
     # misc
-    neofetch
-    trash-cli
+    neofetch # obligatory
     #spotify # make probles atm
     virt-manager
     ventoy-bin
-    ripgrep
-    baobab
 
-    # font and icon stuff
+    trash-cli # better rm 
+    ripgrep # better grep
     exa # ls but with icons
-    powerline-fonts
+    bat # better less
+    duf # better df
 
+    powerline-fonts
 
     # libs
     libyubikey

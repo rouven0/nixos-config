@@ -17,8 +17,8 @@
     grim
     slurp
     swappy
-#    font-awesome
     swaylock-effects
+    wlogout
   ];
 
   xdg.configFile = {

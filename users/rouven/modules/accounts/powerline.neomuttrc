@@ -11,7 +11,7 @@ set vfolder_format = " %N %?n?%3n&   ?  %8m  · %f"
 set attach_format = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
 
 # no addressed to me, to me, group, cc, sent by me, mailing list
-set to_chars="󱡪➜"
+set to_chars="➜"
 # unchanged mailbox, changed, read only, attach mode
 set status_chars = " "
 ifdef crypt_chars set crypt_chars = " "

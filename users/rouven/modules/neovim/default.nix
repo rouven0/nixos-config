@@ -76,7 +76,6 @@
       lsp = {
         enable = true;
         onAttach = ''
-          require("lsp-format").on_attach(client)
           -- Enable completion triggered by <c-x><c-o>
           vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -92,6 +91,8 @@
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
           vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+          vim.keymap.set('n', '<leader>b', function() vim.lsp.buf.format { async = true } end, bufopts)
+
         '';
         servers = {
           pyright = {
@@ -104,6 +105,7 @@
       };
       nvim-cmp = {
         enable = true;
+        mappingPresets = [ "insert" ];
         sources = [
           {
             name = "nvim_lsp";
@@ -112,17 +114,43 @@
           { name = "buffer"; }
         ];
       };
+      treesitter = {
+        enable = true;
+        indent = true;
+        #folding = true; # somewhat broken at the moment
+        grammarPackages = with pkgs.tree-sitter-grammars; [
+          tree-sitter-bash
+          tree-sitter-c
+          tree-sitter-cpp
+          tree-sitter-css
+          tree-sitter-go
+          tree-sitter-haskell
+          tree-sitter-html
+          tree-sitter-java
+          tree-sitter-javascript
+          tree-sitter-json
+          tree-sitter-latex
+          tree-sitter-lua
+          tree-sitter-markdown
+          tree-sitter-nix
+          tree-sitter-perl
+          tree-sitter-python
+          tree-sitter-regex
+          tree-sitter-rst
+          tree-sitter-rust
+          tree-sitter-sql
+          tree-sitter-toml
+          tree-sitter-typescript
+          tree-sitter-yaml
+        ];
+      };
     };
     extraPlugins = with pkgs.vimPlugins;
       [
         vim-nix
         dracula-vim
         nerdcommenter
-        lsp-format-nvim
       ];
     highlight.ColorColumn.ctermbg = "darkgray";
-    extraConfigLuaPre = ''
-      local lsp_format = require("lsp-format")
-    '';
   };
 }

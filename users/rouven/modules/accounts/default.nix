@@ -87,7 +87,7 @@ in
       };
       neomutt = {
         enable = true;
-        mailboxName = "--rouven@rfive.de--";
+        mailboxName = " 󰒋 rfive.de";
         extraMailboxes = [ "Sent" "Trash" "Junk" "Drafts" ];
       };
     };
@@ -151,7 +151,7 @@ in
       msmtp.enable = true;
       neomutt = {
         enable = true;
-        mailboxName = "--TU Dresden-------";
+        mailboxName = "  TU Dresden";
         extraMailboxes = [ "Opal" "Sent" "Trash" "Junk" "Drafts" ];
       };
     };
@@ -212,7 +212,7 @@ in
       msmtp.enable = true;
       neomutt = {
         enable = true;
-        mailboxName = "--iFSR-------------";
+        mailboxName = "  iFSR";
         extraMailboxes = [ "Sent" "Trash" "Drafts" ];
       };
     };
@@ -269,7 +269,7 @@ in
       msmtp.enable = true;
       neomutt = {
         enable = true;
-        mailboxName = "--gmail------------";
+        mailboxName = " 󰊫 gmail";
         extraMailboxes = [ "Sent" "Trash" "Junk" "Drafts" ];
       };
     };
