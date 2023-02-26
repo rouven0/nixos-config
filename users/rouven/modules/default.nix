@@ -10,6 +10,7 @@
       ./hyprland
       ./neovim
       ./qutebrowser
+      ./sops
       ./ssh
       ./tmux
       ./vifm

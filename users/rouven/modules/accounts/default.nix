@@ -3,12 +3,19 @@ let
   gpg-default-key = "116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09";
 in
 {
+  sops.secrets = {
+    "email/rfive" = {};
+    "email/tu-dresden" = {};
+    "email/ifsr" = {};
+    "email/google" = {};
+  };
   home.packages = with pkgs; [
     imv
     w3m
     urlview
   ];
   services.mbsync.enable = true;
+  systemd.user.services.mbsync.Unit.After = [ "sops-nix.service" ];
   programs = {
     neomutt = {
       enable = true;
@@ -37,7 +44,7 @@ in
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = address;
-      passwordCommand = "${pkgs.coreutils}/bin/cat /run/secrets/email/rfive";
+      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/rfive";
       imap = {
         host = "pro1.mail.ovh.net";
         port = 993;
@@ -96,7 +103,7 @@ in
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = "rose159e";
-      passwordCommand = "${pkgs.coreutils}/bin/cat /run/secrets/email/tu-dresden";
+      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/tu-dresden";
       imap = {
         host = "msx.tu-dresden.de";
         port = 993;
@@ -160,7 +167,7 @@ in
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = "rouven.seifert";
-      passwordCommand = "${pkgs.coreutils}/bin/cat /run/secrets/email/ifsr";
+      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/ifsr";
       imap = {
         host = "mail.ifsr.de";
         port = 143;
@@ -220,7 +227,7 @@ in
       address = "seifertrouven@gmail.com";
       realName = "Rouven Seifert";
       userName = address;
-      passwordCommand = "${pkgs.coreutils}/bin/cat /run/secrets/email/google";
+      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/google";
       imap = {
         host = "imap.gmail.com";
         port = 993;

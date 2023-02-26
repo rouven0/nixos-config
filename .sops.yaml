@@ -1,17 +1,24 @@
 keys:
-  - &rouven 116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09
+  - &yubi 116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09
+  - &rouven age1l80slr486r82csm758q2a32j2e2qdxdyxgh46um6thsjv08la9sq7475p6
   - &thinkpad age1pwdahgk2yty9w8cw5ht90mral76h0ndp3vkp93xm4g0cttjlsvgqn8vlys
   - &nuc age18z4z5pgw8eluu32xe3krg4sxd2rncsnjw6e2axcun7x3vrj62vhq8eyz00
 creation_rules:
   - path_regex: secrets/thinkpad\.yaml$
     key_groups:
     - pgp:
-      - *rouven
+      - *yubi
       age:
       - *thinkpad
+  - path_regex: secrets/rouven\.yaml$
+    key_groups:
+    - pgp:
+      - *yubi
+      age:
+      - *rouven
   - path_regex: secrets/nuc\.yaml$
     key_groups:
     - pgp:
-      - *rouven
+      - *yubi
       age:
       - *nuc

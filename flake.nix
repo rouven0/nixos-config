@@ -33,9 +33,10 @@
             home-manager.extraSpecialArgs = attrs;
             home-manager.users.rouven = {
               imports = [
-                nix-colors.homeManagerModule
+                nix-colors.homeManagerModules.default
                 hyprland.homeManagerModules.default
                 nixvim.homeManagerModules.nixvim
+                sops-nix.homeManagerModules.sops
               ];
               config = {
                 colorScheme = nix-colors.colorSchemes.dracula;
