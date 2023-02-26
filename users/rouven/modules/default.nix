@@ -11,6 +11,7 @@
       ./neovim
       ./qutebrowser
       ./sops
+      ./spotify
       ./ssh
       ./tmux
       ./vifm

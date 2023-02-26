@@ -46,7 +46,6 @@
 
     # misc
     neofetch # obligatory
-    #spotify # make probles atm
     virt-manager
     ventoy-bin
 

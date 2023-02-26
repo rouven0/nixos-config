@@ -5,6 +5,9 @@
     shellAliases = {
       rm = "trash";
       ls = "exa --icons";
+      l = "ls -l";
+      ll = "ls -la";
+      la = "ls -a";
     };
     history = {
       size = 10000;
