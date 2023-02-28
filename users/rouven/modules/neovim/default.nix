@@ -97,6 +97,9 @@
           pyright = {
             enable = true;
           };
+          texlab = {
+            enable = true;
+          };
           rnix-lsp = {
             enable = true;
           };
@@ -146,7 +149,6 @@
     };
     extraPlugins = with pkgs.vimPlugins;
       [
-        vim-nix
         dracula-vim
         nerdcommenter
       ];

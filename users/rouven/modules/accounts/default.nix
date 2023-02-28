@@ -39,7 +39,6 @@ in
   };
   accounts.email.accounts = {
     "rouven@rfive.de" = rec {
-      primary = true;
       address = "rouven@rfive.de";
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
@@ -164,6 +163,7 @@ in
     };
     "iFSR" = {
       address = "rouven.seifert@ifsr.de";
+      primary = true;
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = "rouven.seifert";

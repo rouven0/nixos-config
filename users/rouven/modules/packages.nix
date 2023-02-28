@@ -9,6 +9,7 @@
     pcmanfm # rock solid file manager
     xdg-utils # used for xdg-open
     snapper-gui
+	comma # run any command
 
     # graphics
     evince # pdf viewer
@@ -60,7 +61,12 @@
     # libs
     libyubikey
     libfido2
+    (pkgs.texlive.combine {
+      inherit (pkgs.texlive) scheme-medium;
+    })
   ];
+
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications =
