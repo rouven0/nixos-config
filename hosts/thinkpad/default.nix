@@ -118,7 +118,7 @@
 	'';
   };
   systemd.sleep.extraConfig = ''
-   HibernateDelaySec=3min
+   HibernateDelaySec=1h
   '';
 
   environment.systemPackages = with pkgs; [

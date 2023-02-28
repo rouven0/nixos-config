@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./hyprpaper.nix
-    ./session.nix
-    ./waybar.nix
+    ./hyprpaper.nix ./session.nix ./waybar.nix
   ];
   wayland.windowManager.hyprland.enable = true;
   home.sessionVariables = {
@@ -33,6 +31,7 @@
         margin: 0px;
         border: 1px solid #${config.colorScheme.colors.base0D};
         background-color: #${config.colorScheme.colors.base00};
+        border-radius: 15px;
       }
       #input {
         margin: 5px;
