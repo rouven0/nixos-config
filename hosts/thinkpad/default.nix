@@ -111,11 +111,14 @@
 	
   services.logind = {
 	lidSwitch = "suspend-then-hibernate";
-	lidSwitchDocked = "hybrid-sleep";
+	lidSwitchDocked = "suspend-then-hibernate";
 	lidSwitchExternalPower = "suspend";
+	extraConfig = ''
+	  HandlePowerKey = ignore
+	'';
   };
   systemd.sleep.extraConfig = ''
-   HibernateDelaySec=1h
+   HibernateDelaySec=3min
   '';
 
   environment.systemPackages = with pkgs; [

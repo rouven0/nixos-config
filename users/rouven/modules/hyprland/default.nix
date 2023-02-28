@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 {
-  imports = [ 
+  imports = [
     ./hyprpaper.nix
+    ./session.nix
     ./waybar.nix
   ];
   wayland.windowManager.hyprland.enable = true;
@@ -17,24 +18,10 @@
     grim
     slurp
     swappy
-    swaylock-effects
-    wlogout
   ];
 
   xdg.configFile = {
     "hypr/hyprland.conf".source = ./hyprland.conf;
-
-    "swaylock/config".text = ''
-      indicator-radius=200
-      indicator-thickness=3
-      inside-color=00000000
-      inside-ver-color=${config.colorScheme.colors.base0D}
-      inside-clear-color=${config.colorScheme.colors.base0B}
-      ring-color=${config.colorScheme.colors.base03}
-      ring-wrong-color=${config.colorScheme.colors.base08}
-      screenshot
-      effect-blur=7x5
-    '';
 
     "wofi/config".text = ''
       allow_images = true

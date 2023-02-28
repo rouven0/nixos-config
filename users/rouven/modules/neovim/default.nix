@@ -149,6 +149,7 @@
     };
     extraPlugins = with pkgs.vimPlugins;
       [
+	    vim-nix
         dracula-vim
         nerdcommenter
       ];
