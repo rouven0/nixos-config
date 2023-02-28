@@ -108,6 +108,15 @@
       user = "libvirtd";
     };
   };
+	
+  services.logind = {
+	lidSwitch = "suspend-then-hibernate";
+	lidSwitchDocked = "hybrid-sleep";
+	lidSwitchExternalPower = "suspend";
+  };
+  systemd.sleep.extraConfig = ''
+   HibernateDelaySec=1h
+  '';
 
   environment.systemPackages = with pkgs; [
     wget
