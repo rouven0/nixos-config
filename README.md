@@ -32,7 +32,7 @@ nvme0n1
 │   ├─lib    /var/lib
 │   ├─log    /var/log
 │   └─store  /nix/store
-└─nvme0n1p
+└─nvme0n1p3
   └─luksswap [SWAP]      # encrypted swap partition
 
 ```
