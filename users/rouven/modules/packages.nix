@@ -10,6 +10,8 @@
     xdg-utils # used for xdg-open
     snapper-gui
 	comma # run any command
+    kleopatra
+    python310Packages.pyhanko
 
     # graphics
     evince # pdf viewer

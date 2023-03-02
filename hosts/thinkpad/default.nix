@@ -117,9 +117,6 @@
 	  HandlePowerKey = ignore
 	'';
   };
-  systemd.sleep.extraConfig = ''
-   HibernateDelaySec=1h
-  '';
 
   environment.systemPackages = with pkgs; [
     wget

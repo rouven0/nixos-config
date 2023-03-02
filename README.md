@@ -7,7 +7,7 @@
 - **Window Manager:** [Hyprland](https://hyprland.org/)
 - **Overall Theme:** [Base16 Dracula](https://github.com/dracula/base16-dracula-scheme)
 - **Shell:** [Zsh](https://www.zsh.org/)
-- **Terminal:** [Alacritty](https://github.com/alacritty/alacritty)
+- **Terminal:** [Foot](https://codeberg.org/dnkl/foot)
 - **Editor:** [Neovim](https://neovim.io/)
 - **Notifications:** [Mako](https://github.com/emersion/mako)
 - **Panel:** [Waybar](https://github.com/Alexays/Waybar)
@@ -26,14 +26,14 @@ NAME         MOUNTPOINT  COMMENT
 nvme0n1
 ├─nvme0n1p1  /boot
 ├─nvme0n1p2              # LUKS-encrypted partition
-│  └─luksroot            # btrfs with some subvolumes
-│   └─root   /
-│   └─home   /home
-│   └─lib    /var/lib
-│   └─log    /var/log
+│ └─luksroot             # btrfs with some subvolumes
+│   ├─root   /
+│   ├─home   /home
+│   ├─lib    /var/lib
+│   ├─log    /var/log
 │   └─store  /nix/store
 └─nvme0n1p
-   └─luksswap            # encrypted swap partition
+  └─luksswap [SWAP]      # encrypted swap partition
 
 ```
 
@@ -44,10 +44,10 @@ Old Intel Nuc that I got from @LeBogoo. Running a few personal services.
 NAME      MOUNTPOINT  COMMENT
 sda
 ├─sda1    /boot
-└─sda2    [SWAP]
+├─sda2    [SWAP]
 └─sda3                # btrfs
-  └─root  /
-  └─lib   /var/lib
-  └─log   /var/log
+  ├─root  /
+  ├─lib   /var/lib
+  ├─log   /var/log
   └─store /nix/store
 ```

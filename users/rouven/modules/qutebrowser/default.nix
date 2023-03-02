@@ -1,7 +1,7 @@
 { config, ... }:
 {
   programs.qutebrowser = {
-    #enable = true; it's broken at the momant
+    enable = true;
     searchEngines = {
       DEFAULT = "https://duckduckgo.com/?q={}";
       aw = "https://wiki.archlinux.org/?search={}";

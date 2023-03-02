@@ -74,7 +74,7 @@
     '';
   };
 
-  programs.mako = {
+  services.mako = {
     enable = true;
     backgroundColor = "#${config.colorScheme.colors.base02}FF";
     borderRadius = 20;
