@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -27,8 +27,7 @@
     keyMap = "dvorak";
     font = "Lat2-Terminus16";
     colors =
-      let
-        colors = config.home-manager.users.rouven.colorScheme.colors;
+      let colors = config.home-manager.users.rouven.colorScheme.colors;
       in
       [
         colors.base00
@@ -70,7 +69,12 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  xdg.portal.wlr.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      inputs.xdph.packages.x86_64-linux.default
+    ];
+  };
 
   programs.dconf.enable = true;
 

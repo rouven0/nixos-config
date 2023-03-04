@@ -1,9 +1,15 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./hyprpaper.nix ./session.nix ./waybar.nix
+    ./hyprpaper.nix
+    ./session.nix
+    ./waybar.nix
   ];
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    extraConfig = builtins.readFile ./hyprland.conf; # todo nix config when available
+  };
+
   home.sessionVariables = {
     GRIM_DEFAULT_DIR = "~/Pictures/Screenshots/";
   };
@@ -19,8 +25,6 @@
   ];
 
   xdg.configFile = {
-    "hypr/hyprland.conf".source = ./hyprland.conf;
-
     "wofi/config".text = ''
       allow_images = true
       term = alacritty

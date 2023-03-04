@@ -9,7 +9,7 @@
     pcmanfm # rock solid file manager
     xdg-utils # used for xdg-open
     snapper-gui
-	comma # run any command
+    comma # run any command
     kleopatra
     python310Packages.pyhanko
 
@@ -68,6 +68,7 @@
     })
   ];
 
+  programs.obs-studio.enable = true;
 
   xdg.mimeApps = {
     enable = true;

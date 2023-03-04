@@ -7,17 +7,24 @@
     sops-nix.url = github:Mic92/sops-nix;
     nix-colors.url = github:Misterio77/nix-colors;
     hyprpaper.url = github:hyprwm/hyprpaper;
+    hyprland-protocols.url = github:hyprwm/hyprland-protocols;
+    xdph.url = github:hyprwm/xdg-desktop-portal-hyprland;
     nixos-hardware.url = github:nixos/nixos-hardware;
     nixvim.url = github:pta2002/nixvim;
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.inputs.hyprland-protocols.follows = "hyprland-protocols";
+    hyprland.inputs.xdph.follows = "xdph";
     hyprpaper.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland-protocols.inputs.nixpkgs.follows = "nixpkgs";
+    xdph.inputs.nixpkgs.follows = "nixpkgs";
+    xdph.inputs.hyprland-protocols.follows = "hyprland-protocols";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, hyprpaper, sops-nix, nix-colors, nixos-hardware, nixvim }@attrs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, hyprpaper, xdph, sops-nix, nix-colors, nixos-hardware, nixvim, ... }@attrs: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     nixosConfigurations = {
       thinkpad = nixpkgs.lib.nixosSystem {
