@@ -41,9 +41,9 @@
     superTuxKart
 
     # yubikey and password stuff
-    #yubikey-manager # broken atm
-    #yubikey-manager-qt
-    #yubioath-flutter
+    yubikey-manager
+    yubikey-manager-qt
+    yubioath-flutter
     bitwarden
     bitwarden-cli
 
