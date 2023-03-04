@@ -13,6 +13,11 @@
         font = "monospace:family=Iosevka Nerd Font, size=8";
       };
       cursor.color = "${colors.background} ${colors.foreground}";
+      bell = {
+        urgent = true;
+        notify = true;
+        #command = "${pkgs.notify-desktop}/bin/notify-desktop a";
+      };
       colors =
         let
           colors = config.colorScheme.colors;

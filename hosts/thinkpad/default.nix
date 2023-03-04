@@ -84,6 +84,7 @@
     fprintd.enable = true; # log in using fingerprint
     openssh.enable = true; # enabled ssh to have the host keys
     btrfs.autoScrub.enable = true; # periodically check filesystem and repair it
+    fwupd.enable = true; # firmware updates
   };
 
   programs.steam.enable = true; # putting steam in here cause in home manager it doesn't work

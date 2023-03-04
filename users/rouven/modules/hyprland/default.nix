@@ -10,7 +10,7 @@
   home.packages = with pkgs; [
     pulseaudio # installed to have pactl
     jq
-    notify-desktop
+    libnotify
     wofi
     wl-clipboard
     grim
@@ -64,12 +64,12 @@
     '';
     "mako/do-not-disturb.sh".text = ''
       if [[ $(makoctl mode) = 'default' ]];then
-        notify-desktop 'Enabled Do Not Disturb mode'
+        notify-send 'Enabled Do Not Disturb mode'
         sleep 5
         makoctl mode -s do-not-disturb
       else
         makoctl mode -s default
-        notify-desktop 'Disabled Do Not Disturb mode'
+        notify-send 'Disabled Do Not Disturb mode'
       fi
     '';
   };
