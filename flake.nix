@@ -1,66 +1,116 @@
 {
   description = "My nix setup";
   inputs = {
-    nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
-    home-manager.url = github:nix-community/home-manager;
-    hyprland.url = github:hyprwm/Hyprland;
-    sops-nix.url = github:Mic92/sops-nix;
-    nix-colors.url = github:Misterio77/nix-colors;
-    hyprpaper.url = github:hyprwm/hyprpaper;
-    hyprland-protocols.url = github:hyprwm/hyprland-protocols;
-    xdph.url = github:hyprwm/xdg-desktop-portal-hyprland;
-    nixos-hardware.url = github:nixos/nixos-hardware;
-    nixvim.url = github:pta2002/nixvim;
+    nixpkgs = {
+      url = github:nixos/nixpkgs/nixos-unstable;
+    };
+    flake-utils = {
+      url = github:numtide/flake-utils;
+    };
+    nixos-hardware = {
+      url = github:nixos/nixos-hardware;
+    };
 
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.inputs.hyprland-protocols.follows = "hyprland-protocols";
-    hyprland.inputs.xdph.follows = "xdph";
-    hyprpaper.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland-protocols.inputs.nixpkgs.follows = "nixpkgs";
-    xdph.inputs.nixpkgs.follows = "nixpkgs";
-    xdph.inputs.hyprland-protocols.follows = "hyprland-protocols";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-  };
-
-  outputs = { self, nixpkgs, home-manager, hyprland, hyprpaper, xdph, sops-nix, nix-colors, nixos-hardware, nixvim, ... }@attrs: {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-    nixosConfigurations = {
-      thinkpad = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs.inputs = attrs;
-        modules = [
-          ./hosts/thinkpad
-          ./users/rouven
-          nixos-hardware.nixosModules.common-pc-laptop-ssd
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
-          {
-            home-manager.extraSpecialArgs = attrs;
-            home-manager.users.rouven = {
-              imports = [
-                nix-colors.homeManagerModules.default
-                hyprland.homeManagerModules.default
-                nixvim.homeManagerModules.nixvim
-                sops-nix.homeManagerModules.sops
-              ];
-              config = {
-                colorScheme = nix-colors.colorSchemes.dracula;
-              };
-            };
-          }
-        ];
+    home-manager = {
+      url = github:nix-community/home-manager;
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        utils.follows = "flake-utils";
       };
-      nuc = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs.inputs = attrs;
-        modules = [
-          nixos-hardware.nixosModules.intel-nuc-8i7beh
-          ./hosts/nuc
-          sops-nix.nixosModules.sops
-        ];
+    };
+
+    nix-colors = {
+      url = github:Misterio77/nix-colors;
+    };
+
+    sops-nix = {
+      url = github:Mic92/sops-nix;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland-protocols = {
+      url = github:hyprwm/hyprland-protocols;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    xdph = {
+      url = github:hyprwm/xdg-desktop-portal-hyprland;
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        hyprland-protocols.follows = "hyprland-protocols";
+      };
+    };
+
+    hyprland = {
+      url = github:hyprwm/Hyprland;
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        hyprland-protocols.follows = "hyprland-protocols";
+        xdph.follows = "xdph";
+      };
+    };
+
+    hyprpaper = {
+      url = github:hyprwm/hyprpaper;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      url = github:pta2002/nixvim;
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
       };
     };
   };
+
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , hyprland
+    , sops-nix
+    , nix-colors
+    , nixos-hardware
+    , nixvim
+    , ...
+    }@attrs: {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      nixosConfigurations = {
+        thinkpad = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs.inputs = attrs;
+          modules = [
+            ./hosts/thinkpad
+            ./users/rouven
+            nixos-hardware.nixosModules.common-pc-laptop-ssd
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+            {
+              home-manager.extraSpecialArgs = attrs;
+              home-manager.users.rouven = {
+                imports = [
+                  nix-colors.homeManagerModules.default
+                  hyprland.homeManagerModules.default
+                  nixvim.homeManagerModules.nixvim
+                  sops-nix.homeManagerModules.sops
+                ];
+                config = {
+                  colorScheme = nix-colors.colorSchemes.dracula;
+                };
+              };
+            }
+          ];
+        };
+        nuc = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs.inputs = attrs;
+          modules = [
+            nixos-hardware.nixosModules.intel-nuc-8i7beh
+            ./hosts/nuc
+            sops-nix.nixosModules.sops
+          ];
+        };
+      };
+    };
 }
