@@ -1,13 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   gpg-default-key = "116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09";
 in
 {
   sops.secrets = {
-    "email/rfive" = {};
-    "email/tu-dresden" = {};
-    "email/ifsr" = {};
-    "email/google" = {};
+    "email/rfive" = { };
+    "email/tu-dresden" = { };
+    "email/ifsr" = { };
+    "email/google" = { };
   };
   home.packages = with pkgs; [
     imv
@@ -91,13 +91,14 @@ in
           };
         };
       };
-      neomutt = {
-        enable = true;
-        mailboxName = " 󰒋 rfive.de";
-        extraMailboxes = [ "Sent" "Trash" "Junk" "Drafts" ];
-      };
+      neomutt = let c = mbsync.groups.rfive.channels; in
+        {
+          enable = true;
+          mailboxName = " 󰒋 rfive.de";
+          extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+        };
     };
-    "TU-Dresden" = {
+    "TU-Dresden" = rec {
       address = "rouven.seifert@mailbox.tu-dresden.de";
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
@@ -155,13 +156,14 @@ in
         };
       };
       msmtp.enable = true;
-      neomutt = {
-        enable = true;
-        mailboxName = "  TU Dresden";
-        extraMailboxes = [ "Opal" "Sent" "Trash" "Junk" "Drafts" ];
-      };
+      neomutt = let c = mbsync.groups.tud.channels; in
+        {
+          enable = true;
+          mailboxName = "  TU Dresden";
+          extraMailboxes = lib.lists.forEach [ c.opal c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+        };
     };
-    "iFSR" = {
+    "iFSR" = rec {
       address = "rouven.seifert@ifsr.de";
       primary = true;
       gpg.key = gpg-default-key;
@@ -188,6 +190,11 @@ in
             farPattern = "INBOX";
             extraConfig.Create = "near";
           };
+          channels.admin = {
+            nearPattern = "Admin spam";
+            farPattern = "Admin spam";
+            extraConfig.Create = "near";
+          };
           channels.trash = {
             nearPattern = "Trash";
             farPattern = "Trash";
@@ -198,7 +205,6 @@ in
             farPattern = "Sent";
             extraConfig.Create = "near";
           };
-          # There is a lot of spam around, maybe we should not include that folder
           channels.junk = {
             nearPattern = "Junk";
             farPattern = "Public/Spam";
@@ -217,10 +223,11 @@ in
         };
       };
       msmtp.enable = true;
-      neomutt = {
+      neomutt = let c = mbsync.groups.ifsr.channels; in
+        {
         enable = true;
         mailboxName = "  iFSR";
-        extraMailboxes = [ "Sent" "Trash" "Drafts" ];
+        extraMailboxes = lib.lists.forEach [ c.admin c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
       };
     };
     "gmail" = rec {
@@ -240,7 +247,7 @@ in
         enable = true;
         create = "maildir";
         expunge = "both";
-        groups.googlemail = {
+        groups.gmail = {
           channels.inbox = {
             nearPattern = "INBOX";
             farPattern = "INBOX";
@@ -274,10 +281,11 @@ in
         };
       };
       msmtp.enable = true;
-      neomutt = {
+      neomutt = let c = mbsync.groups.gmail.channels; in
+        {
         enable = true;
         mailboxName = " 󰊫 gmail";
-        extraMailboxes = [ "Sent" "Trash" "Junk" "Drafts" ];
+        extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
       };
     };
   };

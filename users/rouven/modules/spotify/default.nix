@@ -11,4 +11,5 @@
       };
     };
   };
+  systemd.user.services.spotifyd.Unit.After = [ "sops-nix.service" ];
 }
