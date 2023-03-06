@@ -6,8 +6,7 @@
     [
       ./hardware-configuration.nix
       ./modules/networks
-      ./modules/greetd
-      ./modules/snapper
+      ./modules/greetd ./modules/snapper
       ../../shared/vim.nix
       ../../shared/sops.nix
       ../../shared/gpg.nix
@@ -84,7 +83,14 @@
   services = {
     blueman.enable = true; # bluetooth
     devmon.enable = true; # automount stuff
-    printing.enable = true;
+    printing = {
+      enable = true;
+      #drivers = with pkgs; [ gutenprint gutenprint-bin ];
+    };
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
     fprintd.enable = true; # log in using fingerprint
     openssh.enable = true; # enabled ssh to have the host keys
     btrfs.autoScrub.enable = true; # periodically check filesystem and repair it
@@ -141,6 +147,7 @@
     python3
     zip
     unzip
+    mupdf
   ];
 
   system.stateVersion = "22.11";
