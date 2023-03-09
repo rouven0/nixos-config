@@ -31,6 +31,10 @@
         psk = "@FSR_PSK@";
         authProtocols = [ "WPA-PSK" ];
       };
+      "RoboLab Playground" = {
+        psk = "@ROBOLAB_PSK@";
+        authProtocols = [ "WPA-PSK" ];
+      };
     };
     openconnect.interfaces = {
       TUD-A-Tunnel = {

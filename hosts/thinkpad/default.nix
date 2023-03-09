@@ -85,9 +85,8 @@
     devmon.enable = true; # automount stuff
     printing = {
       enable = true;
-      #drivers = with pkgs; [ gutenprint gutenprint-bin ];
     };
-    avahi = {
+    avahi = { # autodiscover printers
       enable = true;
       nssmdns = true;
     };
@@ -147,7 +146,8 @@
     python3
     zip
     unzip
-    mupdf
+    nvme-cli
+    intel-gpu-tools
   ];
 
   system.stateVersion = "22.11";

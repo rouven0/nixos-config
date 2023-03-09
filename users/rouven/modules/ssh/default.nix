@@ -3,6 +3,9 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
+      "se-gitlab.inf.tu-dresden.de" = {
+        identityFile = "~/.ssh/git";
+      };
       "github.com" = {
         identityFile = "~/.ssh/git";
       };

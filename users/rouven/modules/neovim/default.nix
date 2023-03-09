@@ -2,12 +2,12 @@
 {
   home.packages = with pkgs; [
     ripgrep
+    black
   ];
   programs.nixvim = {
     enable = true;
     vimAlias = true;
-    colorscheme = "dracula";
-    options =
+    colorscheme = "dracula"; options =
       {
         shiftwidth = 4;
         expandtab = false;
@@ -97,6 +97,9 @@
           pyright = {
             enable = true;
           };
+          #pylsp = {
+            #enable = true;
+          #};
           texlab = {
             enable = true;
           };
@@ -136,7 +139,7 @@
           tree-sitter-markdown
           tree-sitter-nix
           tree-sitter-perl
-          tree-sitter-python
+          #tree-sitter-python # broken atm
           tree-sitter-regex
           tree-sitter-rst
           tree-sitter-rust
