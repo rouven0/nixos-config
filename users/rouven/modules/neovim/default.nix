@@ -1,13 +1,10 @@
 { config, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    ripgrep
-    black
-  ];
   programs.nixvim = {
     enable = true;
     vimAlias = true;
-    colorscheme = "dracula"; options =
+    colorscheme = "dracula";
+    options =
       {
         shiftwidth = 4;
         expandtab = false;
@@ -94,18 +91,27 @@
 
         '';
         servers = {
+          # pylsp is broken
           pyright = {
             enable = true;
           };
-          #pylsp = {
-            #enable = true;
-          #};
           texlab = {
             enable = true;
           };
           rnix-lsp = {
             enable = true;
           };
+        };
+      };
+      null-ls = {
+        enable = true;
+        sources.formatting.black = {
+          enable = true;
+          withArgs = ''
+            ({
+              extra_args = { "-l", "120" }
+            })
+          '';
         };
       };
       nvim-cmp = {
@@ -152,7 +158,7 @@
     };
     extraPlugins = with pkgs.vimPlugins;
       [
-	    vim-nix
+        vim-nix
         dracula-vim
         nerdcommenter
       ];
