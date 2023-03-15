@@ -19,6 +19,11 @@
       };
     };
 
+    nix-index-database = {
+      url = github:Mic92/nix-index-database;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-colors = {
       url = github:Misterio77/nix-colors;
     };
@@ -68,6 +73,7 @@
     { self
     , nixpkgs
     , home-manager
+    , nix-index-database
     , hyprland
     , sops-nix
     , nix-colors
@@ -94,6 +100,7 @@
                   hyprland.homeManagerModules.default
                   nixvim.homeManagerModules.nixvim
                   sops-nix.homeManagerModules.sops
+                  nix-index-database.hmModules.nix-index
                 ];
                 config = {
                   colorScheme = nix-colors.colorSchemes.dracula;

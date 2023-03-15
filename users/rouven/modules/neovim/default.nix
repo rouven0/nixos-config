@@ -70,6 +70,9 @@
       telescope = {
         enable = true;
       };
+      fugitive = {
+        enable = true;
+      };
       lsp = {
         enable = true;
         onAttach = ''
