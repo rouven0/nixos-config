@@ -27,7 +27,7 @@
   xdg.configFile = {
     "wofi/config".text = ''
       allow_images = true
-      term = alacritty
+      term = foot
     '';
 
     "wofi/style.css".text = ''

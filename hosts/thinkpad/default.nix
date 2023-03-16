@@ -20,6 +20,11 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
+  nix.settings = {
+    cores = 6; # don't clutter the whole system when compiling stuff
+    auto-optimise-store = true;
+  };
+
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
   console = {

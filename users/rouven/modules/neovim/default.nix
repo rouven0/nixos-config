@@ -35,7 +35,7 @@
         "<leader>g" = ":Telescope git_files<CR>";
         "<leader>r" = ":Telescope live_grep<CR>";
         # diacnostics
-        "<leader>d" = ":Telescope diacnostics<CR>";
+        "<leader>d" = ":Telescope diagnostics<CR>";
 
         #quickfixlist binds
         "<C-j>" = ":cnext<CR>";
@@ -86,7 +86,7 @@
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
           vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
-          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+          vim.keymap.set('n', 'gn', vim.lsp.buf.rename, bufopts)
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
           vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
           vim.keymap.set('n', '<leader>b', function() vim.lsp.buf.format { async = true } end, bufopts)

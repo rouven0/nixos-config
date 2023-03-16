@@ -58,8 +58,6 @@
     bat # better less
     duf # better df
 
-    jetbrains.pycharm-community # backup ide in case vim has a bad day again
-
     powerline-fonts
 
     # libs
