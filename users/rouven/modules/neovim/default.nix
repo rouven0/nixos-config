@@ -35,8 +35,7 @@
         "<leader>g" = ":Telescope git_files<CR>";
         "<leader>r" = ":Telescope live_grep<CR>";
         # diacnostics
-        "<leader>e" = "vim.diagnostic.open_float";
-        "<leader>q" = "vim.diagnostic.setloclist";
+        "<leader>d" = ":Telescope diacnostics<CR>";
 
         #quickfixlist binds
         "<C-j>" = ":cnext<CR>";
