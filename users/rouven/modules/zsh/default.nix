@@ -8,6 +8,7 @@
       l = "ls -l";
       ll = "ls -la";
       la = "ls -a";
+      "switch" = "sudo nixos-rebuild switch && cat ${../../../../images/another-cat.sixel}";
     };
     history = {
       size = 10000;
