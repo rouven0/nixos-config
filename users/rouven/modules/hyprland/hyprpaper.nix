@@ -19,7 +19,7 @@ in
     };
     Unit = {
       After = "graphical-session.target";
-      Descriptipon = "Blazing fast wayland wallpaper utility with IPC controls";
+      Description = "Blazingly fast wayland wallpaper utility with IPC controls";
       Documentation = "https://github.com/hyprwm/hyprpaper";
       PartOf = "graphical-session.target";
     };
