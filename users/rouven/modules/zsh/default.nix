@@ -10,6 +10,7 @@
       la = "ls -a";
       "switch" = "sudo nixos-rebuild switch && cat ${../../../../images/another-cat-2.sixel}";
       "update" = "cd /etc/nixos && nix flake update && cat ${../../../../images/another-cat.sixel}";
+      "garbage" = "sudo nix-collect-garbage -d && cat ${../../../../images/cat-garbage.sixel}";
     };
     history = {
       size = 10000;
