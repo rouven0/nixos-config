@@ -57,6 +57,7 @@
     exa # ls but with icons
     bat # better less
     duf # better df
+    gnumake
 
     powerline-fonts
 

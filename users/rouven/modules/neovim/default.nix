@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
-  programs.nixvim = {
-    enable = true;
+  programs.nixvim = { enable = true;
     vimAlias = true;
     colorscheme = "dracula";
     options =
@@ -103,6 +102,9 @@
           rnix-lsp = {
             enable = true;
           };
+          clangd = {
+            enable = true;
+          };
         };
       };
       null-ls = {
@@ -134,7 +136,7 @@
         grammarPackages = with pkgs.tree-sitter-grammars; [
           tree-sitter-bash
           tree-sitter-c
-          tree-sitter-cpp
+          #tree-sitter-cpp # broken too. ffs
           tree-sitter-css
           tree-sitter-go
           tree-sitter-haskell

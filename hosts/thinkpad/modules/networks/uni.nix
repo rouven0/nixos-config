@@ -34,6 +34,7 @@
       "RoboLab Playground" = {
         psk = "@ROBOLAB_PSK@";
         authProtocols = [ "WPA-PSK" ];
+        extraConfig = "disabled=1";
       };
     };
     openconnect.interfaces = {
