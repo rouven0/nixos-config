@@ -6,7 +6,7 @@
     options =
       {
         shiftwidth = 4;
-        expandtab = false;
+        expandtab = true;
         preserveindent = true;
         number = true;
         relativenumber = true;

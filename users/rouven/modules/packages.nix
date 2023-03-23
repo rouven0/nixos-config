@@ -58,6 +58,7 @@
     bat # better less
     duf # better df
     gnumake
+    gdb
 
     powerline-fonts
 
