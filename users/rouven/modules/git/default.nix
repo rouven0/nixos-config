@@ -4,7 +4,7 @@
   programs.git = {
     enable = true;
     userName = "Rouven Seifert";
-    userEmail = config.accounts.email.accounts."TU-Dresden".address;
+    userEmail = "rouven@rfive.de";
     extraConfig = {
       core.pager = "delta";
       interactive.diffFilter = "delta --color-only";

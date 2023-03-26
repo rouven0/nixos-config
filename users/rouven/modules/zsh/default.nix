@@ -54,9 +54,9 @@
       ''
         function c() {
             if [ $# -eq 0 ]; then
-                cd $(find -maxdepth 4 -not -path '*[cC]ache*' -not -path '*[tT]rash*' -type d | fzf --preview 'tree -C {}')
+                cd $(find -maxdepth 4 -not -path '*[cC]ache*' -not -path '*[tT]rash*' -type d | fzf --preview '${pkgs.tree}/bin/tree -C {}')
             else
-                $1 $(find -maxdepth 5 -not -path '*[cC]ache*' -not -path '*[tT]rash*' | fzf --preview 'tree -C {}')
+                $1 $(find -maxdepth 5 -not -path '*[cC]ache*' -not -path '*[tT]rash*' | fzf --preview '${pkgs.tree}/bin/tree -C {}')
             fi
         }
 
