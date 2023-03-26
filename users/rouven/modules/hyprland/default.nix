@@ -17,7 +17,8 @@
     pulseaudio # installed to have pactl
     jq
     libnotify
-    wofi
+    #wofi
+    fuzzel
     wl-clipboard
     grim
     slurp
@@ -25,42 +26,21 @@
   ];
 
   xdg.configFile = {
-    "wofi/config".text = ''
-      allow_images = true
-      term = foot
+    "fuzzel/fuzzel.ini".text = ''
+      [main]
+      icon-theme=${config.gtk.iconTheme.name}
+      show-actions=yes
+      width=80
+
+      [colors]
+      background=${config.colorScheme.colors.base00}ff
+      text=${config.colorScheme.colors.base05}ff
+      match=${config.colorScheme.colors.base08}ff
+      selection=${config.colorScheme.colors.base02}ff
+      selection-text=${config.colorScheme.colors.base04}ff
+      border=${config.colorScheme.colors.base01}ff
     '';
 
-    "wofi/style.css".text = ''
-      window {
-        margin: 0px;
-        border: 1px solid #${config.colorScheme.colors.base0D};
-        background-color: #${config.colorScheme.colors.base00};
-        border-radius: 15px;
-      }
-      #input {
-        margin: 5px;
-        border: none;
-        color: #${config.colorScheme.colors.base05};
-        background-color: #${config.colorScheme.colors.base02};
-      }
-      #inner-box,
-      #outer-box {
-        margin: 5px;
-        border: none;
-        background-color: #${config.colorScheme.colors.base00};
-      }
-      #text {
-        margin: 5px;
-        border: none;
-        color: #${config.colorScheme.colors.base05};
-      }
-      #entry {
-        background-color: #${config.colorScheme.colors.base00};
-      }
-      #entry:selected {
-        background-color: #${config.colorScheme.colors.base03};
-      }
-    '';
     "swappy/config".text = ''
       [Default]
       save_dir = ~/Pictures/Screenshots/
