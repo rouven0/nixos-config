@@ -17,7 +17,6 @@
     pulseaudio # installed to have pactl
     jq
     libnotify
-    #wofi
     fuzzel
     wl-clipboard
     grim
