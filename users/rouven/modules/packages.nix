@@ -22,7 +22,7 @@
 
     # sound
     pavucontrol
-    (pkgs.callPackage ../../../pkgs/x32edit {})
+    (pkgs.callPackage ../../../pkgs/x32edit { })
 
     # bluetooth
     blueman
@@ -53,7 +53,7 @@
     virt-manager
     ventoy-bin
 
-    trash-cli # better rm 
+    trash-cli # better rm
     ripgrep # better grep
     exa # ls but with icons
     bat # better less

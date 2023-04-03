@@ -1,7 +1,7 @@
-{ stdenv, fetchurl, lib, libX11, libXext, alsa-lib, freetype, ... }:
+{ stdenv, fetchurl, lib, libX11, libXext, alsa-lib, freetype, curlWithGnuTls, ... }:
 stdenv.mkDerivation rec {
   pname = "X32-Edit";
-  # 4.3 has some extra dependencies, TODO fix later
+  #version = "4.3";
   version = "4.1";
 
   src = fetchurl {
@@ -22,6 +22,7 @@ stdenv.mkDerivation rec {
     let
       # we prepare our library path in the let clause to avoid it become part of the input of mkDerivation
       libPath = lib.makeLibraryPath [
+        #curlWithGnuTls # libcurl-gnutls.so.4
         libX11 # libX11.so.6
         libXext # libXext.so.6
         alsa-lib # libasound.so.2

@@ -141,7 +141,7 @@
           tree-sitter-go
           tree-sitter-haskell
           tree-sitter-html
-          tree-sitter-java
+          #tree-sitter-java # this is broken too lmao
           tree-sitter-javascript
           tree-sitter-json
           tree-sitter-latex
