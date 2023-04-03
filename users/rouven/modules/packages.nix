@@ -22,6 +22,7 @@
 
     # sound
     pavucontrol
+    (pkgs.callPackage ../../../pkgs/x32edit {})
 
     # bluetooth
     blueman

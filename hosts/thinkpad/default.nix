@@ -30,9 +30,7 @@
   console = {
     keyMap = "dvorak";
     font = "Lat2-Terminus16";
-    colors =
-      let colors = config.home-manager.users.rouven.colorScheme.colors;
-      in
+    colors = let colors = config.home-manager.users.rouven.colorScheme.colors; in
       [
         colors.base00
         colors.base08
@@ -154,6 +152,7 @@
     nvme-cli
     intel-gpu-tools
   ];
+  programs.java.enable = true;
 
   system.stateVersion = "22.11";
 }
