@@ -29,9 +29,9 @@ in
         # Open the highlighted mailbox
         bind index,pager <space><return> sidebar-open
         set mailcap_path = ${./mailcap}
-        source ${./vim-keys.rc}
+        source ${./vim-keys.muttrc}
         source ${./dracula.muttrc}
-        source ${./powerline.neomuttrc}
+        source ${./powerline.muttrc}
       '';
     };
     mbsync.enable = true;
