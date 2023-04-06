@@ -48,7 +48,6 @@
     localVariables = {
       COMPLETION_WAITING_DOTS = "true";
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#00bbbb,bold";
-      # ZSH_AUTOSUGGEST_STRATEGY="(history completion)";
     };
 
     initExtra =

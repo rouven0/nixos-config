@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, xdph, ... }:
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -8,9 +8,6 @@
       ./modules/networks
       ./modules/greetd
       ./modules/snapper
-      ../../shared/vim.nix
-      ../../shared/sops.nix
-      ../../shared/gpg.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -75,7 +72,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      inputs.xdph.packages.x86_64-linux.default
+      xdph.packages.x86_64-linux.default
     ];
   };
 

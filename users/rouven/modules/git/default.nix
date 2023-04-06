@@ -1,13 +1,12 @@
 { config, pkgs, ... }:
 {
-  home.packages = with pkgs; [ delta ];
   programs.git = {
     enable = true;
     userName = "Rouven Seifert";
     userEmail = "rouven@rfive.de";
     extraConfig = {
-      core.pager = "delta";
-      interactive.diffFilter = "delta --color-only";
+      core.pager = "${pkgs.delta}/bin/delta";
+      interactive.diffFilter = "${pkgs.delta}/bin/delta --color-only";
       delta = {
         navigate = true;
         light = false;

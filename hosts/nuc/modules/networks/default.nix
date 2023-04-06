@@ -1,8 +1,7 @@
 { config, ... }:
 {
   networking = {
-    hostName = "nuc"; # Define your hostname.
-    hostId = "795a4952";
+    hostName = "nuc";
     useNetworkd = true;
   };
   systemd.network = {

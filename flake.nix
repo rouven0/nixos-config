@@ -75,18 +75,15 @@
       nixosConfigurations = {
         thinkpad = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs.inputs = attrs;
+          specialArgs = attrs;
           modules = [
             ./hosts/thinkpad
+            ./shared
             ./users/rouven
             nixos-hardware.nixosModules.common-pc-laptop-ssd
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             {
-              nix.settings = {
-                substituters = [ "https://hyprland.cachix.org" ];
-                trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-              };
               home-manager.extraSpecialArgs = attrs;
               home-manager.users.rouven = {
                 imports = [
@@ -96,9 +93,6 @@
                   sops-nix.homeManagerModules.sops
                   nix-index-database.hmModules.nix-index
                 ];
-                config = {
-                  colorScheme = nix-colors.colorSchemes.dracula;
-                };
               };
             }
           ];
@@ -109,6 +103,7 @@
           modules = [
             nixos-hardware.nixosModules.intel-nuc-8i7beh
             ./hosts/nuc
+            ./shared
             sops-nix.nixosModules.sops
           ];
         };

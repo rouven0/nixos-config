@@ -1,13 +1,16 @@
 { config, ... }:
+let
+  git = "~/.ssh/git";
+in
 {
-  programs.ssh = {
+  programs.ssh = rec {
     enable = true;
     matchBlocks = {
       "se-gitlab.inf.tu-dresden.de" = {
-        identityFile = "~/.ssh/git";
+        identityFile = git;
       };
       "github.com" = {
-        identityFile = "~/.ssh/git";
+        identityFile = git;
       };
       "rfive.de" = {
         user = "debian";
@@ -16,10 +19,11 @@
         hostname = "kaki.ifsr.de";
         user = "root";
       };
-      "fsr" = {
+      "ifsr" = {
         hostname = "ifsr.de";
         user = "rouven.seifert";
       };
+      "fsr" = matchBlocks."ifsr";
       "quitte" = {
         hostname = "quitte.ifsr.de";
         user = "root";
@@ -30,15 +34,15 @@
       };
       "git@rfive.de" = {
         match = "Host rfive.de User git";
-        identityFile = "~/.ssh/git";
+        identityFile = git;
       };
       "git@raspi" = {
         match = "Host raspi User git";
-        identityFile = "~/.ssh/git";
+        identityFile = git;
       };
       "git@ifsr.de" = {
         match = "Host ifsr.de User git";
-        identityFile = "~/.ssh/git";
+        identityFile = git;
       };
     };
     extraConfig = ''

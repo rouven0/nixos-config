@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, nix-colors, ... }:
 {
+  colorScheme = nix-colors.colorSchemes.dracula;
+
   # theme hardcoded to dracula, too lazy to make all this base16
   home.sessionVariables.GTK_THEME = "Dracula";
   gtk = {

@@ -9,8 +9,6 @@
       ./modules/nextcloud
       ./modules/vaultwarden
       ./modules/nginx
-      ../../shared/vim.nix
-      ../../shared/sops.nix
     ];
 
   boot = {
@@ -22,7 +20,6 @@
 
   time.timeZone = "Europe/Berlin";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
@@ -50,7 +47,7 @@
     # ../../keys/ssh/rouven-smartcard
   ];
 
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "22.11";
 
 }
 

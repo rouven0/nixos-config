@@ -16,7 +16,6 @@
       bell = {
         urgent = true;
         notify = true;
-        #command = "${pkgs.notify-desktop}/bin/notify-desktop a";
       };
       colors =
         let
