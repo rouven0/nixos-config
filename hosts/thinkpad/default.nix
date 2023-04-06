@@ -6,7 +6,8 @@
     [
       ./hardware-configuration.nix
       ./modules/networks
-      ./modules/greetd ./modules/snapper
+      ./modules/greetd
+      ./modules/snapper
       ../../shared/vim.nix
       ../../shared/sops.nix
       ../../shared/gpg.nix
@@ -89,7 +90,8 @@
     printing = {
       enable = true;
     };
-    avahi = { # autodiscover printers
+    avahi = {
+      # autodiscover printers
       enable = true;
       nssmdns = true;
     };
@@ -122,6 +124,9 @@
     };
   };
 
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=2h
+  '';
   services.logind = {
     lidSwitch = "suspend-then-hibernate";
     lidSwitchDocked = "suspend-then-hibernate";

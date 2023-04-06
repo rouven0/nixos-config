@@ -11,8 +11,7 @@
       owner = config.users.users.systemd-network.name;
     };
   };
-  networking = {
-    useNetworkd = true;
+  networking = { useNetworkd = true;
     hostName = "thinkpad";
     hostId = "79353b92"; # Define your hostname.
     firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }]; # open ports for kde connect
@@ -52,7 +51,7 @@
     networks."10-wireless-home" = {
       matchConfig = {
         Name = "wlp9s0";
-        BSSID = "3c:a6:2f:6f:63:eb 3c:a6:2f:6f:63:ea";
+        SSID = "Smoerrebroed";
       };
       networkConfig = {
         DHCP = "yes";
