@@ -6,8 +6,7 @@
     options =
       {
         shiftwidth = 4;
-        expandtab = true;
-        preserveindent = true;
+        expandtab = true; preserveindent = true;
         number = true;
         relativenumber = true;
         tabstop = 4;
@@ -136,12 +135,12 @@
         grammarPackages = with pkgs.tree-sitter-grammars; [
           tree-sitter-bash
           tree-sitter-c
-          #tree-sitter-cpp # broken too. ffs
+          tree-sitter-cpp
           tree-sitter-css
           tree-sitter-go
           tree-sitter-haskell
           tree-sitter-html
-          #tree-sitter-java # this is broken too lmao
+          #tree-sitter-java
           tree-sitter-javascript
           tree-sitter-json
           tree-sitter-latex
@@ -149,7 +148,7 @@
           tree-sitter-markdown
           tree-sitter-nix
           tree-sitter-perl
-          #tree-sitter-python # broken atm
+          tree-sitter-python
           tree-sitter-regex
           tree-sitter-rst
           tree-sitter-rust

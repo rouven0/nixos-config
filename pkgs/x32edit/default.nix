@@ -22,7 +22,18 @@ stdenv.mkDerivation rec {
     let
       # we prepare our library path in the let clause to avoid it become part of the input of mkDerivation
       libPath = lib.makeLibraryPath [
-        #curlWithGnuTls # libcurl-gnutls.so.4
+        #(curlWithGnuTls.overrideAttrs (oldAttrs: rec {
+          #version = "7.81.0";
+          #src = fetchurl {
+            #urls = [
+              #"https://curl.haxx.se/download/curl-${version}.tar.bz2"
+              #"https://github.com/curl/curl/releases/download/curl-${version}/curl-${version}.tar.bz2"
+            #];
+            #hash = "sha256-Hno41wGOwGDx8W34OYVPCInpThIsTPpdOjfC3Fbx4lg=";
+            ##hash = "sha256-m2selrdI0EuWh4a2vfQHqlx1q1Oj03wcjIHNtzZVXM8=";
+          #};
+        #})) # libcurl-gnutls.so.4
+        #curlWithGnuTls
         libX11 # libX11.so.6
         libXext # libXext.so.6
         alsa-lib # libasound.so.2
