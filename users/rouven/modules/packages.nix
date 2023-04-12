@@ -52,6 +52,7 @@
     neofetch # obligatory
     virt-manager
     ventoy-bin
+    xsane # scanning
 
     trash-cli # better rm
     ripgrep # better grep

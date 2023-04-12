@@ -13,7 +13,7 @@ in
         identityFile = git;
       };
       "rfive.de" = {
-        user = "debian";
+        user = "root";
       };
       "kaki" = {
         hostname = "kaki.ifsr.de";

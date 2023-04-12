@@ -6,6 +6,7 @@
   };
   systemd.network = {
     enable = true;
+    enableIPv6 = true;
     networks."10-loopback" = {
       matchConfig.Name = "lo";
       linkConfig.RequiredForOnline = false;
