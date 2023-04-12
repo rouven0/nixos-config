@@ -6,6 +6,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/networks
+      ./modules/backup
       ./modules/nextcloud
       ./modules/vaultwarden
       ./modules/nginx
