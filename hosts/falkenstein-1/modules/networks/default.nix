@@ -1,7 +1,7 @@
 { config, ... }:
 {
   networking = {
-    hostName = "nuc";
+    hostName = "falkenstein-1";
     useNetworkd = true;
     enableIPv6 = true;
   };
