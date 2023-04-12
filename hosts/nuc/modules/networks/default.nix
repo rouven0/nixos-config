@@ -3,10 +3,10 @@
   networking = {
     hostName = "nuc";
     useNetworkd = true;
+    enableIPv6 = true;
   };
   systemd.network = {
     enable = true;
-    enableIPv6 = true;
     networks."10-loopback" = {
       matchConfig.Name = "lo";
       linkConfig.RequiredForOnline = false;
