@@ -16,6 +16,7 @@
     loader.systemd-boot.editor = false;
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_latest;
+    tmpOnTmpfs = true;
   };
 
   nix.settings = {
