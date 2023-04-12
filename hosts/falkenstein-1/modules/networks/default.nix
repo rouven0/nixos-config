@@ -17,7 +17,7 @@
         DHCP = "ipv4";
         IPv6AcceptRA = "yes";
         Address = "2a01:4f8:c012:49de::1/64";
-        Gateway="fe80::1";
+        Gateway = "fe80::1";
       };
     };
   };

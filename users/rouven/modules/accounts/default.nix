@@ -225,10 +225,10 @@ in
       msmtp.enable = true;
       neomutt = let c = mbsync.groups.ifsr.channels; in
         {
-        enable = true;
-        mailboxName = "  iFSR";
-        extraMailboxes = lib.lists.forEach [ c.admin c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
-      };
+          enable = true;
+          mailboxName = "  iFSR";
+          extraMailboxes = lib.lists.forEach [ c.admin c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+        };
     };
     "gmail" = rec {
       address = "seifertrouven@gmail.com";
@@ -283,10 +283,10 @@ in
       msmtp.enable = true;
       neomutt = let c = mbsync.groups.gmail.channels; in
         {
-        enable = true;
-        mailboxName = " 󰊫 gmail";
-        extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
-      };
+          enable = true;
+          mailboxName = " 󰊫 gmail";
+          extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+        };
     };
   };
   home.file.".urlview".text = ''

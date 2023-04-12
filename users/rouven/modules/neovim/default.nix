@@ -1,12 +1,14 @@
 { config, pkgs, ... }:
 {
-  programs.nixvim = { enable = true;
+  programs.nixvim = {
+    enable = true;
     vimAlias = true;
     colorscheme = "dracula";
     options =
       {
         shiftwidth = 4;
-        expandtab = true; preserveindent = true;
+        expandtab = true;
+        preserveindent = true;
         number = true;
         relativenumber = true;
         tabstop = 4;

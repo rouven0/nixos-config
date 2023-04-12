@@ -1,4 +1,3 @@
-
 {
   fileSystems."/mnt/backup" =
     {
@@ -14,7 +13,7 @@
       fsType = "btrfs";
       options = [ "compress=zstd" "noatime" ];
     };
-  
+
   services.btrbk = {
     instances."nuc-to-disk".settings = {
       snapshot_preserve = "14d";

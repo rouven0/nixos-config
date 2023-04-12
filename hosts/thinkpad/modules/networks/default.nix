@@ -11,7 +11,8 @@
       owner = config.users.users.systemd-network.name;
     };
   };
-  networking = { useNetworkd = true;
+  networking = {
+    useNetworkd = true;
     hostName = "thinkpad";
     enableIPv6 = true;
     wireless = {
