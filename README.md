@@ -51,3 +51,14 @@ sda
   ├─log   /var/log
   └─store /nix/store
 ```
+
+### falkenstein-1
+Hetzner VPS running a few web apps.
+#### Disk layout
+```
+NAME      MOUNTPOINT  COMMENT
+sda
+├─sda1    /
+├─sda14               # BIOS boot
+└─sda15   /boot/efi   # EFI stuff
+```
