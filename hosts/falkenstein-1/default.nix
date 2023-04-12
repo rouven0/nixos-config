@@ -43,6 +43,7 @@
       user.email = "rouven@rfive.de";
     };
   };
+  services.qemuGuest.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
