@@ -107,6 +107,15 @@
             sops-nix.nixosModules.sops
           ];
         };
+        falkenstein-1 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs.inputs = attrs;
+          modules = [
+            ./hosts/falkenstein-1
+            ./shared
+            sops-nix.nixosModules.sops
+          ];
+        };
       };
     };
 }
