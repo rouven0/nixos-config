@@ -9,6 +9,7 @@
       ./modules/nextcloud
       ./modules/vaultwarden
       ./modules/nginx
+      ./modules/nix-serve
     ];
 
   boot = {
