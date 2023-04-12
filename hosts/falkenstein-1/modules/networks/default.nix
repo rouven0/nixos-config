@@ -14,7 +14,10 @@
     networks."10-wired" = {
       matchConfig.Name = "ens3";
       networkConfig = {
-        DHCP = "yes";
+        DHCP = "ipv4";
+        IPv6AcceptRA = "yes";
+        Address = "2a01:4f8:c012:49de::1/64";
+        Gateway="fe80::1";
       };
     };
   };
