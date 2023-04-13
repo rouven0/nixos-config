@@ -57,6 +57,11 @@
         flake-utils.follows = "flake-utils";
       };
     };
+ 
+    purge = {
+      url = github:therealr5/purge/nix;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -69,6 +74,7 @@
     , nix-colors
     , nixos-hardware
     , nixvim
+    , purge
     , ...
     }@attrs: {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
@@ -114,6 +120,7 @@
             ./hosts/falkenstein-1
             ./shared
             sops-nix.nixosModules.sops
+            purge.nixosModules.default
           ];
         };
       };
