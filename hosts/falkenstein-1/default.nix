@@ -7,6 +7,7 @@
       ./hardware-configuration.nix
       ./modules/networks
       ./modules/nginx
+      ./modules/purge
     ];
 
   boot = {
