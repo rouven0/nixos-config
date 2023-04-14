@@ -57,9 +57,9 @@
         flake-utils.follows = "flake-utils";
       };
     };
- 
+
     purge = {
-      url = github:therealr5/purge/nix;
+      url = github:therealr5/purge;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

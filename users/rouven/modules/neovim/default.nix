@@ -106,6 +106,9 @@
           clangd = {
             enable = true;
           };
+          rust-analyzer = {
+            enable = true;
+          };
         };
       };
       null-ls = {

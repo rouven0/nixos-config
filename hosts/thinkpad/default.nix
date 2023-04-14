@@ -154,6 +154,10 @@
     unzip
     nvme-cli
     intel-gpu-tools
+
+    # rust
+    rustc
+    cargo
   ];
   programs.java.enable = true;
 

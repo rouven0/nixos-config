@@ -28,6 +28,10 @@
           psk = "@DORM_PSK@";
           authProtocols = [ "WPA-PSK" ];
         };
+        "@PIXEL_SSID@" = {
+          psk = "@PIXEL_PSK@";
+          authProtocols = [ "WPA-PSK" ];
+        };
       };
     };
   };
