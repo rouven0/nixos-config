@@ -108,6 +108,7 @@
           specialArgs.inputs = attrs;
           modules = [
             nixos-hardware.nixosModules.intel-nuc-8i7beh
+            nix-index-database.nixosModules.nix-index
             ./hosts/nuc
             ./shared
             sops-nix.nixosModules.sops
@@ -119,6 +120,7 @@
           modules = [
             ./hosts/falkenstein-1
             ./shared
+            nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
             purge.nixosModules.default
           ];

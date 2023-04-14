@@ -33,6 +33,7 @@
     vim
     wget
     htop-vim
+    comma
   ];
   programs.git = {
     enable = true;
