@@ -29,6 +29,7 @@
     keyMap = "dvorak";
   };
 
+  programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
     vim
     wget
