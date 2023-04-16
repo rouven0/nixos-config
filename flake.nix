@@ -15,7 +15,6 @@
       url = github:nix-community/home-manager;
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        utils.follows = "flake-utils";
       };
     };
 
@@ -41,6 +40,8 @@
     hyprland = {
       url = github:hyprwm/Hyprland;
       inputs = {
+        # temp disable cache cause of glibc mismatch
+        nixpkgs.follows = "nixpkgs";
         xdph.follows = "xdph";
       };
     };
