@@ -8,6 +8,7 @@
       ./modules/networks
       ./modules/nginx
       ./modules/purge
+      ./modules/trucksimulatorbot
     ];
 
   boot = {

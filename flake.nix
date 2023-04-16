@@ -63,6 +63,10 @@
       url = github:therealr5/purge;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    trucksimulatorbot-images = {
+      url = github:therealr5/trucksimulatorbot-images;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -76,6 +80,7 @@
     , nixos-hardware
     , nixvim
     , purge
+    , trucksimulatorbot-images
     , ...
     }@attrs: {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
@@ -124,6 +129,7 @@
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
             purge.nixosModules.default
+            trucksimulatorbot-images.nixosModules.default
           ];
         };
       };

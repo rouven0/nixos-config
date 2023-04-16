@@ -142,11 +142,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1681604834,
-        "narHash": "sha256-C+S7iViWG/N0ueax8WPTCQ5q1/IYZ1x2avzgvAtij50=",
+        "lastModified": 1681652918,
+        "narHash": "sha256-ybXmD3OhyMG1Yz31lxT8de7aBi2mQmXmzAZ7q49Uvi4=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "c86f06caa0be207882266947da67125177bba5af",
+        "rev": "b05ff89c76b2c9454c76daf2120f4ccb076a018d",
         "type": "github"
       },
       "original": {
@@ -204,11 +204,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1681308705,
-        "narHash": "sha256-Iy1NVydzM04OqBLeD96zDmg1HMilUqa2vFeaOJFOp8o=",
+        "lastModified": 1681650457,
+        "narHash": "sha256-IGXRZrFGFqUeM5iDgP/ojbrd+gKL40PaFFAITxbkfZ0=",
         "owner": "hyprwm",
         "repo": "hyprpaper",
-        "rev": "10fd31a5444d25ab81c8105f2df1b4cb0cba68e5",
+        "rev": "3bfaac09f58ce31c33e1a56e7eaa606a87fe4c32",
         "type": "github"
       },
       "original": {
@@ -460,6 +460,7 @@
         "nixvim": "nixvim",
         "purge": "purge",
         "sops-nix": "sops-nix",
+        "trucksimulatorbot-images": "trucksimulatorbot-images",
         "xdph": "xdph"
       }
     },
@@ -496,6 +497,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "trucksimulatorbot-images": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1681656676,
+        "narHash": "sha256-A1Hy2GaHAgUAhajgoRB0gE5cspvk7VoaVQXSCNKiyCY=",
+        "owner": "therealr5",
+        "repo": "trucksimulatorbot-images",
+        "rev": "e1e0330b0c228726a491c13a096e443f7e74d3d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "therealr5",
+        "repo": "trucksimulatorbot-images",
         "type": "github"
       }
     },
