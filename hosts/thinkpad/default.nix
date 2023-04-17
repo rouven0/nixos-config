@@ -156,8 +156,12 @@
     intel-gpu-tools
 
     # rust
-    rustc
     cargo
+    rustc
+    rustfmt
+
+    # java stuff
+    javaPackages.junit_4_12
   ];
   programs.java.enable = true;
 
