@@ -46,6 +46,9 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # firmware updates
+  services.fwupd.enable = true;
   users.users.root.openssh.authorizedKeys.keyFiles = [
     ../../keys/ssh/rouven-thinkpad
     ../../keys/ssh/rouven-pixel
@@ -55,4 +58,3 @@
   system.stateVersion = "22.11";
 
 }
-
