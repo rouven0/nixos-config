@@ -40,8 +40,6 @@
     hyprland = {
       url = github:hyprwm/Hyprland;
       inputs = {
-        # temp disable cache cause of glibc mismatch
-        nixpkgs.follows = "nixpkgs";
         xdph.follows = "xdph";
       };
     };
