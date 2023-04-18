@@ -4,9 +4,6 @@
     nixpkgs = {
       url = github:nixos/nixpkgs/nixos-unstable;
     };
-    flake-utils = {
-      url = github:numtide/flake-utils;
-    };
     nixos-hardware = {
       url = github:nixos/nixos-hardware;
     };
@@ -53,7 +50,6 @@
       url = github:pta2002/nixvim;
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
       };
     };
 
