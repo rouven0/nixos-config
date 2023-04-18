@@ -51,7 +51,7 @@
     # misc
     neofetch # obligatory
     virt-manager
-    ventoy-bin
+    ventoy
     xsane # scanning
 
     trash-cli # better rm
