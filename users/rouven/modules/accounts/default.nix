@@ -36,6 +36,7 @@ in
     };
     mbsync.enable = true;
     msmtp.enable = true;
+    notmuch.enable = true;
   };
   accounts.email.accounts = {
     "rouven@rfive.de" = rec {
@@ -156,6 +157,7 @@ in
         };
       };
       msmtp.enable = true;
+      notmuch.enable = true;
       neomutt = let c = mbsync.groups.tud.channels; in
         {
           enable = true;
@@ -223,6 +225,7 @@ in
         };
       };
       msmtp.enable = true;
+      notmuch.enable = true;
       neomutt = let c = mbsync.groups.ifsr.channels; in
         {
           enable = true;
@@ -281,6 +284,7 @@ in
         };
       };
       msmtp.enable = true;
+      notmuch.enable = true;
       neomutt = let c = mbsync.groups.gmail.channels; in
         {
           enable = true;
