@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 {
-  # generate system completions
-  programs.zsh.enable = true;
-
   # fixes pam entries for swaylock
   security.pam.services.swaylock.text = ''
     # Account management.

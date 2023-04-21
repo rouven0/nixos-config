@@ -35,7 +35,8 @@
     };
 
     hyprland = {
-      url = github:hyprwm/Hyprland;
+      # temp pin hyprland until wayland is updated in nixpkgs
+      url = github:hyprwm/Hyprland/2df0d034bc4a18fafb3524401eeeceaa6b23e753;
       inputs = {
         xdph.follows = "xdph";
       };
@@ -89,6 +90,7 @@
             nixos-hardware.nixosModules.common-pc-laptop-ssd
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            nix-index-database.nixosModules.nix-index
             {
               home-manager.extraSpecialArgs = attrs;
               home-manager.users.rouven = {

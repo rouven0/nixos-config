@@ -15,7 +15,6 @@
     ./tmux
     ./vifm
     ./theme
-    ./zsh
     ./packages.nix
   ];
 }
