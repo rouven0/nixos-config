@@ -34,18 +34,9 @@
       theme = "agnoster";
     };
 
-    interactiveShellInit =
+    shellInit =
       ''
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-
-        function c() {
-            if [ $# -eq 0 ]; then
-                cd $(find -maxdepth 4 -not -path '*[cC]ache*' -not -path '*[tT]rash*' -type d | fzf --preview '${pkgs.tree}/bin/tree -C {}')
-            else
-                $1 $(find -maxdepth 5 -not -path '*[cC]ache*' -not -path '*[tT]rash*' | fzf --preview '${pkgs.tree}/bin/tree -C {}')
-            fi
-        }
-
         function svpn() {
           unit=$(systemctl list-unit-files | grep "openconnect\|wg-quick\|wireguard\|openvpn" | cut -d "." -f1 | fzf --preview 'systemctl status {}')
           if [ $(systemctl is-active $unit) = "inactive" ]; then
@@ -59,6 +50,13 @@
             prompt_segment blue $CURRENT_FG '%c'
         }
         cat ${../images/cat.sixel}
+      '';
+
+    # Hacky way to bind Ctrl+R to fzf. Otherwise it will be overridden 
+    promptInit =
+      ''
+        source ${pkgs.fzf}/share/fzf/completion.zsh
+        source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       '';
   };
 }
