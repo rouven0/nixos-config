@@ -61,6 +61,7 @@
     gdb
 
     powerline-fonts
+    vscode
 
     # libs
     libyubikey

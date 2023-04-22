@@ -25,10 +25,6 @@
                     syntax on
                     highlight ColorColumn ctermbg=darkgray
                     
-                    nnoremap ; :
-                    nnoremap : ;
-                    vnoremap ; :
-                    vnoremap : ;
                     
                     " set space as leader
                     nnoremap <SPACE> <Nop>

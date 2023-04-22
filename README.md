@@ -8,7 +8,7 @@
 - **Overall Theme:** [Base16 Dracula](https://github.com/dracula/base16-dracula-scheme)
 - **Shell:** [Zsh](https://www.zsh.org/)
 - **Terminal:** [Foot](https://codeberg.org/dnkl/foot)
-- **Editor:** [Neovim](https://neovim.io/)
+- **Editor:** [Helix](https://helix-editor.com)
 - **Notifications:** [Mako](https://github.com/emersion/mako)
 - **Panel:** [Waybar](https://github.com/Alexays/Waybar)
 - **File Manager:** [Vifm](https://vifm.info/)

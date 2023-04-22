@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./accounts
@@ -6,8 +6,8 @@
     ./fzf
     ./git
     ./gpg
+    ./helix
     ./hyprland
-    ./neovim
     ./qutebrowser
     ./sops
     ./spotify

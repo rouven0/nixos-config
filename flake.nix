@@ -2,78 +2,69 @@
   description = "My nix setup";
   inputs = {
     nixpkgs = {
-      url = github:nixos/nixpkgs/nixos-unstable;
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
     nixos-hardware = {
-      url = github:nixos/nixos-hardware;
+      url = "github:nixos/nixos-hardware";
     };
 
     home-manager = {
-      url = github:nix-community/home-manager;
+      url = "github:nix-community/home-manager";
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };
     };
 
     nix-index-database = {
-      url = github:Mic92/nix-index-database;
+      url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-colors = {
-      url = github:Misterio77/nix-colors;
+      url = "github:Misterio77/nix-colors";
     };
 
     sops-nix = {
-      url = github:Mic92/sops-nix;
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
 
     xdph = {
-      url = github:hyprwm/xdg-desktop-portal-hyprland;
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
     };
 
     hyprland = {
       # temp pin hyprland until wayland is updated in nixpkgs
-      url = github:hyprwm/Hyprland/2df0d034bc4a18fafb3524401eeeceaa6b23e753;
+      url = "github:hyprwm/Hyprland/2df0d034bc4a18fafb3524401eeeceaa6b23e753";
       inputs = {
         xdph.follows = "xdph";
       };
     };
 
     hyprpaper = {
-      url = github:hyprwm/hyprpaper;
+      url = "github:hyprwm/hyprpaper";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = github:pta2002/nixvim;
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
     };
 
     purge = {
-      url = github:therealr5/purge;
+      url = "github:therealr5/purge";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     trucksimulatorbot-images = {
-      url = github:therealr5/trucksimulatorbot-images;
+      url = "github:therealr5/trucksimulatorbot-images";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs =
-    { self
-    , nixpkgs
+    { nixpkgs
     , home-manager
     , nix-index-database
     , hyprland
     , sops-nix
     , nix-colors
     , nixos-hardware
-    , nixvim
     , purge
     , trucksimulatorbot-images
     , ...
@@ -97,7 +88,6 @@
                 imports = [
                   nix-colors.homeManagerModules.default
                   hyprland.homeManagerModules.default
-                  nixvim.homeManagerModules.nixvim
                   sops-nix.homeManagerModules.sops
                   nix-index-database.hmModules.nix-index
                 ];
