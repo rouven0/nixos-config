@@ -25,8 +25,8 @@
     enable = true;
     themes.dracula-transparent = {
       inherits = "dracula";
-      # hacky way to get the background transparent
       "ui.background" = "{}";
+      "ui.virtual.inlay-hint" = { fg = "#666666"; };
     };
     settings = {
       theme = "dracula-transparent";
