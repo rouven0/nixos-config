@@ -262,11 +262,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1682161980,
-        "narHash": "sha256-ZHIndiiiZ6gF9XpVNJ3wM/p5XOaWD52I6VO63xW0bhg=",
+        "lastModified": 1682261937,
+        "narHash": "sha256-OVjZn5SGoh0360UIZqWQce9D2vQDa0efAq8VEEwGHR8=",
         "owner": "therealr5",
         "repo": "purge",
-        "rev": "b931b85fa361958fae274ca5e633026e32c4c6a1",
+        "rev": "907fb555abe4f85292571e5b04160cc84e5c23d8",
         "type": "github"
       },
       "original": {
