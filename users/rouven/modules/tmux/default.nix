@@ -14,7 +14,7 @@
       {
         plugin = dracula;
         extraConfig = ''
-          set -g @dracula-plugins "time"
+          set -g @dracula-plugins "git time"
           set -g @dracula-show-left-icon session
           set -g @dracula-show-powerline true
         '';

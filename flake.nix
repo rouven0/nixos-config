@@ -46,6 +46,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    language-servers.url = "git+https://git.sr.ht/~bwolf/language-servers.nix";
+    language-servers.inputs.nixpkgs.follows = "nixpkgs";
+
     purge = {
       url = "github:therealr5/purge";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,6 +69,7 @@
     , nixos-hardware
     , purge
     , trucksimulatorbot-images
+    , language-servers
     , ...
     }@attrs: {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;

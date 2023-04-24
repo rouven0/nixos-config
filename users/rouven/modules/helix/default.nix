@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, language-servers, ... }:
 {
   home.packages = with pkgs; [
     lldb
@@ -20,6 +20,7 @@
       pylint
     ]))
     clang-tools
+    language-servers.packages.x86_64-linux.jdt-language-server
   ];
   programs.helix = {
     enable = true;
