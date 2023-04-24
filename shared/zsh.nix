@@ -49,6 +49,10 @@
         prompt_dir() {
             prompt_segment blue $CURRENT_FG '%c'
         }
+
+        witch() {
+            readlink -f $(which $1)
+        }
         cat ${../images/cat.sixel}
       '';
 
