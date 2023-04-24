@@ -5,6 +5,7 @@
     fzf
     bat
     exa
+    trash-cli
   ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh = {

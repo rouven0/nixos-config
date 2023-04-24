@@ -54,7 +54,6 @@
     ventoy
     xsane # scanning
 
-    trash-cli # better rm
     ripgrep # better grep
     duf # better df
     gnumake
