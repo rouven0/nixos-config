@@ -15,28 +15,24 @@
     };
 
   services.btrbk = {
-    instances."nuc-to-disk" =
-      {
-        settings = {
-          snapshot_preserve = "14d";
-          snapshot_preserve_min = "2d";
-          target_preserve = "30d 4w 12m";
-          target_preserve_min = "2d";
-          volume = {
-            "/mnt/pool" = {
-              subvolume = {
-                log = {
-                  snapshot_create = "always";
-                };
-                lib = {
-                  snapshot_create = "always";
-                };
-              };
-              target = "/mnt/backup/nuc";
+    instances."nuc-to-disk".settings = {
+      snapshot_preserve = "14d";
+      snapshot_preserve_min = "2d";
+      target_preserve = "30d 4w 12m";
+      target_preserve_min = "2d";
+      volume = {
+        "/mnt/pool" = {
+          subvolume = {
+            log = {
+              snapshot_create = "always";
+            };
+            lib = {
+              snapshot_create = "always";
             };
           };
+          target = "/mnt/backup/nuc";
         };
-        onCalendar = "*-*-* */6:00:00";
       };
+    };
   };
 }
