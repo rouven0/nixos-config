@@ -32,6 +32,9 @@
 
     xdph = {
       url = "github:hyprwm/xdg-desktop-portal-hyprland";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
     };
 
     hyprland = {
@@ -45,9 +48,6 @@
       url = "github:hyprwm/hyprpaper";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    language-servers.url = "git+https://git.sr.ht/~bwolf/language-servers.nix";
-    language-servers.inputs.nixpkgs.follows = "nixpkgs";
 
     purge = {
       url = "github:therealr5/purge";
@@ -69,7 +69,6 @@
     , nixos-hardware
     , purge
     , trucksimulatorbot-images
-    , language-servers
     , ...
     }@attrs: {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
