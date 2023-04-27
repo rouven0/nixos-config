@@ -5,6 +5,15 @@
     useNetworkd = true;
     enableIPv6 = true;
   };
+  services.resolved = {
+    enable = true;
+    # make room for the adguard dns
+    extraConfig = ''
+      [Resolve]
+      DNS=127.0.0.1
+      DNSStubListener=no
+    '';
+  };
   systemd.network = {
     enable = true;
     networks."10-loopback" = {
