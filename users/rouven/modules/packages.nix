@@ -60,6 +60,8 @@
     gdb
 
     powerline-fonts
+    # password
+    pass
 
     # libs
     libyubikey

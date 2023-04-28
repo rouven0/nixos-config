@@ -9,6 +9,7 @@
       ''
         set -g default-shell ${pkgs.zsh}/bin/zsh
         bind P display-popup
+        set -sg escape-time 10
       '';
     plugins = with pkgs.tmuxPlugins; [
       {

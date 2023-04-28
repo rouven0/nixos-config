@@ -49,7 +49,10 @@
         prompt_dir() {
             prompt_segment blue $CURRENT_FG '%c'
         }
-        cat ${../images/cat.sixel}
+        if [[ "$(hostname)" == "thinkpad" ]]
+        then
+          cat ${../images/cat.sixel}
+        fi
       '';
 
     # Hacky way to bind Ctrl+R to fzf. Otherwise it will be overridden 
