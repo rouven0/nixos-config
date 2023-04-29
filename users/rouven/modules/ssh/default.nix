@@ -6,6 +6,9 @@ in
   programs.ssh = rec {
     enable = true;
     matchBlocks = {
+      "artemis-git.inf.tu-dresden.de" = {
+        identityFile = git;
+      };
       "se-gitlab.inf.tu-dresden.de" = {
         identityFile = git;
       };

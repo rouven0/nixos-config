@@ -53,6 +53,7 @@
     virt-manager
     ventoy
     xsane # scanning
+    jetbrains.idea-community
 
     ripgrep # better grep
     duf # better df
