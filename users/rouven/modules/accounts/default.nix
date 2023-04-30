@@ -225,7 +225,25 @@ in
         };
       };
       msmtp.enable = true;
-      notmuch.enable = true;
+      # notmuch.enable = true;
+      notmuch = {
+        enable = true;
+        neomutt = {
+          enable = true;
+          virtualMailboxes = [
+            # we have to put ALL of our virtual mailboxes into the primary account
+            # TODO make an issue
+            {
+              name = "IFSR-Unread";
+              query = "folder:iFSR/Inbox tag:unread";
+            }
+            {
+              name = "Gmail-Unread";
+              query = "folder:gmail/Inbox tag:unread";
+            }
+          ];
+        };
+      };
       neomutt = let c = mbsync.groups.ifsr.channels; in
         {
           enable = true;
@@ -284,7 +302,19 @@ in
         };
       };
       msmtp.enable = true;
-      notmuch.enable = true;
+      # notmuch.enable = true;
+      notmuch = {
+        enable = true;
+        neomutt = {
+          enable = true;
+          virtualMailboxes = [
+            {
+              name = "gmail-Unread";
+              query = "tag:unread";
+            }
+          ];
+        };
+      };
       neomutt = let c = mbsync.groups.gmail.channels; in
         {
           enable = true;
