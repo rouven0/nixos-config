@@ -54,6 +54,7 @@
     ventoy
     xsane # scanning
     jetbrains.idea-community
+    nix-output-monitor
 
     ripgrep # better grep
     duf # better df

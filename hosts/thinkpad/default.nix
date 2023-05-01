@@ -20,7 +20,7 @@
   };
 
   nix.settings = {
-    cores = 6; # don't clutter the whole system when compiling stuff
+    # cores = 6; # don't clutter the whole system when compiling stuff
     auto-optimise-store = true;
   };
 

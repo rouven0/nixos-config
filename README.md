@@ -65,3 +65,6 @@ sda
 
 ### vm
 Barebones configuration that can be easily deployed to virtual machines.
+
+### iso
+My custom installer and rescue image containing some personal tweaks.

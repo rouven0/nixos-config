@@ -53,6 +53,9 @@
         then
           cat ${../images/cat.sixel}
         fi
+
+        zsh-newuser-install () {}
+
       '';
 
     # Hacky way to bind Ctrl+R to fzf. Otherwise it will be overridden 

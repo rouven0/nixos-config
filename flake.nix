@@ -1,6 +1,5 @@
 {
-  description = "My nix setup";
-  inputs = {
+  description = "My nix setup"; inputs = {
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
@@ -64,7 +63,8 @@
   };
 
   outputs =
-    { nixpkgs
+    {  self
+    , nixpkgs
     , home-manager
     , nix-index-database
     , impermanence
@@ -76,6 +76,7 @@
     , trucksimulatorbot-images
     , ...
     }@attrs: {
+      packages.x86_64-linux.default = self.nixosConfigurations.iso.config.system.build.isoImage;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
       nixosConfigurations = {
         thinkpad = nixpkgs.lib.nixosSystem {
@@ -133,6 +134,15 @@
             ./shared
             impermanence.nixosModules.impermanence
             sops-nix.nixosModules.sops
+          ];
+        };
+        iso = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs.inputs = attrs;
+          modules = [
+            ./hosts/iso
+            ./shared/caches.nix
+            ./shared/vim.nix
           ];
         };
       };
