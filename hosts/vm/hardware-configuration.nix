@@ -13,7 +13,7 @@
 
   fileSystems."/" =
     {
-    
+
       # Replace with actual config
       device = "/dev/sda";
       fsType = "ext4";

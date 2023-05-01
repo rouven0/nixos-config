@@ -13,6 +13,12 @@
     kernelPackages = pkgs.linuxPackages_latest;
     tmp.useTmpfs = true;
   };
+  networking.hostName = "vm";
+  environment.persistence."/nix/persistent/system" = {
+    directories = [ "/etc/nixos" ];
+    files = [ "/etc/machine-id" ];
+  };
+
 
   time.timeZone = "Europe/Berlin";
 
@@ -38,11 +44,13 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # firmware updates
-  users.users.root.openssh.authorizedKeys.keyFiles = [
-    ../../keys/ssh/rouven-thinkpad
-  ];
-
+  users.mutableUsers = false;
+  users.users.root = {
+    initialHashedPassword = "$6$Y2N3qdQL/irp4wM5$dxUv1vyACcf/lE69tHiobTgNbW8v2sbrlvCsAbv8YXmRV4fxS45p0uly.1sv2l0uRN1Y8dxnNFQASRN5qNJk71";
+    openssh.authorizedKeys.keyFiles = [
+      ../../keys/ssh/rouven-thinkpad
+    ];
+  };
   system.stateVersion = "22.11";
 
 }
