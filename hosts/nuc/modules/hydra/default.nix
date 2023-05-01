@@ -8,6 +8,9 @@ in
     port = 4000;
     hydraURL = domain;
     notificationSender = "hydra@localhost";
+    buildMachinesFiles = [];
+    useSubstitutes = true;
+
   };
   services.nginx.virtualHosts."${domain}" = {
     enableACME = true;

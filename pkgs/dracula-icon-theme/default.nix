@@ -1,8 +1,8 @@
-{ lib, stdenv, fetchFromGitHub, gtk-engine-murrine }:
+{ lib, stdenv, fetchFromGitHub}:
 
 let
   themeName = "Dracula";
-  version = "1.0";
+  version = "2021-07-21";
 in
 stdenv.mkDerivation {
   pname = "dracula-icon-theme";
@@ -11,7 +11,7 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "m4thewz";
     repo = "dracula-icons";
-    rev = "main";
+    rev = "2d3c83caa8664e93d956cfa67a0f21418b5cdad8";
     sha256 = "GY+XxTM22jyNq8kaB81zNfHRhfXujArFcyzDa8kjxCQ=";
   };
 
@@ -26,6 +26,7 @@ stdenv.mkDerivation {
     description = "Dracula Icon theme";
     homepage = "https://github.com/m4thewz/dracula-icons";
     platforms = platforms.all;
+    license = licenses.gpl3;
     maintainers = with maintainers; [ therealr5 ];
   };
 }
