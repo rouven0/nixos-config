@@ -8,6 +8,7 @@
       ./modules/adguard
       ./modules/networks
       ./modules/backup
+      ./modules/hydra
       ./modules/nextcloud
       ./modules/vaultwarden
       ./modules/nginx
@@ -21,6 +22,10 @@
     tmp.useTmpfs = true;
   };
   services.btrfs.autoScrub.enable = true;
+  nix.settings = {
+    cores = 3;
+    auto-optimise-store = true;
+  };
 
   time.timeZone = "Europe/Berlin";
 

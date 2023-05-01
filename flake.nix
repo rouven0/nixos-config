@@ -1,5 +1,6 @@
 {
-  description = "My nix setup"; inputs = {
+  description = "My nix setup";
+  inputs = {
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
@@ -63,7 +64,7 @@
   };
 
   outputs =
-    {  self
+    { self
     , nixpkgs
     , home-manager
     , nix-index-database
@@ -77,6 +78,7 @@
     , ...
     }@attrs: {
       packages.x86_64-linux.default = self.nixosConfigurations.iso.config.system.build.isoImage;
+      hydraJobs.x86_64-linux.default = self.packages.x86_64-linux.default;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
       nixosConfigurations = {
         thinkpad = nixpkgs.lib.nixosSystem {
