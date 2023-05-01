@@ -62,3 +62,6 @@ sda
 ├─sda14               # BIOS boot
 └─sda15   /boot/efi   # EFI stuff
 ```
+
+### vm
+Barebones configuration that can be easily deployed to virtual machines.

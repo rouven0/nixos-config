@@ -15,6 +15,10 @@
       };
     };
 
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
+
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,6 +67,7 @@
     { nixpkgs
     , home-manager
     , nix-index-database
+    , impermanence
     , hyprland
     , sops-nix
     , nix-colors
@@ -118,6 +123,16 @@
             sops-nix.nixosModules.sops
             purge.nixosModules.default
             trucksimulatorbot-images.nixosModules.default
+          ];
+        };
+        vm = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs.inputs = attrs;
+          modules = [
+            ./hosts/vm
+            ./shared
+            impermanence.nixosModules.impermanence
+            sops-nix.nixosModules.sops
           ];
         };
       };
