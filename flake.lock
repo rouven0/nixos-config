@@ -260,11 +260,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1682264534,
-        "narHash": "sha256-X4EPTlNLt1hp5IZ7C0+pV6ZQyh760WhWTMcAKtOiaMo=",
+        "lastModified": 1682980127,
+        "narHash": "sha256-gR9nRwiq1TGtc83SpDnaBcjnEbnOJks4oDDhduGVEZQ=",
         "owner": "therealr5",
         "repo": "purge",
-        "rev": "a7abf1921d6904e7170c7e22c60a3660500ac226",
+        "rev": "82a64f778ee5edb2af95236077afef237a150104",
         "type": "github"
       },
       "original": {
@@ -317,11 +317,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1681656676,
-        "narHash": "sha256-A1Hy2GaHAgUAhajgoRB0gE5cspvk7VoaVQXSCNKiyCY=",
+        "lastModified": 1682980440,
+        "narHash": "sha256-Zv7REVcrVE1gFMjjo1atXi0GS7bQqeQ/mY3DEO4SlrI=",
         "owner": "therealr5",
         "repo": "trucksimulatorbot-images",
-        "rev": "e1e0330b0c228726a491c13a096e443f7e74d3d2",
+        "rev": "a63815181451025fd019e069f258f2db4ec4becb",
         "type": "github"
       },
       "original": {
