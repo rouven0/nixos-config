@@ -11,6 +11,10 @@
       enable = true;
       highlightStyle = "fg=#00bbbb,bold";
     };
+    ohMyZsh = {
+      enable = true;
+      theme = "risto";
+    };
 
     shellInit =
       ''
