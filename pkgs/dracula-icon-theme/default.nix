@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub}:
+{ lib, stdenv, fetchFromGitHub }:
 
 let
   themeName = "Dracula";

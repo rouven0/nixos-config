@@ -78,7 +78,8 @@
     , ...
     }@attrs: {
       packages.x86_64-linux.default = self.nixosConfigurations.iso.config.system.build.isoImage;
-      hydraJobs.x86_64-linux.default = self.packages.x86_64-linux.default;
+      packages.x86_64-linux.jmri = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/jmri { };
+      hydraJobs.x86_64-linux = self.packages.x86_64-linux;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
       nixosConfigurations = {
         thinkpad = nixpkgs.lib.nixosSystem {

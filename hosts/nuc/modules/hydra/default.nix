@@ -8,7 +8,7 @@ in
     port = 4000;
     hydraURL = domain;
     notificationSender = "hydra@localhost";
-    buildMachinesFiles = [];
+    buildMachinesFiles = [ ];
     useSubstitutes = true;
 
   };
