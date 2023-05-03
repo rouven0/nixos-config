@@ -37,6 +37,6 @@ stdenv.mkDerivation rec {
     description = "The Java Model Railroad Interface";
     license = licenses.gpl2;
     platforms = platforms.linux;
-    maintainers = with maintainers; [ therealr5 ];
+    # maintainers = with maintainers; [ therealr5 ];
   };
 }
