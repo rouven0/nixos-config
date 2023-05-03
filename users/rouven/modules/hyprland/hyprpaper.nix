@@ -1,10 +1,7 @@
-{ config, hyprpaper, ... }:
-let
-  hyprpaper-pkg = hyprpaper.packages.x86_64-linux.default;
-in
+{ pkgs, ... }:
 {
-  home.packages = [
-    hyprpaper-pkg
+  home.packages = with pkgs; [
+    hyprpaper
   ];
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     preload = ${../../../../images/wallpaper.png}
@@ -14,7 +11,7 @@ in
   systemd.user.services.hyprpaper = {
     Install.WantedBy = [ "graphical-session.target" ];
     Service = {
-      ExecStart = "${hyprpaper-pkg}/bin/hyprpaper";
+      ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
       Restart = "on-failure";
     };
     Unit = {

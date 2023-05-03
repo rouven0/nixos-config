@@ -72,7 +72,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      xdph.packages.x86_64-linux.default
+      pkgs.xdg-desktop-portal-hyprland
     ];
   };
 

@@ -33,24 +33,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
-    xdph = {
-      url = "github:hyprwm/xdg-desktop-portal-hyprland";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
     hyprland = {
       url = "github:hyprwm/Hyprland/";
-      inputs = {
-        xdph.follows = "xdph";
-      };
-    };
-
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     purge = {
