@@ -61,12 +61,9 @@
     , trucksimulatorbot-images
     , ...
     }@attrs: {
-      packages.x86_64-linux = {
-        default = self.nixosConfigurations.iso.config.system.build.isoImage;
-        jmri = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/jmri { };
-        x32edit = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/x32edit{ };
-      };
-      hydraJobs = self.packages;
+      packages.x86_64-linux.default = self.nixosConfigurations.iso.config.system.build.isoImage;
+      packages.x86_64-linux.jmri = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/jmri { };
+      hydraJobs.x86_64-linux = self.packages.x86_64-linux;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
       nixosConfigurations = {
         thinkpad = nixpkgs.lib.nixosSystem {
