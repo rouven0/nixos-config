@@ -1,7 +1,14 @@
-{ config, ... }:
+{ ... }:
 {
   networking.firewall.allowedTCPPorts = [ 80 443 ];
-  services.nginx.enable = true;
+  services.nginx = {
+    enable = true;
+    recommendedTlsSettings = true;
+    recommendedProxySettings = true;
+    recommendedGzipSettings = true;
+    recommendedZstdSettings = true; 
+    recommendedOptimisation = true;
+  };
   security.acme = {
     acceptTerms = true;
     defaults = {

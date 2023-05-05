@@ -107,6 +107,9 @@
     };
     networks."30-dorm" = {
       matchConfig.Name = "dorm";
+      networkConfig = {
+        DNS = "192.168.10.1";
+      };
       addresses = [
         {
           addressConfig = {
