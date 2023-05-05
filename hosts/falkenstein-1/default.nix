@@ -38,7 +38,7 @@
     wget
     htop-vim
     comma
-    hx
+    helix
   ];
   programs.git = {
     enable = true;
