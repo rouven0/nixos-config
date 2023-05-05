@@ -1,12 +1,23 @@
 {
   description = "My nix setup";
   inputs = {
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+    impermanence.url = "github:nix-community/impermanence";
+
+
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware = {
-      url = "github:nixos/nixos-hardware";
+
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,27 +26,8 @@
       };
     };
 
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
-
-    nix-index-database = {
-      url = "github:Mic92/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-colors = {
-      url = "github:Misterio77/nix-colors";
-    };
-
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland/";
-    };
+    nix-colors.url = "github:Misterio77/nix-colors";
+    hyprland.url = "github:hyprwm/Hyprland/";
 
     purge = {
       url = "github:therealr5/purge";

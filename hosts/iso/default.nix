@@ -10,6 +10,7 @@
     keyMap = "dvorak";
   };
   programs.git.enable = true;
+  services.fwupd.enable = true;
 
   # in case we need to rescue a zfs machine
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;

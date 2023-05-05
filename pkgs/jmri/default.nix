@@ -1,12 +1,12 @@
 { stdenv, fetchFromGitHub, lib, ant, jdk, ... }:
 stdenv.mkDerivation rec {
   pname = "jmri";
-  version = "v5.3.5";
+  version = "5.3.5";
 
   src = fetchFromGitHub {
     owner = "jmri";
     repo = "jmri";
-    rev = version;
+    rev = "v${version}";
     hash = "sha256-q3p9G16KhUjC3uUazNFDzAeKFIWu2BTds/Q1yhtSqPc=";
   };
 
