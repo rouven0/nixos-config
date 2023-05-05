@@ -6,7 +6,6 @@
     recommendedTlsSettings = true;
     recommendedProxySettings = true;
     recommendedGzipSettings = true;
-    recommendedZstdSettings = true; 
     recommendedOptimisation = true;
   };
   security.acme = {
