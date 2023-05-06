@@ -68,9 +68,9 @@
     # libs
     libyubikey
     libfido2
-    (pkgs.texlive.combine {
-      inherit (pkgs.texlive) scheme-medium;
-    })
+    # (pkgs.texlive.combine {
+    #   inherit (pkgs.texlive) scheme-medium;
+    # })
   ];
 
   programs.obs-studio.enable = true;
