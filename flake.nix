@@ -76,7 +76,7 @@
                   nix-colors.homeManagerModules.default
                   hyprland.homeManagerModules.default
                   sops-nix.homeManagerModules.sops
-                  nix-index-database.hmModules.nix-index
+                  # nix-index-database.hmModules.nix-index
                 ];
               };
             }

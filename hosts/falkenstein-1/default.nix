@@ -37,7 +37,6 @@
     vim
     wget
     htop-vim
-    comma
     helix
   ];
   programs.git = {

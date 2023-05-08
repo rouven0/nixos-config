@@ -9,7 +9,7 @@
     pcmanfm # rock solid file manager
     xdg-utils # used for xdg-open
     snapper-gui
-    comma # run any command
+    # comma # run any command
     kleopatra
     python310Packages.pyhanko
 
@@ -58,8 +58,7 @@
 
     ripgrep # better grep
     duf # better df
-    gnumake
-    gdb
+    croc # send files anywhere
 
     powerline-fonts
     # password
