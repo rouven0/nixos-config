@@ -111,6 +111,7 @@
             ./hosts/vm
             ./shared
             impermanence.nixosModules.impermanence
+            nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
           ];
         };
