@@ -8,7 +8,7 @@
 
 
     nix-index-database = {
-      url = "github:therealr5/nix-index-database/comma-fix"; # wait for https://github.com/Mic92/nix-index-database/pull/49
+      url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

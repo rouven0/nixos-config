@@ -1,4 +1,4 @@
-# Rouven's NixOS configuariton files
+# Rouven's NixOS configuration files
 
 ![image](https://user-images.githubusercontent.com/72568063/213921069-670965f7-ad51-43ad-a211-63bb45a02648.png)
 
@@ -34,7 +34,6 @@ nvme0n1
 │   └─store  /nix/store
 └─nvme0n1p3
   └─luksswap [SWAP]      # encrypted swap partition
-
 ```
 
 ### nuc
