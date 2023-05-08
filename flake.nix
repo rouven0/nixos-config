@@ -8,7 +8,7 @@
 
 
     nix-index-database = {
-      url = "github:Mic92/nix-index-database";
+      url = "github:therealr5/nix-index-database/comma-fix"; # wait for https://github.com/Mic92/nix-index-database/pull/49
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -76,7 +76,6 @@
                   nix-colors.homeManagerModules.default
                   hyprland.homeManagerModules.default
                   sops-nix.homeManagerModules.sops
-                  # nix-index-database.hmModules.nix-index
                 ];
               };
             }

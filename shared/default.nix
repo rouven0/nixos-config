@@ -1,5 +1,6 @@
 { ... }:
 {
+  programs.nix-index-database.comma.enable = true;
   imports = [
     ./caches.nix
     ./gpg.nix
