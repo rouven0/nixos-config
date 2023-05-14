@@ -12,7 +12,7 @@
     };
     iconTheme = {
       name = "Dracula";
-      package = (pkgs.callPackage ../../../../pkgs/dracula-icon-theme { });
+      package = pkgs.dracula-icon-theme;
     };
   };
   home.pointerCursor = {

@@ -22,7 +22,7 @@
 
     # sound
     pavucontrol
-    # (pkgs.callPackage ../../../pkgs/x32edit { })
+    x32edit
 
     # bluetooth
     blueman
@@ -44,11 +44,12 @@
     # yubikey and password stuff
     yubikey-manager
     yubikey-manager-qt
-    yubioath-flutter
+    # yubioath-flutter # broken, TODO fix
     bitwarden
     bitwarden-cli
 
     # misc
+    btop
     neofetch # obligatory
     virt-manager
     ventoy
