@@ -231,15 +231,9 @@ in
         neomutt = {
           enable = true;
           virtualMailboxes = [
-            # we have to put ALL of our virtual mailboxes into the primary account
-            # TODO make an issue
             {
               name = "IFSR-Unread";
               query = "folder:iFSR/Inbox tag:unread";
-            }
-            {
-              name = "Gmail-Unread";
-              query = "folder:gmail/Inbox tag:unread";
             }
           ];
         };

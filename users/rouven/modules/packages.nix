@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     # temp here for testing
@@ -22,7 +22,7 @@
 
     # sound
     pavucontrol
-    (pkgs.callPackage ../../../pkgs/x32edit { })
+    # (pkgs.callPackage ../../../pkgs/x32edit { })
 
     # bluetooth
     blueman

@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, ... }:
+{ config, pkgs, ... }:
 {
   home.packages = with pkgs; [
     libsixel
