@@ -1,17 +1,13 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # temp here for testing
-    thunderbird
 
     # essentials
     wpa_supplicant_gui # manage wifi
     pcmanfm # rock solid file manager
     xdg-utils # used for xdg-open
     snapper-gui
-    # comma # run any command
     kleopatra
-    python310Packages.pyhanko
 
     # graphics
     evince # pdf viewer
@@ -29,8 +25,6 @@
 
     # internet
     google-chrome
-    nextcloud-client
-    transmission-gtk
 
     # messaging
     discord
@@ -46,23 +40,18 @@
     yubikey-manager-qt
     # yubioath-flutter # broken, TODO fix
     bitwarden
-    bitwarden-cli
 
     # misc
-    btop
     neofetch # obligatory
     virt-manager
     ventoy
-    xsane # scanning
     jetbrains.idea-community
     nix-output-monitor
 
-    ripgrep # better grep
     duf # better df
     croc # send files anywhere
 
     powerline-fonts
-    # password
     pass
 
     # libs
@@ -74,7 +63,6 @@
   ];
 
   programs.obs-studio.enable = true;
-  programs.nix-index.enable = true;
 
   xdg.mimeApps = {
     enable = true;
@@ -97,4 +85,3 @@
       };
   };
 }
-

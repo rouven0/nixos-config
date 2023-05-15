@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, lib, ant, jdk, ... }:
+{ stdenv, fetchFromGitHub, lib, ant, jdk11, ... }:
 stdenv.mkDerivation rec {
   pname = "jmri";
   version = "5.3.5";
@@ -12,9 +12,12 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     ant
-    jdk
+    jdk11
   ];
 
+  buildInputs = [
+    jdk11
+  ];
 
   buildPhase = ''
     ant package-linux

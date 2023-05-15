@@ -4,7 +4,7 @@
     gdb
     lldb
     rust-analyzer
-    nil
+    rnix-lsp
     (python3.withPackages (ps: with ps; [
       pyls-isort
       pylsp-mypy
@@ -29,6 +29,13 @@
       "ui.background" = "{}";
       "ui.virtual.inlay-hint" = { fg = "#666666"; };
     };
+    languages = [
+      {
+        name = "nix";
+        auto-format = true;
+        language-server.command = "rnix-lsp";
+      }
+    ];
     settings = {
       theme = "dracula-transparent";
       editor = {
