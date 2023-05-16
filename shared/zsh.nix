@@ -17,7 +17,8 @@
       ll = "ls -la";
       la = "ls -a";
       less = "bat";
-      update = "cd /etc/nixos && nix flake update && cat ${../images/another-cat.sixel}";
+      # update = "cd /etc/nixos && nix flake update && cat ${../images/another-cat.sixel}";
+      update = "cd /etc/nixos && nix flake update";
       garbage = "sudo nix-collect-garbage -d && cat ${../images/cat-garbage.sixel}";
     };
     histSize = 100000;
@@ -54,7 +55,8 @@
         switch() {
           OUT_PATH=/tmp/nixos-rebuild-nom-$(date +%s)
           ${pkgs.nix-output-monitor}/bin/nom build /etc/nixos#nixosConfigurations.${config.networking.hostName}.config.system.build.toplevel -o $OUT_PATH
-          sudo $OUT_PATH/bin/switch-to-configuration switch
+          sudo ${pkgs.nix}/bin/nix-env -p /nix/var/nix/profiles/system --set $OUT_PATH
+          sudo $OUT_PATH/bin/switch-to-configuration switch 
           unlink $OUT_PATH
         }
 
