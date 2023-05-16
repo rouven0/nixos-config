@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
@@ -17,7 +17,6 @@
       ll = "ls -la";
       la = "ls -a";
       less = "bat";
-      switch = "sudo nixos-rebuild switch && cat ${../images/another-cat-2.sixel}";
       update = "cd /etc/nixos && nix flake update && cat ${../images/another-cat.sixel}";
       garbage = "sudo nix-collect-garbage -d && cat ${../images/cat-garbage.sixel}";
     };
@@ -49,12 +48,15 @@
         prompt_dir() {
             prompt_segment blue $CURRENT_FG '%c'
         }
-        if [[ "$(hostname)" == "thinkpad" ]]
-        then
-          cat ${../images/cat.sixel}
-        fi
 
         zsh-newuser-install () {}
+
+        switch() {
+          OUT_PATH=/tmp/nixos-rebuild-nom-$(date +%s)
+          ${pkgs.nix-output-monitor}/bin/nom build /etc/nixos#nixosConfigurations.${config.networking.hostName}.config.system.build.toplevel -o $OUT_PATH
+          sudo $OUT_PATH/bin/switch-to-configuration switch
+          unlink $OUT_PATH
+        }
 
       '';
 
@@ -63,6 +65,10 @@
       ''
         source ${pkgs.fzf}/share/fzf/completion.zsh
         source ${pkgs.fzf}/share/fzf/key-bindings.zsh
+        if [[ "$(hostname)" == "thinkpad" ]]
+        then
+          cat ${../images/cat.sixel}
+        fi
       '';
   };
 }
