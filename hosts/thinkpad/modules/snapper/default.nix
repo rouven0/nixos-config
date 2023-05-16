@@ -3,20 +3,16 @@
   services.snapper = {
     configs = {
       home = {
-        subvolume = "/home";
-        extraConfig = ''
-          ALLOW_USERS="rouven"
-          TIMELINE_CREATE=yes
-          TIMELINE_CLEANUP=yes
-        '';
+        SUBVOLUME = "/home";
+        ALLOW_USERS = [ "rouven" ];
+        TIMELINE_CREATE = true;
+        TIMELINE_CLEANUP = true;
       };
       lib = {
-        subvolume = "/var/lib";
-        extraConfig = ''
-          ALLOW_USERS="rouven"
-          TIMELINE_CREATE=yes
-          TIMELINE_CLEANUP=yes
-        '';
+        SUBVOLUME = "/var/lib";
+        ALLOW_USERS = [ "rouven" ];
+        TIMELINE_CREATE = true;
+        TIMELINE_CLEANUP = true;
       };
     };
   };
