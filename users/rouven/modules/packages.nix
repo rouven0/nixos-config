@@ -38,7 +38,7 @@
     # yubikey and password stuff
     yubikey-manager
     yubikey-manager-qt
-    # yubioath-flutter # broken, TODO fix
+    yubioath-flutter
     bitwarden
 
     # misc
