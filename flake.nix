@@ -2,25 +2,17 @@
   description = "My nix setup";
   inputs = {
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-    impermanence.url = "github:nix-community/impermanence";
-
+    nixpkgs.url = "nixpkgs/nixos-unstable";
 
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-
     sops-nix = {
-      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     home-manager = {
-      url = "github:nix-community/home-manager";
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };
@@ -44,7 +36,6 @@
     , nixpkgs
     , home-manager
     , nix-index-database
-    , impermanence
     , hyprland
     , sops-nix
     , nix-colors
@@ -110,7 +101,6 @@
           modules = [
             ./hosts/vm
             ./shared
-            impermanence.nixosModules.impermanence
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
           ];

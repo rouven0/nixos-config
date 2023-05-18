@@ -15,10 +15,10 @@
     tmp.useTmpfs = true;
   };
   networking.hostName = "vm";
-  environment.persistence."/nix/persistent/system" = {
-    directories = [ "/etc/nixos" ];
-    files = [ "/etc/machine-id" ];
-  };
+  # environment.persistence."/nix/persistent/system" = {
+  #   directories = [ "/etc/nixos" ];
+  #   files = [ "/etc/machine-id" ];
+  # };
 
 
   time.timeZone = "Europe/Berlin";

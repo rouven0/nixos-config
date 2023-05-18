@@ -53,6 +53,7 @@
         zsh-newuser-install () {}
 
         switch() {
+          sudo true # ask the password so we can leave during the (sometimes quite long) build process
           OUT_PATH=/tmp/nixos-rebuild-nom-$(date +%s)
           ${pkgs.nix-output-monitor}/bin/nom build /etc/nixos#nixosConfigurations.${config.networking.hostName}.config.system.build.toplevel -o $OUT_PATH
           sudo ${pkgs.nix}/bin/nix-env -p /nix/var/nix/profiles/system --set $OUT_PATH

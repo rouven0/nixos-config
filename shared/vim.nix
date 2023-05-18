@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  environment.variables = { EDITOR = "vim"; };
+  environment.variables = { EDITOR = "hx"; }; # we set helix in here to have it shared
   environment.systemPackages = with pkgs; [
     ((vim_configurable.override { }).customize {
       name = "vim";
