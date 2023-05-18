@@ -1,5 +1,7 @@
 { config, pkgs, hyprland, ... }:
 {
+  # waybar needs hyprctl
+  systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.hyprland}/bin";
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -9,7 +11,7 @@
         layer = "top";
         position = "top";
         height = 26;
-        modules-left = [ "wlr/workspaces" ];
+        modules-left = [ "wlr/workspaces" "hyprland/window" ];
         modules-right = [ "network" "cpu" "temperature" "pulseaudio" "battery" "tray" "clock" ];
         network = {
           format-wifi = "  {essid} ({signalStrength}%)";
@@ -19,11 +21,19 @@
           format-disconnected = "Disconnected ⚠";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
+        "wlr/workspaces" = {
+          format = "{icon}";
+          on-click = "activate";
+        };
+        "hyprland/window" = {
+          format = "   {}";
+          separate-outputs = true;
+        };
         cpu = {
           format = "{usage}% ";
         };
         temperature = {
-          hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+          hwmon-path = "/sys/class/hwmon/hwmon5/temp1_input";
           critical-threshold = 80;
           format = "{temperatureC}°C {icon}";
           format-icons = [ "" ];
@@ -32,13 +42,13 @@
           format = "{volume}% {icon} {format_source}";
           format-bluetooth = "{volume}% {icon} {format_source} ";
           format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
+          format-muted = "󰝟 {format_source}";
           format-source = " {volume}% ";
           format-source-muted = " ";
           format-icons = {
             headphone = "";
-            headset = "";
-            default = [ "" "" "" ];
+            headset = "󰋎";
+            default = [ "󰕿" "󰖀" "󰕾" ];
           };
           on-click = "pavucontrol";
         };
@@ -48,7 +58,7 @@
             critical = 15;
           };
           format = "{capacity}% {icon} ";
-          format-charging = "{capacity}% ";
+          format-charging = "{capacity}% 󱊦";
           format-plugged = "{capacity}% ";
           format-icons = [ "" "" "" "" "" ];
         };
@@ -98,6 +108,7 @@
     #temperature,
     #network,
     #pulseaudio,
+    #window,
     #tray{
         border-radius: 30px; 
         padding: 0 10px;
@@ -108,6 +119,11 @@
     #workspaces {
         margin: 0 4px;
     }
+
+    #window {
+        background-color: #${config.colorScheme.colors.base00};
+    }
+
     
     #clock {
         background-color: #${config.colorScheme.colors.base00};
