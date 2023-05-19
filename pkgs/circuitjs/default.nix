@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, makeWrapper, wrapGAppsHook, lib, libX11, libXext, gtk3-x11, dbus, nspr, alsa-lib, glib, expat, gdk-pixbuf, mesa, xorg, nss, cups, ffmpeg, cairo, pango, at-spi2-atk, atk, at-spi2-core, libdrm, ... }:
+{ stdenv, fetchurl, makeWrapper, wrapGAppsHook, lib, libX11, libXext, gtk3-x11, dbus, nspr, alsa-lib, glib, expat, gdk-pixbuf, mesa, xorg, nss, cups, ffmpeg, cairo, pango, atk, libdrm, ... }:
 stdenv.mkDerivation rec {
   pname = "circuitjs";
   version = "2.8.0";

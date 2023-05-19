@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 let
   domain = "trucksimulatorbot.rfive.de";
 in

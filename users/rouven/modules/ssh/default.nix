@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 let
   git = "~/.ssh/git";
 in

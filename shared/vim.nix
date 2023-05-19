@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   environment.variables = { EDITOR = "hx"; }; # we set helix in here to have it shared
   environment.systemPackages = with pkgs; [

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   # fixes pam entries for swaylock
   security.pam.services.swaylock.text = ''

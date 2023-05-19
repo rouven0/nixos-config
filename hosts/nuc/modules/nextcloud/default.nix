@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 let
   domain = "nextcloud.rfive.de";
 in

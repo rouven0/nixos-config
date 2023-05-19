@@ -30,6 +30,7 @@
     discord
     tdesktop
     element-desktop
+    gomuks # alternative matrix client
 
     # games
     # prismlauncher # minecraft, but it actually works # not anymore lol

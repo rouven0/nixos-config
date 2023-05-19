@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, ... }:
 {
   imports = [ ./fixes.nix ];
   nixpkgs.config.allowUnfree = true;
@@ -9,7 +9,7 @@
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
 
-  home-manager.users.rouven = { lib, pkgs, ... }: {
+  home-manager.users.rouven = { ... }: {
     imports = [ ./modules ];
 
     config = {

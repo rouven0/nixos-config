@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 let
   gpg-default-key = "116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09";
 in

@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   networking = {
     hostName = "falkenstein-1";
