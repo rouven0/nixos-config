@@ -41,7 +41,7 @@
     yubikey-manager
     yubikey-manager-qt
     yubioath-flutter
-    bitwarden
+    # bitwarden
 
     # misc
     neofetch # obligatory

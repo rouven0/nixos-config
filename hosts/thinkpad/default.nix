@@ -23,6 +23,16 @@
     auto-optimise-store = true;
   };
 
+  environment.persistence."/nix/persist/system" = {
+    directories = [
+      "/etc/nixos" # bind mounted from /nix/persist/system/etc/nixos to /etc/nixos
+      "/etc/ssh"
+    ];
+    files = [
+      "/etc/machine-id"
+    ];
+  };
+
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
   console = {

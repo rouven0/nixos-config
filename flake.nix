@@ -12,6 +12,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    impermanence.url = "github:nix-community/impermanence";
+
     home-manager = {
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -38,6 +40,7 @@
     , nix-index-database
     , hyprland
     , sops-nix
+    , impermanence
     , nix-colors
     , nixos-hardware
     , purge
@@ -61,6 +64,7 @@
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             nix-index-database.nixosModules.nix-index
+            impermanence.nixosModules.impermanence
             {
               home-manager.extraSpecialArgs = attrs;
               home-manager.users.rouven = {

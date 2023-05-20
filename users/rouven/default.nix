@@ -5,6 +5,7 @@
   users.users.rouven = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "libvirtd" ];
+    initialHashedPassword = "$6$X3XERQv28Nt1UUT5$MjdMBDuXyEwexkuKqmNFweez69q4enY5cjMXSbBxOc6Bq7Fhhp7OqmCm02k3OGjoZFXzPV9ZHuMSGKZOtwYIk1";
   };
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
