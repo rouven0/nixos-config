@@ -23,15 +23,15 @@ A ThinkPad L15 that I use for almost everything that one needs a monitor to.
 #### Disk Layout
 ```
 NAME         MOUNTPOINT  COMMENT
+tmpfs        /           # root on tmpfs using impermanence
 nvme0n1
 ├─nvme0n1p1  /boot
 ├─nvme0n1p2              # LUKS-encrypted partition
 │ └─luksroot             # btrfs with some subvolumes
-│   ├─root   /
 │   ├─home   /home
 │   ├─lib    /var/lib
 │   ├─log    /var/log
-│   └─store  /nix/store
+│   └─nix    /nix
 └─nvme0n1p3
   └─luksswap [SWAP]      # encrypted swap partition
 ```

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -32,6 +32,10 @@
       "/etc/machine-id"
     ];
   };
+  # impermanence fixes
+  sops.age.sshKeyPaths = lib.mkForce [ "/nix/persist/system/etc/ssh/ssh_host_ed25519_key" ];
+  sops.gnupg.sshKeyPaths = lib.mkForce [ ];
+
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -108,6 +112,7 @@
     fwupd.enable = true; # firmware updates
   };
 
+  # fun fact: if I disable this, Hyprland breaks due to missing egl dependencies
   programs.steam.enable = true; # putting steam in here cause in home manager it doesn't work
 
   programs.ausweisapp = {

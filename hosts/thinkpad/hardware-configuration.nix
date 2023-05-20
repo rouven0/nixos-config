@@ -41,14 +41,14 @@
     {
       device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
       fsType = "btrfs";
-      options = [ "subvol=lib" "compress=zstd" "discard=async" "noatime" ];
+      options = [ "subvol=lib" "compress=zstd" "discard=async" "noatime" "x-mount.mkdir" ];
     };
 
   fileSystems."/var/log" =
     {
       device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
       fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "discard=async" "noatime" ];
+      options = [ "subvol=log" "compress=zstd" "discard=async" "noatime" "x-mount.mkdir" ];
     };
 
   fileSystems."/nix" =

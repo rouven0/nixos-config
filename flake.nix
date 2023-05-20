@@ -21,7 +21,7 @@
     };
 
     nix-colors.url = "github:Misterio77/nix-colors";
-    hyprland.url = "github:hyprwm/Hyprland/";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     purge = {
       url = "github:therealr5/purge";
