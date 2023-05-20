@@ -29,13 +29,15 @@
       "ui.background" = "{}";
       "ui.virtual.inlay-hint" = { fg = "#666666"; };
     };
-    languages = [
-      {
-        name = "nix";
-        auto-format = true;
-        language-server.command = "rnix-lsp";
-      }
-    ];
+    languages = {
+      language = [
+        {
+          name = "nix";
+          auto-format = true;
+          language-server.command = "rnix-lsp";
+        }
+      ];
+    };
     settings = {
       theme = "dracula-transparent";
       editor = {
