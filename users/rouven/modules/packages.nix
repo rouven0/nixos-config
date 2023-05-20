@@ -4,7 +4,8 @@
 
     # essentials
     wpa_supplicant_gui # manage wifi
-    pcmanfm # rock solid file manager
+    # pcmanfm # rock solid file manager
+    xfce.thunar
     xdg-utils # used for xdg-open
     snapper-gui
     kleopatra

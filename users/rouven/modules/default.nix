@@ -3,7 +3,6 @@
   imports = [
     ./accounts
     ./foot
-    ./fzf
     ./git
     ./gpg
     ./helix

@@ -179,11 +179,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1684385584,
-        "narHash": "sha256-O7y0gK8OLIDqz+LaHJJyeu09IGiXlZIS3+JgEzGmmJA=",
+        "lastModified": 1684481515,
+        "narHash": "sha256-sDMEZ4HLP6sVNiBcgla3KWihdDjh67DP5ZWkGKWFgY0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "48a0fb7aab511df92a17cf239c37f2bd2ec9ae3a",
+        "rev": "5b1bc788f578cd83d54b48bb057d6f6703ae7725",
         "type": "github"
       },
       "original": {
@@ -199,11 +199,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1684047328,
-        "narHash": "sha256-Kwdg+vDiZpfjtkoJH/AQdu2HFJmfdWp+7AJegBIibrs=",
+        "lastModified": 1684491027,
+        "narHash": "sha256-tB44RuuhVCq7TOF02D1l9sxexSmX2c9DDl/UUzi+XQY=",
         "owner": "therealr5",
         "repo": "purge",
-        "rev": "fb7472f69dad2b5cd1c58c6b505a2db72048d3a5",
+        "rev": "63a0c5b4d9f4f167b5b8a5456ed195fd3340d3ee",
         "type": "github"
       },
       "original": {
@@ -252,11 +252,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1684047341,
-        "narHash": "sha256-p012shouUVUI1cXEtgmOr6o6ki7qu+NICIwu+PvstIU=",
+        "lastModified": 1684491085,
+        "narHash": "sha256-ce65P0CAKbZ9Xcx3aBHtByynrT0LHlusgyTzdxxuwr4=",
         "owner": "therealr5",
         "repo": "trucksimulatorbot-images",
-        "rev": "ec556101ee5f314550d4e4ce843cda5152d16006",
+        "rev": "734dbc070778c5671fc23dfc70196e449089e904",
         "type": "github"
       },
       "original": {

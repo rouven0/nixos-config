@@ -2,12 +2,16 @@
 {
   programs.command-not-found.enable = false;
   environment.systemPackages = with pkgs; [
-    fzf
+    # fzf
     bat
     exa
     trash-cli
   ];
   users.defaultUserShell = pkgs.zsh;
+  programs.fzf = {
+    fuzzyCompletion = true;
+    keybindings = true;
+  };
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -62,12 +66,8 @@
         }
 
       '';
-
-    # Hacky way to bind Ctrl+R to fzf. Otherwise it will be overridden 
     promptInit =
       ''
-        source ${pkgs.fzf}/share/fzf/completion.zsh
-        source ${pkgs.fzf}/share/fzf/key-bindings.zsh
         if [[ "$(hostname)" == "thinkpad" ]]
         then
           cat ${../images/cat.sixel}
