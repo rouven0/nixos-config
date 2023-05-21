@@ -4,7 +4,7 @@
 
     # essentials
     wpa_supplicant_gui # manage wifi
-    xfce.thunar
+    cinnamon.nemo
     xdg-utils # used for xdg-open
     snapper-gui
 
