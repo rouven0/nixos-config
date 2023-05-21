@@ -5,7 +5,9 @@
     # fzf
     bat
     exa
+    duf
     trash-cli
+    nix-output-monitor
   ];
   users.defaultUserShell = pkgs.zsh;
   programs.fzf = {

@@ -4,17 +4,14 @@
 
     # essentials
     wpa_supplicant_gui # manage wifi
-    # pcmanfm # rock solid file manager
     xfce.thunar
     xdg-utils # used for xdg-open
     snapper-gui
-    kleopatra
 
     # graphics
     evince # pdf viewer
     gimp
     mpv # best video player out there
-    yt-dlp # youtube downloader
     ffmpeg
 
     # sound
@@ -41,20 +38,20 @@
     yubikey-manager
     yubikey-manager-qt
     yubioath-flutter
-    # bitwarden
+    bitwarden
+    pass
 
     # misc
     neofetch # obligatory
     virt-manager
-    ventoy
     jetbrains.idea-community
-    nix-output-monitor
-
-    duf # better df
+    powerline-fonts
     croc # send files anywhere
 
-    powerline-fonts
-    pass
+    # programming languages
+    cargo
+    rustc
+    rustfmt
 
     # libs
     libyubikey
@@ -63,8 +60,6 @@
     #   inherit (pkgs.texlive) scheme-medium;
     # })
   ];
-
-  programs.obs-studio.enable = true;
 
   xdg.mimeApps = {
     enable = true;

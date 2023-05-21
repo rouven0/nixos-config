@@ -156,26 +156,19 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # hardware utilities
+    btdu
+    nvme-cli
+    intel-gpu-tools
+
+    # system essentials
     wget
-    gcc
-    git
     htop-vim
     dig
     traceroute
     killall
-    python3
     zip
     unzip
-    nvme-cli
-    intel-gpu-tools
-
-    # rust
-    cargo
-    rustc
-    rustfmt
-
-    # java stuff
-    javaPackages.junit_4_12
   ];
   programs.java.enable = true;
 
