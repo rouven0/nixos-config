@@ -52,7 +52,7 @@
       # packages.x86_64-linux.circuitjs = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/circuitjs { };
       hydraJobs = self.packages;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-      nixosConfigurations = rec {
+      nixosConfigurations = {
         thinkpad = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = attrs;
@@ -86,20 +86,6 @@
             ./hosts/nuc
             ./shared
             sops-nix.nixosModules.sops
-
-            # hacking this into here since it somehow doesnt' work as module
-            {
-              services.pixiecore = rec {
-                enable = true;
-                port = 64172;
-                statusPort = port;
-                openFirewall = true;
-                kernel = "${netboot.config.system.build.kernel}/bzImage";
-                initrd = "${netboot.config.system.build.netbootRamdisk}/initrd";
-                cmdLine = "init=${netboot.config.system.build.toplevel}/init loglevel=4";
-              };
-            }
-
           ];
         };
         falkenstein-1 = nixpkgs.lib.nixosSystem {
@@ -129,15 +115,6 @@
           specialArgs.inputs = attrs;
           modules = [
             ./hosts/iso
-            ./shared/caches.nix
-            ./shared/vim.nix
-          ];
-        };
-        netboot = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs.inputs = attrs;
-          modules = [
-            ./hosts/netboot
             ./shared/caches.nix
             ./shared/vim.nix
           ];
