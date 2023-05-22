@@ -52,6 +52,7 @@
     cargo
     rustc
     rustfmt
+    gcc
 
     # libs
     libyubikey
