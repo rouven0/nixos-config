@@ -49,7 +49,7 @@
     }@attrs: {
       packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
       packages.x86_64-linux.jmri = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/jmri { };
-      # packages.x86_64-linux.circuitjs = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/circuitjs { };
+      packages.x86_64-linux.circuitjs = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/circuitjs { };
       hydraJobs = self.packages;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
       nixosConfigurations = {

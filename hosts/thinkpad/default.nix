@@ -169,6 +169,8 @@
     killall
     zip
     unzip
+
+    virt-viewer # multi monitor for vms
   ];
   programs.java.enable = true;
 

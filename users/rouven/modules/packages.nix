@@ -31,7 +31,7 @@
     gomuks # alternative matrix client
 
     # games
-    # prismlauncher # minecraft, but it actually works # not anymore lol
+    prismlauncher # minecraft, but it actually works # not anymore lol
     superTuxKart
 
     # yubikey and password stuff

@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  # nodejs 16 is EOL but bitwarden depends on it
-  nixpkgs.config.permittedInsecurePackages = [
-    "nodejs-16.20.0"
-  ];
   # fixes pam entries for swaylock
   security.pam.services.swaylock.text = ''
     # Account management.
