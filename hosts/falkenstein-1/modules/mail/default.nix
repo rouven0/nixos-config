@@ -1,6 +1,7 @@
 { config, ... }:
 {
   sops.secrets."mail/rouven".owner = config.users.users.postfix.name;
+  sops.secrets."rspamd".owner = config.users.users.rspamd.name;
   mailserver = rec {
     enable = true;
     fqdn = "mail.rfive.de";
@@ -13,5 +14,15 @@
       };
     };
     certificateScheme = 3;
+  };
+  services.rspamd.locals."worker-controller.inc".source = config.sops.secrets."rspamd".path;
+  services.nginx.virtualHosts."rspamd.rfive.de" = {
+    enableACME = true;
+    forceSSL = true;
+    locations = {
+      "/" = {
+        proxyPass = "http://unix:/run/rspamd/worker-controller.sock:/";
+      };
+    };
   };
 }

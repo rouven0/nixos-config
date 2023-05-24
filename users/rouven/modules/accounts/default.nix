@@ -42,7 +42,7 @@ in
       address = "rouven@rfive.de";
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
-      userName = "rouven";
+      userName = address;
       passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/rfive";
       imap = {
         host = "mail.rfive.de";
