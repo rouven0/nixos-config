@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   sops.secrets."mail/rouven".owner = config.users.users.postfix.name;
   mailserver = rec {
