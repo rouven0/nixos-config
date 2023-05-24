@@ -5,6 +5,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/mail
       ./modules/networks
       ./modules/nginx
       ./modules/purge
@@ -38,10 +39,6 @@
     htop-vim
     helix
   ];
-  users.users.rouven = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
   programs.git = {
     enable = true;
     config = {
@@ -52,7 +49,10 @@
   services.qemuGuest.enable = true;
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+  };
   users.users.root.openssh.authorizedKeys.keyFiles = [
     #../../keys/ssh/rouven-thinkpad
     ../../keys/ssh/rouven-pixel
