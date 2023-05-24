@@ -38,66 +38,66 @@ in
     msmtp.enable = true;
   };
   accounts.email.accounts = {
-    "rouven@rfive.de" = rec {
-      address = "rouven@rfive.de";
-      gpg.key = gpg-default-key;
-      realName = "Rouven Seifert";
-      userName = address;
-      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/rfive";
-      imap = {
-        host = "pro1.mail.ovh.net";
-        port = 993;
-      };
-      smtp = {
-        host = "pro1.mail.ovh.net";
-        port = 587;
-        tls.useStartTls = true;
-      };
-      msmtp.enable = true;
-      mbsync = {
-        enable = true;
-        create = "maildir";
-        expunge = "both";
-        groups.rfive = {
-          channels.inbox = {
-            nearPattern = "INBOX";
-            farPattern = "INBOX";
-            extraConfig.Create = "near";
-          };
-          channels.trash = {
-            nearPattern = "Trash";
-            farPattern = "Gel&APY-schte Elemente";
-            extraConfig.Create = "near";
-          };
-          channels.sent = {
-            nearPattern = "Sent";
-            farPattern = "Gesendete Elemente";
-            extraConfig.Create = "near";
-          };
-          channels.junk = {
-            nearPattern = "Junk";
-            farPattern = "Junk-E-Mail";
-            extraConfig.Create = "near";
-          };
-          channels.drafts = {
-            nearPattern = "Drafts";
-            farPattern = "Entw&APw-rfe";
-            extraConfig.Create = "near";
-          };
-        };
-        extraConfig = {
-          account = {
-            AuthMechs = "Login";
-          };
-        };
-      };
-      neomutt = let c = mbsync.groups.rfive.channels; in
-        {
-          enable = true;
-          mailboxName = " 󰒋 rfive.de";
-          extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
-        };
-    };
+    # "rouven@rfive.de" = rec {
+    #   address = "rouven@rfive.de";
+    #   gpg.key = gpg-default-key;
+    #   realName = "Rouven Seifert";
+    #   userName = address;
+    #   passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/rfive";
+    #   imap = {
+    #     host = "pro1.mail.ovh.net";
+    #     port = 993;
+    #   };
+    #   smtp = {
+    #     host = "pro1.mail.ovh.net";
+    #     port = 587;
+    #     tls.useStartTls = true;
+    #   };
+    #   msmtp.enable = true;
+    #   mbsync = {
+    #     enable = true;
+    #     create = "maildir";
+    #     expunge = "both";
+    #     groups.rfive = {
+    #       channels.inbox = {
+    #         nearPattern = "INBOX";
+    #         farPattern = "INBOX";
+    #         extraConfig.Create = "near";
+    #       };
+    #       channels.trash = {
+    #         nearPattern = "Trash";
+    #         farPattern = "Gel&APY-schte Elemente";
+    #         extraConfig.Create = "near";
+    #       };
+    #       channels.sent = {
+    #         nearPattern = "Sent";
+    #         farPattern = "Gesendete Elemente";
+    #         extraConfig.Create = "near";
+    #       };
+    #       channels.junk = {
+    #         nearPattern = "Junk";
+    #         farPattern = "Junk-E-Mail";
+    #         extraConfig.Create = "near";
+    #       };
+    #       channels.drafts = {
+    #         nearPattern = "Drafts";
+    #         farPattern = "Entw&APw-rfe";
+    #         extraConfig.Create = "near";
+    #       };
+    #     };
+    #     extraConfig = {
+    #       account = {
+    #         AuthMechs = "Login";
+    #       };
+    #     };
+    #   };
+    #   neomutt = let c = mbsync.groups.rfive.channels; in
+    #     {
+    #       enable = true;
+    #       mailboxName = " 󰒋 rfive.de";
+    #       extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+    #     };
+    # };
     "TU-Dresden" = rec {
       address = "rouven.seifert@mailbox.tu-dresden.de";
       gpg.key = gpg-default-key;

@@ -38,6 +38,10 @@
     htop-vim
     helix
   ];
+  users.users.rouven = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
   programs.git = {
     enable = true;
     config = {

@@ -31,6 +31,12 @@
       url = "github:therealr5/trucksimulatorbot-images";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    simple-nixos-mailserver = {
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -45,6 +51,7 @@
     , nixos-hardware
     , purge
     , trucksimulatorbot-images
+    , simple-nixos-mailserver
     , ...
     }@attrs: {
       packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
@@ -98,6 +105,7 @@
             sops-nix.nixosModules.sops
             purge.nixosModules.default
             trucksimulatorbot-images.nixosModules.default
+            simple-nixos-mailserver.nixosModules.default
           ];
         };
         vm = nixpkgs.lib.nixosSystem {
