@@ -54,7 +54,7 @@
     settings.PasswordAuthentication = false;
   };
   users.users.root.openssh.authorizedKeys.keyFiles = [
-    #../../keys/ssh/rouven-thinkpad
+    ../../keys/ssh/rouven-thinkpad
     ../../keys/ssh/rouven-pixel
     ../../keys/ssh/rouven-smartcard
   ];
