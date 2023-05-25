@@ -125,6 +125,7 @@
             ./hosts/iso
             ./shared/caches.nix
             ./shared/vim.nix
+            ./shared/tmux.nix
           ];
         };
       };

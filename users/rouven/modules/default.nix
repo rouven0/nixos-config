@@ -11,7 +11,6 @@
     ./sops
     ./spotify
     ./ssh
-    ./tmux
     ./vifm
     ./theme
     ./packages.nix

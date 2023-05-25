@@ -7,7 +7,7 @@
       # better desktop application name. "wpa_gui" kinda sucks
       postInstall = prev.postInstall + ''
 
-       substituteInPlace $out/share/applications/wpa_gui.desktop --replace "Name=wpa_gui" "Name=WPA Supplicant"
+       substituteInPlace $out/share/applications/wpa_gui.desktop --replace "Name=wpa_gui" "Name=Manage Wifi"
       '';
     })) # manage wifi
     cinnamon.nemo

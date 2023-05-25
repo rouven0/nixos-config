@@ -13,7 +13,7 @@
 
       };
     };
-    certificateScheme = 3;
+    certificateScheme = "acme-nginx";
   };
   services.rspamd.locals."worker-controller.inc".source = config.sops.secrets."rspamd".path;
   services.nginx.virtualHosts."rspamd.rfive.de" = {

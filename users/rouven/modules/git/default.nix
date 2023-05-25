@@ -24,7 +24,7 @@
   programs.gh = {
     enable = true;
     settings = {
-      editor = "nvim";
+      editor = "hx";
       git_protocol = "ssh";
     };
   };

@@ -7,6 +7,7 @@
     ./gpg.nix
     ./sops.nix
     ./vim.nix
+    ./tmux.nix
     ./zsh.nix
   ];
 }
