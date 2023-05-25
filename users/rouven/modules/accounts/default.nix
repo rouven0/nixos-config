@@ -45,11 +45,11 @@ in
       userName = address;
       passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/rfive";
       imap = {
-        host = "mail.rfive.de";
+        host = "falkenstein.vpn.rfive.de";
         port = 993;
       };
       smtp = {
-        host = "mail.rfive.de";
+        host = "falkenstein.vpn.rfive.de";
         port = 587;
         tls.useStartTls = true;
       };

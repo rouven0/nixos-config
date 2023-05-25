@@ -4,7 +4,7 @@
   sops.secrets."rspamd".owner = config.users.users.rspamd.name;
   mailserver = rec {
     enable = true;
-    fqdn = "mail.rfive.de";
+    fqdn = "falkenstein.vpn.rfive.de";
     domains = [ "rfive.de" ];
     loginAccounts = {
       "rouven@rfive.de" = {
