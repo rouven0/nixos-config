@@ -3,7 +3,7 @@
     {
       device = "/dev/disk/by-uuid/f6905cdb-c130-465a-90a3-93997023b5d3 ";
       fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" ];
+      options = [ "compress=zstd" "noatime" "nofail" ];
       neededForBoot = false;
     };
 

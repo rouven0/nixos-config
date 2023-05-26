@@ -17,7 +17,6 @@
     # graphics
     evince # pdf viewer
     gimp
-    mpv # best video player out there
     ffmpeg
 
     # sound

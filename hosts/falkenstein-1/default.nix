@@ -32,12 +32,14 @@
   console = {
     keyMap = "dvorak";
   };
+  virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
     wget
     htop-vim
     helix
+    docker-compose
   ];
   programs.git = {
     enable = true;

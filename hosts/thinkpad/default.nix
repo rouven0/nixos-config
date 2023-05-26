@@ -155,6 +155,11 @@
     };
   };
 
+  hardware.opengl.extraPackages = with pkgs; [
+    intel-compute-runtime
+    intel-media-driver
+  ];
+
   environment.systemPackages = with pkgs; [
     # hardware utilities
     btdu
