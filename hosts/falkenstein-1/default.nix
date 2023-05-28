@@ -40,6 +40,7 @@
     htop-vim
     helix
     docker-compose
+    lsof
   ];
   programs.git = {
     enable = true;

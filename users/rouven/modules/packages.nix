@@ -10,7 +10,7 @@
        substituteInPlace $out/share/applications/wpa_gui.desktop --replace "Name=wpa_gui" "Name=Manage Wifi"
       '';
     })) # manage wifi
-    cinnamon.nemo
+    pcmanfm
     xdg-utils # used for xdg-open
     snapper-gui
 

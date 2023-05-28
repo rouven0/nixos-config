@@ -6,6 +6,12 @@
     enable = true;
     fqdn = "falkenstein.vpn.rfive.de";
     domains = [ "rfive.de" ];
+
+    extraVirtualAliases = {
+      "root@rfive.de" = "rouven@rfive.de";
+      "abuse@rfive.de" = "rouven@rfive.de";
+      "postmaster@rfive.de" = "rouven@rfive.de";
+    };
     loginAccounts = {
       "rouven@rfive.de" = {
         name = "Rouven Seifert";

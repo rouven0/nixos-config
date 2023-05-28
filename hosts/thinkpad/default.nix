@@ -171,6 +171,9 @@
     htop-vim
     dig
     traceroute
+    whois
+    inetutils
+    lsof
     killall
     zip
     unzip

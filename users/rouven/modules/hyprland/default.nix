@@ -49,7 +49,7 @@
     "mako/do-not-disturb.sh".text = ''
       if [[ $(makoctl mode) = 'default' ]];then
         notify-send 'Enabled Do Not Disturb mode'
-        sleep 5
+        sleep 3
         makoctl mode -s do-not-disturb
       else
         makoctl mode -s default

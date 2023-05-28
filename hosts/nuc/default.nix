@@ -40,6 +40,7 @@
     wget
     htop-vim
     helix
+    lsof
   ];
   programs.git = {
     enable = true;
