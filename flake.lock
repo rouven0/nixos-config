@@ -75,11 +75,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1685346756,
-        "narHash": "sha256-pZNHeNkBBgi5o2DOT1T8MPHnrpJN+eEfYeqdg2ASjZA=",
+        "lastModified": 1685380658,
+        "narHash": "sha256-LPih0Q//p8IurXG9kGRVGAqV4AUKVYj9xkk3sYYAj6I=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "b3a86952cf14b6f556159eb898eaa7b6ceac4335",
+        "rev": "51a930f802c71a0e67f05e7b176ded74e8e95f87",
         "type": "github"
       },
       "original": {
@@ -362,11 +362,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685363327,
-        "narHash": "sha256-LmuiCTrl+RtUg5bV3MjsWaa2RnWzMLaefPGJUe48piU=",
+        "lastModified": 1685393793,
+        "narHash": "sha256-1cr3WVsmN0aAkQeUK+4BOiOynwFtFqBD21G4JlB9l+A=",
         "owner": "therealr5",
         "repo": "TruckSimulatorBot",
-        "rev": "7b7cd1e2b1834c1cfc374cfea1485c5f56d3b481",
+        "rev": "3e2c57c891e21962169066efb84ab6d8042d30b0",
         "type": "github"
       },
       "original": {

@@ -8,7 +8,6 @@
     ./helix
     ./hyprland
     ./mpv
-    ./qutebrowser
     ./sops
     ./spotify
     ./ssh

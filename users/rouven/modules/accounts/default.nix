@@ -290,6 +290,6 @@ in
     };
   };
   home.file.".urlview".text = ''
-    COMMAND qutebrowser %s &> /dev/null
+    COMMAND ${pkgs.xdg-utils}/bin/xdg-open %s &> /dev/null
   '';
 }

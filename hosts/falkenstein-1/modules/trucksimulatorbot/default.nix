@@ -5,7 +5,6 @@ in
 {
   services.trucksimulatorbot = {
     enable = true;
-    listenPort = 9033;
     discord = {
       clientId = "831052837353816066";
       publicKey = "faa7004a2a5096702f96f3ebeb45c7e8272c119b72c1a0894abc4d76d8cc8bad";
