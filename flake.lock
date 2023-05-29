@@ -75,11 +75,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1685202362,
-        "narHash": "sha256-RSfrkXSFWdMosdmIy5bDAOwqTkakLscYro6oYIHidBY=",
+        "lastModified": 1685346756,
+        "narHash": "sha256-pZNHeNkBBgi5o2DOT1T8MPHnrpJN+eEfYeqdg2ASjZA=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "078ba6daa8e2e2d8e25a226d65a418b8a85956b3",
+        "rev": "b3a86952cf14b6f556159eb898eaa7b6ceac4335",
         "type": "github"
       },
       "original": {
@@ -106,6 +106,27 @@
       "original": {
         "owner": "hyprwm",
         "repo": "hyprland-protocols",
+        "type": "github"
+      }
+    },
+    "images": {
+      "inputs": {
+        "nixpkgs": [
+          "trucksimulatorbot",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1685252271,
+        "narHash": "sha256-Yytfm4nZFTeF80PP/WVbuDKQp4mvC5qXsUkcZlMbRFo=",
+        "owner": "therealr5",
+        "repo": "TruckSimulatorBot-images",
+        "rev": "3f827365df8f17f549d60e616a945969d059e0d0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "therealr5",
+        "repo": "TruckSimulatorBot-images",
         "type": "github"
       }
     },
@@ -241,11 +262,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1685168767,
-        "narHash": "sha256-wQgnxz0PdqbyKKpsWl/RU8T8QhJQcHfeC6lh1xRUTfk=",
+        "lastModified": 1685290091,
+        "narHash": "sha256-GGQYNZ7POoqPTtXgPOLUuSiHkOKFRWYpCoWUOSeSRoU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e10802309bf9ae351eb27002c85cfdeb1be3b262",
+        "rev": "4e37b4e55b60fb7d43d2b62deb51032a489bcbe8",
         "type": "github"
       },
       "original": {
@@ -261,11 +282,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685267951,
-        "narHash": "sha256-Mf0tAJQYLTbjreDayneXEf//f34hAbySAPwREJq6Gg0=",
+        "lastModified": 1685304640,
+        "narHash": "sha256-diFAEedQfEybK7FLpFOoNQFfN/R44yOxQvIVPIYmLvw=",
         "owner": "therealr5",
         "repo": "purge",
-        "rev": "b1c672511a392c716509e284d9013175da6a9feb",
+        "rev": "49f00c56e7bcf3bc7d84392bb872bfc36d59d95c",
         "type": "github"
       },
       "original": {
@@ -286,7 +307,7 @@
         "purge": "purge",
         "simple-nixos-mailserver": "simple-nixos-mailserver",
         "sops-nix": "sops-nix",
-        "trucksimulatorbot-images": "trucksimulatorbot-images"
+        "trucksimulatorbot": "trucksimulatorbot"
       }
     },
     "simple-nixos-mailserver": {
@@ -333,23 +354,24 @@
         "type": "indirect"
       }
     },
-    "trucksimulatorbot-images": {
+    "trucksimulatorbot": {
       "inputs": {
+        "images": "images",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1685252271,
-        "narHash": "sha256-Yytfm4nZFTeF80PP/WVbuDKQp4mvC5qXsUkcZlMbRFo=",
+        "lastModified": 1685359790,
+        "narHash": "sha256-qeOykz4m3XRgMUExo/PB97omCukd6hFfrvzc2QIYh6A=",
         "owner": "therealr5",
-        "repo": "trucksimulatorbot-images",
-        "rev": "3f827365df8f17f549d60e616a945969d059e0d0",
+        "repo": "TruckSimulatorBot",
+        "rev": "b573449efcdbbabdcff3a1c488689e4b3158bbf8",
         "type": "github"
       },
       "original": {
         "owner": "therealr5",
-        "repo": "trucksimulatorbot-images",
+        "repo": "TruckSimulatorBot",
         "type": "github"
       }
     },

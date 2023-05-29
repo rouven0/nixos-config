@@ -27,8 +27,8 @@
       url = "github:therealr5/purge";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    trucksimulatorbot-images = {
-      url = "github:therealr5/trucksimulatorbot-images";
+    trucksimulatorbot = {
+      url = "github:therealr5/TruckSimulatorBot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -50,7 +50,7 @@
     , nix-colors
     , nixos-hardware
     , purge
-    , trucksimulatorbot-images
+    , trucksimulatorbot
     , simple-nixos-mailserver
     , ...
     }@attrs: {
@@ -104,7 +104,7 @@
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
             purge.nixosModules.default
-            trucksimulatorbot-images.nixosModules.default
+            trucksimulatorbot.nixosModules.default
             simple-nixos-mailserver.nixosModules.default
           ];
         };

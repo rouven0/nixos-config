@@ -23,23 +23,17 @@
       efi.efiSysMountPoint = "/boot/efi";
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    #tmpOnTmpfs = true;
   };
 
   time.timeZone = "Europe/Berlin";
 
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    keyMap = "dvorak";
-  };
-  virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
     wget
     htop-vim
     helix
-    docker-compose
     lsof
   ];
   programs.git = {
@@ -50,6 +44,7 @@
     };
   };
   services.qemuGuest.enable = true;
+  systemd.services.qemu-guest-agent.path = [ pkgs.shadow ]; # fix root password reset
 
   # Enable the OpenSSH daemon.
   services.openssh = {
