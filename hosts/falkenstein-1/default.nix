@@ -54,7 +54,7 @@
   users.users.root.openssh.authorizedKeys.keyFiles = [
     ../../keys/ssh/rouven-thinkpad
     ../../keys/ssh/rouven-pixel
-    ../../keys/ssh/rouven-smartcard
+    # ../../keys/ssh/rouven-smartcard
   ];
 
   system.stateVersion = "22.11";
