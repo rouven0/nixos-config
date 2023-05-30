@@ -1,14 +1,5 @@
 { ... }:
 {
-  services.radvd = {
-    enable = true;
-    config = ''
-      interface ens3 {
-        AdvSendAdvert on;
-        prefix 2a01:4f8:c012:49de::/64 {};
-      };
-    '';
-  };
   networking = {
     hostName = "falkenstein-1";
     useNetworkd = true;
@@ -23,8 +14,10 @@
     networks."10-wired" = {
       matchConfig.Name = "ens3";
       networkConfig = {
-        DHCP = "yes";
+        DHCP = "ipv4";
         IPv6AcceptRA = "yes";
+        Address = "2a01:4f8:c012:49de::1/64";
+        Gateway = "fe80::1";
       };
     };
   };

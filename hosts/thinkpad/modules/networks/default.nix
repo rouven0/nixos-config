@@ -46,8 +46,6 @@
       linkConfig.RequiredForOnline = false;
       networkConfig = {
         DHCP = "yes";
-        IPv6AcceptRA = "yes";
-        IPv6PrivacyExtensions = "yes";
       };
       dhcpV4Config = {
         RouteMetric = 10;
@@ -77,7 +75,7 @@
         DHCP = "yes";
         IgnoreCarrierLoss = "3s";
         IPv6AcceptRA = "yes";
-        IPv6PrivacyExtensions = "yes";
+        #IPv6PrefixDelegation = "dhcpv6";
       };
       dhcpV4Config = {
         RouteMetric = 20;
