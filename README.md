@@ -41,7 +41,7 @@ Old Intel Nuc that I got from @LeBogoo. Running a few personal services.
 #### Disk layout
 ```
 NAME      MOUNTPOINT  COMMENT
-tmpfs        /           # root on tmpfn
+tmpfs     /           # root on tmpfs
 sda
 ├─sda1    /boot
 ├─sda2    [SWAP]
