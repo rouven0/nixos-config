@@ -17,6 +17,7 @@ in
       };
       "rfive.de" = {
         user = "root";
+        port = 2222;
       };
       "kaki" = {
         hostname = "kaki.ifsr.de";

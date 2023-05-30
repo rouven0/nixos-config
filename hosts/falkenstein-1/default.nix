@@ -49,6 +49,8 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
+    # clean up the logs a bit
+    ports = [ 2222 ];
     settings.PasswordAuthentication = false;
   };
   users.users.root.openssh.authorizedKeys.keyFiles = [
