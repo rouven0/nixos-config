@@ -41,14 +41,14 @@ Old Intel Nuc that I got from @LeBogoo. Running a few personal services.
 #### Disk layout
 ```
 NAME      MOUNTPOINT  COMMENT
+tmpfs        /           # root on tmpfn
 sda
 ├─sda1    /boot
 ├─sda2    [SWAP]
 └─sda3                # btrfs
-  ├─root  /
   ├─lib   /var/lib
   ├─log   /var/log
-  └─store /nix/store
+  └─nix   /nix
 ```
 
 ### falkenstein-1

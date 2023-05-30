@@ -1,4 +1,4 @@
-{ config, modulesPath, ... }:
+{ pkgs, config, modulesPath, ... }:
 {
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
@@ -10,6 +10,9 @@
     keyMap = "dvorak";
   };
   programs.git.enable = true;
+  environment.systemPackages = with pkgs; [
+    helix
+  ];
 
   # in case we need to rescue a zfs machine
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
