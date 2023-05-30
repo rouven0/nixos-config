@@ -7,7 +7,7 @@
     recommendedProxySettings = true;
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
-    
+
     virtualHosts."rfive.de" = {
       enableACME = true;
       forceSSL = true;
