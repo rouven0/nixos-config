@@ -26,6 +26,15 @@
     cores = 3;
     auto-optimise-store = true;
   };
+  environment.persistence."/nix/persist/system" = {
+    directories = [
+      "/etc/nixos"
+      "/etc/ssh"
+    ];
+    files = [
+      "/etc/machine-id"
+    ];
+  };
 
   time.timeZone = "Europe/Berlin";
 

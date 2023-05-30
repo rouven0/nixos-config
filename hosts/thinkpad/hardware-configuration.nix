@@ -26,7 +26,7 @@
     {
       device = "tmpfs";
       fsType = "tmpfs";
-      options = [ "size=3G" "mode=755" ];
+      options = [ "mode=755" ];
     };
 
 

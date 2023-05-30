@@ -16,9 +16,9 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/16b0bd14-1b07-477d-a20d-982f9467f6df";
-      fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" "discard=async" "noatime" ];
+      device = "tmpfs";
+      fsType = "tmpfs";
+      options = [ "mode=755" ];
     };
 
   fileSystems."/var/lib" =
@@ -35,11 +35,11 @@
       options = [ "subvol=log" "compress=zstd" "discard=async" "noatime" ];
     };
 
-  fileSystems."/nix/store" =
+  fileSystems."/nix" =
     {
       device = "/dev/disk/by-uuid/16b0bd14-1b07-477d-a20d-982f9467f6df";
       fsType = "btrfs";
-      options = [ "subvol=store" "compress=zstd" "discard=async" "noatime" ];
+      options = [ "subvol=nix" "compress=zstd" "discard=async" "noatime" ];
     };
 
   fileSystems."/boot" =

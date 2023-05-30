@@ -90,6 +90,7 @@
           modules = [
             nixos-hardware.nixosModules.intel-nuc-8i7beh
             nix-index-database.nixosModules.nix-index
+            impermanence.nixosModules.impermanence
             ./hosts/nuc
             ./shared
             sops-nix.nixosModules.sops

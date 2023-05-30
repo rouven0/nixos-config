@@ -8,6 +8,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = builtins.readFile ./hyprland.conf; # todo nix config when available
+    recommendedEnvironment = true;
   };
 
   home.sessionVariables = {
