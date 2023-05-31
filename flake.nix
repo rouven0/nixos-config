@@ -32,6 +32,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     simple-nixos-mailserver = {
       url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,6 +54,7 @@
     , impermanence
     , nix-colors
     , nixos-hardware
+    , lanzaboote
     , purge
     , trucksimulatorbot
     , simple-nixos-mailserver
@@ -56,7 +62,6 @@
     }@attrs: {
       packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
       packages.x86_64-linux.jmri = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/jmri { };
-      packages.x86_64-linux.circuitjs = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/circuitjs { };
       hydraJobs = self.packages;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
       nixosConfigurations = {
@@ -72,6 +77,7 @@
             sops-nix.nixosModules.sops
             nix-index-database.nixosModules.nix-index
             impermanence.nixosModules.impermanence
+            lanzaboote.nixosModules.lanzaboote
             {
               home-manager.extraSpecialArgs = attrs;
               home-manager.users.rouven = {
@@ -91,6 +97,7 @@
             nixos-hardware.nixosModules.intel-nuc-8i7beh
             nix-index-database.nixosModules.nix-index
             impermanence.nixosModules.impermanence
+            lanzaboote.nixosModules.lanzaboote
             ./hosts/nuc
             ./shared
             sops-nix.nixosModules.sops

@@ -12,7 +12,16 @@
 
   # Use the systemd-boot EFI boot loader.
   boot = {
-    loader.systemd-boot.enable = true;
+    # Lanzaboote currently replaces the systemd-boot module.
+    # This setting is usually set to true in configuration.nix
+    # generated at installation time. So we force it to false
+    # for now.
+    loader.systemd-boot.enable = lib.mkForce false;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+      configurationLimit = 10;
+    };
     loader.systemd-boot.editor = false;
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_latest;
@@ -27,6 +36,7 @@
     directories = [
       "/etc/nixos" # bind mounted from /nix/persist/system/etc/nixos to /etc/nixos
       "/etc/ssh"
+      "/etc/secureboot"
     ];
     files = [
       "/etc/machine-id"
@@ -179,6 +189,7 @@
     unzip
 
     virt-viewer # multi monitor for vms
+    sbctl
   ];
   programs.java.enable = true;
 
