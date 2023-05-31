@@ -106,6 +106,7 @@
   programs.light.enable = true;
 
   services = {
+    homed.enable = true;
     blueman.enable = true; # bluetooth
     devmon.enable = true; # automount stuff
     printing = {

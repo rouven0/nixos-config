@@ -8,6 +8,7 @@
       ./modules/mail
       ./modules/networks
       ./modules/nginx
+      ./modules/pfersel
       ./modules/purge
       ./modules/trucksimulatorbot
     ];
@@ -36,6 +37,7 @@
     htop-vim
     helix
     lsof
+    python3
   ];
   programs.git = {
     enable = true;
