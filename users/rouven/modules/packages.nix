@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ self, pkgs, ... }:
 {
   home.packages = with pkgs; [
 
@@ -58,6 +58,7 @@
     rustc
     rustfmt
     gcc
+    self.packages.x86_64-linux.adguardian-term
 
     # libs
     libyubikey
