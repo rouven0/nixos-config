@@ -30,7 +30,6 @@
     directories = [
       "/etc/nixos"
       "/etc/ssh"
-      "/etc/secureboot"
     ];
     files = [
       "/etc/machine-id"
@@ -54,7 +53,6 @@
     htop-vim
     helix
     lsof
-    sbctl
   ];
   programs.git = {
     enable = true;
