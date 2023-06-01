@@ -47,6 +47,7 @@
     pass
 
     # misc
+    asciinema
     neofetch # obligatory
     virt-manager
     jetbrains.idea-community
