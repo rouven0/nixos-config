@@ -60,9 +60,12 @@
     , simple-nixos-mailserver
     , ...
     }@attrs: {
-      packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
-      packages.x86_64-linux.jmri = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/jmri { };
-      packages.x86_64-linux.adguardian-term = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/adguardian-term { };
+      packages.x86_64-linux = {
+        iso = self.nixosConfigurations.iso.config.system.build.isoImage;
+        jmri = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/jmri { };
+        adguardian-term = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/adguardian-term { };
+        pww = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/pww { };
+      };
       hydraJobs = self.packages;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
       nixosConfigurations = {

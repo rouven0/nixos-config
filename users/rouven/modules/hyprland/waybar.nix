@@ -1,7 +1,6 @@
-{ config, pkgs, hyprland, ... }:
+{ self, config, pkgs, hyprland, ... }:
 {
-  # waybar needs hyprctl
-  systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.hyprland}/bin";
+  systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.hyprland}/bin:${pkgs.playerctl}/bin:${pkgs.pulseaudio}/bin";
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -11,7 +10,7 @@
         layer = "top";
         position = "top";
         height = 26;
-        modules-left = [ "wlr/workspaces" "hyprland/window" ];
+        modules-left = [ "wlr/workspaces" "hyprland/window" "custom/spotifytitle" ];
         modules-right = [ "network" "cpu" "temperature" "pulseaudio" "battery" "tray" "clock" ];
         network = {
           format-wifi = "  {essid} ({signalStrength}%)";
@@ -28,6 +27,13 @@
         "hyprland/window" = {
           format = "   {}";
           separate-outputs = true;
+        };
+
+        "custom/spotifytitle" = {
+          format = "  {}";
+          max-length = 80;
+          return-type = "json";
+          exec = "${self.packages.x86_64-linux.pww}/bin/pww -w spotifyd:title -f '{{title}} - {{artist}}' -p None 2> /dev/null";
         };
         cpu = {
           format = "{usage}% ";
@@ -101,6 +107,7 @@
         background-color: #eb4d4b;
     }
     
+    #custom-spotifytitle,
     #clock,
     #battery,
     #cpu,
@@ -129,6 +136,20 @@
         background-color: #${config.colorScheme.colors.base00};
     }
     
+    #custom-spotifytitle {
+        background: #1db954;
+        color: #191414;
+        opacity: 1;
+        transition-property: opacity;
+        transition-duration: 0.25s;
+    }
+    
+    #custom-spotifytitle.Paused,
+    #custom-spotifytitle.Stopped,
+    #custom-spotifytitle.Inactive {
+        opacity: 0.5;
+    }
+
     #battery {
         background-color: #${config.colorScheme.colors.base02};
         color: #${config.colorScheme.colors.base05};

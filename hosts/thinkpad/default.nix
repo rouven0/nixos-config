@@ -46,7 +46,6 @@
   sops.age.sshKeyPaths = lib.mkForce [ "/nix/persist/system/etc/ssh/ssh_host_ed25519_key" ];
   sops.gnupg.sshKeyPaths = lib.mkForce [ ];
 
-
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -87,7 +86,11 @@
   #hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
 
-  security.polkit.enable = true;
+  security = {
+    polkit.enable = true;
+    audit.enable = true;
+    auditd.enable = true;
+  };
 
   services.pipewire = {
     enable = true;
@@ -120,7 +123,11 @@
       nssmdns = true;
     };
     fprintd.enable = true; # log in using fingerprint
-    openssh.enable = true; # enabled ssh to have the host keys
+    # enabled ssh to have the host keys
+    openssh = {
+      enable = true;
+      openFirewall = false;
+    };
     btrfs.autoScrub.enable = true; # periodically check filesystem and repair it
     fwupd.enable = true; # firmware updates
   };

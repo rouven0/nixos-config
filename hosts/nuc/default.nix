@@ -64,6 +64,11 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  security = {
+    audit.enable = true;
+    auditd.enable = true;
+  };
+
 
   # firmware updates
   services.fwupd.enable = true;

@@ -69,6 +69,11 @@
     # })
   ];
 
+  services.kdeconnect = {
+    enable = true;
+    indicator = true;
+  };
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications =

@@ -56,6 +56,10 @@
     ports = [ 2222 ];
     settings.PasswordAuthentication = false;
   };
+  security = {
+    audit.enable = true;
+    auditd.enable = true;
+  };
   users.users.root.openssh.authorizedKeys.keyFiles = [
     ../../keys/ssh/rouven-thinkpad
     ../../keys/ssh/rouven-pixel
