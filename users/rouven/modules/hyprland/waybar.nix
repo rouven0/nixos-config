@@ -10,7 +10,7 @@
         layer = "top";
         position = "top";
         height = 26;
-        modules-left = [ "wlr/workspaces" "hyprland/window" "custom/spotifytitle" ];
+        modules-left = [ "wlr/workspaces" "custom/spotifytitle" "hyprland/window" ];
         modules-right = [ "network" "cpu" "temperature" "pulseaudio" "battery" "tray" "clock" ];
         network = {
           format-wifi = "  {essid} ({signalStrength}%)";
@@ -145,7 +145,6 @@
     }
     
     #custom-spotifytitle.Paused,
-    #custom-spotifytitle.Stopped,
     #custom-spotifytitle.Inactive {
         opacity: 0.5;
     }
