@@ -1,6 +1,6 @@
 { self, config, pkgs, hyprland, ... }:
 {
-  systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.hyprland}/bin:${pkgs.playerctl}/bin:${pkgs.pulseaudio}/bin";
+  systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.hyprland}/bin";
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -33,7 +33,7 @@
           format = "  {}";
           max-length = 80;
           return-type = "json";
-          exec = "${self.packages.x86_64-linux.pww}/bin/pww -w spotifyd:title -f '{{title}} - {{artist}}' -p None 2> /dev/null";
+          exec = "${self.packages.x86_64-linux.pww}/bin/pww -w spotifyd:title -p None 2> /dev/null";
         };
         cpu = {
           format = "{usage}% ";

@@ -19,6 +19,7 @@ in
         user = "root";
         port = 2222;
       };
+      falkenstein-1 = matchBlocks."rfive.de";
       "kaki" = {
         hostname = "kaki.ifsr.de";
         user = "root";

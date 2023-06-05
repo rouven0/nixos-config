@@ -1,24 +1,26 @@
-{ stdenv, lib, buildGoModule, path, pkgs, go, fetchFromGitHub, playerctl }:
+{ lib, buildGoModule, makeWrapper, fetchFromGitHub, playerctl }:
 buildGoModule rec {
   pname = "pww";
-  version = "unstable-2023-04-06";
+  version = "0.0.6";
 
   src = fetchFromGitHub {
     owner = "abenz1267";
     repo = "pww";
-    rev = "8c973e600052d1c94a0921ed10d0723c123187c6"; # unstable because 6.0.0 has some crashes
-    hash = "sha256-IqLo1MlPGaM0n0TEhptiM5FvqJ8bsEPn7N2EEL6iWK8=";
+    rev = "v${version}";
+    hash = "sha256-nqNSzipOa0gj9qF49f/1R5QZMSY9xmjBnAVkiXdrSa4=";
   };
 
-  buildInputs = [ playerctl ];
-
-  outputs = [ "out" ];
+  nativeBuildInputs = [ makeWrapper ];
 
   vendorSha256 = "sha256-3PnXB8AfZtgmYEPJuh0fwvG38dtngoS/lxyx3H+rvFs=";
+  postInstall = ''
+    wrapProgram $out/bin/${pname} \
+      --prefix PATH : "${lib.makeBinPath [ playerctl ]}"
+  '';
 
   meta = with lib; {
     description = "Utility wrapper around playerctl";
-    homepage = "https://github.com/Mic92/sops-nix";
+    homepage = "https://github.com/abenz1267/pww";
     license = licenses.mit;
     maintainers = with maintainers; [ therealr5 ];
     platforms = platforms.all;

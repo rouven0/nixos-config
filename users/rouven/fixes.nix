@@ -1,5 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
+
+  # fixes qt themes
+  environment.variables = {
+    "QT_STYLE_OVERRIDE" = lib.mkForce "kvantum";
+    "QT_QPA_PLATFORMTHEME" = lib.mkForce "Dracula";
+  };
   # open ports for kde connect
   networking.firewall = rec {
     allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
