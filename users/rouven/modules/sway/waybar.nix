@@ -1,16 +1,17 @@
-{ self, config, pkgs, hyprland, ... }:
+{ self, config, pkgs, ... }:
 {
-  systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.hyprland}/bin";
+  # systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.hyprland}/bin";
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    package = hyprland.packages.x86_64-linux.waybar-hyprland;
+    # package = hyprland.packages.x86_64-linux.waybar-hyprland;
     settings = {
       mainBar = {
         layer = "top";
         position = "top";
         height = 26;
-        modules-left = [ "wlr/workspaces" "custom/spotifytitle" "hyprland/window" ];
+        # modules-left = [ "wlr/workspaces" "custom/spotifytitle" "hyprland/window" ];
+        modules-left = [ "sway/workspaces" "custom/spotifytitle" "sway/window" ];
         modules-right = [ "network" "cpu" "temperature" "pulseaudio" "battery" "tray" "clock" ];
         network = {
           format-wifi = "  {essid} ({signalStrength}%)";
@@ -20,13 +21,13 @@
           format-disconnected = "Disconnected ⚠";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
-        "wlr/workspaces" = {
+        "sway/workspaces" = {
           format = "{icon}";
           on-click = "activate";
         };
-        "hyprland/window" = {
+        "sway/window" = {
           format = "   {}";
-          separate-outputs = true;
+          # separate-outputs = true;
         };
 
         "custom/spotifytitle" = {

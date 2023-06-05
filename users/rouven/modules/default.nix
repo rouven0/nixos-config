@@ -6,7 +6,8 @@
     ./git
     ./gpg
     ./helix
-    ./hyprland
+    # ./hyprland
+    ./sway
     ./mpv
     ./sops
     ./spotify
