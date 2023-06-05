@@ -16,6 +16,7 @@ in
         identityFile = git;
       };
       "rfive.de" = {
+        hostname = "falkenstein.vpn.rfive.de";
         user = "root";
         port = 2222;
       };
