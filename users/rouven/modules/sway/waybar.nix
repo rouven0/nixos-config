@@ -1,4 +1,4 @@
-{ self, config, pkgs, ... }:
+{ self, config, ... }:
 {
   # systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.hyprland}/bin";
   programs.waybar = {
