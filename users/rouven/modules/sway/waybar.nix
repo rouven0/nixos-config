@@ -1,17 +1,18 @@
-{ self, config, pkgs, hyprland, ... }:
+{ self, config, pkgs, ... }:
 {
-  systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.hyprland}/bin";
+  systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.swaynotificationcenter}/bin";
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    package = hyprland.packages.x86_64-linux.waybar-hyprland;
+    # package = hyprland.packages.x86_64-linux.waybar-hyprland;
     settings = {
       mainBar = {
         layer = "top";
         position = "top";
         height = 26;
-        modules-left = [ "wlr/workspaces" "custom/spotifytitle" "hyprland/window" ];
-        modules-right = [ "network" "cpu" "temperature" "pulseaudio" "battery" "tray" "clock" ];
+        # modules-left = [ "wlr/workspaces" "custom/spotifytitle" "hyprland/window" ];
+        modules-left = [ "sway/workspaces" "custom/spotifytitle" "sway/window" ];
+        modules-right = [ "network" "cpu" "temperature" "pulseaudio" "battery" "tray" "custom/notification" "clock" ];
         network = {
           format-wifi = "  {essid} ({signalStrength}%)";
           format-ethernet = "󰈀 {ipaddr}/{cidr}";
@@ -20,13 +21,34 @@
           format-disconnected = "Disconnected ⚠";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
-        "wlr/workspaces" = {
+        "sway/workspaces" = {
           format = "{icon}";
           on-click = "activate";
         };
-        "hyprland/window" = {
+        "sway/window" = {
           format = "   {}";
-          separate-outputs = true;
+          # separate-outputs = true;
+        };
+
+        "custom/notification" = {
+          tooltip = false;
+          format = "{icon} ";
+          format-icons = {
+            notification = "<span foreground='red'><sup></sup></span>";
+            none = "";
+            dnd-notification = "<span foreground='red'><sup></sup></span>";
+            dnd-none = "";
+            inhibited-notification = "<span foreground='red'><sup></sup></span>";
+            inhibited-none = "";
+            dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+            dnd-inhibited-none = "";
+          };
+          return-type = "json";
+          # exec-if = "which swaync-client";
+          exec = "swaync-client -swb";
+          on-click = "swaync-client -t -sw";
+          on-click-right = "swaync-client -d -sw";
+          escape = true;
         };
 
         "custom/spotifytitle" = {
@@ -108,6 +130,7 @@
     }
     
     #custom-spotifytitle,
+    #custom-notification,
     #clock,
     #battery,
     #cpu,
@@ -193,6 +216,7 @@
         color: #${config.colorScheme.colors.base01};
     }
     
+    #custom-notification,
     #tray {
         background-color: #${config.colorScheme.colors.base01};
         color: #${config.colorScheme.colors.base05};

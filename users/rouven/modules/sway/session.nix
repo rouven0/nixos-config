@@ -2,12 +2,13 @@
 {
   home.packages = with pkgs; [
     swaylock-effects
-    wlogout
+    wl-clipboard
+    swaynotificationcenter
+    playerctl
   ];
 
   services.swayidle = {
     enable = true;
-    systemdTarget = "hyprland-session.target";
     events = [
       { event = "before-sleep"; command = "${pkgs.swaylock-effects}/bin/swaylock"; }
       { event = "lock"; command = "${pkgs.swaylock-effects}/bin/swaylock"; }
@@ -15,6 +16,20 @@
     timeouts = [
       { timeout = 300; command = "${pkgs.swaylock-effects}/bin/swaylock"; }
     ];
+  };
+  systemd.user.services.swaync = {
+    Install.WantedBy = [ "graphical-session.target" ];
+    Service = {
+      ExecStart = "${pkgs.swaynotificationcenter}/bin/swaync";
+      Restart = "on-failure";
+    };
+    Unit = {
+      After = "graphical-session.target";
+      Description = "Simple notification daemon with a GUI built for Sway";
+      Documentation = "https://github.com/ErikReider/SwayNotificationCenter";
+      PartOf = "graphical-session.target";
+    };
+    environment.PATH = "${pkgs.coreutils}/bin";
   };
 
   xdg.configFile = {
@@ -31,7 +46,7 @@
     '';
 
     "wlogout/style.css".text = ''
-          * {
+      * {
         background-image: none;
       }
       window {
