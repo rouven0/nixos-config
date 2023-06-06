@@ -21,7 +21,6 @@
     };
 
     nix-colors.url = "github:Misterio77/nix-colors";
-    hyprland.url = "github:hyprwm/Hyprland";
 
     purge = {
       url = "github:therealr5/purge";
@@ -49,7 +48,6 @@
     , nixpkgs
     , home-manager
     , nix-index-database
-    , hyprland
     , sops-nix
     , impermanence
     , nix-colors
@@ -87,7 +85,6 @@
               home-manager.users.rouven = {
                 imports = [
                   nix-colors.homeManagerModules.default
-                  hyprland.homeManagerModules.default
                   sops-nix.homeManagerModules.sops
                 ];
               };
