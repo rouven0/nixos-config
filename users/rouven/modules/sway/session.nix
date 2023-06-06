@@ -4,6 +4,7 @@
     swaylock-effects
     wl-clipboard
     swaynotificationcenter
+    playerctl
   ];
 
   services.swayidle = {
