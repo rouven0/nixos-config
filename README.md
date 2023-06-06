@@ -4,12 +4,12 @@
 
 ## Specs
 - **Operating System:** [NixOS](https://nixos.org)
-- **Window Manager:** [Hyprland](https://hyprland.org/)
+- **Window Manager:** [Sway](https://swaywm.org/)
 - **Overall Theme:** [Base16 Dracula](https://github.com/dracula/base16-dracula-scheme)
 - **Shell:** [Zsh](https://www.zsh.org/)
 - **Terminal:** [Foot](https://codeberg.org/dnkl/foot)
 - **Editor:** [Helix](https://helix-editor.com)
-- **Notifications:** [Mako](https://github.com/emersion/mako)
+- **Notifications:** [swaync](https://github.com/ErikReider/SwayNotificationCenter)
 - **Panel:** [Waybar](https://github.com/Alexays/Waybar)
 - **File Manager:** [Vifm](https://vifm.info/)
 
