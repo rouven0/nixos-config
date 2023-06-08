@@ -50,7 +50,7 @@
     asciinema
     neofetch # obligatory
     virt-manager
-    jetbrains.idea-community
+    jetbrains.idea-ultimate #😎
     powerline-fonts
     croc # send files anywhere
 

@@ -140,8 +140,7 @@
     openFirewall = true;
   };
 
-  # disabled until https://github.com/NixOS/nixpkgs/issues/236501 in fixed
-  # virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
   # fix to enable secure boot in vms
