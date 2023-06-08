@@ -30,6 +30,7 @@
     directories = [
       "/etc/nixos"
       "/etc/ssh"
+      "/root/.local/share/zsh"
     ];
     files = [
       "/etc/machine-id"
