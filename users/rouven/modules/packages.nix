@@ -58,6 +58,7 @@
     cargo
     rustc
     rustfmt
+    clippy
     gcc
     self.packages.x86_64-linux.adguardian-term
 
