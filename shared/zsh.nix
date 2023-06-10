@@ -23,9 +23,8 @@
       ll = "ls -la";
       la = "ls -a";
       less = "bat";
-      # update = "cd /etc/nixos && nix flake update && cat ${../images/another-cat.sixel}";
       update = "cd /etc/nixos && nix flake update";
-      garbage = "sudo nix-collect-garbage -d && cat ${../images/cat-garbage.sixel}";
+      garbage = "sudo nix-collect-garbage -d";
     };
     histSize = 100000;
     histFile = "~/.local/share/zsh/history";
