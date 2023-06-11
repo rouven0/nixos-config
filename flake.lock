@@ -185,11 +185,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685355308,
-        "narHash": "sha256-y7gPyGyAbWtQvnGM+czXMMYBO8K8fvnxNoh/k5c+u20=",
+        "lastModified": 1685858461,
+        "narHash": "sha256-R1I8kBwyEp1yZcdyrV1RRRD5wCavmiuAkxM3EHYuCFA=",
         "owner": "therealr5",
         "repo": "TruckSimulatorBot-images",
-        "rev": "2c36ccb206b2479c93fecbb1b2d02a30c8d6f049",
+        "rev": "d71338721d85310f4ff842cda53a7a17d6fac62a",
         "type": "github"
       },
       "original": {
@@ -280,11 +280,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1686396027,
-        "narHash": "sha256-gE+csxJoXuNn5ZnlgNj0GnMQ2y4heBtDqkB1af8vfjU=",
+        "lastModified": 1686452266,
+        "narHash": "sha256-zLKiX0iu6jZFeZDpR1gE6fNyMr8eiM8GLnj9SoUCjFs=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "70d5f55faee9c1e141e32e6be1e77d13e5a570db",
+        "rev": "2a807ad6e8dc458db08588b78cc3c0f0ec4ff321",
         "type": "github"
       },
       "original": {
@@ -355,11 +355,11 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1685758009,
-        "narHash": "sha256-IT4Z5WGhafrq+xbDTyuKrRPRQ1f+kVOtE+4JU1CHFeo=",
+        "lastModified": 1686392259,
+        "narHash": "sha256-hqSS9hKhWldIZr1bBp9xKhIznnGPICGKzuehd2LH0UA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "eaf03591711b46d21abc7082a8ebee4681f9dbeb",
+        "rev": "ef24b2fa0c5f290a35064b847bc211f25cb85c88",
         "type": "github"
       },
       "original": {
@@ -407,11 +407,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685858475,
-        "narHash": "sha256-6Mq/uZ6CTFAYgrIFeGHHn5LjKmf6tx7zWEjMrUzriPc=",
+        "lastModified": 1686471830,
+        "narHash": "sha256-idkNo3WimmIxfL1hTIRxrEn1BUKbINtRU13WGcJMRr4=",
         "owner": "therealr5",
         "repo": "purge",
-        "rev": "40909378243fd87588599877616e5bd48d9f79cb",
+        "rev": "0d236ed88a2f4914b978c05f9db9b5af77601df2",
         "type": "github"
       },
       "original": {
@@ -471,11 +471,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1684964237,
-        "narHash": "sha256-dDS+GhdZN2MAa2FJKFGM2gpgAXhx+xoMkpVsRx9qpDE=",
+        "lastModified": 1686468558,
+        "narHash": "sha256-K69Ojlx3N8I6tRTZsrKFMIqK4yrnJ6/PjfKZi3wchYg=",
         "owner": "simple-nixos-mailserver",
         "repo": "nixos-mailserver",
-        "rev": "1bcfcf786bc289ca1bd2c9d29d6f02d9141b1da3",
+        "rev": "290d00f6db4e80467013728819ad73dd4a394d9a",
         "type": "gitlab"
       },
       "original": {
@@ -492,11 +492,11 @@
         "nixpkgs-stable": "nixpkgs-stable_2"
       },
       "locked": {
-        "lastModified": 1685848844,
-        "narHash": "sha256-Iury+/SVbAwLES76QJSiKFiQDzmf/8Hsq8j54WF2qyw=",
+        "lastModified": 1686453485,
+        "narHash": "sha256-75iPAcS6xuw4SNfqLmFCi9wWG1JmDNKaC8l3WJUkmDk=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "a522e12ee35e50fa7d902a164a9796e420e6e75b",
+        "rev": "cb85e297937af1bd1434cf5f85a3f86a21dc8207",
         "type": "github"
       },
       "original": {
@@ -527,11 +527,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685858489,
-        "narHash": "sha256-Dh/Yme9OUpEIGcWJH+777fbgyJvsxcV97gL7p8+Cxoc=",
+        "lastModified": 1686471873,
+        "narHash": "sha256-SAQCYuAeVVTjccWxuVx2TSuNaslOolW8LR6t+dYB6oA=",
         "owner": "therealr5",
         "repo": "TruckSimulatorBot",
-        "rev": "8046e8f322ba1dc798d3a812bb950ae4484e6c89",
+        "rev": "97f410358851b75b2101a036d0fd3a9afd8edf98",
         "type": "github"
       },
       "original": {
