@@ -35,7 +35,7 @@
         "ssh-ng://nuc.lan"
       ];
       trusted-public-keys = [
-        "nuc.lan:mLrambwSWwqlqe04cSxylWbl5cIIiZsEvmgq2+NT/ww="
+        "nuc.lan:a9UkVw3AizAKCER1CfNGhx8UOMF4t4UGE3GJ9dmHwJc="
       ];
     };
     distributedBuilds = true;
