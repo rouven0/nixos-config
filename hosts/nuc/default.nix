@@ -28,7 +28,6 @@
   };
   environment.persistence."/nix/persist/system" = {
     directories = [
-      "/etc/nixos"
       "/etc/ssh"
       "/root/.local/share/zsh"
     ];

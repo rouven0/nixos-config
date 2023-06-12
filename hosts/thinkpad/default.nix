@@ -200,6 +200,8 @@
 
     virt-viewer # multi monitor for vms
     sbctl
+
+    deploy-rs
   ];
   programs.java.enable = true;
 

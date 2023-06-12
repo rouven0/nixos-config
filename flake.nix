@@ -14,6 +14,13 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
     home-manager = {
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -50,6 +57,7 @@
     , nix-index-database
     , sops-nix
     , impermanence
+    , deploy-rs
     , nix-colors
     , nixos-hardware
     , lanzaboote
@@ -136,5 +144,22 @@
           ];
         };
       };
+      deploy.nodes = {
+        nuc = {
+          hostname = "nuc";
+          profiles.system = {
+            sshUser = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nuc;
+          };
+        };
+        falkenstein-1 = {
+          hostname = "falkenstein-1";
+          profiles.system = {
+            sshUser = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.falkenstein-1;
+          };
+        };
+      };
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }
