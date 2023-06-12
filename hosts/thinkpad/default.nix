@@ -1,6 +1,5 @@
 { config, pkgs, lib, ... }:
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports =
     [
@@ -28,8 +27,32 @@
     tmp.useTmpfs = true;
   };
 
-  nix.settings = {
-    auto-optimise-store = true;
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+      substituters = [
+        "ssh-ng://nuc.lan"
+      ];
+      trusted-public-keys = [
+        "nuc.lan:mLrambwSWwqlqe04cSxylWbl5cIIiZsEvmgq2+NT/ww="
+      ];
+    };
+    distributedBuilds = true;
+    extraOptions = ''
+      builders-use-substitutes = true
+    '';
+    buildMachines = [
+      {
+        hostName = "nuc.lan";
+        system = "x86_64-linux";
+        protocol = "ssh-ng";
+        maxJobs = 2;
+        speedFactor = 1;
+        supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+        mandatoryFeatures = [ ];
+      }
+    ];
   };
 
   environment.persistence."/nix/persist/system" = {
@@ -37,6 +60,7 @@
       "/etc/nixos" # bind mounted from /nix/persist/system/etc/nixos to /etc/nixos
       "/etc/ssh"
       "/etc/secureboot"
+      "/root/.ssh"
     ];
     files = [
       "/etc/machine-id"

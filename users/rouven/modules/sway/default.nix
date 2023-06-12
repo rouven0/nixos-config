@@ -13,6 +13,9 @@
         {
           command = "${pkgs.swaybg}/bin/swaybg -i ${../../../../images/wallpaper.png}";
         }
+        {
+          command = "${pkgs.autotiling-rs}/bin/autotiling-rs";
+        }
       ];
       modifier = "Mod4";
       menu = "${pkgs.fuzzel}/bin/fuzzel";

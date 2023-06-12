@@ -12,7 +12,6 @@
       ./modules/nextcloud
       ./modules/vaultwarden
       ./modules/nginx
-      ./modules/nix-serve
     ];
 
   boot = {
@@ -26,6 +25,12 @@
     cores = 3;
     auto-optimise-store = true;
   };
+
+  sops.secrets."store/secretkey" = { };
+  nix.extraOptions = ''
+    secret-key-files = ${config.sops.secrets."store/secretkey".path}
+  '';
+
   environment.persistence."/nix/persist/system" = {
     directories = [
       "/etc/ssh"
@@ -75,8 +80,8 @@
   users.users.root.initialHashedPassword = "$y$j9T$hYM7FT2hn3O7OWBn9uz8e0$XquxONcPSke6YjdRGwOzGxC0/92hgP7PIB0y0K.Qdr/";
   users.users.root.openssh.authorizedKeys.keyFiles = [
     ../../keys/ssh/rouven-thinkpad
+    ../../keys/ssh/root-thinkpad
     ../../keys/ssh/rouven-pixel
-    # ../../keys/ssh/rouven-smartcard
   ];
 
   system.stateVersion = "22.11";
