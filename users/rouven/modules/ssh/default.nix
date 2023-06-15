@@ -21,6 +21,10 @@ in
         port = 2222;
       };
       falkenstein-1 = matchBlocks."rfive.de";
+      "durian" = {
+        hostname = "manual.ifsr.de";
+        user = "root";
+      };
       "kaki" = {
         hostname = "kaki.ifsr.de";
         user = "root";

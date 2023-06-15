@@ -1,6 +1,6 @@
 " vim: filetype=vifm :
 
-set vicmd=nvim
+set vicmd=hx
 
 set syscalls
 

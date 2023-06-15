@@ -41,11 +41,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1685948350,
-        "narHash": "sha256-1FldJ059so0X/rScdbIiOlQbjjSNCCTdj2cUr5pHU4A=",
+        "lastModified": 1686747123,
+        "narHash": "sha256-XUQK9kwHpTeilHoad7L4LjMCCyY13Oq383CoFADecRE=",
         "owner": "serokell",
         "repo": "deploy-rs",
-        "rev": "65211db63ba1199f09b4c9f27e5eba5ec50d76ac",
+        "rev": "724463b5a94daa810abfc64a4f87faef4e00f984",
         "type": "github"
       },
       "original": {
@@ -170,11 +170,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686564129,
-        "narHash": "sha256-jzb2mHvQEZJL3a3ANhTeLIaa1nyjFJ/RzUJjCJme/V4=",
+        "lastModified": 1686837967,
+        "narHash": "sha256-wjoR9xKW9L8HNr0cDYFvQN/CemsMo76KRRnJnXmsZ1Y=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9e37a1b6f9507ed27080518ff4007988a50c957e",
+        "rev": "d214b93ee3c82b2746b85e8cb96bc150c6a74e50",
         "type": "github"
       },
       "original": {
@@ -190,11 +190,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685858461,
-        "narHash": "sha256-R1I8kBwyEp1yZcdyrV1RRRD5wCavmiuAkxM3EHYuCFA=",
+        "lastModified": 1686758111,
+        "narHash": "sha256-8FIiQNUv7CDsChBcEpstrM5vZKV+8ZPs5hpv/y33eNI=",
         "owner": "therealr5",
         "repo": "TruckSimulatorBot-images",
-        "rev": "d71338721d85310f4ff842cda53a7a17d6fac62a",
+        "rev": "d879cd5d9b2028a47b2f0400819965ce6267b64a",
         "type": "github"
       },
       "original": {
@@ -229,11 +229,11 @@
         "pre-commit-hooks-nix": "pre-commit-hooks-nix"
       },
       "locked": {
-        "lastModified": 1686559216,
-        "narHash": "sha256-8yFA8F8dqUziMgd94DUSM4ljCgudcMYyWeaqdHFUvWE=",
+        "lastModified": 1686692834,
+        "narHash": "sha256-EFjJ/r4iYVKO+XdL15g9bzOKbCExTGeqNEVHSn0H7/E=",
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "rev": "59e3ebb19fdd3fd235d8275b008538a72872bad7",
+        "rev": "823ad6b70bf09b91c3a9dd9a64678ec80ba3c1ee",
         "type": "github"
       },
       "original": {
@@ -268,11 +268,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686574167,
-        "narHash": "sha256-hxE8z+S9E4Qw03D2VQRaJUmj9zep3FvhKz316JUZuPA=",
+        "lastModified": 1686740472,
+        "narHash": "sha256-b668DY2qGdBCUwIkk6Z32bcpCsUISQJrEEvhtn1gGgY=",
         "owner": "Mic92",
         "repo": "nix-index-database",
-        "rev": "7e83b70f31f4483c07e6939166cb667ecb8d05d5",
+        "rev": "e11c61073b777e025993c5ef63ddbf776a9cca15",
         "type": "github"
       },
       "original": {
@@ -283,11 +283,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1686452266,
-        "narHash": "sha256-zLKiX0iu6jZFeZDpR1gE6fNyMr8eiM8GLnj9SoUCjFs=",
+        "lastModified": 1686838567,
+        "narHash": "sha256-aqKCUD126dRlVSKV6vWuDCitfjFrZlkwNuvj5LtjRRU=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "2a807ad6e8dc458db08588b78cc3c0f0ec4ff321",
+        "rev": "429f232fe1dc398c5afea19a51aad6931ee0fb89",
         "type": "github"
       },
       "original": {
@@ -297,11 +297,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1686501370,
-        "narHash": "sha256-G0WuM9fqTPRc2URKP9Lgi5nhZMqsfHGrdEbrLvAPJcg=",
+        "lastModified": 1686592866,
+        "narHash": "sha256-riGg89eWhXJcPNrQGcSwTEEm7CGxWC06oSX44hajeMw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "75a5ebf473cd60148ba9aec0d219f72e5cf52519",
+        "rev": "0eeebd64de89e4163f4d3cf34ffe925a5cf67a05",
         "type": "github"
       },
       "original": {
@@ -410,11 +410,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686471830,
-        "narHash": "sha256-idkNo3WimmIxfL1hTIRxrEn1BUKbINtRU13WGcJMRr4=",
+        "lastModified": 1686818988,
+        "narHash": "sha256-lH42fCPegnZDYZguGyvRRacF6QrWhkvpYWikeosh7KE=",
         "owner": "therealr5",
         "repo": "purge",
-        "rev": "0d236ed88a2f4914b978c05f9db9b5af77601df2",
+        "rev": "3ee729993f1ad31eee8b31e0541fabe917b7b705",
         "type": "github"
       },
       "original": {
@@ -506,11 +506,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686471873,
-        "narHash": "sha256-SAQCYuAeVVTjccWxuVx2TSuNaslOolW8LR6t+dYB6oA=",
+        "lastModified": 1686758268,
+        "narHash": "sha256-7+v3bP3WpodIHvxeCVs5/+Iu0AiLYbMZgZT+eBzXrBI=",
         "owner": "therealr5",
         "repo": "TruckSimulatorBot",
-        "rev": "97f410358851b75b2101a036d0fd3a9afd8edf98",
+        "rev": "9ecbf74463faa5a8b7e19929c777716820472df0",
         "type": "github"
       },
       "original": {

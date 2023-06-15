@@ -12,7 +12,7 @@
   home-manager.useGlobalPkgs = true;
 
   home-manager.users.rouven = { ... }: {
-    imports = [ ./modules ];
+    imports = [ ./modules ./options ];
 
     config = {
       home.username = "rouven";

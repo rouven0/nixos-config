@@ -5,6 +5,7 @@
     # ./hyprpaper.nix
     ./session.nix
     ./waybar.nix
+    ./shikane.nix
   ];
   wayland.windowManager.sway = {
     enable = true;

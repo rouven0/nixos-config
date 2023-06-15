@@ -19,6 +19,8 @@
     gimp
     ffmpeg
 
+    thunderbird
+
     # sound
     pavucontrol
     x32edit
