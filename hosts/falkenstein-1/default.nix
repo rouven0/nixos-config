@@ -26,6 +26,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     initrd.systemd.enable = true;
   };
+  zramSwap.enable = true;
 
   time.timeZone = "Europe/Berlin";
 

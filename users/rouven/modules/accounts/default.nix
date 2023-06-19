@@ -165,6 +165,16 @@ in
     };
     "iFSR" = rec {
       address = "rouven.seifert@ifsr.de";
+      signature = {
+        showSignature = "append";
+        text = ''
+          Rouven Seifert
+
+          Fachschaftsrat Informatik TU Dresden
+          Fakultät Informatik
+          Nöthnitzer Str. 46, 01187 Dresden
+        '';
+      };
       primary = true;
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
@@ -286,6 +296,9 @@ in
           enable = true;
           mailboxName = " 󰊫 gmail";
           extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+          extraConfig = ''
+            set copy = no
+          '';
         };
     };
   };

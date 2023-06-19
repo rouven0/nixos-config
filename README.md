@@ -60,6 +60,7 @@ sda
 ├─sda1    /
 ├─sda14               # BIOS boot
 └─sda15   /boot/efi   # EFI stuff
+zram0     [SWAP]
 ```
 
 ### vm

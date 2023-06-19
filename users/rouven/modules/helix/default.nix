@@ -24,11 +24,6 @@
   ];
   programs.helix = {
     enable = true;
-    themes.dracula-transparent = {
-      inherits = "dracula";
-      "ui.background" = "{}";
-      "ui.virtual.inlay-hint" = { fg = "#666666"; };
-    };
     languages = {
       language = [
         {
@@ -39,7 +34,7 @@
       ];
     };
     settings = {
-      theme = "dracula-transparent";
+      theme = "dracula";
       editor = {
         line-number = "relative";
         cursor-shape.insert = "bar";
