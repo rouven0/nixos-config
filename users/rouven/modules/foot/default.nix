@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
     libsixel
@@ -8,7 +8,7 @@
     server.enable = true;
     settings = rec {
       main = {
-        shell = "${pkgs.zsh}/bin/zsh";
+        shell = lib.getExe pkgs.zsh;
         dpi-aware = "yes";
         font = "monospace:family=Iosevka Nerd Font, size=8";
       };

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
     swaylock-effects
@@ -10,11 +10,11 @@
   services.swayidle = {
     enable = true;
     events = [
-      { event = "before-sleep"; command = "${pkgs.swaylock-effects}/bin/swaylock"; }
-      { event = "lock"; command = "${pkgs.swaylock-effects}/bin/swaylock"; }
+      { event = "before-sleep"; command = lib.getExe pkgs.swaylock-effects; }
+      { event = "lock"; command = lib.getExe pkgs.swaylock-effects; }
     ];
     timeouts = [
-      { timeout = 300; command = "${pkgs.swaylock-effects}/bin/swaylock"; }
+      { timeout = 300; command = lib.getExe pkgs.swaylock-effects; }
     ];
   };
   systemd.user.services.swaync = {

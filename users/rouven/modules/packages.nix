@@ -67,15 +67,14 @@
     # libs
     libyubikey
     libfido2
-    # (pkgs.texlive.combine {
-    #   inherit (pkgs.texlive) scheme-medium;
-    # })
   ];
 
   services.kdeconnect = {
     enable = true;
     indicator = true;
   };
+
+  programs.texlive.enable = true;
 
   xdg.mimeApps = {
     enable = true;

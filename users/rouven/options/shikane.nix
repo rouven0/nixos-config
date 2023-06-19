@@ -7,16 +7,14 @@ let
   tomlFormat = pkgs.formats.toml { };
 in
 {
-  meta.maintainers = [ hm.maintainers.therealr5 ];
+  meta.maintainers = [ maintainers.therealr5 ];
   options.services.shikane = {
+
     enable = mkEnableOption
       "shikane, A dynamic output configuration tool that automatically detects and configures connected outputs based on a set of profiles.";
-    package = mkOption {
-      type = types.package;
-      default = pkgs.shikane;
-      defaultText = literalExpression "pkgs.shikane";
-      description = "The package to use for shikane.";
-    };
+
+    package = mkPackageOption pkgs "shikane" { };
+
     settings = mkOption {
       type = tomlFormat.type;
       default = { };
@@ -63,17 +61,17 @@ in
   };
 
   config = mkIf cfg.enable {
-    xdg.configFile."shikane/config.toml".source = tomlFormat.generate "shikane-config" cfg.settings;
+    xdg.configFile."shikane/config.toml".source =
+      tomlFormat.generate "shikane-config" cfg.settings;
     systemd.user.services.shikane = {
       Unit = {
         Description = "Dynamic output configuration tool";
         Documentation = "man:shikane(1)";
+        After = [ "graphical-session-pre.target" ];
         PartOf = [ "graphical-session.target" ];
       };
 
-      Service = {
-        ExecStart = "${cfg.package}/bin/shikane";
-      };
+      Service = { ExecStart = getExe cfg.package; };
 
       Install = { WantedBy = [ "graphical-session.target" ]; };
     };

@@ -1,4 +1,4 @@
-{ self, config, pkgs, ... }:
+{ self, config, pkgs, lib, ... }:
 {
   systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.swaynotificationcenter}/bin";
   programs.waybar = {
@@ -55,7 +55,7 @@
           format = "  {}";
           max-length = 80;
           return-type = "json";
-          exec = "${self.packages.x86_64-linux.pww}/bin/pww -w spotifyd:title -p None 2> /dev/null";
+          exec = "${lib.getExe self.packages.x86_64-linux.pww} -w spotifyd:title -p None 2> /dev/null";
         };
         cpu = {
           format = "{usage}% ";

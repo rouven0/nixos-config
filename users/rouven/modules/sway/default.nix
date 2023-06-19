@@ -12,14 +12,14 @@
     config = rec {
       startup = [
         {
-          command = "${pkgs.swaybg}/bin/swaybg -i ${../../../../images/wallpaper.png}";
+          command = "${lib.getExe pkgs.swaybg} -i ${../../../../images/wallpaper.png}";
         }
         {
-          command = "${pkgs.autotiling-rs}/bin/autotiling-rs";
+          command = lib.getExe pkgs.autotiling-rs;
         }
       ];
       modifier = "Mod4";
-      menu = "${pkgs.fuzzel}/bin/fuzzel";
+      menu = lib.getExe pkgs.fuzzel;
       terminal = "${pkgs.foot}/bin/footclient";
       bars = [ ];
       gaps = {
@@ -40,10 +40,10 @@
       keybindings =
         lib.mkOptionDefault {
           "Mod1+space" = "exec ${menu}";
-          "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
-          "XF86Launch2" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save area - | ${pkgs.swappy}/bin/swappy -f -";
-          "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 10";
-          "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 10";
+          "Print" = "exec ${lib.getExe pkgs.sway-contrib.grimshot} copy area";
+          "XF86Launch2" = "exec ${lib.getExe pkgs.sway-contrib.grimshot} save area - | ${lib.getExe pkgs.swappy} -f -";
+          "XF86MonBrightnessUp" = "exec ${lib.getExe pkgs.light} -A 10";
+          "XF86MonBrightnessDown" = "exec ${lib.getExe pkgs.light} -U 10";
           # audio controls
           "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           "XF86AudioMicMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
@@ -53,7 +53,7 @@
           "Shift+XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-volume @DEFAULT_SOURCE@ -5%";
 
           "XF86Favorites" = "exec ${pkgs.systemd}/bin/loginctl lock-session";
-          "XF86PowerOff" = "exec ${pkgs.wlogout}/bin/wlogout";
+          "XF86PowerOff" = "exec ${lib.getExe pkgs.wlogout}";
 
           "XF86Messenger" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client --toggle-panel";
           "Cancel" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client --hide-latest";
@@ -68,7 +68,7 @@
       icon-theme=${config.gtk.iconTheme.name}
       show-actions=yes
       width=80
-      terminal=${pkgs.foot}/bin/foot
+      terminal=${lib.getExe pkgs.foot}
 
       [colors]
       background=${config.colorScheme.colors.base00}ff
