@@ -58,6 +58,7 @@
     htop-vim
     helix
     lsof
+    btdu
   ];
   programs.git = {
     enable = true;

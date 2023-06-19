@@ -26,7 +26,7 @@ in
 
     nextcloud = {
       enable = true;
-      package = pkgs.nextcloud26; # Use current latest nextcloud package
+      package = pkgs.nextcloud27; # Use current latest nextcloud package
       hostName = "${domain}";
       https = true; # Use https for all urls
       config = {

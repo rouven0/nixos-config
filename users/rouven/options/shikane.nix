@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
+
 with lib;
+
 let
   cfg = config.services.shikane;
   tomlFormat = pkgs.formats.toml { };
@@ -7,7 +9,8 @@ in
 {
   meta.maintainers = [ hm.maintainers.therealr5 ];
   options.services.shikane = {
-    enable = mkEnableOption "shikane, A dynamic output configuration tool that automatically detects and configures connected outputs based on a set of profiles.";
+    enable = mkEnableOption
+      "shikane, A dynamic output configuration tool that automatically detects and configures connected outputs based on a set of profiles.";
     package = mkOption {
       type = types.package;
       default = pkgs.shikane;
@@ -60,6 +63,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    xdg.configFile."shikane/config.toml".source = tomlFormat.generate "shikane-config" cfg.settings;
     systemd.user.services.shikane = {
       Unit = {
         Description = "Dynamic output configuration tool";
@@ -68,11 +72,10 @@ in
       };
 
       Service = {
-        ExecStart = "${cfg.package}/bin/shikane -c ${tomlFormat.generate "shikane-config" cfg.settings}";
+        ExecStart = "${cfg.package}/bin/shikane";
       };
 
       Install = { WantedBy = [ "graphical-session.target" ]; };
     };
   };
 }
-

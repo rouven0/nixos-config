@@ -31,6 +31,11 @@
           xkb_layout = "us";
           xkb_variant = "dvorak-alt-intl";
         };
+        "2:7:SynPS/2_Synaptics_TouchPad" = {
+          tap = "enabled";
+          drag = "enabled";
+          middle_emulation = "enabled";
+        };
       };
       keybindings =
         lib.mkOptionDefault {
