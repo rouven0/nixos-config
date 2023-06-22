@@ -22,7 +22,6 @@
   };
   services.btrfs.autoScrub.enable = true;
   nix.settings = {
-    cores = 3;
     auto-optimise-store = true;
   };
 

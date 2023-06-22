@@ -47,7 +47,6 @@
       url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs =
@@ -74,6 +73,8 @@
       };
       hydraJobs = self.packages;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+
+      overlays.default = import ./overlays;
       nixosConfigurations = {
         thinkpad = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -89,6 +90,7 @@
             impermanence.nixosModules.impermanence
             lanzaboote.nixosModules.lanzaboote
             {
+              nixpkgs.overlays = [ self.overlays.default ];
               home-manager.extraSpecialArgs = attrs;
               home-manager.users.rouven = {
                 imports = [

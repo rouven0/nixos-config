@@ -1,4 +1,4 @@
-{ self, config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
   systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.swaynotificationcenter}/bin";
   programs.waybar = {
@@ -55,7 +55,7 @@
           format = "  {}";
           max-length = 80;
           return-type = "json";
-          exec = "${lib.getExe self.packages.x86_64-linux.pww} -w spotifyd:title -p None 2> /dev/null";
+          exec = "${lib.getExe pkgs.pww} -w spotifyd:title -p None 2> /dev/null";
         };
         cpu = {
           format = "{usage}% ";
@@ -68,8 +68,8 @@
         };
         pulseaudio = {
           format = "{volume}% {icon} {format_source}";
-          format-bluetooth = "{volume}% {icon} {format_source} ";
-          format-bluetooth-muted = " {icon} {format_source}";
+          format-bluetooth = "{volume}% {icon}  {format_source} ";
+          format-bluetooth-muted = " {icon}  {format_source}";
           format-muted = "󰝟 {format_source}";
           format-source = " {volume}% ";
           format-source-muted = " ";

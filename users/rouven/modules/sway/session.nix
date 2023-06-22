@@ -5,6 +5,7 @@
     wl-clipboard
     swaynotificationcenter
     playerctl
+    wdisplays
   ];
 
   services.swayidle = {

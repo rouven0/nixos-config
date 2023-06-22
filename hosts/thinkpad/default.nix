@@ -32,7 +32,7 @@
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
       substituters = [
-        "ssh-ng://nuc.lan"
+        "ssh://nuc.lan"
       ];
       trusted-public-keys = [
         "nuc.lan:a9UkVw3AizAKCER1CfNGhx8UOMF4t4UGE3GJ9dmHwJc="
@@ -47,7 +47,7 @@
         hostName = "nuc.lan";
         system = "x86_64-linux";
         protocol = "ssh-ng";
-        maxJobs = 2;
+        maxJobs = 4;
         speedFactor = 1;
         supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
         mandatoryFeatures = [ ];
