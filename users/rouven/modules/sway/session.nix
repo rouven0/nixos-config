@@ -30,7 +30,6 @@
       Documentation = "https://github.com/ErikReider/SwayNotificationCenter";
       PartOf = "graphical-session.target";
     };
-    environment.PATH = "${pkgs.coreutils}/bin";
   };
 
   xdg.configFile = {
