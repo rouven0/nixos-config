@@ -6,7 +6,7 @@
     ./git
     ./gpg
     ./helix
-    ./sway
+    ./wayland
     ./mpv
     ./sops
     ./spotify

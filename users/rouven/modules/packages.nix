@@ -69,6 +69,7 @@
   };
 
   programs.texlive.enable = true;
+  programs.obs-studio.enable = true;
 
   xdg.mimeApps = {
     enable = true;

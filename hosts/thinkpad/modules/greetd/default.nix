@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${lib.getExe pkgs.greetd.tuigreet} --cmd sway";
+        command = "${lib.getExe pkgs.greetd.tuigreet} --cmd river";
       };
     };
   };

@@ -11,7 +11,7 @@
         position = "top";
         height = 26;
         # modules-left = [ "wlr/workspaces" "custom/spotifytitle" "hyprland/window" ];
-        modules-left = [ "sway/workspaces" "custom/spotifytitle" "sway/window" ];
+        modules-left = [ "river/tags" "custom/spotifytitle" "river/window" ];
         modules-right = [ "network" "cpu" "temperature" "pulseaudio" "battery" "tray" "custom/notification" "clock" ];
         network = {
           format-wifi = "  {essid} ({signalStrength}%)";
@@ -21,11 +21,11 @@
           format-disconnected = "Disconnected ⚠";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
-        "sway/workspaces" = {
+        "river/tags" = {
           format = "{icon}";
           on-click = "activate";
         };
-        "sway/window" = {
+        "river/window" = {
           format = "   {}";
           # separate-outputs = true;
         };
@@ -61,7 +61,7 @@
           format = "{usage}% ";
         };
         temperature = {
-          hwmon-path = "/sys/class/hwmon/hwmon5/temp1_input";
+          hwmon-path = "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon4/temp1_input";
           critical-threshold = 80;
           format = "{temperatureC}°C {icon}";
           format-icons = [ "" ];
@@ -114,18 +114,22 @@
       background-color: transparent;
     }
 
-    #workspaces button {
+    #tags button {
         padding: 0 5px;
         background-color: transparent;
         color: #${config.colorScheme.colors.base05};
     }
     
-    #workspaces button.active {
+    #tags button.occupied {
+        box-shadow: inset 0 -3px #${config.colorScheme.colors.base05};
+    }
+
+    #tags button.focused {
         background-color: #${config.colorScheme.colors.base04};
         box-shadow: inset 0 -3px #${config.colorScheme.colors.base05};
     }
     
-    #workspaces button.urgent {
+    #tags button.urgent {
         background-color: #eb4d4b;
     }
     

@@ -1,5 +1,13 @@
 { config, pkgs, lib, ... }:
+
 {
+  imports = [
+    ./sway.nix
+    ./river.nix
+    ./waybar.nix
+    ./shikane.nix
+  ];
+
   home.packages = with pkgs; [
     swaylock-effects
     wl-clipboard
@@ -17,6 +25,7 @@
     timeouts = [
       { timeout = 300; command = lib.getExe pkgs.swaylock-effects; }
     ];
+    systemdTarget = "river-session.target";
   };
   systemd.user.services.swaync = {
     Install.WantedBy = [ "graphical-session.target" ];
@@ -25,7 +34,7 @@
       Restart = "on-failure";
     };
     Unit = {
-      After = "graphical-session.target";
+      After = "graphical-session-pre.target";
       Description = "Simple notification daemon with a GUI built for Sway";
       Documentation = "https://github.com/ErikReider/SwayNotificationCenter";
       PartOf = "graphical-session.target";
@@ -33,6 +42,27 @@
   };
 
   xdg.configFile = {
+    "swaync".source = ./swaync;
+    "fuzzel/fuzzel.ini".text = ''
+      [main]
+      icon-theme=${config.gtk.iconTheme.name}
+      show-actions=yes
+      width=80
+      terminal=${lib.getExe pkgs.foot}
+
+      [colors]
+      background=${config.colorScheme.colors.base00}ff
+      text=${config.colorScheme.colors.base05}ff
+      match=${config.colorScheme.colors.base08}ff
+      selection=${config.colorScheme.colors.base02}ff
+      selection-text=${config.colorScheme.colors.base04}ff
+      border=${config.colorScheme.colors.base01}ff
+    '';
+    "swappy/config".text = ''
+      [Default]
+      save_dir = ~/Pictures/Screenshots/
+      early_exit = true
+    '';
     "swaylock/config".text = ''
       indicator-radius=200
       indicator-thickness=3
@@ -44,7 +74,6 @@
       screenshot
       effect-blur=7x5
     '';
-
     "wlogout/style.css".text = ''
       * {
         background-image: none;
