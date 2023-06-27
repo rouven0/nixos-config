@@ -25,8 +25,9 @@
     timeouts = [
       { timeout = 300; command = lib.getExe pkgs.swaylock-effects; }
     ];
-    systemdTarget = "river-session.target";
+    systemdTarget = "graphical-session.target";
   };
+
   systemd.user.services.swaync = {
     Install.WantedBy = [ "graphical-session.target" ];
     Service = {

@@ -16,6 +16,7 @@
       source =
         pkgs.writeShellScript "river-init.sh" ''
           riverctl focus-follows-cursor always
+          riverctl attach-mode bottom
           riverctl spawn rivertile
           riverctl default-layout rivertile
           riverctl output-layout rivertile
@@ -25,10 +26,9 @@
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad middle-emulation enabled
           
           riverctl spawn "${lib.getExe pkgs.swaybg} -i ${../../../../images/wallpaper.png}"
-          systemctl --user start river-session.target
-          ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL
 
           riverctl map normal Super Return spawn footclient
+          riverctl map normal Super+Shift Return zoom
           riverctl map normal Super+Shift Q close
           riverctl map normal Super F toggle-fullscreen
 
@@ -49,6 +49,7 @@
           # riverctl map-pointer normal Super BTN_RIGHT resize-view
 
           riverctl map normal Alt Space spawn ${lib.getExe pkgs.fuzzel}
+          riverctl map normal Super Space toggle-float
 
           for i in $(seq 1 9)
           do
@@ -82,6 +83,9 @@
           riverctl map normal None XF86Messenger spawn "${pkgs.swaynotificationcenter}/bin/swaync-client --toggle-panel"
           riverctl map normal None Cancel spawn "${pkgs.swaynotificationcenter}/bin/swaync-client --hide-latest"
           riverctl map normal Shift Cancel spawn "${pkgs.swaynotificationcenter}/bin/swaync-client --cloes-all"
+
+          ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL
+          systemctl --user start river-session.target
         '';
     };
   };
