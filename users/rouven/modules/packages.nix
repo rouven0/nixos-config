@@ -56,7 +56,6 @@
     rustfmt
     clippy
     gcc
-    adguardian-term
 
     # libs
     libyubikey

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./sway.nix
+    # ./sway.nix
     ./river.nix
     ./waybar.nix
     ./shikane.nix
