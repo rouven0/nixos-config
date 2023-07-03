@@ -44,9 +44,9 @@
           riverctl map normal Super L focus-output next
           riverctl map normal Super H focus-output previous
           riverctl map normal Super O send-to-output next
-          # riverctl map-pointer normal Super BTN_LEFT move-view
+          riverctl map-pointer normal Super BTN_LEFT move-view
 
-          # riverctl map-pointer normal Super BTN_RIGHT resize-view
+          riverctl map-pointer normal Super BTN_RIGHT resize-view
 
           riverctl map normal Alt Space spawn ${lib.getExe pkgs.fuzzel}
           riverctl map normal Super Space toggle-float

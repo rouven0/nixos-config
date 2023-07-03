@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./modules/networks
       ./modules/greetd
+      ./modules/virtualisation
       ./modules/snapper
     ];
 
@@ -156,28 +157,11 @@
     fwupd.enable = true; # firmware updates
   };
 
-  # fun fact: if I disable this, Hyprland breaks due to missing egl dependencies
   programs.steam.enable = true; # putting steam in here cause in home manager it doesn't work
 
   programs.ausweisapp = {
     enable = true;
     openFirewall = true;
-  };
-
-  virtualisation.libvirtd.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
-
-  # fix to enable secure boot in vms
-  environment.etc = {
-    "ovmf/edk2-x86_64-secure-code.fd" = {
-      source = config.virtualisation.libvirtd.qemu.package + "/share/qemu/edk2-x86_64-secure-code.fd";
-    };
-
-    "ovmf/edk2-i386-vars.fd" = {
-      source = config.virtualisation.libvirtd.qemu.package + "/share/qemu/edk2-i386-vars.fd";
-      mode = "0644";
-      user = "libvirtd";
-    };
   };
 
   systemd.sleep.extraConfig = ''
@@ -221,8 +205,8 @@
     killall
     zip
     unzip
+    pciutils
 
-    virt-viewer # multi monitor for vms
     sbctl
 
     deploy-rs

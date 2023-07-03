@@ -12,6 +12,7 @@
     evince # pdf viewer
     gimp
     ffmpeg
+    drawio
 
     thunderbird
 
