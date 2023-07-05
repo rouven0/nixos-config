@@ -75,8 +75,8 @@ in
             extraConfig.Create = "near";
           };
           channels.junk = {
-            nearPattern = "Junk";
-            farPattern = "Junk";
+            nearPattern = "Spam";
+            farPattern = "Spam";
             extraConfig.Create = "near";
           };
           channels.drafts = {

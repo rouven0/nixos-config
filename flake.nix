@@ -44,10 +44,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    simple-nixos-mailserver = {
-      url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -63,7 +59,6 @@
     , lanzaboote
     , purge
     , trucksimulatorbot
-    , simple-nixos-mailserver
     , ...
     }@attrs: {
       packages.x86_64-linux = {
@@ -124,7 +119,6 @@
             sops-nix.nixosModules.sops
             purge.nixosModules.default
             trucksimulatorbot.nixosModules.default
-            simple-nixos-mailserver.nixosModules.default
           ];
         };
         vm = nixpkgs.lib.nixosSystem {

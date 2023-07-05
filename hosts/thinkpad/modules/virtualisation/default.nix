@@ -54,6 +54,7 @@ let
 in
 {
 
+  boot.kernelParams = [ "intel_iommu=on" ];
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
