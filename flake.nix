@@ -39,7 +39,6 @@
     };
 
     lanzaboote = {
-      # url = "github:therealr5/lanzaboote/stub-platform-fix";
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };

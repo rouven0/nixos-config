@@ -42,6 +42,15 @@
     };
   };
 
+  services.wlsunset = {
+    enable = true;
+    longitude = "13";
+    latitude = "51";
+    temperature = {
+      night = 4300;
+    };
+  };
+
   xdg.configFile = {
     "swaync".source = ./swaync;
     "fuzzel/fuzzel.ini".text = ''

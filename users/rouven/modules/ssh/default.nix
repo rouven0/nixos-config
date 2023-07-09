@@ -38,6 +38,10 @@ in
         hostname = "quitte.ifsr.de";
         user = "root";
       };
+      "tomate" = {
+        hostname = "tomate.ifsr.de";
+        user = "root";
+      };
       "nuc" = {
         hostname = "192.168.10.2";
         user = "root";

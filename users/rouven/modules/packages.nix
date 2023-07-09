@@ -14,8 +14,6 @@
     ffmpeg
     drawio
 
-    thunderbird
-
     # sound
     pavucontrol
     x32edit
@@ -33,6 +31,7 @@
     gomuks # alternative matrix client
 
     # games
+    dwarf-fortress-packages.dwarf-fortress-full
     prismlauncher # minecraft, but it actually works # not anymore lol
     superTuxKart
 
@@ -44,6 +43,7 @@
     pass
 
     # misc
+    btop
     asciinema
     neofetch # obligatory
     virt-manager

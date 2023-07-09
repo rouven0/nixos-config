@@ -11,6 +11,8 @@
     allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
     allowedUDPPortRanges = allowedTCPPortRanges;
   };
+  # wayland keylogger needs setuid
+  programs.wshowkeys.enable = true;
   # fixes pam entries for swaylock
   security.pam.services.swaylock.text = ''
     # Account management.

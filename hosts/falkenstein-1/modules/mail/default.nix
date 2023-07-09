@@ -72,7 +72,7 @@ in
         smtpd_sasl_auth_enable = true;
         smtpd_sasl_path = "/var/lib/postfix/auth";
         smtpd_sasl_type = "dovecot";
-        local_transport = "lmtp:unix:/run/dovecot2/dovecot-lmtp";
+        mailbox_transport = "lmtp:unix:/run/dovecot2/dovecot-lmtp";
 
       };
     };
