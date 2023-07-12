@@ -206,6 +206,7 @@
     zip
     unzip
     pciutils
+    lm_sensors
 
     sbctl
 
