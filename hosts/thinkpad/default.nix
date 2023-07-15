@@ -22,6 +22,11 @@
       pkiBundle = "/etc/secureboot";
       configurationLimit = 10;
     };
+    extraModulePackages = [
+      config.boot.kernelPackages.v4l2loopback.out
+    ];
+
+
     loader.systemd-boot.editor = false;
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_latest;

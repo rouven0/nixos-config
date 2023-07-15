@@ -10,6 +10,7 @@
       ./modules/backup
       ./modules/hydra
       ./modules/nextcloud
+      ./modules/uptime-kuma
       ./modules/vaultwarden
       ./modules/nginx
     ];
