@@ -6,9 +6,6 @@ let
   rspamd-domain = "rspamd.${domain}";
 in
 {
-  sops.secrets."mail/rouven".owner = config.users.users.postfix.name;
-  sops.secrets."rspamd".owner = config.users.users.rspamd.name;
-
   networking.firewall.allowedTCPPorts = [
     25 # insecure SMTP
     465
@@ -160,7 +157,9 @@ in
       enable = true;
       postfix.enable = true;
       locals = {
-        "worker-controller.inc".source = config.sops.secrets."rspamd".path;
+        "worker-controller.inc".text = ''
+          password = "$2$g1jh7t5cxschj11set5wksd656ixd5ie$cgwrj53hfb87xndqbh5r3ow9qfi1ejii8dxok1ihbnhamccn1rxy";
+        '';
         "redis.conf".text = ''
           read_servers = "127.0.0.1";
           write_servers = "127.0.0.1";

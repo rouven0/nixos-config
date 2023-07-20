@@ -44,21 +44,21 @@
         "nuc.lan:a9UkVw3AizAKCER1CfNGhx8UOMF4t4UGE3GJ9dmHwJc="
       ];
     };
-    distributedBuilds = true;
-    extraOptions = ''
-      builders-use-substitutes = true
-    '';
-    buildMachines = [
-      {
-        hostName = "nuc.lan";
-        system = "x86_64-linux";
-        protocol = "ssh-ng";
-        maxJobs = 4;
-        speedFactor = 1;
-        supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-        mandatoryFeatures = [ ];
-      }
-    ];
+    # distributedBuilds = true;
+    # extraOptions = ''
+    #   builders-use-substitutes = true
+    # '';
+    # buildMachines = [
+    #   {
+    #     hostName = "nuc.lan";
+    #     system = "x86_64-linux";
+    #     protocol = "ssh-ng";
+    #     maxJobs = 4;
+    #     speedFactor = 1;
+    #     supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    #     mandatoryFeatures = [ ];
+    #   }
+    # ];
   };
 
   environment.persistence."/nix/persist/system" = {

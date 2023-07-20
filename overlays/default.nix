@@ -28,6 +28,7 @@ in
   });
 
   pww = callPackage ../pkgs/pww { };
+  crowdsec-firewall-bouncer = callPackage ../pkgs/crowdsec-firewall-bouncer { };
   jmri = callPackage ../pkgs/jmri { };
   adguardian-term = callPackage ../pkgs/adguardian-term { };
 }

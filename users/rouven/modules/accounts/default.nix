@@ -310,4 +310,7 @@ in
   home.file.".urlview".text = ''
     COMMAND ${pkgs.xdg-utils}/bin/xdg-open %s &> /dev/null
   '';
+  home.file.".gnupg/dirmngr_ldapservers.conf".text = ''
+    ldap.pca.dfn.de::::o=DFN-Verein,c=DE
+  '';
 }

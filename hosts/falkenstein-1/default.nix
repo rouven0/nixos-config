@@ -39,6 +39,8 @@
     helix
     lsof
     python3
+    crowdsec
+    crowdsec-firewall-bouncer
   ];
   programs.git = {
     enable = true;

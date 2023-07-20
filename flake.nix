@@ -65,6 +65,7 @@
         jmri = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/jmri { };
         adguardian-term = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/adguardian-term { };
         pww = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/pww { };
+        crowdsec-firewall-bouncer = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/crowdsec-firewall-bouncer { };
       };
       hydraJobs = self.packages;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
@@ -114,6 +115,9 @@
           modules = [
             ./hosts/falkenstein-1
             ./shared
+            {
+              nixpkgs.overlays = [ self.overlays.default ];
+            }
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
             purge.nixosModules.default
