@@ -17,6 +17,15 @@ in
   services.mbsync.enable = true;
   systemd.user.services.mbsync.Unit.After = [ "sops-nix.service" ];
   programs = {
+    thunderbird = {
+      enable = true;
+      profiles = {
+        default = {
+          withExternalGnupg = true;
+          isDefault = true;
+        };
+      };
+    };
     neomutt = {
       enable = true;
       sidebar.enable = true;
@@ -54,6 +63,7 @@ in
         tls.useStartTls = true;
       };
       msmtp.enable = true;
+      thunderbird.enable = true;
       mbsync = {
         enable = true;
         create = "maildir";
@@ -156,6 +166,7 @@ in
         };
       };
       msmtp.enable = true;
+      thunderbird.enable = true;
       neomutt = let c = mbsync.groups.tud.channels; in
         {
           enable = true;
@@ -238,6 +249,7 @@ in
         };
       };
       msmtp.enable = true;
+      thunderbird.enable = true;
       neomutt = let c = mbsync.groups.ifsr.channels; in
         {
           enable = true;
@@ -296,6 +308,7 @@ in
         };
       };
       msmtp.enable = true;
+      thunderbird.enable = true;
       neomutt = let c = mbsync.groups.gmail.channels; in
         {
           enable = true;

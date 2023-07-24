@@ -50,6 +50,7 @@
     jetbrains.idea-ultimate #😎
     powerline-fonts
     croc # send files anywhere
+    bacula
 
     # programming languages
     cargo
