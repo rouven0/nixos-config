@@ -19,6 +19,7 @@ buildGoModule rec {
     homepage = "https://github.com/crowdsecurity/cs-firewall-bouncer";
     license = licenses.mit;
     maintainers = with maintainers; [ therealr5 ];
+    mainProgram = "cs-firewall-bouncer";
     platforms = platforms.all;
   };
 }

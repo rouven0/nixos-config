@@ -5,6 +5,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/crowdsec
       ./modules/mail
       ./modules/networks
       ./modules/nginx
@@ -39,8 +40,6 @@
     helix
     lsof
     python3
-    crowdsec
-    crowdsec-firewall-bouncer
   ];
   programs.git = {
     enable = true;
@@ -70,6 +69,4 @@
   ];
 
   system.stateVersion = "22.11";
-
 }
-

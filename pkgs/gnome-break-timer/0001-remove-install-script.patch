@@ -1,0 +1,49 @@
+From 07c3436bf3803a9b939df7fe9c0f4ab70c21e5ad Mon Sep 17 00:00:00 2001
+From: Rouven Seifert <rouven@rfive.de>
+Date: Mon, 24 Jul 2023 20:59:57 +0200
+Subject: [PATCH] remove install script
+
+---
+ build-aux/meson/postinstall.py | 19 -------------------
+ meson.build                    |  2 --
+ 2 files changed, 21 deletions(-)
+ delete mode 100755 build-aux/meson/postinstall.py
+
+diff --git a/build-aux/meson/postinstall.py b/build-aux/meson/postinstall.py
+deleted file mode 100755
+index 7fb0345..0000000
+--- a/build-aux/meson/postinstall.py
++++ /dev/null
+@@ -1,19 +0,0 @@
+-#!/usr/bin/env python3
+-
+-from os import environ, path
+-from subprocess import call
+-
+-prefix = environ.get('MESON_INSTALL_PREFIX', '/usr/local')
+-datadir = path.join(prefix, 'share')
+-destdir = environ.get('DESTDIR', '')
+-
+-if not destdir:
+-    print('Updating icon cache...')
+-    call(['gtk-update-icon-cache', '-qtf', path.join(datadir, 'icons', 'hicolor')])
+-
+-    print('Updating desktop database...')
+-    call(['update-desktop-database', '-q', path.join(datadir, 'applications')])
+-
+-    print('Compiling GSettings schemas...')
+-    call(['glib-compile-schemas', path.join(datadir, 'glib-2.0', 'schemas')])
+-
+diff --git a/meson.build b/meson.build
+index 0a07ef3..edd6a67 100644
+--- a/meson.build
++++ b/meson.build
+@@ -95,5 +95,3 @@ subdir('po')
+ subdir('data')
+ subdir('src')
+ subdir('tests')
+-
+-meson.add_install_script('build-aux/meson/postinstall.py')
+-- 
+2.41.0
+
