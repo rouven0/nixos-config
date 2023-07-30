@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 # Virtualisation with gpu passthrough
 # Following https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
 # let

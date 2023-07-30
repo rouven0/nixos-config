@@ -11,19 +11,6 @@ in
   };
 
   services = {
-    postgresql = {
-      enable = true;
-      ensureUsers = [
-        {
-          name = "nextcloud";
-          ensurePermissions = {
-            "DATABASE nextcloud" = "ALL PRIVILEGES";
-          };
-        }
-      ];
-      ensureDatabases = [ "nextcloud" ];
-    };
-
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud27; # Use current latest nextcloud package
@@ -53,6 +40,10 @@ in
 
   # ensure that postgres is running *before* running the setup
   systemd.services."nextcloud-setup" = {
+    requires = [ "postgresql.service" ];
+    after = [ "postgresql.service" ];
+  };
+  systemd.services."nextcloud-cron" = {
     requires = [ "postgresql.service" ];
     after = [ "postgresql.service" ];
   };

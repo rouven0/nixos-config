@@ -6,7 +6,6 @@
     wpa_supplicant_gui
     pcmanfm
     xdg-utils # used for xdg-open
-    snapper-gui
 
     # graphics
     evince # pdf viewer

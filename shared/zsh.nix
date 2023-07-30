@@ -24,10 +24,11 @@
       la = "ls -a";
       less = "bat";
       update = "cd /etc/nixos && nix flake update";
-      garbage = "sudo nix-collect-garbage -d";
+      garbage = "${lib.getExe pkgs.home-manager} expire-generations \"-0 days\" && sudo nix-collect-garbage -d";
     };
     histSize = 100000;
     histFile = "~/.local/share/zsh/history";
+    syntaxHighlighting.enable = true;
     autosuggestions = {
       enable = true;
       highlightStyle = "fg=#00bbbb,bold";
@@ -41,6 +42,12 @@
 
     shellInit =
       ''
+        export MCFLY_KEY_SCHEME=vim
+        export MCFLY_FUZZY=2
+        export MCFLY_DISABLE_MENU=TRUE
+        export MCFLY_RESULTS=30
+        export MCFLY_INTERFACE_VIEW=BOTTOM
+        export MCFLY_PROMPT="❯"
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
         function svpn() {
           unit=$(systemctl list-unit-files | grep "openconnect\|wg-quick\|wireguard\|openvpn" | cut -d "." -f1 | fzf --preview 'systemctl status {}')
@@ -73,6 +80,7 @@
         then
           cat ${../images/cat.sixel}
         fi
+        eval "$(${lib.getExe pkgs.mcfly} init zsh)"
       '';
   };
 }

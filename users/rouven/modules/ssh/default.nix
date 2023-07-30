@@ -1,10 +1,14 @@
 { ... }:
 let
-  git = "~/.ssh/git";
+  git = "/run/user/1000/secrets/ssh/git/private";
 in
 {
+  sops.secrets = {
+    "ssh/git/private" = { };
+  };
   programs.ssh = rec {
     enable = true;
+    compression = true;
     matchBlocks = {
       "artemis-git.inf.tu-dresden.de" = {
         identityFile = git;

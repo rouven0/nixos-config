@@ -11,6 +11,7 @@
     virtualHosts."rfive.de" = {
       enableACME = true;
       forceSSL = true;
+      root = "/srv/web/rfive.de";
     };
   };
   security.acme = {

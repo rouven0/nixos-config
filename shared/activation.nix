@@ -1,7 +1,9 @@
-{ lib, pkgs, ... }:
+{ config, ... }:
 {
   system.activationScripts.report-nixos-changes = ''
-    PATH=$PATH:${lib.makeBinPath [ pkgs.nvd pkgs.nix ]}
-    nvd diff $(ls -dv /nix/var/nix/profiles/system-*-link | tail -2) || true
+    if [ -e /run/current-system ] && [ -e $systemConfig ]; then
+      echo System package diff:
+      ${config.nix.package}/bin/nix store diff-closures /run/current-system $systemConfig || true
+    fi
   '';
 }

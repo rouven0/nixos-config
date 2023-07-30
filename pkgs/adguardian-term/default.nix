@@ -16,6 +16,7 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/lissy93/adguardian-term";
     license = with licenses; [ mit ];
     maintainers = with maintainers; [ therealr5 ];
+    mainProgram = "adguardian";
   };
 }
 

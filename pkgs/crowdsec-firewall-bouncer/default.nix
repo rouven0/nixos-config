@@ -1,4 +1,4 @@
-{ lib, buildGoModule, makeWrapper, fetchFromGitHub, playerctl }:
+{ lib, buildGoModule, fetchFromGitHub, playerctl }:
 buildGoModule rec {
   pname = "crowdsec-firewall-bouncer";
   version = "0.0.27";

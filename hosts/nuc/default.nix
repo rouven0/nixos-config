@@ -35,6 +35,7 @@
     directories = [
       "/etc/ssh"
       "/root/.local/share/zsh"
+      "/root/.config/borg/security"
     ];
     files = [
       "/etc/machine-id"
@@ -83,6 +84,7 @@
     ../../keys/ssh/rouven-thinkpad
     ../../keys/ssh/root-thinkpad
     ../../keys/ssh/rouven-pixel
+    ../../keys/ssh/root-falkenstein
   ];
 
   system.stateVersion = "22.11";

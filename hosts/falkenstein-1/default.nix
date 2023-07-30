@@ -5,6 +5,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/backup
       ./modules/crowdsec
       ./modules/mail
       ./modules/networks

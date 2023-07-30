@@ -3,7 +3,6 @@
 let
   domain = "rfive.de";
   hostname = "falkenstein.vpn.${domain}";
-  rspamd-domain = "rspamd.${domain}";
 in
 {
   networking.firewall.allowedTCPPorts = [

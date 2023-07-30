@@ -4,10 +4,10 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./modules/backup
       ./modules/networks
       ./modules/greetd
       ./modules/virtualisation
-      ./modules/snapper
     ];
 
   # Use the systemd-boot EFI boot loader.
