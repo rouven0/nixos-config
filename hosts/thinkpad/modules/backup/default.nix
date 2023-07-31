@@ -11,6 +11,7 @@
           "/var/log"
           "/nix/persist"
           "/home"
+          "/etc/secureboot"
         ];
 
         repositories = [

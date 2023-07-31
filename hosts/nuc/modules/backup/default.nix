@@ -4,7 +4,7 @@
   environment.systemPackages = [ pkgs.borgbackup ];
   fileSystems."/mnt/backup" =
     {
-      device = "dev/disk/by-uuid/74e78699-fe27-4467-a9bb-99fc6e8d52c5";
+      device = "/dev/disk/by-uuid/74e78699-fe27-4467-a9bb-99fc6e8d52c5";
       fsType = "ext4";
       options = [ "nofail" ];
       neededForBoot = false;
