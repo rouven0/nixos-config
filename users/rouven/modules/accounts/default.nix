@@ -181,7 +181,7 @@ in
         text = ''
           Rouven Seifert
 
-          Fachschaftsrat Informatik TU Dresden
+          Co-Admin im Fachschaftsrat Informatik TU Dresden
           Fakultät Informatik
           Nöthnitzer Str. 46, 01187 Dresden
         '';
