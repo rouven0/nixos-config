@@ -9,17 +9,26 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-  boot.initrd.systemd.enable = true;
-  boot.initrd.luks.devices."luksroot" = {
-    device = "/dev/disk/by-uuid/6b89181c-71e0-4e84-8523-2456d3e28400";
-    allowDiscards = true;
-  };
-  boot.initrd.luks.devices."luksswap" = {
-    device = "/dev/disk/by-uuid/4a5fd2d9-1b37-4895-a24b-835a9cd4063e";
+  boot = {
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
+      kernelModules = [ ];
+      systemd.enable = true;
+      luks.devices."luksroot" = {
+        device = "/dev/disk/by-uuid/6b89181c-71e0-4e84-8523-2456d3e28400";
+        allowDiscards = true;
+      };
+      luks.devices."luksswap" = {
+        device = "/dev/disk/by-uuid/4a5fd2d9-1b37-4895-a24b-835a9cd4063e";
+      };
+
+    };
+    kernelModules = [ "kvm-intel" ];
+    zfs = {
+      allowHibernation = true;
+      forceImportRoot = false;
+    };
+
   };
 
 
@@ -48,8 +57,9 @@
     };
   fileSystems."/" =
     {
-      device = "rpool/nixos/fixroot";
-      fsType = "zfs";
+      device = "tmpfs";
+      fsType = "tmpfs";
+      options = [ "mode=755" ];
     };
 
   fileSystems."/boot" =

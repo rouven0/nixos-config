@@ -16,13 +16,12 @@
     # This setting is usually set to true in configuration.nix
     # generated at installation time. So we force it to false
     # for now.
-    # loader.systemd-boot.enable = lib.mkForce false;
-    loader.systemd-boot.enable = true;
-    # lanzaboote = {
-    #   enable = true;
-    #   pkiBundle = "/etc/secureboot";
-    #   configurationLimit = 10;
-    # };
+    loader.systemd-boot.enable = lib.mkForce false;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+      configurationLimit = 10;
+    };
     extraModulePackages = [
       config.boot.kernelPackages.v4l2loopback.out
     ];
@@ -62,19 +61,19 @@
     # ];
   };
 
-  #environment.persistence."/nix/persist/system" = {
-  #  directories = [
-  #    "/etc/nixos" # bind mounted from /nix/persist/system/etc/nixos to /etc/nixos
-  #    "/etc/ssh"
-  #    "/etc/secureboot"
-  #    "/root/.ssh"
-  #  ];
-  #  files = [
-  #    "/etc/machine-id"
-  #  ];
-  #};
+  environment.persistence."/nix/persist/system" = {
+    directories = [
+      "/etc/nixos" # bind mounted from /nix/persist/system/etc/nixos to /etc/nixos
+      "/etc/ssh"
+      "/etc/secureboot"
+      "/root/.ssh"
+    ];
+    files = [
+      "/etc/machine-id"
+    ];
+  };
   # impermanence fixes
-  #sops.age.sshKeyPaths = lib.mkForce [ "/nix/persist/system/etc/ssh/ssh_host_ed25519_key" ];
+  sops.age.sshKeyPaths = lib.mkForce [ "/nix/persist/system/etc/ssh/ssh_host_ed25519_key" ];
   sops.gnupg.sshKeyPaths = lib.mkForce [ ];
 
   time.timeZone = "Europe/Berlin";
@@ -158,6 +157,7 @@
       openFirewall = false;
     };
     fwupd.enable = true; # firmware updates
+    zfs.autoScrub.enable = true;
   };
 
   programs.steam.enable = true; # putting steam in here cause in home manager it doesn't work
