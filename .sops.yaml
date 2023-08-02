@@ -1,7 +1,7 @@
 keys:
   - &yubi 116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09
   - &rouven age1l80slr486r82csm758q2a32j2e2qdxdyxgh46um6thsjv08la9sq7475p6
-  - &thinkpad age1pwdahgk2yty9w8cw5ht90mral76h0ndp3vkp93xm4g0cttjlsvgqn8vlys
+  - &thinkpad age1ejusm7c5smk5r0lcu7yynudrqc6j63pcyk9m4uh23f8kqd84cfqs88hjl6
   - &nuc age18z4z5pgw8eluu32xe3krg4sxd2rncsnjw6e2axcun7x3vrj62vhq8eyz00
   - &falkenstein-1 age1de938w6hzpv4cuzss7v3pt0chv4d0t220ue5n9d93ffuak7u949sumnhz3
 creation_rules:

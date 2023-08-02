@@ -14,6 +14,7 @@
   networking = {
     useNetworkd = true;
     hostName = "thinkpad";
+    hostId = "d8d34032";
     enableIPv6 = true;
     wireless = {
       enable = true;

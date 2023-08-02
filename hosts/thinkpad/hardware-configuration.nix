@@ -22,45 +22,39 @@
     device = "/dev/disk/by-uuid/4a5fd2d9-1b37-4895-a24b-835a9cd4063e";
   };
 
-  fileSystems."/" =
-    {
-      device = "tmpfs";
-      fsType = "tmpfs";
-      options = [ "mode=755" ];
-    };
 
-
-  fileSystems."/home" =
+  fileSystems."/nix" =
     {
-      device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
-      fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" "discard=async" "noatime" ];
+      device = "rpool/nixos/nix";
+      fsType = "zfs";
     };
 
   fileSystems."/var/lib" =
     {
-      device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
-      fsType = "btrfs";
-      options = [ "subvol=lib" "compress=zstd" "discard=async" "noatime" "x-mount.mkdir" ];
+      device = "rpool/nixos/var/lib";
+      fsType = "zfs";
     };
 
   fileSystems."/var/log" =
     {
-      device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "discard=async" "noatime" "x-mount.mkdir" ];
+      device = "rpool/nixos/var/log";
+      fsType = "zfs";
     };
 
-  fileSystems."/nix" =
+  fileSystems."/home" =
     {
-      device = "/dev/disk/by-uuid/3d44cde5-17a2-4023-b9ae-3a02ae68aa81";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "discard=async" "noatime" ];
+      device = "rpool/nixos/home";
+      fsType = "zfs";
+    };
+  fileSystems."/" =
+    {
+      device = "rpool/nixos/fixroot";
+      fsType = "zfs";
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/B174-4DAE";
+      device = "/dev/disk/by-uuid/DF86-7611";
       fsType = "vfat";
     };
 

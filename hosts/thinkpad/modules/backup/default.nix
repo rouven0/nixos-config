@@ -21,9 +21,13 @@
           "/home/*/.cache"
           "/home/*/.zcomp*"
           "/home/*/.zcomp*"
-          "/home/*/.local/share/Steam"
-          "/home/*/.local/share/Trash"
-          "/home/*/.local/share/vifm/Trash"
+          "/home/*/.gradle*"
+          "/home/*/.java*"
+          "/home/*/.m2*"
+          "/home/*/.wine*"
+          "/home/*/.mypy_cache*"
+          "/home/*/.local/share"
+          "/home/*/.local/share"
           "/home/*/Linux/Isos"
         ];
       };
