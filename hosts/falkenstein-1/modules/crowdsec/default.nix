@@ -23,8 +23,8 @@
     description = "Crowdsec agent";
     serviceConfig = {
       Type = "notify";
-      ExecStartPre = "${lib.getExe pkgs.crowdsec} -t -error";
-      ExecStart = "${lib.getExe pkgs.crowdsec}";
+      ExecStartPre = "${pkgs.crowdsec}/bin/crowdsec -t -error";
+      ExecStart = "${pkgs.crowdsec}/bin/crowdsec";
       ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
       Restart = "always";
       RestartSec = 60;

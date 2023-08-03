@@ -27,7 +27,7 @@
     ];
 
 
-    #loader.systemd-boot.editor = false;
+    loader.systemd-boot.editor = false;
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     tmp.useTmpfs = true;
@@ -67,6 +67,7 @@
       "/etc/ssh"
       "/etc/secureboot"
       "/root/.ssh"
+      "/root/.local/share/zsh"
     ];
     files = [
       "/etc/machine-id"

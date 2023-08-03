@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     river
@@ -25,7 +25,7 @@
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad drag enabled
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad middle-emulation enabled
           
-          riverctl spawn "${lib.getExe pkgs.swaybg} -i ${../../../../images/wallpaper.png}"
+          riverctl spawn "${pkgs.swaybg}/bin/swaybg -i ${../../../../images/wallpaper.png}"
 
           riverctl map normal Super Return spawn footclient
           riverctl map normal Super+Shift Return zoom
@@ -48,7 +48,7 @@
 
           riverctl map-pointer normal Super BTN_RIGHT resize-view
 
-          riverctl map normal Alt Space spawn ${lib.getExe pkgs.fuzzel}
+          riverctl map normal Alt Space spawn ${pkgs.fuzzel}/bin/fuzzel
           riverctl map normal Super Space toggle-float
 
           for i in $(seq 1 9)
@@ -68,10 +68,10 @@
               riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
           done
 
-          riverctl map normal None Print spawn "${lib.getExe pkgs.sway-contrib.grimshot} copy area"
-          riverctl map normal None XF86Launch2 spawn "${lib.getExe pkgs.sway-contrib.grimshot} save area - | ${lib.getExe pkgs.swappy} -f -"
-          riverctl map normal None XF86MonBrightnessUp spawn "${lib.getExe pkgs.light} -A 10"
-          riverctl map normal None XF86MonBrightnessDown spawn "${lib.getExe pkgs.light} -U 10"
+          riverctl map normal None Print spawn "${pkgs.sway-contrib.grimshot}/bin/grimshot copy area"
+          riverctl map normal None XF86Launch2 spawn "${pkgs.sway-contrib.grimshot}/bin/grimshot save area - | ${pkgs.swappy}/bin/swappy -f -"
+          riverctl map normal None XF86MonBrightnessUp spawn "${pkgs.light}/bin/light -A 10"
+          riverctl map normal None XF86MonBrightnessDown spawn "${pkgs.light}/bin/light -U 10"
           riverctl map normal None XF86AudioMute spawn "${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle"
           riverctl map normal None XF86AudioMicMute spawn "${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle"
           riverctl map normal None XF86AudioRaiseVolume spawn "${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -79,7 +79,6 @@
           riverctl map normal Shift XF86AudioRaiseVolume spawn "${pkgs.pulseaudio}/bin/pactl set-source-volume @DEFAULT_SOURCE@ +5%"
           riverctl map normal Shift XF86AudioLowerVolume spawn "${pkgs.pulseaudio}/bin/pactl set-source-volume @DEFAULT_SOURCE@ -5%"
           riverctl map normal None XF86Favorites spawn "${pkgs.systemd}/bin/loginctl lock-session"
-          # riverctl map normal None XF86PowerOff spawn "${lib.getExe pkgs.wlogout}"
           riverctl map normal None XF86Messenger spawn "${pkgs.swaynotificationcenter}/bin/swaync-client --toggle-panel"
           riverctl map normal None Cancel spawn "${pkgs.swaynotificationcenter}/bin/swaync-client --hide-latest"
           riverctl map normal Shift Cancel spawn "${pkgs.swaynotificationcenter}/bin/swaync-client --cloes-all"

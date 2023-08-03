@@ -8,7 +8,7 @@
     server.enable = true;
     settings = rec {
       main = {
-        shell = lib.getExe pkgs.zsh;
+        shell = "${pkgs.zsh}/bin/zsh";
         dpi-aware = "yes";
         font = "monospace:family=Iosevka Nerd Font, size=8";
         notify = "${lib.getExe pkgs.libnotify} -a \${app-id} -i \${app-id} \${title} \${body}";

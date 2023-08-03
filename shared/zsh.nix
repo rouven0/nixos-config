@@ -24,7 +24,7 @@
       la = "ls -a";
       less = "bat";
       update = "cd /etc/nixos && nix flake update";
-      garbage = "${lib.getExe pkgs.home-manager} expire-generations \"-0 days\" && sudo nix-collect-garbage -d";
+      garbage = "${pkgs.home-manager}/bin/home-manager expire-generations \"-0 days\" && sudo nix-collect-garbage -d";
     };
     histSize = 100000;
     histFile = "~/.local/share/zsh/history";
@@ -80,7 +80,7 @@
         then
           cat ${../images/cat.sixel}
         fi
-        eval "$(${lib.getExe pkgs.mcfly} init zsh)"
+        eval "$(${pkgs.mcfly}/bin/mcfly init zsh)"
       '';
   };
 }

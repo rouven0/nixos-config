@@ -7,7 +7,7 @@
     clock24 = true;
     extraConfig =
       ''
-        set -g default-shell ${lib.getExe pkgs.zsh}
+        set -g default-shell ${pkgs.zsh}/bin/zsh
         bind P display-popup
         set -sg escape-time 10
         set -g @dracula-plugins "git time"

@@ -1,12 +1,12 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
     userName = "Rouven Seifert";
     userEmail = "rouven@rfive.de";
     extraConfig = {
-      core.pager = lib.getExe pkgs.delta;
-      interactive.diffFilter = "${lib.getExe pkgs.delta} --color-only";
+      core.pager = "${pkgs.delta}/bin/delta";
+      interactive.diffFilter = "${pkgs.delta}/bin/delta --color-only";
       delta = {
         navigate = true;
         light = false;

@@ -58,7 +58,7 @@
       icon-theme=${config.gtk.iconTheme.name}
       show-actions=yes
       width=80
-      terminal=${lib.getExe pkgs.foot}
+      terminal=${pkgs.foot}/bin/foot
 
       [colors]
       background=${config.colorScheme.colors.base00}ff

@@ -35,10 +35,10 @@
       keybindings =
         lib.mkOptionDefault {
           "Mod1+space" = "exec ${menu}";
-          "Print" = "exec ${lib.getExe pkgs.sway-contrib.grimshot} copy area";
-          "XF86Launch2" = "exec ${lib.getExe pkgs.sway-contrib.grimshot} save area - | ${lib.getExe pkgs.swappy} -f -";
-          "XF86MonBrightnessUp" = "exec ${lib.getExe pkgs.light} -A 10";
-          "XF86MonBrightnessDown" = "exec ${lib.getExe pkgs.light} -U 10";
+          "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
+          "XF86Launch2" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save area - | ${lib.getExe pkgs.swappy} -f -";
+          "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 10";
+          "XF86MonBrightnessDown" = "exec ${kgs.light}/bin/light -U 10";
           "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           "XF86AudioMicMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
           "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
@@ -47,7 +47,7 @@
           "Shift+XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-volume @DEFAULT_SOURCE@ -5%";
 
           "XF86Favorites" = "exec ${pkgs.systemd}/bin/loginctl lock-session";
-          "XF86PowerOff" = "exec ${lib.getExe pkgs.wlogout}";
+          "XF86PowerOff" = "exec ${pkgs.wlogout}/bin/wlogout";
 
           "XF86Messenger" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client --toggle-panel";
           "Cancel" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client --hide-latest";

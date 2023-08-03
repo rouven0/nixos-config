@@ -23,6 +23,7 @@ buildGoModule rec {
     homepage = "https://github.com/abenz1267/pww";
     license = licenses.mit;
     maintainers = with maintainers; [ therealr5 ];
+    mainProgram = "pww";
     platforms = platforms.all;
   };
 }

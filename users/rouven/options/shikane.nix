@@ -71,7 +71,7 @@ in
         PartOf = [ "graphical-session.target" ];
       };
 
-      Service = { ExecStart = getExe cfg.package; };
+      Service = { ExecStart = "${cfg.package}/bin/shikane"; };
 
       Install = { WantedBy = [ "graphical-session.target" ]; };
     };

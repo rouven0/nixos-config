@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${lib.getExe pkgs.greetd.tuigreet} --cmd river";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd river";
       };
     };
   };
