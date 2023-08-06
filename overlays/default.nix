@@ -48,4 +48,13 @@ in
   gnome-break-timer = callPackage ../pkgs/gnome-break-timer { };
   jmri = callPackage ../pkgs/jmri { };
   adguardian-term = callPackage ../pkgs/adguardian-term { };
+  # some newer version
+  nix-output-monitor = prev.nix-output-monitor.overrideAttrs (_: {
+    src = fetchFromGitHub {
+      owner = "maralorn";
+      repo = "nix-output-monitor";
+      rev = "7118a0149cfa379dc8e83485aa78270121c112f2";
+      hash = "sha256-VZFeNxu6wF1wWrLODpYmovQ9FZ2GY0ibgFdvca72ziI=";
+    };
+  });
 }

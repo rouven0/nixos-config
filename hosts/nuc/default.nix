@@ -34,6 +34,7 @@
   environment.persistence."/nix/persist/system" = {
     directories = [
       "/etc/ssh"
+      "/root/.borgmatic"
       "/root/.local/share/zsh"
       "/root/.config/borg/security"
     ];

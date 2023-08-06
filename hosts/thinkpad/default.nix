@@ -67,6 +67,7 @@
       "/etc/ssh"
       "/etc/secureboot"
       "/root/.ssh"
+      "/root/.borgmatic"
       "/root/.local/share/zsh"
     ];
     files = [
