@@ -36,7 +36,7 @@ nvme0n1
 │         ├─lib  /var/lib
 │         └─log  /var/log
 └─nvme0n1p3
-  └─luksswap [SWAP]          # encrypted swap partition
+  └─luksswap     [SWAP]      # encrypted swap partition
 ```
 
 ### nuc
