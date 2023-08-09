@@ -35,21 +35,21 @@
     superTuxKart
 
     # yubikey and password stuff
-    yubikey-manager
-    yubikey-manager-qt
-    yubioath-flutter
+    # yubikey-manager
+    # yubikey-manager-qt
+    # yubioath-flutter
     bitwarden
     pass
 
     # misc
     btop
-    asciinema
     neofetch # obligatory
     virt-manager
     jetbrains.idea-ultimate #😎
     powerline-fonts
     croc # send files anywhere
     bacula
+    hcloud
 
     # programming languages
     cargo

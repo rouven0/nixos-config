@@ -153,11 +153,6 @@
       nssmdns = true;
     };
     fprintd.enable = true; # log in using fingerprint
-    # enabled ssh to have the host keys
-    openssh = {
-      enable = true;
-      openFirewall = false;
-    };
     fwupd.enable = true; # firmware updates
     zfs.autoScrub.enable = true;
   };
