@@ -73,6 +73,19 @@
           unlink $OUT_PATH
         }
 
+        sysdiff() {
+          echo System package diff:
+          ${config.nix.package}/bin/nix store diff-closures $(command ls -d /nix/var/nix/profiles/system-* | tail -2)
+        }
+
+        shell() {
+          for var in "$@"
+          do
+            PKGS=$PKGS\ nixpkgs/nixos-unstable#$var
+          done
+          eval ${pkgs.nix-output-monitor}/bin/nom shell $PKGS
+        }
+
       '';
     promptInit =
       ''

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, trucksimulatorbot, ... }:
 let
   domain = "trucksimulatorbot.rfive.de";
 in
@@ -39,7 +39,7 @@ in
         proxyPass = "http://127.0.0.1:${toString config.services.trucksimulatorbot.listenPort}";
       };
       locations."/docs" = {
-        root = "${inputs.trucksimulatorbot.packages.x86_64-linux.docs}";
+        root = "${trucksimulatorbot.packages.x86_64-linux.docs}";
       };
     };
   };

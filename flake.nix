@@ -58,6 +58,7 @@
     , lanzaboote
     , purge
     , trucksimulatorbot
+    , helix
     , ...
     }@attrs: {
       packages.x86_64-linux = {
@@ -100,7 +101,7 @@
         };
         nuc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs.inputs = attrs;
+          specialArgs = attrs;
           modules = [
             nixos-hardware.nixosModules.intel-nuc-8i7beh
             nix-index-database.nixosModules.nix-index
@@ -112,7 +113,7 @@
         };
         falkenstein-1 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs.inputs = attrs;
+          specialArgs = attrs;
           modules = [
             ./hosts/falkenstein-1
             ./shared
@@ -127,7 +128,7 @@
         };
         vm = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs.inputs = attrs;
+          specialArgs = attrs;
           modules = [
             ./hosts/vm
             ./shared

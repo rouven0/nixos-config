@@ -38,10 +38,12 @@
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
       substituters = [
+        "https://helix.cachix.org"
         "ssh://nuc.lan"
       ];
       trusted-public-keys = [
         "nuc.lan:a9UkVw3AizAKCER1CfNGhx8UOMF4t4UGE3GJ9dmHwJc="
+        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       ];
     };
     # distributedBuilds = true;
@@ -183,6 +185,13 @@
     };
   };
 
+  security.tpm2 = {
+    enable = true;
+    pkcs11.enable = true;
+    abrmd.enable = true;
+    tctiEnvironment.enable = true;
+  };
+
   hardware.opengl.extraPackages = with pkgs; [
     intel-compute-runtime
     intel-media-driver
@@ -192,6 +201,7 @@
     # hardware utilities
     nvme-cli
     intel-gpu-tools
+    tpm2-tools
 
     # system essentials
     wget

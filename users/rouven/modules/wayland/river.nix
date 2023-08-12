@@ -16,6 +16,7 @@
       source =
         pkgs.writeShellScript "river-init.sh" ''
           riverctl focus-follows-cursor always
+          riverctl set-cursor-warp on-focus-change
           riverctl attach-mode bottom
           riverctl spawn rivertile
           riverctl default-layout rivertile
@@ -24,6 +25,7 @@
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad tap enabled
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad drag enabled
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad middle-emulation enabled
+          riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad accel-profile adaptive
           
           riverctl spawn "${pkgs.swaybg}/bin/swaybg -i ${../../../../images/wallpaper.png}"
 
