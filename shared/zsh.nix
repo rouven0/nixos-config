@@ -24,7 +24,6 @@
       la = "ls -a";
       less = "bat";
       update = "cd /etc/nixos && nix flake update";
-      garbage = "${pkgs.home-manager}/bin/home-manager expire-generations \"-0 days\" && sudo nix-collect-garbage -d";
     };
     histSize = 100000;
     histFile = "~/.local/share/zsh/history";
@@ -73,12 +72,21 @@
           unlink $OUT_PATH
         }
 
+        garbage() {
+          ${pkgs.home-manager}/bin/home-manager expire-generations "-0 days"
+          sudo nix-collect-garbage -d
+          echo Cleaning up boot entries...
+          sudo /run/current-system/bin/switch-to-configuration boot
+          echo Done
+        }
+
         sysdiff() {
           echo System package diff:
           ${config.nix.package}/bin/nix store diff-closures $(command ls -d /nix/var/nix/profiles/system-* | tail -2)
         }
 
         shell() {
+          unset PKGS
           for var in "$@"
           do
             PKGS=$PKGS\ nixpkgs/nixos-unstable#$var

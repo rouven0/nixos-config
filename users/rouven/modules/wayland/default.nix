@@ -3,6 +3,7 @@
 {
   imports = [
     # ./sway.nix
+    ./breaktimer.nix
     ./river.nix
     ./waybar.nix
     ./shikane.nix

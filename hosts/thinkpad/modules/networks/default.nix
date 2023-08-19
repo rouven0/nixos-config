@@ -16,6 +16,7 @@
     hostName = "thinkpad";
     hostId = "d8d34032";
     enableIPv6 = true;
+    firewall.allowedTCPPorts = [ 24727 ];
     wireless = {
       enable = true;
       userControlled.enable = true;

@@ -103,7 +103,7 @@
           system = "x86_64-linux";
           specialArgs = attrs;
           modules = [
-            nixos-hardware.nixosModules.intel-nuc-8i7beh
+            nixos-hardware.nixosModules.common-pc-ssd
             nix-index-database.nixosModules.nix-index
             impermanence.nixosModules.impermanence
             ./hosts/nuc
