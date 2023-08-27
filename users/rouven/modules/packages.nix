@@ -50,6 +50,7 @@
     croc # send files anywhere
     bacula
     hcloud
+    jq
 
     # programming languages
     cargo

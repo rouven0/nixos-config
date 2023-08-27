@@ -27,7 +27,7 @@
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad middle-emulation enabled
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad accel-profile adaptive
           
-          riverctl spawn "${pkgs.swaybg}/bin/swaybg -i ${../../../../images/wallpaper.png}"
+          riverctl spawn "${pkgs.swaybg}/bin/swaybg -i ${../../../../images/wallpaper.png} -m fill"
 
           riverctl map normal Super Return spawn footclient
           riverctl map normal Super+Shift Return zoom
@@ -50,7 +50,7 @@
 
           riverctl map-pointer normal Super BTN_RIGHT resize-view
 
-          riverctl map normal Alt Space spawn ${pkgs.fuzzel}/bin/fuzzel
+          riverctl map normal Alt Space spawn "${pkgs.fuzzel}/bin/fuzzel -w 50"
           riverctl map normal Super Space toggle-float
 
           for i in $(seq 1 9)
