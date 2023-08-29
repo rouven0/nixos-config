@@ -58,6 +58,10 @@ in
         match = "Host ifsr.de User git";
         identityFile = git;
       };
+      "git@staging.ifsr.de" = {
+        match = "Host staging.ifsr.de User git";
+        identityFile = git;
+      };
     };
     extraConfig = ''
       IdentityFile ~/.ssh/id_ed25519

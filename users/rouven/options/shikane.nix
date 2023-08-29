@@ -61,8 +61,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    xdg.configFile."shikane/config.toml".source =
-      tomlFormat.generate "shikane-config" cfg.settings;
     systemd.user.services.shikane = {
       Unit = {
         Description = "Dynamic output configuration tool";
@@ -71,7 +69,7 @@ in
         PartOf = [ "graphical-session.target" ];
       };
 
-      Service = { ExecStart = "${cfg.package}/bin/shikane"; };
+      Service = { ExecStart = "${cfg.package}/bin/shikane -c ${tomlFormat.generate "shikane-config.toml" cfg.settings}"; };
 
       Install = { WantedBy = [ "graphical-session.target" ]; };
     };
