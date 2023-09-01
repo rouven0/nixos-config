@@ -14,8 +14,6 @@ in
     w3m
     urlview
   ];
-  services.mbsync.enable = true;
-  systemd.user.services.mbsync.Unit.After = [ "sops-nix.service" ];
   programs = {
     thunderbird = {
       enable = true;

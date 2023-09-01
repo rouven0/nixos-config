@@ -3,6 +3,15 @@
 let
   domain = "rfive.de";
   hostname = "falkenstein.vpn.${domain}";
+  # see https://www.kuketz-blog.de/e-mail-anbieter-ip-stripping-aus-datenschutzgruenden/
+  header_cleanup = pkgs.writeText "header_cleanup_outgoing" ''
+    /^\s*(Received: from)[^\n]*(.*)/ REPLACE $1 127.0.0.1 (localhost [127.0.0.1])$2
+    /^\s*User-Agent/ IGNORE
+    /^\s*X-Enigmail/ IGNORE
+    /^\s*X-Mailer/ IGNORE
+    /^\s*X-Originating-IP/ IGNORE
+    /^\s*Mime-Version/ IGNORE
+  '';
 in
 {
   networking.firewall.allowedTCPPorts = [
@@ -62,6 +71,7 @@ in
           "permit_mynetworks"
           "reject_unauth_destination"
         ];
+        smtp_header_checks = "pcre:${header_cleanup}";
         alias_maps = [ "hash:/etc/aliases" ];
         smtpd_milters = [ "local:/run/opendkim/opendkim.sock" ];
         non_smtpd_milters = [ "local:/var/run/opendkim/opendkim.sock" ];
