@@ -71,6 +71,7 @@
 
   programs.texlive.enable = true;
   programs.obs-studio.enable = true;
+  programs.firefox.enable = true;
 
   xdg.mimeApps = {
     enable = true;

@@ -12,7 +12,7 @@
         height = 26;
         # modules-left = [ "wlr/workspaces" "custom/spotifytitle" "hyprland/window" ];
         modules-left = [ "river/tags" "custom/spotifytitle" "river/window" ];
-        modules-right = [ "network" "cpu" "temperature" "pulseaudio" "battery" "tray" "custom/notification" "clock" ];
+        modules-right = [ "network" "cpu" "pulseaudio" "battery" "tray" "custom/notification" "clock" ];
         network = {
           format-wifi = "  {essid} ({signalStrength}%)";
           format-ethernet = "󰈀 {ipaddr}/{cidr}";
@@ -192,12 +192,12 @@
     }
     
     #cpu {
-        background-color: #${config.colorScheme.colors.base06};
+        background-color: #${config.colorScheme.colors.base05};
         color: #${config.colorScheme.colors.base01};
     }
     
     #network {
-        background-color: #${config.colorScheme.colors.base07};
+        background-color: #${config.colorScheme.colors.base06};
         color: #${config.colorScheme.colors.base01};
     }
     
