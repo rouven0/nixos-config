@@ -41,6 +41,18 @@ in
       '';
       mode = "0555";
     };
+    "dovecot/sieve/report-spam.sieve" = {
+      source = ./report-spam.sieve;
+      user = "dovecot2";
+      group = "dovecot2";
+      mode = "0544";
+    };
+    "dovecot/sieve/report-ham.sieve" = {
+      source = ./report-ham.sieve;
+      user = "dovecot2";
+      group = "dovecot2";
+      mode = "0544";
+    };
   };
 
   services = {
@@ -176,13 +188,14 @@ in
             # Spam: From elsewhere to Spam folder or flag changed in Spam folder
             imapsieve_mailbox1_name = Spam
             imapsieve_mailbox1_causes = COPY APPEND FLAG
-            imapsieve_mailbox1_before = file:/var/lib/dovecot/imap_sieve/report-spam.sieve
+            imapsieve_mailbox1_before = file:/etc/dovecot/sieve/report-spam.sieve
 
-            # Ham: From Spam folder to elsewhere
+            # From Junk folder to elsewhere
             imapsieve_mailbox2_name = *
             imapsieve_mailbox2_from = Spam
             imapsieve_mailbox2_causes = COPY
-            imapsieve_mailbox1_before = file:/var/lib/dovecot/imap_sieve/report-ham.sieve
+            imapsieve_mailbox2_before = file:/etc/dovecot/sieve/report-ham.sieve
+
           }
       '';
     };
