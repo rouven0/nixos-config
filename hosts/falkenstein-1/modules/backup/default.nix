@@ -9,7 +9,6 @@
         source_directories = [
           "/var/lib"
           "/var/log"
-          "/etc/crowdsec"
           "/root"
         ];
 

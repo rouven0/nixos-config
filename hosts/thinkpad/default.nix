@@ -185,12 +185,12 @@
     };
   };
 
-  # security.tpm2 = {
-  #   enable = true;
-  #   pkcs11.enable = true;
-  #   abrmd.enable = true;
-  #   tctiEnvironment.enable = true;
-  # };
+  security.tpm2 = {
+    enable = true;
+    pkcs11.enable = true;
+    abrmd.enable = true;
+    tctiEnvironment.enable = true;
+  };
 
   hardware.opengl.extraPackages = with pkgs; [
     intel-compute-runtime

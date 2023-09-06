@@ -64,6 +64,7 @@ in
       };
     };
     extraConfig = ''
+      PKCS11Provider /run/current-system/sw/lib/libtpm2_pkcs11.so
       IdentityFile ~/.ssh/id_ed25519
     '';
   };

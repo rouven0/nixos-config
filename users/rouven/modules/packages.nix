@@ -58,6 +58,7 @@
     rustfmt
     clippy
     gcc
+    nodejs_20
 
     # libs
     libyubikey
@@ -78,7 +79,7 @@
     defaultApplications =
       let
         image-viewers = [ "imv.desktop" "gimp.desktop" "swappy.desktop" "org.qutebrowser.qutebrowser.desktop" "google-chrome.desktop" ];
-        browsers = [ "google-chrome.desktop" "org.qutebrowser.qutebrowser.desktop" ];
+        browsers = [ "firefox.desktop" "google-chrome.desktop" "org.qutebrowser.qutebrowser.desktop" ];
       in
       {
         "application/pdf" = [ "org.gnome.Evince.desktop" ];

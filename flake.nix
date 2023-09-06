@@ -67,7 +67,6 @@
         adguardian-term = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/adguardian-term { };
         pww = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/pww { };
         gnome-break-timer = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/gnome-break-timer { };
-        crowdsec-firewall-bouncer = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/crowdsec-firewall-bouncer { };
       };
       hydraJobs = self.packages;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;

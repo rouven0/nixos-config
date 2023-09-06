@@ -44,7 +44,6 @@ in
     # ];
 
   });
-  crowdsec-firewall-bouncer = callPackage ../pkgs/crowdsec-firewall-bouncer { };
   gnome-break-timer = callPackage ../pkgs/gnome-break-timer { };
   jmri = callPackage ../pkgs/jmri { };
   adguardian-term = callPackage ../pkgs/adguardian-term { };
