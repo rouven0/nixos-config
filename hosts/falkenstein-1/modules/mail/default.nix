@@ -212,12 +212,71 @@ in
       enable = true;
       postfix.enable = true;
       locals = {
+        "neural.conf".text = ''
+          servers = "127.0.0.1:6379";
+          enabled = true
+          
+          rules {
+            "LONG" {
+              train {
+                max_trains = 5000;
+                max_usages = 200;
+                max_iterations = 25;
+                learning_rate = 0.01,
+              }
+              symbol_spam = "NEURAL_SPAM_LONG";
+              symbol_ham = "NEURAL_HAM_LONG";
+              ann_expire = 100d;
+            }
+            "SHORT" {
+              train {
+                max_trains = 100;
+                max_usages = 2;
+                max_iterations = 25;
+                learning_rate = 0.01,
+              }
+              symbol_spam = "NEURAL_SPAM_SHORT";
+              symbol_ham = "NEURAL_HAM_SHORT";
+              ann_expire = 1d;
+            }
+          }
+        '';
+        "neural_group.conf".text = ''
+          symbols = {
+            "NEURAL_SPAM_LONG" {
+              weight = 1.0; # sample weight
+              description = "Neural network spam (long)";
+            }
+            "NEURAL_HAM_LONG" {
+              weight = -1.0; # sample weight
+              description = "Neural network ham (long)";
+            }
+            "NEURAL_SPAM_SHORT" {
+              weight = 1.0; # sample weight
+              description = "Neural network spam (short)";
+            }
+            "NEURAL_HAM_SHORT" {
+              weight = -0.5; # sample weight
+              description = "Neural network ham (short)";
+            }
+          }
+        '';
         "worker-controller.inc".text = ''
           password = "$2$g1jh7t5cxschj11set5wksd656ixd5ie$cgwrj53hfb87xndqbh5r3ow9qfi1ejii8dxok1ihbnhamccn1rxy";
         '';
         "redis.conf".text = ''
           read_servers = "127.0.0.1";
           write_servers = "127.0.0.1";
+        '';
+        "dmarc.conf".text = ''
+          reporting {
+            # Required attributes
+            enabled = true; # Enable reports in general
+            email = 'reports@rfive.de'; # Source of DMARC reports
+            domain = 'rfive.de'; # Domain to serve
+            org_name = 'rfive.de'; # Organisation
+            from_name = 'DMARC Aggregate Report';
+          }
         '';
       };
     };

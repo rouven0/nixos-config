@@ -234,11 +234,6 @@ in
             farPattern = "Drafts";
             extraConfig.Create = "near";
           };
-          channels.spamtrain = {
-            nearPattern = "Spamtrain";
-            farPattern = "Spamtrain";
-            extraConfig.Create = "near";
-          };
         };
         extraConfig = {
           account = {
@@ -252,7 +247,7 @@ in
         {
           enable = true;
           mailboxName = "  iFSR";
-          extraMailboxes = lib.lists.forEach [ c.admin c.sent c.spamtrain c.trash c.junk c.drafts ] (x: x.nearPattern);
+          extraMailboxes = lib.lists.forEach [ c.admin c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
         };
     };
     "gmail" = rec {

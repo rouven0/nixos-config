@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     # fzf
     bat
-    exa
+    eza
     duf
     trash-cli
     nix-output-monitor
@@ -18,7 +18,7 @@
     enable = true;
     shellAliases = {
       rm = "trash";
-      ls = "exa --icons";
+      ls = "eza --icons";
       l = "ls -l";
       ll = "ls -la";
       la = "ls -a";

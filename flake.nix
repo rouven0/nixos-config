@@ -37,6 +37,10 @@
       url = "github:therealr5/TruckSimulatorBot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pfersel = {
+      url = "github:therealr5/pfersel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
@@ -58,6 +62,7 @@
     , lanzaboote
     , purge
     , trucksimulatorbot
+    , pfersel
     , helix
     , ...
     }@attrs: {
@@ -123,6 +128,7 @@
             sops-nix.nixosModules.sops
             purge.nixosModules.default
             trucksimulatorbot.nixosModules.default
+            pfersel.nixosModules.default
           ];
         };
         vm = nixpkgs.lib.nixosSystem {
