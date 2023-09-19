@@ -50,17 +50,27 @@
     # extraOptions = ''
     #   builders-use-substitutes = true
     # '';
-    # buildMachines = [
-    #   {
-    #     hostName = "nuc.lan";
-    #     system = "x86_64-linux";
-    #     protocol = "ssh-ng";
-    #     maxJobs = 4;
-    #     speedFactor = 1;
-    #     supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-    #     mandatoryFeatures = [ ];
-    #   }
-    # ];
+    #   buildMachines = [
+    #     {
+    #       hostName = "nuc.lan";
+    #       system = "x86_64-linux";
+    #       protocol = "ssh-ng";
+    #       maxJobs = 2;
+    #       speedFactor = 1;
+    #       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    #       mandatoryFeatures = [ ];
+    #     }
+    #     {
+    #       hostName = "quitte.ifsr.de";
+    #       system = "x86_64-linux";
+    #       protocol = "ssh-ng";
+    #       maxJobs = 12;
+    #       sshUser = "rouven.seifert";
+    #       speedFactor = 10;
+    #       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    #       mandatoryFeatures = [ ];
+    #     }
+    #   ];
   };
 
   environment.persistence."/nix/persist/system" = {

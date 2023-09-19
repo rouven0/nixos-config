@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 let
-  domain = "rfive.de";
-  hostname = "falkenstein.vpn.${domain}";
+  domain = config.networking.domain;
+  hostname = "mail.${domain}";
   # see https://www.kuketz-blog.de/e-mail-anbieter-ip-stripping-aus-datenschutzgruenden/
   header_cleanup = pkgs.writeText "header_cleanup_outgoing" ''
     /^\s*(Received: from)[^\n]*(.*)/ REPLACE $1 127.0.0.1 (localhost [127.0.0.1])$2
@@ -67,13 +67,9 @@ in
       networks = [ "127.0.0.1" "141.30.30.169" ];
       sslCert = "/var/lib/acme/${hostname}/fullchain.pem";
       sslKey = "/var/lib/acme/${hostname}/key.pem";
-
-      extraAliases = ''
-        postmaster:     root
-        abuse:          postmaster
-      '';
       config = {
         home_mailbox = "Maildir/";
+        smtp_helo_name = "falkenstein.vpn.rfive.de";
         smtp_use_tls = true;
         smtpd_use_tls = true;
         smtpd_tls_protocols = [
@@ -100,6 +96,7 @@ in
           "reject_unauth_destination"
         ];
         smtp_header_checks = "pcre:${header_cleanup}";
+
         alias_maps = [ "hash:/etc/aliases" ];
         smtpd_milters = [ "local:/run/opendkim/opendkim.sock" ];
         non_smtpd_milters = [ "local:/var/run/opendkim/opendkim.sock" ];
@@ -272,9 +269,9 @@ in
           reporting {
             # Required attributes
             enabled = true; # Enable reports in general
-            email = 'reports@rfive.de'; # Source of DMARC reports
-            domain = 'rfive.de'; # Domain to serve
-            org_name = 'rfive.de'; # Organisation
+            email = 'reports@${config.networking.domain}'; # Source of DMARC reports
+            domain = '${config.networking.domain}'; # Domain to serve
+            org_name = '${config.networking.domain}'; # Organisation
             from_name = 'DMARC Aggregate Report';
           }
         '';
@@ -300,7 +297,7 @@ in
       enableACME = true;
       forceSSL = true;
     };
-    "rspamd.rfive.de" = {
+    "rspamd.${config.networking.domain}" = {
       enableACME = true;
       forceSSL = true;
       locations = {

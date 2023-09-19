@@ -2,6 +2,7 @@
 {
   networking = {
     hostName = "nuc";
+    domain = "rfive.de";
     useNetworkd = true;
     enableIPv6 = true;
   };

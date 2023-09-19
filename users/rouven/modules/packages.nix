@@ -12,6 +12,7 @@
     gimp
     ffmpeg
     drawio
+    leafpad
 
     # sound
     pavucontrol
@@ -22,6 +23,7 @@
 
     # internet
     google-chrome
+    filezilla
 
     # messaging
     discord
@@ -35,9 +37,9 @@
     superTuxKart
 
     # yubikey and password stuff
-    # yubikey-manager
-    # yubikey-manager-qt
-    # yubioath-flutter
+    yubikey-manager
+    yubikey-manager-qt
+    yubioath-flutter
     bitwarden
     pass
 
@@ -70,7 +72,10 @@
     indicator = true;
   };
 
-  programs.texlive.enable = true;
+  programs.texlive = {
+    enable = true;
+    extraPackages = tpkgs: { inherit (tpkgs) collection-basic xetex collection-fontsrecommended; };
+  };
   programs.obs-studio.enable = true;
   programs.firefox.enable = true;
 
@@ -79,7 +84,7 @@
     defaultApplications =
       let
         image-viewers = [ "imv.desktop" "gimp.desktop" "swappy.desktop" "org.qutebrowser.qutebrowser.desktop" "google-chrome.desktop" ];
-        browsers = [ "firefox.desktop" "google-chrome.desktop" "org.qutebrowser.qutebrowser.desktop" ];
+        browsers = [ "google-chrome.desktop" "firefox.desktop" "org.qutebrowser.qutebrowser.desktop" ];
       in
       {
         "application/pdf" = [ "org.gnome.Evince.desktop" ];

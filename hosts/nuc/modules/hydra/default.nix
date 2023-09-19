@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  domain = "hydra.rfive.de";
+  domain = "hydra.${config.networking.domain}";
 in
 {
   services.hydra = {

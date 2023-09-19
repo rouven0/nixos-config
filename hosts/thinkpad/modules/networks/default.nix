@@ -127,4 +127,5 @@
       ];
     };
   };
+  services.resolved.dnssec = "true";
 }

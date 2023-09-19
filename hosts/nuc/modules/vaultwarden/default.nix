@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  domain = "vault.rfive.de";
+  domain = "vault.${config.networking.domain}";
 in
 {
   sops.secrets."vaultwarden/env".owner = "vaultwarden";

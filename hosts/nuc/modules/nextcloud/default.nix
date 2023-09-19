@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  domain = "nextcloud.rfive.de";
+  domain = "nextcloud.${config.networking.domain}";
 in
 {
   sops.secrets = {

@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  domain = "purge.rfive.de";
+  domain = "purge.${config.networking.domain}";
 in
 {
   sops.secrets."purge/token".owner = "purge";

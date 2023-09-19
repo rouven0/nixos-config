@@ -15,7 +15,7 @@ in
   security.acme = {
     acceptTerms = true;
     defaults = {
-      email = "rouven@rfive.de";
+      email = "rouven@${config.networking.domain}";
     };
   };
 }

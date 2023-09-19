@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   sops.secrets = {
     "wireguard/dorm/private" = {
@@ -10,6 +10,7 @@
   };
   networking = {
     hostName = "falkenstein-1";
+    domain = "rfive.de";
     useNetworkd = true;
     enableIPv6 = true;
   };

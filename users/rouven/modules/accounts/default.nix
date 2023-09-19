@@ -52,13 +52,12 @@ in
       userName = address;
       passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/rfive";
       imap = {
-        host = "falkenstein.vpn.rfive.de";
+        host = "mail.rfive.de";
         port = 993;
       };
       smtp = {
-        host = "falkenstein.vpn.rfive.de";
-        port = 587;
-        tls.useStartTls = true;
+        host = "mail.rfive.de";
+        port = 465;
       };
       msmtp.enable = true;
       thunderbird.enable = true;
@@ -92,6 +91,16 @@ in
             farPattern = "Drafts";
             extraConfig.Create = "near";
           };
+          channels.github = {
+            nearPattern = "GitHub";
+            farPattern = "GitHub";
+            extraConfig.Create = "near";
+          };
+          channels.reports = {
+            nearPattern = "Reports";
+            farPattern = "Reports";
+            extraConfig.Create = "near";
+          };
         };
         extraConfig = {
           account = {
@@ -103,7 +112,7 @@ in
         {
           enable = true;
           mailboxName = " 󰒋 rfive.de";
-          extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+          extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts c.reports c.github ] (x: x.nearPattern);
         };
     };
     "TU-Dresden" = rec {
@@ -191,27 +200,41 @@ in
       passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/ifsr";
       imap = {
         host = "mail.ifsr.de";
-        port = 143;
-        tls.useStartTls = true;
+        port = 993;
       };
       smtp = {
         host = "mail.ifsr.de";
-        port = 587;
-        tls.useStartTls = true;
+        port = 465;
       };
       mbsync = {
         enable = true;
         create = "maildir";
         expunge = "both";
         groups.ifsr = {
+          # TODO beautify with nix magic
           channels.inbox = {
             nearPattern = "INBOX";
             farPattern = "INBOX";
             extraConfig.Create = "near";
           };
-          channels.admin = {
-            nearPattern = "Admin spam";
-            farPattern = "Admin spam";
+          channels.root = {
+            nearPattern = "Root";
+            farPattern = "Root";
+            extraConfig.Create = "near";
+          };
+          channels.ese = {
+            nearPattern = "ESE";
+            farPattern = "ESE";
+            extraConfig.Create = "near";
+          };
+          channels.github = {
+            nearPattern = "GitHub";
+            farPattern = "GitHub";
+            extraConfig.Create = "near";
+          };
+          channels.reports = {
+            nearPattern = "Reports";
+            farPattern = "Reports";
             extraConfig.Create = "near";
           };
           channels.trash = {
@@ -225,8 +248,8 @@ in
             extraConfig.Create = "near";
           };
           channels.junk = {
-            nearPattern = "Junk";
-            farPattern = "Public/Spam";
+            nearPattern = "Spam";
+            farPattern = "Spam";
             extraConfig.Create = "near";
           };
           channels.drafts = {
@@ -247,7 +270,7 @@ in
         {
           enable = true;
           mailboxName = "  iFSR";
-          extraMailboxes = lib.lists.forEach [ c.admin c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+          extraMailboxes = lib.lists.forEach [ c.root c.ese c.github c.reports c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
         };
     };
     "gmail" = rec {

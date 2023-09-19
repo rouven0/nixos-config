@@ -1,6 +1,6 @@
 { config, pkgs, trucksimulatorbot, ... }:
 let
-  domain = "trucksimulatorbot.rfive.de";
+  domain = "trucksimulatorbot.${config.networking.domain}";
 in
 {
   services.trucksimulatorbot = {

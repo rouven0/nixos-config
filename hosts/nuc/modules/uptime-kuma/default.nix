@@ -1,6 +1,6 @@
-{ ... }:
+{ config, ... }:
 let
-  domain = "monitoring.rfive.de";
+  domain = "monitoring.${config.networking.domain}";
 in
 {
   services.uptime-kuma = {

@@ -3,7 +3,7 @@
 , fetchurl
 , meson
 , vala
-, pkgconfig
+, pkg-config
 , cairo
 , gsound
 , gtk3
@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
     meson
     ninja
     vala
-    pkgconfig
+    pkg-config
     cairo
     gsound
     gtk3

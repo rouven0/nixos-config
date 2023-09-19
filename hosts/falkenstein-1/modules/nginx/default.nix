@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   services.nginx = {
@@ -8,16 +8,16 @@
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
 
-    virtualHosts."rfive.de" = {
+    virtualHosts."${config.networking.domain}" = {
       enableACME = true;
       forceSSL = true;
-      root = "/srv/web/rfive.de";
+      root = "/srv/web/${config.networking.domain}";
     };
   };
   security.acme = {
     acceptTerms = true;
     defaults = {
-      email = "rouven@rfive.de";
+      email = "rouven@${config.networking.domain}";
     };
   };
 }
