@@ -11,7 +11,6 @@
   ];
   users.defaultUserShell = pkgs.zsh;
   programs.fzf = {
-    fuzzyCompletion = true;
     keybindings = true;
   };
   programs.zsh = {
@@ -32,14 +31,11 @@
       enable = true;
       highlightStyle = "fg=#00bbbb,bold";
     };
+    shellInit = ''
+      zsh-newuser-install () {}
+    '';
 
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "gh" ];
-      theme = "agnoster";
-    };
-
-    shellInit =
+    interactiveShellInit =
       ''
         export MCFLY_KEY_SCHEME=vim
         export MCFLY_FUZZY=2
@@ -48,6 +44,8 @@
         export MCFLY_INTERFACE_VIEW=BOTTOM
         export MCFLY_PROMPT="❯"
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+        source ${pkgs.agdsn-zsh-config}/etc/zsh/zshrc
+      
         function svpn() {
           unit=$(systemctl list-unit-files | grep "openconnect\|wg-quick\|wireguard\|openvpn" | cut -d "." -f1 | fzf --preview 'systemctl status {}')
           if [ $(systemctl is-active $unit) = "inactive" ]; then
@@ -61,12 +59,10 @@
             prompt_segment blue $CURRENT_FG '%c'
         }
 
-        zsh-newuser-install () {}
-
         switch() {
           sudo true # ask the password so we can leave during the (sometimes quite long) build process
           OUT_PATH=/tmp/nixos-rebuild-nom-$(date +%s)
-          ${lib.getExe pkgs.nix-output-monitor} build /etc/nixos#nixosConfigurations.${config.networking.hostName}.config.system.build.toplevel -o $OUT_PATH
+          ${lib.getExe pkgs.nix-output-monitor} build /etc/nixos\#nixosConfigurations.${config.networking.hostName}.config.system.build.toplevel -o $OUT_PATH
           sudo ${pkgs.nix}/bin/nix-env -p /nix/var/nix/profiles/system --set $OUT_PATH
           sudo $OUT_PATH/bin/switch-to-configuration switch 
           unlink $OUT_PATH
