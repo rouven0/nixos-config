@@ -42,7 +42,6 @@ in
       '';
     };
     mbsync.enable = true;
-    msmtp.enable = true;
   };
   accounts.email.accounts = {
     "rouven@rfive.de" = rec {
@@ -59,7 +58,6 @@ in
         host = "mail.rfive.de";
         port = 465;
       };
-      msmtp.enable = true;
       thunderbird.enable = true;
       mbsync = {
         enable = true;
@@ -172,7 +170,6 @@ in
           };
         };
       };
-      msmtp.enable = true;
       thunderbird.enable = true;
       neomutt = let c = mbsync.groups.tud.channels; in
         {
@@ -264,7 +261,6 @@ in
           };
         };
       };
-      msmtp.enable = true;
       thunderbird.enable = true;
       neomutt = let c = mbsync.groups.ifsr.channels; in
         {
@@ -323,7 +319,6 @@ in
           };
         };
       };
-      msmtp.enable = true;
       thunderbird.enable = true;
       neomutt = let c = mbsync.groups.gmail.channels; in
         {

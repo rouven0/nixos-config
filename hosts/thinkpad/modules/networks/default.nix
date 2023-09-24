@@ -63,6 +63,8 @@
       networkConfig = {
         DHCP = "yes";
         IgnoreCarrierLoss = "3s";
+        IPv6AcceptRA = "yes";
+        IPv6PrivacyExtensions = "yes";
       };
       dhcpV4Config = {
         RouteMetric = 20;
@@ -127,5 +129,4 @@
       ];
     };
   };
-  services.resolved.dnssec = "true";
 }

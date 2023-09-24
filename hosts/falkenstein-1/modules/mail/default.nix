@@ -149,51 +149,50 @@ in
         pkgs.dovecot_pigeonhole
       ];
       extraConfig = ''
-          auth_username_format = %Ln
-          userdb {
-            driver = passwd
-            args = blocking=no
+        auth_username_format = %Ln
+        userdb {
+          driver = passwd
+          args = blocking=no
+        }
+        service auth {
+          unix_listener /var/lib/postfix/auth {
+            group = postfix
+            mode = 0660
+            user = postfix
+           }
+         }
+        service managesieve-login {
+          inet_listener sieve {
+            port = 4190
           }
-          service auth {
-            unix_listener /var/lib/postfix/auth {
-                 group = postfix
-                 mode = 0660
-                 user = postfix
-              }
+        
+          service_count = 1
+        }
+        service lmtp {
+          unix_listener dovecot-lmtp {
+            group = postfix
+            mode = 0600
+            user = postfix
           }
-        	service managesieve-login {
-        	  inet_listener sieve {
-        	    port = 4190
-        	  }
-        	
-        	  service_count = 1
-        	}
-        	service lmtp {
-        	 unix_listener dovecot-lmtp {
-        	   group = postfix
-        	   mode = 0600
-        	   user = postfix
-        	  }
-        	  client_limit = 1
-        	}
+          client_limit = 1
+        }
+        plugin {
+          sieve_plugins = sieve_imapsieve sieve_extprograms
+          sieve_global_extensions = +vnd.dovecot.pipe
+          sieve_pipe_bin_dir = /etc/dovecot/sieve-pipe
 
-          plugin {
-            sieve_plugins = sieve_imapsieve sieve_extprograms
-            sieve_global_extensions = +vnd.dovecot.pipe
-            sieve_pipe_bin_dir = /etc/dovecot/sieve-pipe
+          # Spam: From elsewhere to Spam folder or flag changed in Spam folder
+          imapsieve_mailbox1_name = Spam
+          imapsieve_mailbox1_causes = COPY APPEND FLAG
+          imapsieve_mailbox1_before = file:/etc/dovecot/sieve/report-spam.sieve
 
-            # Spam: From elsewhere to Spam folder or flag changed in Spam folder
-            imapsieve_mailbox1_name = Spam
-            imapsieve_mailbox1_causes = COPY APPEND FLAG
-            imapsieve_mailbox1_before = file:/etc/dovecot/sieve/report-spam.sieve
+          # From Junk folder to elsewhere
+          imapsieve_mailbox2_name = *
+          imapsieve_mailbox2_from = Spam
+          imapsieve_mailbox2_causes = COPY
+          imapsieve_mailbox2_before = file:/etc/dovecot/sieve/report-ham.sieve
 
-            # From Junk folder to elsewhere
-            imapsieve_mailbox2_name = *
-            imapsieve_mailbox2_from = Spam
-            imapsieve_mailbox2_causes = COPY
-            imapsieve_mailbox2_before = file:/etc/dovecot/sieve/report-ham.sieve
-
-          }
+        }
       '';
     };
 
@@ -209,55 +208,6 @@ in
       enable = true;
       postfix.enable = true;
       locals = {
-        "neural.conf".text = ''
-          servers = "127.0.0.1:6379";
-          enabled = true
-          
-          rules {
-            "LONG" {
-              train {
-                max_trains = 5000;
-                max_usages = 200;
-                max_iterations = 25;
-                learning_rate = 0.01,
-              }
-              symbol_spam = "NEURAL_SPAM_LONG";
-              symbol_ham = "NEURAL_HAM_LONG";
-              ann_expire = 100d;
-            }
-            "SHORT" {
-              train {
-                max_trains = 100;
-                max_usages = 2;
-                max_iterations = 25;
-                learning_rate = 0.01,
-              }
-              symbol_spam = "NEURAL_SPAM_SHORT";
-              symbol_ham = "NEURAL_HAM_SHORT";
-              ann_expire = 1d;
-            }
-          }
-        '';
-        "neural_group.conf".text = ''
-          symbols = {
-            "NEURAL_SPAM_LONG" {
-              weight = 1.0; # sample weight
-              description = "Neural network spam (long)";
-            }
-            "NEURAL_HAM_LONG" {
-              weight = -1.0; # sample weight
-              description = "Neural network ham (long)";
-            }
-            "NEURAL_SPAM_SHORT" {
-              weight = 1.0; # sample weight
-              description = "Neural network spam (short)";
-            }
-            "NEURAL_HAM_SHORT" {
-              weight = -0.5; # sample weight
-              description = "Neural network ham (short)";
-            }
-          }
-        '';
         "worker-controller.inc".text = ''
           password = "$2$g1jh7t5cxschj11set5wksd656ixd5ie$cgwrj53hfb87xndqbh5r3ow9qfi1ejii8dxok1ihbnhamccn1rxy";
         '';

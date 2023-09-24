@@ -2,6 +2,7 @@ _final: prev:
 let
   inherit (prev) callPackage;
   inherit (prev) fetchFromGitHub;
+  inherit (prev) fetchpatch;
 in
 {
   wpa_supplicant_gui = prev.wpa_supplicant_gui.overrideAttrs
@@ -29,21 +30,17 @@ in
   });
 
   pww = callPackage ../pkgs/pww { };
-  crowdsec = prev.crowdsec.overrideAttrs (old: rec {
-    version = "1.5.2";
-    src = fetchFromGitHub {
-      owner = "crowdsecurity";
-      repo = old.pname;
-      rev = "v${version}";
-      hash = "sha256-260+XsRn3Mm/zCSvfEcBQ6j715KV4t1Z0CvXdriDzCs=";
-    };
-    # subPackages = [
-    #   "cmd/crowdsec"
-    #   "cmd/crowdsec-cli"
-    #   "plugins/notifications/email/main.go"
-    # ];
 
+  tpm2-pkcs11 = prev.tpm2-pkcs11.overrideAttrs (_: {
+    configureFlags = [ "--with-fapi=no" ];
+    patches = [
+      (fetchpatch {
+        url = "https://github.com/tpm2-software/tpm2-pkcs11/commit/7ad56b0faa30691e22a110b4ddc91251846d48a4.patch";
+        hash = "sha256-ir12bFogdFtEF53G3eZjRXHNL5bfTVm9LODbRmBjvv4=";
+      })
+    ];
   });
+
   gnome-break-timer = callPackage ../pkgs/gnome-break-timer { };
   jmri = callPackage ../pkgs/jmri { };
   adguardian-term = callPackage ../pkgs/adguardian-term { };

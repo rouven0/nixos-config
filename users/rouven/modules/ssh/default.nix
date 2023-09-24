@@ -23,6 +23,9 @@ in
         hostname = "falkenstein.vpn.rfive.de";
         user = "root";
         port = 2222;
+        extraOptions = {
+          VerifyHostKeyDNS = "ask";
+        };
       };
       falkenstein-1 = matchBlocks."rfive.de";
       "durian" = {
@@ -41,6 +44,10 @@ in
       "quitte" = {
         hostname = "quitte.ifsr.de";
         user = "root";
+        extraOptions = {
+          RequestTTY = "yes";
+          RemoteCommand = "zsh -i";
+        };
       };
       "tomate" = {
         hostname = "tomate.ifsr.de";
@@ -66,6 +73,7 @@ in
     extraConfig = ''
       PKCS11Provider /run/current-system/sw/lib/libtpm2_pkcs11.so
       IdentityFile ~/.ssh/id_ed25519
+      VisualHostKey = yes
     '';
   };
 }

@@ -1,6 +1,7 @@
 { pkgs, config, lib, ... }:
 {
   programs.command-not-found.enable = false;
+  programs.nix-index-database.comma.enable = true;
   environment.systemPackages = with pkgs; [
     # fzf
     bat
@@ -85,7 +86,7 @@
           unset PKGS
           for var in "$@"
           do
-            PKGS=$PKGS\ nixpkgs/nixos-unstable#$var
+            PKGS=$PKGS\ nixpkgs/nixos-unstable\#$var
           done
           eval ${pkgs.nix-output-monitor}/bin/nom shell $PKGS
         }

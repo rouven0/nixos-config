@@ -13,6 +13,7 @@
     ffmpeg
     drawio
     leafpad
+    gamescope
 
     # sound
     pavucontrol
@@ -24,6 +25,8 @@
     # internet
     google-chrome
     filezilla
+    dbeaver
+    apache-directory-studio
 
     # messaging
     discord
@@ -53,6 +56,7 @@
     bacula
     hcloud
     jq
+    logseq
 
     # programming languages
     cargo
