@@ -14,6 +14,7 @@
     useNetworkd = true;
     enableIPv6 = true;
   };
+  services.resolved.dnssec = "true";
   systemd.network = {
     enable = true;
     networks."10-loopback" = {

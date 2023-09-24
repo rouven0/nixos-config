@@ -11,6 +11,8 @@
       owner = config.users.users.systemd-network.name;
     };
   };
+  # allow downgrade since fritzbox at home doesn't support it (yet?)
+  services.resolved.dnssec = "allow-downgrade";
   networking = {
     useNetworkd = true;
     hostName = "thinkpad";

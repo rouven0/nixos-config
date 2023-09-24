@@ -8,6 +8,7 @@
   };
   services.resolved = {
     enable = true;
+    dnssec = "yes";
     # make room for the adguard dns
     extraConfig = ''
       [Resolve]
