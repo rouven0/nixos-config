@@ -2,9 +2,8 @@
 
 {
   imports = [
-    # ./sway.nix
+    ./sway.nix
     ./breaktimer.nix
-    ./river.nix
     ./waybar.nix
     ./shikane.nix
   ];
@@ -15,6 +14,7 @@
     swaynotificationcenter
     playerctl
     wdisplays
+    (libinput.override { eventGUISupport = true; })
   ];
 
   services.swayidle = {

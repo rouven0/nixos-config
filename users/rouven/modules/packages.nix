@@ -57,6 +57,7 @@
     hcloud
     jq
     logseq
+    xournalpp
 
     # programming languages
     cargo

@@ -7,10 +7,13 @@
     config = rec {
       startup = [
         {
-          command = "${lib.getExe pkgs.swaybg} -i ${../../../../images/wallpaper.png}";
+          command = "${lib.getExe pkgs.swaybg} -i ${../../../../images/wallpaper.png} -m fill";
         }
         {
-          command = lib.getExe pkgs.autotiling-rs;
+          command = "${pkgs.autotiling-rs}/bin/autotiling-rs";
+        }
+        {
+          command = ''swaymsg -t subscribe -m "['workspace']" | jq --unbuffered -r 'select(.change == "focus") | .current.output' | xargs -L1 swaymsg input 1386:884:Wacom_Intuos_S_Pen map_to_output'';
         }
       ];
       modifier = "Mod4";
@@ -30,6 +33,7 @@
           tap = "enabled";
           drag = "enabled";
           middle_emulation = "enabled";
+          accel_profile = "adaptive";
         };
       };
       keybindings =
@@ -38,7 +42,7 @@
           "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
           "XF86Launch2" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save area - | ${lib.getExe pkgs.swappy} -f -";
           "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 10";
-          "XF86MonBrightnessDown" = "exec ${kgs.light}/bin/light -U 10";
+          "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 10";
           "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           "XF86AudioMicMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
           "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
@@ -56,3 +60,4 @@
     };
   };
 }
+

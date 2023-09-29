@@ -11,6 +11,7 @@
     ];
 
   # Use the systemd-boot EFI boot loader.
+  # boot.initrd.systemd.additionalUpstreamUnits = [ "systemd-vconsole-setup.service" ];
   boot = {
     # Lanzaboote currently replaces the systemd-boot module.
     # This setting is usually set to true in configuration.nix
@@ -94,7 +95,8 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     keyMap = "dvorak";
-    font = "Lat2-Terminus16";
+    # font = "Lat2-Terminus16";
+    # earlySetup = true;
     colors = let colors = config.home-manager.users.rouven.colorScheme.colors; in
       [
         colors.base00
@@ -129,6 +131,10 @@
   sound.enable = true;
   #hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
+  # hardware.opentabletdriver = {
+  #   enable = true;
+  #   daemon.enable = true;
+  # };
 
   security = {
     polkit.enable = true;

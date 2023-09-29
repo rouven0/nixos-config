@@ -14,7 +14,15 @@
     useNetworkd = true;
     enableIPv6 = true;
   };
-  services.resolved.dnssec = "true";
+  services.resolved = {
+    dnssec = "true";
+    fallbackDns = [
+      "9.9.9.9"
+      "149.112.112.112"
+      "2620:fe::fe"
+      "2620:fe::9"
+    ];
+  };
   systemd.network = {
     enable = true;
     networks."10-loopback" = {

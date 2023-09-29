@@ -26,6 +26,7 @@
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad drag enabled
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad middle-emulation enabled
           riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad accel-profile adaptive
+
           
           riverctl spawn "${pkgs.swaybg}/bin/swaybg -i ${../../../../images/wallpaper.png} -m fill"
 
