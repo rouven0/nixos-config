@@ -5,7 +5,7 @@
   users.users.rouven = {
     description = "Rouven Seifert";
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "libvirtd" "tss" "input" ];
+    extraGroups = [ "wheel" "video" "libvirtd" "tss" "input" "_lldpd" ];
     initialHashedPassword = "$6$X3XERQv28Nt1UUT5$MjdMBDuXyEwexkuKqmNFweez69q4enY5cjMXSbBxOc6Bq7Fhhp7OqmCm02k3OGjoZFXzPV9ZHuMSGKZOtwYIk1";
   };
   home-manager.useUserPackages = true;

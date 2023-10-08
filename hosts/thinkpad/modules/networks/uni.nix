@@ -21,7 +21,7 @@
       agdsn = {
         auth = ''
           eap=TTLS
-          anonymous_identity="anonymous@agdsn.de"
+          anonymous_identity="wifi@agdsn.de"
           ca_cert="/etc/ssl/certs/ca-certificates.crt"
           domain_suffix_match="radius.agdsn.de"
           identity="r5"

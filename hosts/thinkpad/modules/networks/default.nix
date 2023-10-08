@@ -11,6 +11,7 @@
       owner = config.users.users.systemd-network.name;
     };
   };
+  services.lldpd.enable = true;
   services.resolved = {
     fallbackDns = [
       "9.9.9.9"

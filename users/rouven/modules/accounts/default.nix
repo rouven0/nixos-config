@@ -7,6 +7,7 @@ in
     "email/rfive" = { };
     "email/tu-dresden" = { };
     "email/ifsr" = { };
+    "email/agdsn" = { };
     "email/google" = { };
   };
   home.packages = with pkgs; [
@@ -267,6 +268,65 @@ in
           enable = true;
           mailboxName = "  iFSR";
           extraMailboxes = lib.lists.forEach [ c.root c.ese c.github c.reports c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+        };
+    };
+    "agdsn" = rec {
+      address = "r5@agdsn.me";
+      # gpg.key = gpg-default-key;
+      realName = "Rouven Seifert";
+      userName = "r5@agdsn.me";
+      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/agdsn";
+      imap = {
+        host = "imap.agdsn.de";
+        port = 993;
+      };
+      smtp = {
+        host = "smtp.agdsn.de";
+        port = 465;
+      };
+      mbsync = {
+        enable = true;
+        create = "maildir";
+        expunge = "both";
+        groups.ifsr = {
+          channels.inbox = {
+            nearPattern = "INBOX";
+            farPattern = "INBOX";
+            extraConfig.Create = "near";
+          };
+          channels.trash = {
+            nearPattern = "Trash";
+            farPattern = "Trash";
+            extraConfig.Create = "near";
+          };
+          channels.sent = {
+            nearPattern = "Sent";
+            farPattern = "Sent";
+            extraConfig.Create = "near";
+          };
+          channels.junk = {
+            nearPattern = "Junk";
+            farPattern = "Junk";
+            extraConfig.Create = "near";
+          };
+          channels.drafts = {
+            nearPattern = "Drafts";
+            farPattern = "Drafts";
+            extraConfig.Create = "near";
+          };
+        };
+        extraConfig = {
+          account = {
+            AuthMechs = "Login";
+          };
+        };
+      };
+      thunderbird.enable = true;
+      neomutt = let c = mbsync.groups.ifsr.channels; in
+        {
+          enable = true;
+          mailboxName = " 󰒍 AG DSN";
+          extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
         };
     };
     "gmail" = rec {

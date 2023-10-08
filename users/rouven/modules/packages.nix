@@ -1,4 +1,13 @@
 { pkgs, ... }:
+let
+  tex = (pkgs.texlive.combine {
+    inherit (pkgs.texlive) scheme-full
+      dvisvgm dvipng# for preview and export as html
+      wrapfig amsmath ulem hyperref capt-of;
+    # (setq org-latex-compiler "lualatex")
+    #(setq org-preview-latex-default-process 'dvisvgm)
+  });
+in
 {
   home.packages = with pkgs; [
 
@@ -6,10 +15,12 @@
     wpa_supplicant_gui
     pcmanfm
     xdg-utils # used for xdg-open
+    tex
 
     # graphics
     evince # pdf viewer
     gimp
+    krita
     ffmpeg
     drawio
     leafpad
@@ -58,6 +69,7 @@
     jq
     logseq
     xournalpp
+    libreoffice
 
     # programming languages
     cargo
@@ -77,10 +89,6 @@
     indicator = true;
   };
 
-  programs.texlive = {
-    enable = true;
-    extraPackages = tpkgs: { inherit (tpkgs) collection-basic xetex collection-fontsrecommended; };
-  };
   programs.obs-studio.enable = true;
   programs.firefox.enable = true;
 
