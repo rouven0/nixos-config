@@ -63,7 +63,6 @@
     , purge
     , trucksimulatorbot
     , pfersel
-    , helix
     , ...
     }@attrs: {
       packages.x86_64-linux = {

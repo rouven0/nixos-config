@@ -1,4 +1,4 @@
-{ pkgs, helix, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     gdb
@@ -24,20 +24,32 @@
   ];
   programs.helix = {
     enable = true;
-    # pull helix from the flake to fix random coredumps
-    package = helix.packages.x86_64-linux.default;
+
+    ##  use after helix update
+    # languages = {
+    #   language-server.rnix-lsp = {
+    #     command = "rnix-lsp";
+    #   };
+    #   language = [
+    #     {
+    #       name = "nix";
+    #       auto-format = true;
+    #       language-servers = [ "rnix-lsp" ];
+    #     }
+    #   ];
+    # };
+
+    ##  old version
     languages = {
-      language-server.rnix-lsp = {
-        command = "rnix-lsp";
-      };
       language = [
         {
           name = "nix";
           auto-format = true;
-          language-servers = [ "rnix-lsp" ];
+          language-server.command = "rnix-lsp";
         }
       ];
     };
+
     settings = {
       theme = "dracula";
       editor = {

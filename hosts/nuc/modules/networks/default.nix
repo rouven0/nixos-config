@@ -6,6 +6,7 @@
     useNetworkd = true;
     enableIPv6 = true;
   };
+  services.lldpd.enable = true;
   services.resolved = {
     enable = true;
     dnssec = "true";
