@@ -39,7 +39,7 @@
         };
         "@DORM_SSID@" = {
           psk = "@DORM_PSK@";
-          authProtocols = [ "WPA-PSK" ];
+          authProtocols = [ "SAE" ];
         };
         "@PIXEL_SSID@" = {
           psk = "@PIXEL_PSK@";
@@ -50,6 +50,7 @@
   };
   systemd.network = {
     enable = true;
+    wait-online.anyInterface = true;
     networks."10-loopback" = {
       matchConfig.Name = "lo";
       linkConfig.RequiredForOnline = false;
@@ -114,10 +115,11 @@
       wireguardPeers = [
         {
           wireguardPeerConfig = {
-            PublicKey = "vUmworuJFHjB4KUdkucQ+nzqO2ysARLomq4UuK1n430=";
+            PublicKey = "Z5lwwHTCDr6OF4lfaCdSHNveunOn4RzuOQeyB+El9mQ=";
             PresharedKeyFile = config.sops.secrets."wireguard/dorm/preshared".path;
-            Endpoint = "dorm.vpn.rfive.de:51820";
-            AllowedIPs = "10.10.10.0/24, 192.168.10.0/24"; # seems to be broken, has no effect on routes
+            Endpoint = "141.30.227.6:51820";
+            # Endpoint = "dorm.vpn.rfive.de:51820";
+            AllowedIPs = "192.168.2.0/24, 192.168.1.0/24";
           };
         }
       ];
@@ -125,18 +127,19 @@
     networks."30-dorm" = {
       matchConfig.Name = "dorm";
       networkConfig = {
-        DNS = "192.168.10.1";
+        DNS = "192.168.1.1";
       };
       addresses = [
         {
           addressConfig = {
-            Address = "10.10.10.3/24";
+            Address = "192.168.2.3/24";
             RouteMetric = 30;
           };
         }
       ];
       routes = [
-        { routeConfig = { Gateway = "0.0.0.0"; Destination = "192.168.10.0/24"; Metric = 30; }; }
+        # allowedIPs is somewhat broken
+        { routeConfig = { Gateway = "0.0.0.0"; Destination = "192.168.1.0/24"; Metric = 30; }; }
       ];
     };
   };

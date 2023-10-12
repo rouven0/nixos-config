@@ -49,12 +49,21 @@ in
           RemoteCommand = "zsh -i";
         };
       };
+      "quitte-notty" = {
+        hostname = "quitte.ifsr.de";
+        user = "root";
+      };
       "tomate" = {
         hostname = "tomate.ifsr.de";
         user = "root";
       };
       "nuc" = {
-        hostname = "192.168.10.2";
+        hostname = "192.168.1.2";
+        user = "root";
+      };
+      "router" = matchBlocks."cudy";
+      "cudy" = {
+        hostname = "192.168.1.1";
         user = "root";
       };
       "git@raspi" = {
@@ -63,10 +72,6 @@ in
       };
       "git@ifsr.de" = {
         match = "Host ifsr.de User git";
-        identityFile = git;
-      };
-      "git@staging.ifsr.de" = {
-        match = "Host staging.ifsr.de User git";
         identityFile = git;
       };
     };

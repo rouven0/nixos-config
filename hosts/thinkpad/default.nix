@@ -39,12 +39,10 @@
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
       substituters = [
-        "https://helix.cachix.org"
         "ssh://nuc.lan"
       ];
       trusted-public-keys = [
         "nuc.lan:a9UkVw3AizAKCER1CfNGhx8UOMF4t4UGE3GJ9dmHwJc="
-        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       ];
     };
     # distributedBuilds = true;
@@ -131,10 +129,6 @@
   sound.enable = true;
   #hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
-  # hardware.opentabletdriver = {
-  #   enable = true;
-  #   daemon.enable = true;
-  # };
 
   security = {
     polkit.enable = true;
@@ -236,8 +230,12 @@
     sbctl
 
     deploy-rs
+    man-pages
+    man-pages-posix
   ];
   programs.java.enable = true;
+  documentation.dev.enable = true;
+
 
   system.stateVersion = "22.11";
 }

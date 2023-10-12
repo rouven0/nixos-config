@@ -1,4 +1,4 @@
-{ pkgs, config, modulesPath, ... }:
+{ lib, pkgs, config, modulesPath, ... }:
 {
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
@@ -16,6 +16,7 @@
 
   # in case we need to rescue a zfs machine
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  boot.swraid.enable = lib.mkForce false;
 
 
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, helix, ... }:
+{ config, pkgs, ... }:
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports =
@@ -36,7 +36,7 @@
     vim
     wget
     htop-vim
-    helix.packages.x86_64-linux.default
+    helix
     lsof
     python3
   ];
