@@ -21,6 +21,7 @@
       pylint
     ]))
     clang-tools
+    nodePackages.typescript-language-server
   ];
   programs.helix = {
     enable = true;

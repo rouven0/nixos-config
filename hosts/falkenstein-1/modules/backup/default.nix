@@ -5,17 +5,20 @@
   services.borgmatic = {
     enable = true;
     settings = {
-      location = {
-        source_directories = [
-          "/var/lib"
-          "/var/log"
-          "/root"
-        ];
+      # fix failing check
+      location = null;
+      source_directories = [
+        "/var/lib"
+        "/var/log"
+        "/root"
+      ];
 
-        repositories = [
-          "ssh://root@192.168.10.2/mnt/backup/falkenstein"
-        ];
-      };
+      repositories = [
+        {
+          path = "ssh://root@192.168.10.2/mnt/backup/falkenstein";
+          label = "nuc";
+        }
+      ];
       storage = {
         encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/passphrase".path}";
         compression = "lz4";

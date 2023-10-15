@@ -16,6 +16,8 @@ in
     pcmanfm
     xdg-utils # used for xdg-open
     tex
+    appimage-run
+    seafile-client
 
     # graphics
     evince # pdf viewer
@@ -29,6 +31,7 @@ in
     # sound
     pavucontrol
     x32edit
+    spotify
 
     # bluetooth
     blueman

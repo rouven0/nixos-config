@@ -12,13 +12,18 @@
   services.borgmatic = {
     enable = true;
     settings = {
-      location.source_directories = [
+      # fix failing check
+      location = null;
+      source_directories = [
         "/var/lib"
         "/var/log"
         "/nix/persist"
       ];
-      location.repositories = [
-        "/mnt/backup/nuc"
+      repositories = [
+        {
+          label = "nuc";
+          path = "/mnt/backup/nuc";
+        }
       ];
       storage = {
         encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/passphrase".path}";

@@ -113,6 +113,9 @@
             ./hosts/nuc
             ./shared
             sops-nix.nixosModules.sops
+            {
+              nixpkgs.overlays = [ self.overlays.default ];
+            }
           ];
         };
         falkenstein-1 = nixpkgs.lib.nixosSystem {
