@@ -9,7 +9,7 @@
   services.lldpd.enable = true;
   services.resolved = {
     enable = true;
-    dnssec = "true";
+    # dnssec = "true";
     fallbackDns = [
       "9.9.9.9"
       "149.112.112.112"
@@ -17,11 +17,11 @@
       "2620:fe::9"
     ];
     # make room for the adguard dns
-    extraConfig = ''
-      [Resolve]
-      DNS=127.0.0.1
-      DNSStubListener=no
-    '';
+    # extraConfig = ''
+    #   [Resolve]
+    #   DNS=127.0.0.1
+    #   DNSStubListener=no
+    # '';
   };
   systemd.network = {
     enable = true;

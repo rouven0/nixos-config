@@ -82,6 +82,9 @@ in
     gcc
     nodejs_20
 
+    # tools
+    postman
+
     # libs
     libyubikey
     libfido2
