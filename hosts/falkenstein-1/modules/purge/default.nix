@@ -3,7 +3,7 @@ let
   domain = "purge.${config.networking.domain}";
 in
 {
-  sops.secrets."purge/token".owner = "purge";
+  sops.secrets."purge/token" = { };
   services.purge = {
     enable = true;
     discord = {

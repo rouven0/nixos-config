@@ -5,8 +5,6 @@
   services.borgmatic = {
     enable = true;
     settings = {
-      # fix failing check
-      location = null;
       source_directories = [
         "/var/lib"
         "/var/log"

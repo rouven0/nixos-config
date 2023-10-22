@@ -4,7 +4,6 @@
     settings = {
       profile = [
         {
-          # TODO home vertical
           name = "home";
           output = [
             {
@@ -34,7 +33,6 @@
           ];
         }
         {
-          # TODO home vertical
           name = "home-vertical";
           output = [
             {
@@ -80,6 +78,32 @@
               enable = true;
               position = {
                 x = 1920;
+                y = 0;
+              };
+            }
+          ];
+        }
+        {
+          name = "external-monitor-usb-c";
+          output = [
+            {
+              match = "eDP-1";
+              enable = true;
+              position = {
+                x = 0;
+                y = 1440;
+              };
+            }
+            {
+              match = "/P24h/";
+              enable = true;
+              mode = {
+                height = 1440;
+                width = 2560;
+                refresh = 60;
+              };
+              position = {
+                x = 0;
                 y = 0;
               };
             }

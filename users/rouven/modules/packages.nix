@@ -47,6 +47,7 @@ in
     tdesktop
     element-desktop
     gomuks # alternative matrix client
+    mattermost-desktop
 
     # games
     # dwarf-fortress-packages.dwarf-fortress-full
@@ -82,8 +83,7 @@ in
     gcc
     nodejs_20
 
-    # tools
-    postman
+    plantuml
 
     # libs
     libyubikey

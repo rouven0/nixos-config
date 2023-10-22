@@ -38,12 +38,12 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
-      substituters = [
-        "ssh://nuc.lan"
-      ];
-      trusted-public-keys = [
-        "nuc.lan:a9UkVw3AizAKCER1CfNGhx8UOMF4t4UGE3GJ9dmHwJc="
-      ];
+      # substituters = [
+      #   "ssh://nuc.lan"
+      # ];
+      # trusted-public-keys = [
+      #   "nuc.lan:a9UkVw3AizAKCER1CfNGhx8UOMF4t4UGE3GJ9dmHwJc="
+      # ];
     };
     # distributedBuilds = true;
     # extraOptions = ''
@@ -231,7 +231,6 @@
 
     deploy-rs
     man-pages
-    man-pages-posix
   ];
   programs.java.enable = true;
   documentation.dev.enable = true;

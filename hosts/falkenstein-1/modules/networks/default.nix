@@ -42,8 +42,7 @@
     netdevs."30-dorm" = {
       netdevConfig = {
         Kind = "wireguard";
-        Name = "dorm";
-        Description = "WireGuard to my Dorm Infra";
+        Name = "wg0";
       };
       wireguardConfig = {
         PrivateKeyFile = config.sops.secrets."wireguard/dorm/private".path;
@@ -52,29 +51,29 @@
       wireguardPeers = [
         {
           wireguardPeerConfig = {
-            PublicKey = "vUmworuJFHjB4KUdkucQ+nzqO2ysARLomq4UuK1n430=";
+            PublicKey = "Z5lwwHTCDr6OF4lfaCdSHNveunOn4RzuOQeyB+El9mQ=";
             PresharedKeyFile = config.sops.secrets."wireguard/dorm/preshared".path;
             Endpoint = "dorm.vpn.rfive.de:51820";
-            AllowedIPs = "10.10.10.0/24, 192.168.10.0/24";
+            AllowedIPs = "192.168.42.0/24, 192.168.43.0/24";
           };
         }
       ];
     };
     networks."30-dorm" = {
-      matchConfig.Name = "dorm";
+      matchConfig.Name = "wg0";
       networkConfig = {
-        DNS = "192.168.10.1";
+        DNS = "192.168.42.1";
       };
       addresses = [
         {
           addressConfig = {
-            Address = "10.10.10.4/24";
+            Address = "192.168.43.4/24";
             RouteMetric = 30;
           };
         }
       ];
       routes = [
-        { routeConfig = { Gateway = "0.0.0.0"; Destination = "192.168.10.0/24"; Metric = 30; }; }
+        { routeConfig = { Gateway = "0.0.0.0"; Destination = "192.168.42.0/24"; Metric = 30; }; }
       ];
     };
   };

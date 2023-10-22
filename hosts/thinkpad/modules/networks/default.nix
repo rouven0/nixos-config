@@ -55,8 +55,8 @@
       matchConfig.Name = "lo";
       linkConfig.RequiredForOnline = false;
     };
-    networks."10-wired" = {
-      matchConfig.Name = "enp0s31f6";
+    networks."10-wired-default" = {
+      matchConfig.Name = "en*";
       linkConfig.RequiredForOnline = false;
       networkConfig = {
         DHCP = "yes";
@@ -102,11 +102,10 @@
     };
 
     # some wireguard interfaces
-    netdevs."30-dorm" = {
+    netdevs."30-wg0" = {
       netdevConfig = {
         Kind = "wireguard";
-        Name = "dorm";
-        Description = "WireGuard to my Dorm Infra";
+        Name = "wg0";
       };
       wireguardConfig = {
         PrivateKeyFile = config.sops.secrets."wireguard/dorm/private".path;
@@ -118,28 +117,27 @@
             PublicKey = "Z5lwwHTCDr6OF4lfaCdSHNveunOn4RzuOQeyB+El9mQ=";
             PresharedKeyFile = config.sops.secrets."wireguard/dorm/preshared".path;
             Endpoint = "141.30.227.6:51820";
-            # Endpoint = "dorm.vpn.rfive.de:51820";
-            AllowedIPs = "192.168.2.0/24, 192.168.1.0/24";
+            AllowedIPs = "192.168.42.0/24, 192.168.43.0/24";
           };
         }
       ];
     };
-    networks."30-dorm" = {
-      matchConfig.Name = "dorm";
+    networks."30-wg0" = {
+      matchConfig.Name = "wg0";
       networkConfig = {
-        DNS = "192.168.1.1";
+        DNS = "192.168.42.1";
       };
       addresses = [
         {
           addressConfig = {
-            Address = "192.168.2.3/24";
+            Address = "192.168.43.3/24";
             RouteMetric = 30;
           };
         }
       ];
       routes = [
         # allowedIPs is somewhat broken
-        { routeConfig = { Gateway = "0.0.0.0"; Destination = "192.168.1.0/24"; Metric = 30; }; }
+        { routeConfig = { Gateway = "0.0.0.0"; Destination = "192.168.42.0/24"; Metric = 30; }; }
       ];
     };
   };

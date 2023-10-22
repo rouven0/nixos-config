@@ -5,7 +5,8 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./modules/backup
+      # ./modules/backup
+      ./modules/fail2ban
       ./modules/mail
       ./modules/networks
       ./modules/nginx

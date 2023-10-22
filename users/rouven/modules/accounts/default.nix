@@ -42,6 +42,9 @@ in
         source ${./powerline.muttrc}
       '';
     };
+    # set sidebar_indent_string = '  '
+    # set sidebar_width = 80
+    # set sidebar_folder_indent = yes
     mbsync.enable = true;
   };
   accounts.email.accounts = {
@@ -275,6 +278,10 @@ in
       # gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = "r5@agdsn.me";
+      aliases = [
+        "r5@agdsn.de"
+        "rouven.seifert@agdsn.de"
+      ];
       passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/agdsn";
       imap = {
         host = "imap.agdsn.de";

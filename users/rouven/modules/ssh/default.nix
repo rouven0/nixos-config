@@ -29,7 +29,7 @@ in
       };
       falkenstein-1 = matchBlocks."rfive.de";
       "durian" = {
-        hostname = "manual.ifsr.de";
+        hostname = "durian.ifsr.de";
         user = "root";
       };
       "kaki" = {
@@ -58,7 +58,7 @@ in
         user = "root";
       };
       "nuc" = {
-        hostname = "192.168.1.2";
+        hostname = "192.168.42.2";
         user = "root";
       };
       "router" = matchBlocks."cudy";
