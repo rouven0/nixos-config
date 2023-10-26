@@ -86,7 +86,7 @@
           unset PKGS
           for var in "$@"
           do
-            PKGS=$PKGS\ nixpkgs/nixos-unstable\#$var
+            PKGS=$PKGS\ nixpkgs/nixos-unstable\\#$var
           done
           eval ${pkgs.nix-output-monitor}/bin/nom shell $PKGS
         }
@@ -99,6 +99,7 @@
           cat ${../images/cat.sixel}
         fi
         eval "$(${pkgs.mcfly}/bin/mcfly init zsh)"
+        eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
       '';
   };
 }

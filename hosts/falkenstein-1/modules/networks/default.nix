@@ -10,6 +10,7 @@
   };
   networking = {
     hostName = "falkenstein-1";
+    nftables.enable = true;
     domain = "rfive.de";
     useNetworkd = true;
     enableIPv6 = true;

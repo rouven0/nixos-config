@@ -8,7 +8,7 @@
       # ./modules/adguard
       ./modules/networks
       ./modules/backup
-      ./modules/hydra
+      # ./modules/hydra
       ./modules/matrix
       ./modules/nextcloud
       ./modules/seafile

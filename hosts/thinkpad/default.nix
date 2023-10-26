@@ -158,6 +158,10 @@
     devmon.enable = true; # automount stuff
     printing = {
       enable = true;
+      browsedConf = ''
+        BrowsePoll cups.agdsn.network
+        LocalQueueNamingRemoteCUPS RemoteName
+      '';
     };
     avahi = {
       # autodiscover printers
@@ -226,9 +230,7 @@
     unzip
     pciutils
     lm_sensors
-
     sbctl
-
     deploy-rs
     man-pages
   ];

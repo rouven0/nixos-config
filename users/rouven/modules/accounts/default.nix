@@ -22,6 +22,11 @@ in
         default = {
           withExternalGnupg = true;
           isDefault = true;
+          settings = {
+            "intl.date_time.pattern_override.connector_short" = "{1} {0}";
+            "intl.date_time.pattern_override.date_short" = "yyyy-MM-dd";
+            "intl.date_time.pattern_override.time_short" = "HH:mm";
+          };
         };
       };
     };

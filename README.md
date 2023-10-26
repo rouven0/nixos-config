@@ -11,7 +11,7 @@
 - **Editor:** [Helix](https://helix-editor.com)
 - **Notifications:** [swaync](https://github.com/ErikReider/SwayNotificationCenter)
 - **Panel:** [Waybar](https://github.com/Alexays/Waybar)
-- **File Manager:** [Vifm](https://vifm.info/)
+- **File Manager:** [Yazi](https://yazi-rs.github.io/)
 
 ## Installation
 Should work out of the box:\

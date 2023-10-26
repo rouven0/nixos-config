@@ -23,6 +23,7 @@
     dnssec = "allow-downgrade";
   };
   networking = {
+    nftables.enable = true;
     useNetworkd = true;
     hostName = "thinkpad";
     hostId = "d8d34032";

@@ -63,7 +63,7 @@ in
       };
       "router" = matchBlocks."cudy";
       "cudy" = {
-        hostname = "192.168.1.1";
+        hostname = "192.168.42.1";
         user = "root";
       };
       "git@raspi" = {
@@ -72,6 +72,10 @@ in
       };
       "git@ifsr.de" = {
         match = "Host ifsr.de User git";
+        identityFile = git;
+      };
+      "git@git.agdsn.de" = {
+        match = "Host git.agdsn.de User git";
         identityFile = git;
       };
     };

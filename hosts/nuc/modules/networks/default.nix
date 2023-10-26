@@ -5,6 +5,7 @@
     domain = "rfive.de";
     useNetworkd = true;
     enableIPv6 = true;
+    nftables.enable = true;
   };
   services.lldpd.enable = true;
   services.resolved = {

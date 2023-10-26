@@ -258,4 +258,25 @@ in
       };
     };
   };
+  systemd = {
+    services.rspamd-dmarc-report = {
+      description = "rspamd dmarc reporter";
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.rspamd}/bin/rspamadm dmarc_report -v";
+        User = "rspamd";
+        Group = "rspamd";
+      };
+    };
+    timers.rspamd-dmarc-report = {
+      description = "Timer for daily dmarc reports";
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = "daily";
+        Unit = "rspamd-dmarc-report.service";
+      };
+
+    };
+
+  };
 }

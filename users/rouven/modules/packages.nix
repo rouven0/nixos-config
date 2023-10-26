@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   tex = (pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-full
+    inherit (pkgs.texlive) scheme-small
       dvisvgm dvipng# for preview and export as html
       wrapfig amsmath ulem hyperref capt-of;
     # (setq org-latex-compiler "lualatex")
@@ -48,6 +48,7 @@ in
     element-desktop
     gomuks # alternative matrix client
     mattermost-desktop
+    gajim
 
     # games
     # dwarf-fortress-packages.dwarf-fortress-full
@@ -71,7 +72,6 @@ in
     bacula
     hcloud
     jq
-    logseq
     xournalpp
     libreoffice
 
@@ -82,6 +82,7 @@ in
     clippy
     gcc
     nodejs_20
+    gnumake
 
     plantuml
 

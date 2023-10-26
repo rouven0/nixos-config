@@ -7,6 +7,7 @@
     ./sops.nix
     ./vim.nix
     ./tmux.nix
+    ./yazi.nix
     ./zsh.nix
   ];
 }
