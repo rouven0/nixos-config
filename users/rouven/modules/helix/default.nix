@@ -26,27 +26,15 @@
   programs.helix = {
     enable = true;
 
-    ##  use after helix update
-    # languages = {
-    #   language-server.rnix-lsp = {
-    #     command = "rnix-lsp";
-    #   };
-    #   language = [
-    #     {
-    #       name = "nix";
-    #       auto-format = true;
-    #       language-servers = [ "rnix-lsp" ];
-    #     }
-    #   ];
-    # };
-
-    ##  old version
     languages = {
+      language-server.rnix-lsp = {
+        command = "rnix-lsp";
+      };
       language = [
         {
           name = "nix";
           auto-format = true;
-          language-server.command = "rnix-lsp";
+          language-servers = [ "rnix-lsp" ];
         }
       ];
     };

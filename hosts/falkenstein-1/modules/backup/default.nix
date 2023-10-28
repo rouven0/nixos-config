@@ -17,16 +17,12 @@
           label = "nuc";
         }
       ];
-      storage = {
-        encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/passphrase".path}";
-        compression = "lz4";
-      };
-      retention = {
-        keep_daily = 7;
-        keep_weekly = 4;
-        keep_monthly = 12;
-        keep_yearly = 3;
-      };
+      encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/passphrase".path}";
+      compression = "lz4";
+      keep_daily = 7;
+      keep_weekly = 4;
+      keep_monthly = 12;
+      keep_yearly = 3;
     };
   };
 }

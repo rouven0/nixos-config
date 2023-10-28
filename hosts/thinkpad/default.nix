@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./modules/backup
+      # ./modules/backup
       ./modules/networks
       ./modules/greetd
       ./modules/virtualisation
@@ -34,44 +34,6 @@
     tmp.useTmpfs = true;
   };
 
-  nix = {
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true;
-      # substituters = [
-      #   "ssh://nuc.lan"
-      # ];
-      # trusted-public-keys = [
-      #   "nuc.lan:a9UkVw3AizAKCER1CfNGhx8UOMF4t4UGE3GJ9dmHwJc="
-      # ];
-    };
-    # distributedBuilds = true;
-    # extraOptions = ''
-    #   builders-use-substitutes = true
-    # '';
-    #   buildMachines = [
-    #     {
-    #       hostName = "nuc.lan";
-    #       system = "x86_64-linux";
-    #       protocol = "ssh-ng";
-    #       maxJobs = 2;
-    #       speedFactor = 1;
-    #       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-    #       mandatoryFeatures = [ ];
-    #     }
-    #     {
-    #       hostName = "quitte.ifsr.de";
-    #       system = "x86_64-linux";
-    #       protocol = "ssh-ng";
-    #       maxJobs = 12;
-    #       sshUser = "rouven.seifert";
-    #       speedFactor = 10;
-    #       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-    #       mandatoryFeatures = [ ];
-    #     }
-    #   ];
-  };
-
   environment.persistence."/nix/persist/system" = {
     directories = [
       "/etc/nixos" # bind mounted from /nix/persist/system/etc/nixos to /etc/nixos
@@ -93,8 +55,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     keyMap = "dvorak";
-    # font = "Lat2-Terminus16";
-    # earlySetup = true;
     colors = let colors = config.home-manager.users.rouven.colorScheme.colors; in
       [
         colors.base00
@@ -128,6 +88,7 @@
   # Enable sound.
   sound.enable = true;
   #hardware.pulseaudio.enable = true;
+  hardware.opengl.enable = true;
   hardware.bluetooth.enable = true;
 
   security = {

@@ -48,7 +48,6 @@ in
     element-desktop
     gomuks # alternative matrix client
     mattermost-desktop
-    gajim
 
     # games
     # dwarf-fortress-packages.dwarf-fortress-full
@@ -89,6 +88,7 @@ in
     # libs
     libyubikey
     libfido2
+    python311Packages.pyhanko
   ];
 
   services.kdeconnect = {

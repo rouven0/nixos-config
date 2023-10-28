@@ -6,6 +6,7 @@
     ./gpg.nix
     ./sops.nix
     ./vim.nix
+    ./nix.nix
     ./tmux.nix
     ./yazi.nix
     ./zsh.nix

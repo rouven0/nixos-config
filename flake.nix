@@ -2,7 +2,8 @@
   description = "My nix setup";
   inputs = {
 
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    # nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:imlonghao/nixpkgs/borgmatic/fix-262020";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

@@ -12,8 +12,6 @@
   services.borgmatic = {
     enable = true;
     settings = {
-      # fix failing check
-      location = null;
       source_directories = [
         "/var/lib"
         "/var/log"
@@ -25,10 +23,8 @@
           path = "/mnt/backup/nuc";
         }
       ];
-      storage = {
-        encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/passphrase".path}";
-        compression = "lz4";
-      };
+      encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/passphrase".path}";
+      compression = "lz4";
       retention = {
         keep_daily = 7;
         keep_weekly = 4;

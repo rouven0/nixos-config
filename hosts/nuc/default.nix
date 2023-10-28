@@ -1,13 +1,12 @@
 { config, pkgs, lib, ... }:
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # ./modules/adguard
       ./modules/networks
-      ./modules/backup
+      # ./modules/backup
       # ./modules/hydra
       ./modules/matrix
       ./modules/nextcloud
@@ -23,9 +22,6 @@
     tmp.useTmpfs = true;
   };
   services.btrfs.autoScrub.enable = true;
-  nix.settings = {
-    auto-optimise-store = true;
-  };
 
   sops.secrets."store/secretkey" = { };
   nix.extraOptions = ''
