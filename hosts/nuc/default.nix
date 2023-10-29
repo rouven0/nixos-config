@@ -7,7 +7,8 @@
       # ./modules/adguard
       ./modules/networks
       # ./modules/backup
-      # ./modules/hydra
+      ./modules/grafana
+      ./modules/prometheus
       ./modules/matrix
       ./modules/nextcloud
       ./modules/seafile

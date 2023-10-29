@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  domain = "monitoring.${config.networking.domain}";
+  domain = "uptime.${config.networking.domain}";
 in
 {
   services.uptime-kuma = {

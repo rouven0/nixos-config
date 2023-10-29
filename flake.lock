@@ -301,18 +301,17 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1698463958,
-        "narHash": "sha256-4L0hGqplwNYWFhqhPbsQh6U7s4KiUSE2nhQdCZg981c=",
-        "owner": "imlonghao",
+        "lastModified": 1698318101,
+        "narHash": "sha256-gUihHt3yPD7bVqg+k/UVHgngyaJ3DMEBchbymBMvK1E=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "88bc98a073d12dc7e0c8b766a55d39ebeaed9927",
+        "rev": "63678e9f3d3afecfeafa0acead6239cdb447574c",
         "type": "github"
       },
       "original": {
-        "owner": "imlonghao",
-        "ref": "borgmatic/fix-262020",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
       }
     },
     "nixpkgs-lib": {
