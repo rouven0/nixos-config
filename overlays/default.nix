@@ -34,6 +34,16 @@ in
 
   pww = callPackage ../pkgs/pww { };
 
+  # fix pairing
+  AusweisApp2 = prev.AusweisApp2.overrideAttrs (_: {
+    patches = [
+      (fetchpatch {
+        url = "https://patch-diff.githubusercontent.com/raw/Governikus/AusweisApp2/pull/47.patch";
+        hash = "sha256-98ttPVOFHsxmvUFgNpxW0/C9PK64dUwmTxrNnXefkKo=";
+      })
+    ];
+  });
+
   tpm2-pkcs11 = prev.tpm2-pkcs11.overrideAttrs (_: {
     configureFlags = [ "--with-fapi=no" ];
     patches = [
