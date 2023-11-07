@@ -11,15 +11,14 @@
     sops-nix = {
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+
+    };
 
     impermanence.url = "github:nix-community/impermanence";
-
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
 
     home-manager = {
       inputs = {
@@ -55,8 +54,8 @@
     , home-manager
     , nix-index-database
     , sops-nix
+    , agenix
     , impermanence
-    , deploy-rs
     , nix-colors
     , nixos-hardware
     , lanzaboote
@@ -88,6 +87,7 @@
             nixos-hardware.nixosModules.common-pc-laptop-ssd
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            agenix.nixosModules.default
             nix-index-database.nixosModules.nix-index
             impermanence.nixosModules.impermanence
             lanzaboote.nixosModules.lanzaboote
@@ -152,22 +152,6 @@
             ./shared/vim.nix
             ./shared/tmux.nix
           ];
-        };
-      };
-      deploy.nodes = {
-        nuc = {
-          hostname = "nuc";
-          profiles.system = {
-            sshUser = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nuc;
-          };
-        };
-        falkenstein-1 = {
-          hostname = "falkenstein-1";
-          profiles.system = {
-            sshUser = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.falkenstein-1;
-          };
         };
       };
     };

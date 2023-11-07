@@ -16,7 +16,7 @@
       repositories = [
         {
           label = "nuc";
-          path = "ssh://root@192.168.10.2/mnt/backup/thinkpad";
+          path = "ssh://root@192.168.42.2/mnt/backup/thinkpad";
         }
       ];
       exclude_patterns = [

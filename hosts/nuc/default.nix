@@ -6,7 +6,7 @@
       ./hardware-configuration.nix
       # ./modules/adguard
       ./modules/networks
-      # ./modules/backup
+      ./modules/backup
       ./modules/grafana
       ./modules/prometheus
       ./modules/matrix
@@ -22,6 +22,7 @@
     loader.efi.canTouchEfiVariables = true;
     tmp.useTmpfs = true;
   };
+  systemd.package = pkgs.systemd.override { withHomed = false; };
   services.btrfs.autoScrub.enable = true;
 
   sops.secrets."store/secretkey" = { };

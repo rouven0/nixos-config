@@ -1,11 +1,7 @@
 { pkgs, ... }:
 let
   tex = (pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-small
-      dvisvgm dvipng# for preview and export as html
-      wrapfig amsmath ulem hyperref capt-of;
-    # (setq org-latex-compiler "lualatex")
-    #(setq org-preview-latex-default-process 'dvisvgm)
+    inherit (pkgs.texlive) scheme-full;
   });
 in
 {
@@ -27,6 +23,7 @@ in
     drawio
     leafpad
     gamescope
+    gnome.simple-scan
 
     # sound
     pavucontrol
@@ -40,7 +37,6 @@ in
     google-chrome
     filezilla
     dbeaver
-    apache-directory-studio
 
     # messaging
     discord

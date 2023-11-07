@@ -49,7 +49,6 @@ in
     };
     # set sidebar_indent_string = '  '
     # set sidebar_width = 80
-    # set sidebar_folder_indent = yes
     mbsync.enable = true;
   };
   accounts.email.accounts = {
@@ -239,8 +238,8 @@ in
             extraConfig.Create = "near";
           };
           channels.reports = {
-            nearPattern = "Reports";
-            farPattern = "Reports";
+            nearPattern = "Root/Reports";
+            farPattern = "Root/Reports";
             extraConfig.Create = "near";
           };
           channels.trash = {
@@ -300,33 +299,33 @@ in
         enable = true;
         create = "maildir";
         expunge = "both";
-        groups.ifsr = {
-          channels.inbox = {
-            nearPattern = "INBOX";
-            farPattern = "INBOX";
-            extraConfig.Create = "near";
-          };
-          channels.trash = {
-            nearPattern = "Trash";
-            farPattern = "Trash";
-            extraConfig.Create = "near";
-          };
-          channels.sent = {
-            nearPattern = "Sent";
-            farPattern = "Sent";
-            extraConfig.Create = "near";
-          };
-          channels.junk = {
-            nearPattern = "Junk";
-            farPattern = "Junk";
-            extraConfig.Create = "near";
-          };
-          channels.drafts = {
-            nearPattern = "Drafts";
-            farPattern = "Drafts";
-            extraConfig.Create = "near";
-          };
-        };
+        # groups.ifsr = {
+        #   channels.inbox = {
+        #     nearPattern = "INBOX";
+        #     farPattern = "INBOX";
+        #     extraConfig.Create = "near";
+        #   };
+        #   channels.trash = {
+        #     nearPattern = "Trash";
+        #     farPattern = "Trash";
+        #     extraConfig.Create = "near";
+        #   };
+        #   channels.sent = {
+        #     nearPattern = "Sent";
+        #     farPattern = "Sent";
+        #     extraConfig.Create = "near";
+        #   };
+        #   channels.junk = {
+        #     nearPattern = "Junk";
+        #     farPattern = "Junk";
+        #     extraConfig.Create = "near";
+        #   };
+        #   channels.drafts = {
+        #     nearPattern = "Drafts";
+        #     farPattern = "Drafts";
+        #     extraConfig.Create = "near";
+        #   };
+        # };
         extraConfig = {
           account = {
             AuthMechs = "Login";
@@ -338,7 +337,8 @@ in
         {
           enable = true;
           mailboxName = " 󰒍 AG DSN";
-          extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+          # extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
+          extraMailboxes = [ "+Sent" "+Trash" "+Junk" "+Drafts" "+Lists/intern" ];
         };
     };
     "gmail" = rec {

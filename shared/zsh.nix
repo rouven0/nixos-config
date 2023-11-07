@@ -9,6 +9,7 @@
     duf
     trash-cli
     nix-output-monitor
+    iperf
   ];
   users.defaultUserShell = pkgs.zsh;
   programs.fzf = {

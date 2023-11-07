@@ -1,10 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, agenix, ... }:
 {
 
   imports =
     [
       ./hardware-configuration.nix
-      # ./modules/backup
+      ./modules/backup
       ./modules/networks
       ./modules/greetd
       ./modules/virtualisation
@@ -33,6 +33,7 @@
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     tmp.useTmpfs = true;
   };
+  systemd.package = pkgs.systemd.override { withHomed = false; };
 
   environment.persistence."/nix/persist/system" = {
     directories = [
@@ -83,6 +84,7 @@
     noto-fonts-cjk
     noto-fonts-emoji
     dejavu_fonts
+    fira
   ];
 
   # Enable sound.
@@ -114,16 +116,18 @@
   programs.light.enable = true;
 
   services = {
-    homed.enable = true;
+    # homed.enable = true;
     blueman.enable = true; # bluetooth
     devmon.enable = true; # automount stuff
-    printing = {
-      enable = true;
-      browsedConf = ''
-        BrowsePoll cups.agdsn.network
-        LocalQueueNamingRemoteCUPS RemoteName
-      '';
-    };
+    # printing = {
+    #   enable = true;
+    #   stateless = true;
+    #   browsedConf = ''
+    #     BrowsePoll tomate.local
+    #     BrowsePoll cups.agdsn.network
+    #     LocalQueueNamingRemoteCUPS RemoteName
+    #   '';
+    # };
     avahi = {
       # autodiscover printers
       enable = true;
@@ -192,10 +196,24 @@
     pciutils
     lm_sensors
     sbctl
-    deploy-rs
     man-pages
+    openssl
+    cups
+    agenix.packages.x86_64-linux.default
   ];
   programs.java.enable = true;
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark-qt;
+  };
+  security.wrappers.etherape = {
+    source = "${pkgs.etherape}/bin/etherape";
+    capabilities = "cap_net_raw,cap_net_admin+eip";
+    owner = "root";
+    group = "wireshark"; # too lazy to create a new one
+    permissions = "u+rx,g+x";
+  };
+
   documentation.dev.enable = true;
 
 

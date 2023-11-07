@@ -118,9 +118,10 @@ in
       sslServerKey = "/var/lib/acme/${hostname}/key.pem";
       protocols = [ "imap" "sieve" ];
       mailPlugins = {
+        globally.enable = [ "listescape" ];
         perProtocol = {
           imap = {
-            enable = [ "imap_sieve" ];
+            enable = [ "imap_sieve" "imap_filter_sieve" ];
           };
           lmtp = {
             enable = [ "sieve" ];
@@ -167,6 +168,10 @@ in
           }
         
           service_count = 1
+        }
+        namespace inbox {
+          separator = /
+          inbox = yes
         }
         service lmtp {
           unix_listener dovecot-lmtp {

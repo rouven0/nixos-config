@@ -4,7 +4,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # ./modules/backup
+      ./modules/backup
       ./modules/fail2ban
       ./modules/mail
       ./modules/networks
@@ -31,6 +31,7 @@
   time.timeZone = "Europe/Berlin";
 
   i18n.defaultLocale = "en_US.UTF-8";
+  systemd.package = pkgs.systemd.override { withHomed = false; };
 
   environment.systemPackages = with pkgs; [
     vim
