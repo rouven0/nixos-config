@@ -13,7 +13,7 @@ in
       # better desktop application name. "wpa_gui" kinda sucks
       postInstall = old.postInstall + ''
 
-        substituteInPlace $out/share/applications/wpa_gui.desktop --replace "Name=wpa_gui" "Name=Manage Wifi"
+        substituteInPlace $out/share/applications/wpa_gui.desktop --replace "Name=wpa_gui" "Name=Wireless connections"
       '';
     });
 
@@ -22,14 +22,6 @@ in
     postInstall = ''
       rm $out/share/applications/pcmanfm-desktop-pref.desktop
     '';
-  });
-
-  wdisplays = prev.wdisplays.overrideAttrs (_: {
-    # better desktop application name.
-    postInstall = ''
-
-       substituteInPlace $out/share/applications/network.cycles.wdisplays.desktop --replace "Name=wdisplays" "Name=Manage Displays"
-      '';
   });
 
   pww = callPackage ../pkgs/pww { };

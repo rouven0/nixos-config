@@ -201,6 +201,17 @@
     cups
     agenix.packages.x86_64-linux.default
   ];
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+    ensureUsers = [
+      {
+        name = "user1";
+      }
+    ];
+  };
+
   programs.java.enable = true;
   programs.wireshark = {
     enable = true;
