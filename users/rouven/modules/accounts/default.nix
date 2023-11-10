@@ -10,12 +10,30 @@ in
     "email/agdsn" = { };
     "email/google" = { };
   };
-  home.packages = with pkgs; [
-    imv
-    w3m
-    urlview
-  ];
   programs = {
+    aerc = {
+      enable = true;
+      extraConfig = {
+        general = {
+          unsafe-accounts-conf = true;
+        };
+        ui = {
+          sort = "date";
+          dirlist-tree = true;
+          fuzzy-complete = true;
+          styleset-name = "dracula";
+          threading-enabled = true;
+        };
+        filters = {
+          "text/plain" = "colorize";
+          "text/html" = "html | colorize";
+          "message/delivery-status" = "colorize";
+          "message/rfc822" = "colorize";
+          "text/calendar" = "calendar";
+        };
+      };
+
+    };
     thunderbird = {
       enable = true;
       profiles = {
@@ -30,25 +48,6 @@ in
         };
       };
     };
-    neomutt = {
-      enable = true;
-      sidebar.enable = true;
-      checkStatsInterval = 30;
-      extraConfig = ''
-        bind pager <Space> noop
-        bind index,pager \Cp sidebar-prev
-        # Move the highlight to the next mailbox
-        bind index,pager \Cn sidebar-next
-        # Open the highlighted mailbox
-        bind index,pager <space><return> sidebar-open
-        set mailcap_path = ${./mailcap}
-        source ${./vim-keys.muttrc}
-        source ${./dracula.muttrc}
-        source ${./powerline.muttrc}
-      '';
-    };
-    # set sidebar_indent_string = '  '
-    # set sidebar_width = 80
     mbsync.enable = true;
   };
   accounts.email.accounts = {
@@ -71,55 +70,13 @@ in
         enable = true;
         create = "maildir";
         expunge = "both";
-        groups.rfive = {
-          channels.inbox = {
-            nearPattern = "INBOX";
-            farPattern = "INBOX";
-            extraConfig.Create = "near";
-          };
-          channels.trash = {
-            nearPattern = "Trash";
-            farPattern = "Trash";
-            extraConfig.Create = "near";
-          };
-          channels.sent = {
-            nearPattern = "Sent";
-            farPattern = "Sent";
-            extraConfig.Create = "near";
-          };
-          channels.junk = {
-            nearPattern = "Spam";
-            farPattern = "Spam";
-            extraConfig.Create = "near";
-          };
-          channels.drafts = {
-            nearPattern = "Drafts";
-            farPattern = "Drafts";
-            extraConfig.Create = "near";
-          };
-          channels.github = {
-            nearPattern = "GitHub";
-            farPattern = "GitHub";
-            extraConfig.Create = "near";
-          };
-          channels.reports = {
-            nearPattern = "Reports";
-            farPattern = "Reports";
-            extraConfig.Create = "near";
-          };
-        };
         extraConfig = {
           account = {
             AuthMechs = "Login";
           };
         };
       };
-      neomutt = let c = mbsync.groups.rfive.channels; in
-        {
-          enable = true;
-          mailboxName = " 󰒋 rfive.de";
-          extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts c.reports c.github ] (x: x.nearPattern);
-        };
+      aerc.enable = true;
     };
     "TU-Dresden" = rec {
       address = "rouven.seifert@mailbox.tu-dresden.de";
@@ -179,12 +136,7 @@ in
         };
       };
       thunderbird.enable = true;
-      neomutt = let c = mbsync.groups.tud.channels; in
-        {
-          enable = true;
-          mailboxName = "  TU Dresden";
-          extraMailboxes = lib.lists.forEach [ c.opal c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
-        };
+      aerc.enable = true;
     };
     "iFSR" = rec {
       address = "rouven.seifert@ifsr.de";
@@ -215,54 +167,6 @@ in
         enable = true;
         create = "maildir";
         expunge = "both";
-        groups.ifsr = {
-          # TODO beautify with nix magic
-          channels.inbox = {
-            nearPattern = "INBOX";
-            farPattern = "INBOX";
-            extraConfig.Create = "near";
-          };
-          channels.root = {
-            nearPattern = "Root";
-            farPattern = "Root";
-            extraConfig.Create = "near";
-          };
-          channels.ese = {
-            nearPattern = "ESE";
-            farPattern = "ESE";
-            extraConfig.Create = "near";
-          };
-          channels.github = {
-            nearPattern = "GitHub";
-            farPattern = "GitHub";
-            extraConfig.Create = "near";
-          };
-          channels.reports = {
-            nearPattern = "Root/Reports";
-            farPattern = "Root/Reports";
-            extraConfig.Create = "near";
-          };
-          channels.trash = {
-            nearPattern = "Trash";
-            farPattern = "Trash";
-            extraConfig.Create = "near";
-          };
-          channels.sent = {
-            nearPattern = "Sent";
-            farPattern = "Sent";
-            extraConfig.Create = "near";
-          };
-          channels.junk = {
-            nearPattern = "Spam";
-            farPattern = "Spam";
-            extraConfig.Create = "near";
-          };
-          channels.drafts = {
-            nearPattern = "Drafts";
-            farPattern = "Drafts";
-            extraConfig.Create = "near";
-          };
-        };
         extraConfig = {
           account = {
             AuthMechs = "Login";
@@ -270,12 +174,7 @@ in
         };
       };
       thunderbird.enable = true;
-      neomutt = let c = mbsync.groups.ifsr.channels; in
-        {
-          enable = true;
-          mailboxName = "  iFSR";
-          extraMailboxes = lib.lists.forEach [ c.root c.ese c.github c.reports c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
-        };
+      aerc.enable = true;
     };
     "agdsn" = rec {
       address = "r5@agdsn.me";
@@ -299,33 +198,6 @@ in
         enable = true;
         create = "maildir";
         expunge = "both";
-        # groups.ifsr = {
-        #   channels.inbox = {
-        #     nearPattern = "INBOX";
-        #     farPattern = "INBOX";
-        #     extraConfig.Create = "near";
-        #   };
-        #   channels.trash = {
-        #     nearPattern = "Trash";
-        #     farPattern = "Trash";
-        #     extraConfig.Create = "near";
-        #   };
-        #   channels.sent = {
-        #     nearPattern = "Sent";
-        #     farPattern = "Sent";
-        #     extraConfig.Create = "near";
-        #   };
-        #   channels.junk = {
-        #     nearPattern = "Junk";
-        #     farPattern = "Junk";
-        #     extraConfig.Create = "near";
-        #   };
-        #   channels.drafts = {
-        #     nearPattern = "Drafts";
-        #     farPattern = "Drafts";
-        #     extraConfig.Create = "near";
-        #   };
-        # };
         extraConfig = {
           account = {
             AuthMechs = "Login";
@@ -333,13 +205,7 @@ in
         };
       };
       thunderbird.enable = true;
-      neomutt = let c = mbsync.groups.ifsr.channels; in
-        {
-          enable = true;
-          mailboxName = " 󰒍 AG DSN";
-          # extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
-          extraMailboxes = [ "+Sent" "+Trash" "+Junk" "+Drafts" "+Lists/intern" ];
-        };
+      aerc.enable = true;
     };
     "gmail" = rec {
       address = "seifertrouven@gmail.com";
@@ -392,20 +258,9 @@ in
         };
       };
       thunderbird.enable = true;
-      neomutt = let c = mbsync.groups.gmail.channels; in
-        {
-          enable = true;
-          mailboxName = " 󰊫 gmail";
-          extraMailboxes = lib.lists.forEach [ c.sent c.trash c.junk c.drafts ] (x: x.nearPattern);
-          extraConfig = ''
-            set copy = no
-          '';
-        };
+      aerc.enable = true;
     };
   };
-  home.file.".urlview".text = ''
-    COMMAND ${pkgs.xdg-utils}/bin/xdg-open %s &> /dev/null
-  '';
   home.file.".gnupg/dirmngr_ldapservers.conf".text = ''
     ldap.pca.dfn.de::::o=DFN-Verein,c=DE
   '';

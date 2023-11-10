@@ -24,6 +24,7 @@ in
     leafpad
     gamescope
     gnome.simple-scan
+    imv
 
     # sound
     pavucontrol
