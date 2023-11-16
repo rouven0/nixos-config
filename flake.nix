@@ -109,9 +109,9 @@
             nixos-hardware.nixosModules.common-pc-ssd
             nix-index-database.nixosModules.nix-index
             impermanence.nixosModules.impermanence
+            agenix.nixosModules.default
             ./hosts/nuc
             ./shared
-            agenix.nixosModules.default
             {
               nixpkgs.overlays = [ self.overlays.default ];
             }
@@ -123,12 +123,11 @@
           modules = [
             ./hosts/falkenstein-1
             ./shared
-            ./shared/sops.nix
             {
               nixpkgs.overlays = [ self.overlays.default ];
             }
             nix-index-database.nixosModules.nix-index
-            sops-nix.nixosModules.sops
+            agenix.nixosModules.default
             purge.nixosModules.default
             trucksimulatorbot.nixosModules.default
             pfersel.nixosModules.default

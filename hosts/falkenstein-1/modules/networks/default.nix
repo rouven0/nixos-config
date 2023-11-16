@@ -1,12 +1,15 @@
 { config, lib, ... }:
 {
-  sops.secrets = {
+  age.secrets = {
     "wireguard/dorm/private" = {
+      file = ../../../../secrets/falkenstein/wireguard/dorm/private.age;
       owner = config.users.users.systemd-network.name;
     };
     "wireguard/dorm/preshared" = {
+      file = ../../../../secrets/falkenstein/wireguard/dorm/preshared.age;
       owner = config.users.users.systemd-network.name;
     };
+
   };
   networking = {
     hostName = "falkenstein-1";
@@ -46,14 +49,14 @@
         Name = "wg0";
       };
       wireguardConfig = {
-        PrivateKeyFile = config.sops.secrets."wireguard/dorm/private".path;
+        PrivateKeyFile = config.age.secrets."wireguard/dorm/private".path;
         ListenPort = 51820;
       };
       wireguardPeers = [
         {
           wireguardPeerConfig = {
             PublicKey = "Z5lwwHTCDr6OF4lfaCdSHNveunOn4RzuOQeyB+El9mQ=";
-            PresharedKeyFile = config.sops.secrets."wireguard/dorm/preshared".path;
+            PresharedKeyFile = config.age.secrets."wireguard/dorm/preshared".path;
             Endpoint = "dorm.vpn.rfive.de:51820";
             AllowedIPs = "192.168.42.0/24, 192.168.43.0/24";
           };

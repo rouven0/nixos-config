@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
-  sops.secrets."borg/passphrase" = { };
+  age.secrets."borg/passphrase" = {
+    file = ../../../../secrets/falkenstein/borg/passphrase.age;
+  };
   environment.systemPackages = [ pkgs.borgbackup ];
   services.borgmatic = {
     enable = true;
@@ -17,7 +19,7 @@
           label = "nuc";
         }
       ];
-      encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/passphrase".path}";
+      encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.age.secrets."borg/passphrase".path}";
       compression = "lz4";
       keep_daily = 7;
       keep_weekly = 4;

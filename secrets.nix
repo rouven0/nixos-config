@@ -20,4 +20,12 @@ in
   "secrets/nuc/vaultwarden.age".publicKeys = [ rouven nuc ];
   "secrets/nuc/borg/passphrase.age".publicKeys = [ rouven nuc ];
   "secrets/nuc/borg/key.age".publicKeys = [ rouven nuc ];
+
+  # falkenstein
+  "secrets/falkenstein/purge.age".publicKeys = [ rouven falkenstein ];
+  "secrets/falkenstein/pfersel.age".publicKeys = [ rouven falkenstein ];
+  "secrets/falkenstein/wireguard/dorm/private.age".publicKeys = [ rouven falkenstein ];
+  "secrets/falkenstein/wireguard/dorm/preshared.age".publicKeys = [ rouven falkenstein ];
+  "secrets/falkenstein/borg/passphrase.age".publicKeys = [ rouven falkenstein ];
+  "secrets/falkenstein/borg/key.age".publicKeys = [ rouven falkenstein ];
 }

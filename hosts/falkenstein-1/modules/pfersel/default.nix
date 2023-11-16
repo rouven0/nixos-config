@@ -1,10 +1,13 @@
 { config, ... }:
 {
-  sops.secrets."pfersel/token".owner = "pfersel";
+  age.secrets.pfersel = {
+    file = ../../../../secrets/falkenstein/pfersel.age;
+    owner = "pfersel";
+  };
   services.pfersel = {
     enable = true;
     discord = {
-      tokenFile = config.sops.secrets."pfersel/token".path;
+      tokenFile = config.age.secrets.pfersel.path;
     };
   };
 }
