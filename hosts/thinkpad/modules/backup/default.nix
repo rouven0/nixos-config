@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
-  sops.secrets."borg/passphrase" = { };
+  age.secrets."borg/passphrase" = {
+    file = ../../../../secrets/thinkpad/borg/passphrase.age;
+  };
   environment.systemPackages = [ pkgs.borgbackup ];
   services.borgmatic = {
     enable = true;
@@ -32,7 +34,7 @@
         "/home/*/.local/share"
         "/home/*/Linux/Isos"
       ];
-      encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/passphrase".path}";
+      encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.age.secrets."borg/passphrase".path}";
       compression = "lz4";
       keep_daily = 7;
       keep_weekly = 4;

@@ -1,6 +1,9 @@
 { config, ... }:
 {
-  sops.secrets."uni/zih" = { };
+  # sops.secrets."uni/zih" = { };
+  age.secrets.tud = {
+    file = ../../../../secrets/thinkpad/tud.age;
+  };
   networking = {
     wireless.networks = {
       eduroam = {
@@ -60,7 +63,7 @@
         protocol = "anyconnect";
         gateway = "vpn2.zih.tu-dresden.de";
         user = "rose159e@tu-dresden.de";
-        passwordFile = config.sops.secrets."uni/zih".path;
+        passwordFile = config.age.secrets.tud.path;
         autoStart = false;
         extraOptions = {
           authgroup = "A-Tunnel-TU-Networks";
@@ -71,7 +74,7 @@
         protocol = "anyconnect";
         gateway = "vpn2.zih.tu-dresden.de";
         user = "rose159e@tu-dresden.de";
-        passwordFile = config.sops.secrets."uni/zih".path;
+        passwordFile = config.age.secrets.tud.path;
         autoStart = false;
         extraOptions = {
           authgroup = "C-Tunnel-All-Networks";

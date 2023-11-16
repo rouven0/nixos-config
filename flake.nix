@@ -112,6 +112,7 @@
             impermanence.nixosModules.impermanence
             ./hosts/nuc
             ./shared
+            ./shared/sops.nix
             sops-nix.nixosModules.sops
             {
               nixpkgs.overlays = [ self.overlays.default ];
@@ -124,6 +125,7 @@
           modules = [
             ./hosts/falkenstein-1
             ./shared
+            ./shared/sops.nix
             {
               nixpkgs.overlays = [ self.overlays.default ];
             }

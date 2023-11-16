@@ -25,7 +25,7 @@
       la = "ls -a";
       less = "bat";
       update = "cd /etc/nixos && nix flake update";
-      mosh = "f() {mosh $1 zsh};f";
+      msh = "f() {mosh $1 zsh};f";
     };
     histSize = 100000;
     histFile = "~/.local/share/zsh/history";

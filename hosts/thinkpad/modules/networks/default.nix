@@ -2,14 +2,19 @@
 {
   imports = [ ./uni.nix ];
 
-  sops.secrets = {
-    "wireless-env" = { };
+  age.secrets = {
+    wireless = {
+      file = ../../../../secrets/thinkpad/wireless.age;
+    };
     "wireguard/dorm/private" = {
+      file = ../../../../secrets/thinkpad/wireguard/dorm/private.age;
       owner = config.users.users.systemd-network.name;
     };
     "wireguard/dorm/preshared" = {
+      file = ../../../../secrets/thinkpad/wireguard/dorm/preshared.age;
       owner = config.users.users.systemd-network.name;
     };
+
   };
   services.lldpd.enable = true;
   services.resolved = {
@@ -32,7 +37,7 @@
     wireless = {
       enable = true;
       userControlled.enable = true;
-      environmentFile = config.sops.secrets."wireless-env".path;
+      environmentFile = config.age.secrets.wireless.path;
       networks = {
         "@HOME_SSID@" = {
           psk = "@HOME_PSK@";
@@ -109,14 +114,14 @@
         Name = "wg0";
       };
       wireguardConfig = {
-        PrivateKeyFile = config.sops.secrets."wireguard/dorm/private".path;
+        PrivateKeyFile = config.age.secrets."wireguard/dorm/private".path;
         ListenPort = 51820;
       };
       wireguardPeers = [
         {
           wireguardPeerConfig = {
             PublicKey = "Z5lwwHTCDr6OF4lfaCdSHNveunOn4RzuOQeyB+El9mQ=";
-            PresharedKeyFile = config.sops.secrets."wireguard/dorm/preshared".path;
+            PresharedKeyFile = config.age.secrets."wireguard/dorm/preshared".path;
             Endpoint = "141.30.227.6:51820";
             AllowedIPs = "192.168.42.0/24, 192.168.43.0/24";
           };
