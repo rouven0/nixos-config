@@ -1,11 +1,8 @@
 { ... }:
 let
-  git = "/run/user/1000/secrets/ssh/git/private";
+  git = "~/.ssh/git";
 in
 {
-  sops.secrets = {
-    "ssh/git/private" = { };
-  };
   programs.ssh = rec {
     enable = true;
     compression = true;

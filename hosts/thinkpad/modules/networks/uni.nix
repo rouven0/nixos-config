@@ -1,6 +1,5 @@
 { config, ... }:
 {
-  # sops.secrets."uni/zih" = { };
   age.secrets.tud = {
     file = ../../../../secrets/thinkpad/tud.age;
   };

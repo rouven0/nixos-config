@@ -1,15 +1,17 @@
 { config, pkgs, ... }:
 {
   home.packages = [ pkgs.spotify-tui ];
-  sops.secrets."spotify" = { };
+  age.secrets.spotify = {
+    file = ../../../../secrets/rouven/spotify.age;
+  };
   services.spotifyd = {
     enable = true;
     settings = {
       global = {
         username = config.accounts.email.accounts."gmail".address;
-        password_cmd = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/spotify";
+        password_cmd = "${pkgs.coreutils}/bin/cat ${config.age.secrets.spotify.path}";
       };
     };
   };
-  systemd.user.services.spotifyd.Unit.After = [ "sops-nix.service" ];
+  systemd.user.services.spotifyd.Unit.After = [ "agenix.service" ];
 }

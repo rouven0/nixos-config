@@ -8,9 +8,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix = {
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,7 +50,6 @@
     , nixpkgs
     , home-manager
     , nix-index-database
-    , sops-nix
     , agenix
     , impermanence
     , nix-colors
@@ -96,7 +92,7 @@
               home-manager.users.rouven = {
                 imports = [
                   nix-colors.homeManagerModules.default
-                  sops-nix.homeManagerModules.sops
+                  agenix.homeManagerModules.default
                 ];
               };
             }
@@ -140,7 +136,6 @@
             ./hosts/vm
             ./shared
             nix-index-database.nixosModules.nix-index
-            sops-nix.nixosModules.sops
           ];
         };
         iso = nixpkgs.lib.nixosSystem {

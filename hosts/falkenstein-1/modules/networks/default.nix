@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 {
   age.secrets = {
     "wireguard/dorm/private" = {

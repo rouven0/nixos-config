@@ -1,14 +1,14 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, ... }:
 let
   gpg-default-key = "116987A8DD3F78FF8601BF4DB95E8FE6B11C4D09";
 in
 {
-  sops.secrets = {
-    "email/rfive" = { };
-    "email/tu-dresden" = { };
-    "email/ifsr" = { };
-    "email/agdsn" = { };
-    "email/google" = { };
+  age.secrets = {
+    "mail/rfive".file = ../../../../secrets/rouven/mail/rfive.age;
+    "mail/tu-dresden".file = ../../../../secrets/rouven/mail/tu-dresden.age;
+    "mail/ifsr".file = ../../../../secrets/rouven/mail/ifsr.age;
+    "mail/agdsn".file = ../../../../secrets/rouven/mail/agdsn.age;
+    "mail/google".file = ../../../../secrets/rouven/mail/google.age;
   };
   programs = {
     aerc = {
@@ -56,7 +56,7 @@ in
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = address;
-      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/rfive";
+      passwordCommand = "${pkgs.coreutils}/bin/cat ${config.age.secrets."mail/rfive".path}";
       imap = {
         host = "mail.rfive.de";
         port = 993;

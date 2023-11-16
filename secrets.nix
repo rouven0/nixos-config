@@ -35,6 +35,5 @@ in
   "secrets/rouven/mail/tu-dresden.age".publicKeys = [ rouven ];
   "secrets/rouven/mail/agdsn.age".publicKeys = [ rouven ];
   "secrets/rouven/mail/google.age".publicKeys = [ rouven ];
-  "secrets/rouven/ssh/git.age".publicKeys = [ rouven ];
   "secrets/rouven/spotify.age".publicKeys = [ rouven ];
 }
