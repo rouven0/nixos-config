@@ -25,11 +25,6 @@
   systemd.package = pkgs.systemd.override { withHomed = false; };
   services.btrfs.autoScrub.enable = true;
 
-  sops.secrets."store/secretkey" = { };
-  nix.extraOptions = ''
-    secret-key-files = ${config.sops.secrets."store/secretkey".path}
-  '';
-
   environment.persistence."/nix/persist/system" = {
     directories = [
       "/etc/ssh"
@@ -41,9 +36,7 @@
       "/etc/machine-id"
     ];
   };
-  # impermanence fixes
-  sops.age.sshKeyPaths = lib.mkForce [ "/nix/persist/system/etc/ssh/ssh_host_ed25519_key" ];
-  sops.gnupg.sshKeyPaths = lib.mkForce [ ];
+  age.identityPaths = [ "/nix/persist/system/etc/ssh/ssh_host_ed25519_key" ];
 
   time.timeZone = "Europe/Berlin";
 

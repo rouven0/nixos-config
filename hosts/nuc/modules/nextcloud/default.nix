@@ -3,8 +3,9 @@ let
   domain = "nextcloud.${config.networking.domain}";
 in
 {
-  sops.secrets = {
+  age.secrets = {
     "nextcloud/adminpass" = {
+      file = ../../../../secrets/nuc/nextcloud/adminpass.age;
       owner = "nextcloud";
       group = "nextcloud";
     };
@@ -21,7 +22,7 @@ in
         dbuser = "nextcloud";
         dbhost = "/run/postgresql";
         dbname = "nextcloud";
-        adminpassFile = config.sops.secrets."nextcloud/adminpass".path;
+        adminpassFile = config.age.secrets."nextcloud/adminpass".path;
         adminuser = "rouven";
       };
     };

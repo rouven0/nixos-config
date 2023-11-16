@@ -3,11 +3,14 @@ let
   domain = "vault.${config.networking.domain}";
 in
 {
-  sops.secrets."vaultwarden/env".owner = "vaultwarden";
+  age.secrets.vaultwarden = {
+    file = ../../../../secrets/nuc/vaultwarden.age;
+    owner = "vaultwarden";
+  };
   services.vaultwarden = {
     enable = true;
     dbBackend = "postgresql";
-    environmentFile = config.sops.secrets."vaultwarden/env".path;
+    environmentFile = config.age.secrets.vaultwarden.path;
     config = {
       domain = "https://${domain}";
       signupsAllowed = false;

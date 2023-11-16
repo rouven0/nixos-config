@@ -4,12 +4,13 @@ let
 in
 {
 
-  sops.secrets = {
-    "matrix/shared_secret" = {
+  age.secrets = {
+    "matrix/shared" = {
+      file = ../../../../secrets/nuc/matrix/shared.age;
       owner = config.systemd.services.matrix-synapse.serviceConfig.User;
     };
-    "matrix/sync/environment" = {
-      # owner = "matrix-sliding-sync";
+    "matrix/sync" = {
+      file = ../../../../secrets/nuc/matrix/sync.age;
     };
   };
 
@@ -25,7 +26,7 @@ in
     matrix-synapse = {
       enable = true;
       configureRedisLocally = true;
-      extraConfigFiles = [ config.sops.secrets."matrix/shared_secret".path ];
+      extraConfigFiles = [ config.age.secrets."matrix/shared".path ];
 
       settings = {
         server_name = config.networking.domain;
@@ -47,7 +48,7 @@ in
         settings = {
           SYNCV3_SERVER = "https://${domain}";
         };
-        environmentFile = config.sops.secrets."matrix/sync/environment".path;
+        environmentFile = config.age.secrets."matrix/sync".path;
       };
     };
 

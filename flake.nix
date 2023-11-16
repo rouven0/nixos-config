@@ -86,7 +86,6 @@
             ./users/rouven
             nixos-hardware.nixosModules.common-pc-laptop-ssd
             home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
             agenix.nixosModules.default
             nix-index-database.nixosModules.nix-index
             impermanence.nixosModules.impermanence
@@ -112,8 +111,7 @@
             impermanence.nixosModules.impermanence
             ./hosts/nuc
             ./shared
-            ./shared/sops.nix
-            sops-nix.nixosModules.sops
+            agenix.nixosModules.default
             {
               nixpkgs.overlays = [ self.overlays.default ];
             }

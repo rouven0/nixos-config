@@ -5,10 +5,19 @@ let
   rouven = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILkxTuzjS3EswMfj+wSKu9ciRyStvjDlDUXzkqEUGDaP";
 in
 {
+  # thinkpad
   "secrets/thinkpad/wireless.age".publicKeys = [ rouven thinkpad ];
   "secrets/thinkpad/tud.age".publicKeys = [ rouven thinkpad ];
   "secrets/thinkpad/wireguard/dorm/private.age".publicKeys = [ rouven thinkpad ];
   "secrets/thinkpad/wireguard/dorm/preshared.age".publicKeys = [ rouven thinkpad ];
   "secrets/thinkpad/borg/passphrase.age".publicKeys = [ rouven thinkpad ];
   "secrets/thinkpad/borg/key.age".publicKeys = [ rouven thinkpad ];
+
+  # nuc
+  "secrets/nuc/nextcloud/adminpass.age".publicKeys = [ rouven nuc ];
+  "secrets/nuc/matrix/shared.age".publicKeys = [ rouven nuc ];
+  "secrets/nuc/matrix/sync.age".publicKeys = [ rouven nuc ];
+  "secrets/nuc/vaultwarden.age".publicKeys = [ rouven nuc ];
+  "secrets/nuc/borg/passphrase.age".publicKeys = [ rouven nuc ];
+  "secrets/nuc/borg/key.age".publicKeys = [ rouven nuc ];
 }

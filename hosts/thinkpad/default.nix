@@ -48,9 +48,6 @@
       "/etc/machine-id"
     ];
   };
-  # impermanence fixes
-  # sops.age.sshKeyPaths = lib.mkForce [ "/nix/persist/system/etc/ssh/ssh_host_ed25519_key" ];
-  # sops.gnupg.sshKeyPaths = lib.mkForce [ ];
   age.identityPaths = [ "/nix/persist/system/etc/ssh/ssh_host_ed25519_key" ];
 
   time.timeZone = "Europe/Berlin";
