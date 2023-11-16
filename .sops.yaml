@@ -9,9 +9,3 @@ creation_rules:
       - *yubi
       age:
       - *rouven
-  - path_regex: secrets/falkenstein-1\.yaml$
-    key_groups:
-    - pgp:
-      - *yubi
-      age:
-      - *falkenstein-1
