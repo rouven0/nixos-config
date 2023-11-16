@@ -4,7 +4,7 @@
 
 ## Specs
 - **Operating System:** [NixOS](https://nixos.org)
-- **Window Manager:** [River](https://github.com/riverwm/river)
+- **Window Manager:** [Sway](https://swaywm.org/)
 - **Overall Theme:** [Base16 Dracula](https://github.com/dracula/base16-dracula-scheme)
 - **Shell:** [Zsh](https://www.zsh.org/)
 - **Terminal:** [Foot](https://codeberg.org/dnkl/foot)
