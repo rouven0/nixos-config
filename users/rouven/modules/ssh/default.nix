@@ -44,14 +44,6 @@ in
       "quitte" = {
         hostname = "quitte.ifsr.de";
         user = "root";
-        extraOptions = {
-          RequestTTY = "yes";
-          RemoteCommand = "zsh -i";
-        };
-      };
-      "quitte-notty" = {
-        hostname = "quitte.ifsr.de";
-        user = "root";
       };
       "tomate" = {
         hostname = "tomate.ifsr.de";

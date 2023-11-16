@@ -58,6 +58,7 @@
     ports = [ 2222 ];
     settings.PasswordAuthentication = false;
   };
+  programs.mosh.enable = true;
   security = {
     audit.enable = true;
     auditd.enable = true;

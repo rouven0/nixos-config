@@ -21,7 +21,6 @@ in
     993 # IMAP
     4190 # sieve
   ];
-  users.users.postfix.extraGroups = [ "opendkim" ];
   users.users.rouven = {
     description = "Rouven Seifert";
     isNormalUser = true;
@@ -98,8 +97,6 @@ in
         smtp_header_checks = "pcre:${header_cleanup}";
 
         alias_maps = [ "hash:/etc/aliases" ];
-        smtpd_milters = [ "local:/run/opendkim/opendkim.sock" ];
-        non_smtpd_milters = [ "local:/var/run/opendkim/opendkim.sock" ];
         smtpd_sasl_auth_enable = true;
         smtpd_sasl_path = "/var/lib/postfix/auth";
         smtpd_sasl_type = "dovecot";
@@ -201,14 +198,6 @@ in
       '';
     };
 
-    opendkim = {
-      enable = true;
-      domains = "csl:${domain}";
-      selector = "falkenstein";
-      configFile = pkgs.writeText "opendkim-config" ''
-        UMask                   0117
-      '';
-    };
     rspamd = {
       enable = true;
       postfix.enable = true;
@@ -220,6 +209,9 @@ in
           read_servers = "127.0.0.1";
           write_servers = "127.0.0.1";
         '';
+        "milter_headers.conf".text = ''
+          use = ["x-spam-level", "x-spam-status", "x-spamd-result", "authentication-results" ];
+        '';
         "dmarc.conf".text = ''
           reporting {
             # Required attributes
@@ -228,6 +220,16 @@ in
             domain = '${config.networking.domain}'; # Domain to serve
             org_name = '${config.networking.domain}'; # Organisation
             from_name = 'DMARC Aggregate Report';
+          }
+        '';
+        "dkim_signing.conf".text = ''
+          selector = "rspamd";
+          allow_username_mismatch = true;
+          domain {
+            rfive.de {
+              path = /var/lib/rspamd/dkim/rfive.key;
+              selector = "rspamd";
+            }
           }
         '';
       };

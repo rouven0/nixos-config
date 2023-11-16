@@ -108,6 +108,16 @@ in
             farPattern = "Opal";
             extraConfig.Create = "near";
           };
+          channels.FSR = {
+            nearPattern = "FSR";
+            farPattern = "FSR";
+            extraConfig.Create = "near";
+          };
+          channels.unispam = {
+            nearPattern = "Uni Spam";
+            farPattern = "Uni Spam";
+            extraConfig.Create = "near";
+          };
           channels.trash = {
             nearPattern = "Trash";
             farPattern = "Gel&APY-schte Elemente";
@@ -235,11 +245,6 @@ in
             farPattern = "[Gmail]/Papierkorb";
             extraConfig.Create = "near";
           };
-          channels.sent = {
-            nearPattern = "Sent";
-            farPattern = "[Gmail]/Gesendet";
-            extraConfig.Create = "near";
-          };
           channels.junk = {
             nearPattern = "Junk";
             farPattern = "[Gmail]/Spam";
@@ -248,6 +253,16 @@ in
           channels.drafts = {
             nearPattern = "Drafts";
             farPattern = "[Gmail]/Entw&APw-rfe";
+            extraConfig.Create = "near";
+          };
+          channels.hetzner = {
+            nearPattern = "Hetzner";
+            farPattern = "Hetzner";
+            extraConfig.Create = "near";
+          };
+          channels.studentenwerk = {
+            nearPattern = "Studentenwerk";
+            farPattern = "Studentenwerk";
             extraConfig.Create = "near";
           };
         };

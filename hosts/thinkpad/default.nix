@@ -200,6 +200,7 @@
     openssl
     cups
     agenix.packages.x86_64-linux.default
+    mosh
   ];
 
   services.mysql = {
