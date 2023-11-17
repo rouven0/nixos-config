@@ -14,7 +14,6 @@ in
   "secrets/thinkpad/borg/key.age".publicKeys = [ rouven thinkpad ];
 
   # nuc
-  "secrets/nuc/nextcloud/adminpass.age".publicKeys = [ rouven nuc ];
   "secrets/nuc/matrix/shared.age".publicKeys = [ rouven nuc ];
   "secrets/nuc/matrix/sync.age".publicKeys = [ rouven nuc ];
   "secrets/nuc/vaultwarden.age".publicKeys = [ rouven nuc ];

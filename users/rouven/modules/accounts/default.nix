@@ -83,7 +83,7 @@ in
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = "rose159e";
-      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/tu-dresden";
+      passwordCommand = "${pkgs.coreutils}/bin/cat ${config.age.secrets."mail/tu-dresden".path}";
       imap = {
         host = "msx.tu-dresden.de";
         port = 993;
@@ -164,7 +164,7 @@ in
       gpg.key = gpg-default-key;
       realName = "Rouven Seifert";
       userName = "rouven.seifert";
-      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/ifsr";
+      passwordCommand = "${pkgs.coreutils}/bin/cat ${config.age.secrets."mail/ifsr".path}";
       imap = {
         host = "mail.ifsr.de";
         port = 993;
@@ -195,7 +195,7 @@ in
         "r5@agdsn.de"
         "rouven.seifert@agdsn.de"
       ];
-      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/agdsn";
+      passwordCommand = "${pkgs.coreutils}/bin/cat ${config.age.secrets."mail/agdsn".path}";
       imap = {
         host = "imap.agdsn.de";
         port = 993;
@@ -221,7 +221,7 @@ in
       address = "seifertrouven@gmail.com";
       realName = "Rouven Seifert";
       userName = address;
-      passwordCommand = "${pkgs.coreutils}/bin/cat $XDG_RUNTIME_DIR/secrets/email/google";
+      passwordCommand = "${pkgs.coreutils}/bin/cat ${config.age.secrets."mail/google".path}";
       imap = {
         host = "imap.gmail.com";
         port = 993;

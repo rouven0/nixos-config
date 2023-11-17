@@ -12,7 +12,7 @@ buildGoModule rec {
 
   nativeBuildInputs = [ makeWrapper ];
 
-  vendorSha256 = "sha256-3PnXB8AfZtgmYEPJuh0fwvG38dtngoS/lxyx3H+rvFs=";
+  vendorHash = "sha256-3PnXB8AfZtgmYEPJuh0fwvG38dtngoS/lxyx3H+rvFs=";
   postInstall = ''
     wrapProgram $out/bin/${pname} \
       --prefix PATH : "${lib.makeBinPath [ playerctl ]}"

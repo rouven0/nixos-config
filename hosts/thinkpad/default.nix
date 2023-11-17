@@ -199,6 +199,7 @@
     cups
     agenix.packages.x86_64-linux.default
     mosh
+    qpwgraph
   ];
 
   services.mysql = {

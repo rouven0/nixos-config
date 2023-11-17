@@ -4,13 +4,11 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # ./modules/adguard
       ./modules/networks
       ./modules/backup
       ./modules/grafana
       ./modules/prometheus
       ./modules/matrix
-      ./modules/nextcloud
       ./modules/seafile
       ./modules/uptime-kuma
       ./modules/vaultwarden
