@@ -27,15 +27,7 @@ in
   pww = callPackage ../pkgs/pww { };
 
 
-  tpm2-pkcs11 = prev.tpm2-pkcs11.overrideAttrs (_: {
-    configureFlags = [ "--with-fapi=no" ];
-    patches = [
-      (fetchpatch {
-        url = "https://github.com/tpm2-software/tpm2-pkcs11/commit/7ad56b0faa30691e22a110b4ddc91251846d48a4.patch";
-        hash = "sha256-ir12bFogdFtEF53G3eZjRXHNL5bfTVm9LODbRmBjvv4=";
-      })
-    ];
-  });
+  tpm2-pkcs11 = prev.tpm2-pkcs11.override { fapiSupport = false; };
 
   gnome-break-timer = callPackage ../pkgs/gnome-break-timer { };
   jmri = callPackage ../pkgs/jmri { };
