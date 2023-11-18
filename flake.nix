@@ -53,7 +53,6 @@
     , agenix
     , impermanence
     , nix-colors
-    , nixos-hardware
     , lanzaboote
     , purge
     , trucksimulatorbot
@@ -80,7 +79,6 @@
             ./hosts/thinkpad
             ./shared
             ./users/rouven
-            nixos-hardware.nixosModules.common-pc-laptop-ssd
             home-manager.nixosModules.home-manager
             agenix.nixosModules.default
             nix-index-database.nixosModules.nix-index
@@ -102,7 +100,6 @@
           system = "x86_64-linux";
           specialArgs = attrs;
           modules = [
-            nixos-hardware.nixosModules.common-pc-ssd
             nix-index-database.nixosModules.nix-index
             impermanence.nixosModules.impermanence
             agenix.nixosModules.default

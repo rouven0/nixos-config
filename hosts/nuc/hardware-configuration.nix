@@ -14,6 +14,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.initrd.systemd.enable = true;
   boot.extraModulePackages = [ ];
+  services.fstrim.enable = true;
 
   fileSystems."/" =
     {
