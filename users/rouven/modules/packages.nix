@@ -45,6 +45,7 @@ in
     element-desktop
     gomuks # alternative matrix client
     mattermost-desktop
+    gajim
 
     # games
     # dwarf-fortress-packages.dwarf-fortress-full
@@ -95,6 +96,7 @@ in
 
   programs.obs-studio.enable = true;
   programs.firefox.enable = true;
+  services.gnome-keyring.enable = true;
 
   xdg.mimeApps = {
     enable = true;

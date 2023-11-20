@@ -8,6 +8,7 @@
   systemd.user.sessionVariables.GTK_THEME = "Dracula";
   qt = {
     enable = true;
+    platformTheme = "gtk";
     style = {
       name = "Dracula";
       package = pkgs.dracula-theme;

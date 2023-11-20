@@ -6,13 +6,17 @@ in
   programs.ssh = rec {
     enable = true;
     compression = true;
+    controlMaster = "auto";
+    controlPersist = "10m";
+    extraConfig = ''
+      CanonicalizeHostname yes
+      CanonicalDomains agdsn.network ifsr.de
+      PKCS11Provider /run/current-system/sw/lib/libtpm2_pkcs11.so
+      IdentityFile ~/.ssh/id_ed25519
+      VisualHostKey = yes
+    '';
     matchBlocks = {
-      "artemis-git.inf.tu-dresden.de" = {
-        identityFile = git;
-      };
-      "se-gitlab.inf.tu-dresden.de" = {
-        identityFile = git;
-      };
+      # personal use
       "github.com" = {
         identityFile = git;
       };
@@ -24,54 +28,47 @@ in
           VerifyHostKeyDNS = "ask";
         };
       };
+      # used for nix remote building
       falkenstein-1 = matchBlocks."rfive.de";
-      "durian" = {
-        hostname = "durian.ifsr.de";
-        user = "root";
-      };
-      "kaki" = {
-        hostname = "kaki.ifsr.de";
-        user = "root";
-      };
-      "ifsr" = {
-        hostname = "ifsr.de";
-        user = "rouven.seifert";
-      };
-      "fsr" = matchBlocks."ifsr";
-      "quitte" = {
-        hostname = "quitte.ifsr.de";
-        user = "root";
-      };
-      "tomate" = {
-        hostname = "tomate.ifsr.de";
-        user = "root";
-      };
+
       "nuc" = {
         hostname = "192.168.42.2";
         user = "root";
       };
-      "router" = matchBlocks."cudy";
-      "cudy" = {
+
+      "router" = {
         hostname = "192.168.42.1";
         user = "root";
       };
-      "git@raspi" = {
-        match = "Host raspi User git";
-        identityFile = git;
+
+      # iFSR
+      "fsr" = {
+        hostname = "ifsr.de";
+        user = "rouven.seifert";
+      };
+      "*.ifsr.de" = {
+        user = "root";
       };
       "git@ifsr.de" = {
         match = "Host ifsr.de User git";
         identityFile = git;
+      };
+
+      # AG DSN
+      "dijkstra" = {
+        hostname = "login.agdsn.tu-dresden.de";
+        user = "r5";
+      };
+      "*.agdsn.network" = {
+        user = "r5";
+        extraOptions = {
+          ProxyJump = "dijkstra";
+        };
       };
       "git@git.agdsn.de" = {
         match = "Host git.agdsn.de User git";
         identityFile = git;
       };
     };
-    extraConfig = ''
-      PKCS11Provider /run/current-system/sw/lib/libtpm2_pkcs11.so
-      IdentityFile ~/.ssh/id_ed25519
-      VisualHostKey = yes
-    '';
   };
 }
