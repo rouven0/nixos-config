@@ -10,14 +10,15 @@ in
     controlPersist = "10m";
     extraConfig = ''
       CanonicalizeHostname yes
-      CanonicalDomains agdsn.network ifsr.de
+      CanonicalDomains agdsn.network
       PKCS11Provider /run/current-system/sw/lib/libtpm2_pkcs11.so
       IdentityFile ~/.ssh/id_ed25519
       VisualHostKey = yes
     '';
     matchBlocks = {
       # personal use
-      "github.com" = {
+      "git@github.com" = {
+        match = "Host github.com User git";
         identityFile = git;
       };
       "rfive.de" = {
@@ -29,7 +30,7 @@ in
         };
       };
       # used for nix remote building
-      falkenstein-1 = matchBlocks."rfive.de";
+      falkenstein = matchBlocks."rfive.de";
 
       "nuc" = {
         hostname = "192.168.42.2";
@@ -46,7 +47,20 @@ in
         hostname = "ifsr.de";
         user = "rouven.seifert";
       };
-      "*.ifsr.de" = {
+      "quitte" = {
+        hostname = "quitte.ifsr.de";
+        user = "root";
+      };
+      "durian" = {
+        hostname = "durian.ifsr.de";
+        user = "root";
+      };
+      "tomate" = {
+        hostname = "tomate.ifsr.de";
+        user = "root";
+      };
+      "kaki" = {
+        hostname = "kaki.ifsr.de";
         user = "root";
       };
       "git@ifsr.de" = {
