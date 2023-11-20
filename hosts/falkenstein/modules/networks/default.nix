@@ -12,7 +12,7 @@
 
   };
   networking = {
-    hostName = "falkenstein-1";
+    hostName = "falkenstein";
     nftables.enable = true;
     domain = "rfive.de";
     useNetworkd = true;

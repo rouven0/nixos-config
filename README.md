@@ -54,7 +54,7 @@ sda
   └─nix   /nix
 ```
 
-### falkenstein-1
+### falkenstein
 Hetzner VPS running a few web apps.
 #### Disk layout
 ```

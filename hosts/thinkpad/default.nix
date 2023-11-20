@@ -76,19 +76,21 @@
       ];
   };
 
-  fonts.packages = with pkgs; [
-    nerdfonts
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    dejavu_fonts
-    fira
-  ];
-
+  fonts = {
+    enableDefaultFonts = false;
+    packages = with pkgs;
+      [
+        nerdfonts
+        noto-fonts
+        noto-fonts-cjk
+        noto-fonts-emoji
+        dejavu_fonts
+        fira
+      ];
+  };
   # Enable sound.
   sound.enable = true;
   #hardware.pulseaudio.enable = true;
-  hardware.opengl.enable = true;
   hardware.bluetooth.enable = true;
 
   security = {
@@ -185,6 +187,7 @@
     htop-vim
     dig
     traceroute
+    mtr
     whois
     inetutils
     lsof
@@ -202,15 +205,15 @@
     qpwgraph
   ];
 
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-    ensureUsers = [
-      {
-        name = "user1";
-      }
-    ];
-  };
+  # services.mysql = {
+  #   enable = true;
+  #   package = pkgs.mariadb;
+  #   ensureUsers = [
+  #     {
+  #       name = "user1";
+  #     }
+  #   ];
+  # };
 
   programs.java.enable = true;
   programs.wireshark = {

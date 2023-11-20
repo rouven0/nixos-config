@@ -47,6 +47,11 @@
           psk = "@DORM_PSK@";
           authProtocols = [ "SAE" ];
         };
+        "@DORM5_SSID@" = {
+          priority = 5;
+          psk = "@DORM_PSK@";
+          authProtocols = [ "SAE" ];
+        };
         "@PIXEL_SSID@" = {
           psk = "@PIXEL_PSK@";
           authProtocols = [ "WPA-PSK" ];

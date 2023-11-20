@@ -110,11 +110,11 @@
             }
           ];
         };
-        falkenstein-1 = nixpkgs.lib.nixosSystem {
+        falkenstein = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = attrs;
           modules = [
-            ./hosts/falkenstein-1
+            ./hosts/falkenstein
             ./shared
             {
               nixpkgs.overlays = [ self.overlays.default ];

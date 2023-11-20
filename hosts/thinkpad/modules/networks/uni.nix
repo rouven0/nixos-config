@@ -33,13 +33,13 @@
         authProtocols = [ "WPA-EAP" ];
       };
       agdsn-office = {
+        priority = 5;
         auth = ''
           eap=TTLS
           anonymous_identity="wifi@agdsn.de"
           ca_cert="/etc/ssl/certs/ca-certificates.crt"
           domain_suffix_match="radius.agdsn.de"
           identity="r5"
-          priority=5
           proto=WPA2
           password="@AGDSN_AUTH@"
           phase2="auth=PAP"
