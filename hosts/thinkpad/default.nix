@@ -77,7 +77,7 @@
   };
 
   fonts = {
-    enableDefaultFonts = false;
+    enableDefaultPackages = false;
     packages = with pkgs;
       [
         nerdfonts
@@ -110,7 +110,6 @@
     ];
   };
 
-  programs.dconf.enable = true;
 
   # control display backlight
   programs.light.enable = true;
@@ -181,39 +180,22 @@
     nvme-cli
     intel-gpu-tools
     tpm2-tools
+    lm_sensors
+    pciutils
 
     # system essentials
-    wget
     htop-vim
-    dig
-    traceroute
-    mtr
-    whois
-    inetutils
     lsof
     killall
     zip
     unzip
-    pciutils
-    lm_sensors
     sbctl
     man-pages
-    openssl
     cups
     agenix.packages.x86_64-linux.default
     mosh
     qpwgraph
   ];
-
-  # services.mysql = {
-  #   enable = true;
-  #   package = pkgs.mariadb;
-  #   ensureUsers = [
-  #     {
-  #       name = "user1";
-  #     }
-  #   ];
-  # };
 
   programs.java.enable = true;
   programs.wireshark = {

@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
   imports = [ ./uni.nix ];
 
@@ -16,6 +16,14 @@
     };
 
   };
+  environment.systemPackages = with pkgs; [
+    mtr
+    whois
+    inetutils
+    openssl
+    wget
+    dnsutils
+  ];
   services.lldpd.enable = true;
   services.resolved = {
     fallbackDns = [

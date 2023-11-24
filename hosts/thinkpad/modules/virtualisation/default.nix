@@ -54,9 +54,16 @@
 # in
 {
 
-  boot.kernelParams = [ "intel_iommu=on" ];
-  virtualisation.libvirtd.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
+  # boot.kernelParams = [ "intel_iommu=on" ];
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        runAsRoot = false;
+      };
+    };
+    spiceUSBRedirection.enable = true;
+  };
 
   # fix to enable secure boot in vms
   environment.etc = {
