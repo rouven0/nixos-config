@@ -24,9 +24,7 @@ in
     ensureUsers = [
       {
         name = "vaultwarden";
-        ensurePermissions = {
-          "DATABASE vaultwarden" = "ALL PRIVILEGES";
-        };
+        ensureDBOwnership = true;
       }
     ];
     ensureDatabases = [ "vaultwarden" ];

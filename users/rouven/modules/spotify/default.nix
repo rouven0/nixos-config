@@ -11,6 +11,7 @@
         username = config.accounts.email.accounts."gmail".address;
         password_cmd = "${pkgs.coreutils}/bin/cat ${config.age.secrets.spotify.path}";
       };
+      backend = "pulseaudio";
     };
   };
   systemd.user.services.spotifyd.Unit.After = [ "agenix.service" ];

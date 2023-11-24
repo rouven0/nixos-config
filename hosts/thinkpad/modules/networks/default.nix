@@ -160,4 +160,16 @@
       ];
     };
   };
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark-qt;
+  };
+  users.groups.etherape = { };
+  security.wrappers.etherape = {
+    source = "${pkgs.etherape}/bin/etherape";
+    capabilities = "cap_net_raw,cap_net_admin+eip";
+    owner = "root";
+    group = "etherape"; # too lazy to create a new one
+    permissions = "u+rx,g+x";
+  };
 }

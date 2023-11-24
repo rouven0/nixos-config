@@ -8,12 +8,21 @@ in
   home.packages = with pkgs; [
 
     # essentials
+    htop-vim
+    lsof
+    killall
+    zip
+    unzip
+    man-pages
     wpa_supplicant_gui
     pcmanfm
     xdg-utils # used for xdg-open
     tex
     appimage-run
     seafile-client
+
+    # printing
+    cups
 
     # graphics
     evince # pdf viewer
@@ -71,6 +80,7 @@ in
     jq
     xournalpp
     libreoffice
+    mosh
 
     # programming languages
     cargo

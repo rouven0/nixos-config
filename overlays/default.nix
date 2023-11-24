@@ -4,7 +4,6 @@ let
   inherit (prev) python3Packages;
   inherit (prev) fetchFromGitHub;
   inherit (prev) fetchPypi;
-  inherit (prev) fetchpatch;
   inherit (prev) makeWrapper;
 in
 {

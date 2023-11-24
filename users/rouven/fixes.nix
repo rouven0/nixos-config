@@ -22,6 +22,13 @@
     '';
     wrapperFeatures.gtk = true;
   };
+  # enable xdg portals for sway
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+    ];
+  };
   # wayland keylogger needs setuid
   programs.wshowkeys.enable = true;
   # fixes pam entries for swaylock
@@ -42,4 +49,14 @@
     session required pam_env.so conffile=/etc/pam/environment readenv=0
     session required pam_unix.so
   '';
+  # global wrapper for ausweisapp
+  programs.ausweisapp = {
+    enable = true;
+    openFirewall = true;
+  };
+  # home manager steam is borderline broken
+  programs.steam.enable = true;
+
+  # enable java black magic 
+  programs.java.enable = true;
 }
