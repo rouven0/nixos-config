@@ -12,6 +12,7 @@
     ./spotify
     ./ssh
     ./theme
+    ./tex
     ./packages.nix
   ];
 }

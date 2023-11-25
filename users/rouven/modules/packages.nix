@@ -1,9 +1,4 @@
 { pkgs, ... }:
-let
-  tex = (pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-full;
-  });
-in
 {
   home.packages = with pkgs; [
 
@@ -17,7 +12,6 @@ in
     wpa_supplicant_gui
     pcmanfm
     xdg-utils # used for xdg-open
-    tex
     appimage-run
     seafile-client
 
