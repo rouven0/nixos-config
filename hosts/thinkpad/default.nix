@@ -56,6 +56,16 @@
     HibernateDelaySec=2h
   '';
 
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+    ensureUsers = [
+      {
+        name = "user1";
+      }
+    ];
+  };
+
   services.logind = {
     lidSwitch = "suspend-then-hibernate";
     lidSwitchDocked = "suspend-then-hibernate";

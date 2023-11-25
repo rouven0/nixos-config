@@ -15,10 +15,9 @@ let
 in
 {
   networking.firewall.allowedTCPPorts = [
-    25 # insecure SMTP
-    465
-    587 # SMTP
-    993 # IMAP
+    25 # SMTP
+    465 # SUBMISSONS
+    993 # IMAPS
     4190 # sieve
   ];
   users.users.rouven = {

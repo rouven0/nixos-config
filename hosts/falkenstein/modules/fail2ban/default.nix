@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   services.fail2ban = {
     enable = true;
@@ -7,11 +7,15 @@
       enable = true;
     };
     jails = {
+      sshd = lib.mkForce ''
+        enabled = true
+        port = ssh
+        filter= sshd[mode=aggressive]
+      '';
       dovecot = ''
         enabled = true
         # aggressive mode add blocking for aborted connections
         filter = dovecot[mode=aggressive]
-        bantime = 10m
         maxretry = 3
       '';
       postfix = ''
