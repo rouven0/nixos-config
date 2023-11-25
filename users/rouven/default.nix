@@ -18,7 +18,6 @@
       home.username = "rouven";
       home.homeDirectory = "/home/rouven";
       home.stateVersion = config.system.stateVersion;
-      home.enableNixpkgsReleaseCheck = false;
     };
   };
 }

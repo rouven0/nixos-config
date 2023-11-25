@@ -3,14 +3,37 @@
   home.packages = with pkgs; [
     libsixel
   ];
+
+  # enable socket activation
+  systemd.user = {
+    services.foot = {
+      Unit = {
+        Requires = "foot.socket";
+      };
+    };
+    sockets.foot = {
+      Socket = {
+        ListenStream = "%t/foot.sock";
+      };
+      Unit = {
+        PartOf = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
+        ConditionEnvironment = "WAYLAND_DISPLAY";
+      };
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
+    };
+  };
+
   programs.foot = {
     enable = true;
     server.enable = true;
     settings = rec {
       main = {
         shell = "${pkgs.zsh}/bin/zsh";
-        dpi-aware = "yes";
-        font = "monospace:family=Iosevka Nerd Font, size=8";
+        # dpi-aware = "yes";
+        font = "monospace:family=Iosevka Nerd Font:size=12";
         notify = "${lib.getExe pkgs.libnotify} -a \${app-id} -i \${app-id} \${title} \${body}";
       };
       cursor.color = "${colors.background} ${colors.foreground}";

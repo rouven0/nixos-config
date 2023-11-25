@@ -25,14 +25,12 @@ in
     cups
 
     # graphics
-    evince # pdf viewer
+    zathura
     gimp
     krita
     ffmpeg
     drawio
     leafpad
-    gamescope
-    gnome.simple-scan
     imv
 
     # sound
@@ -52,12 +50,10 @@ in
     discord
     tdesktop
     element-desktop
-    gomuks # alternative matrix client
     mattermost-desktop
     gajim
 
     # games
-    # dwarf-fortress-packages.dwarf-fortress-full
     prismlauncher # minecraft, but it actually works # not anymore lol
     superTuxKart
 
@@ -66,18 +62,13 @@ in
     yubikey-manager-qt
     yubioath-flutter
     bitwarden
-    pass
 
     # misc
-    btop
     neofetch # obligatory
     virt-manager
     jetbrains.idea-ultimate #😎
     powerline-fonts
     croc # send files anywhere
-    bacula
-    hcloud
-    jq
     xournalpp
     libreoffice
     mosh
@@ -116,7 +107,7 @@ in
         browsers = [ "google-chrome.desktop" "firefox.desktop" "org.qutebrowser.qutebrowser.desktop" ];
       in
       {
-        "application/pdf" = [ "org.gnome.Evince.desktop" ];
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
         "image/png" = image-viewers;
         "image/jpg" = image-viewers;
         "image/jpeg" = image-viewers;

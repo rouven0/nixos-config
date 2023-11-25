@@ -14,6 +14,8 @@
     swaynotificationcenter
     playerctl
     wdisplays
+    wl-mirror
+    jq
     (libinput.override { eventGUISupport = true; })
   ];
 

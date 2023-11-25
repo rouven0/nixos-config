@@ -24,7 +24,6 @@ in
       "rfive.de" = {
         hostname = "falkenstein.vpn.rfive.de";
         user = "root";
-        port = 2222;
         extraOptions = {
           VerifyHostKeyDNS = "ask";
         };
