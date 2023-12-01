@@ -1,26 +1,16 @@
 { pkgs, lib, ... }:
 {
 
-  # fixes qt themes
+  # fixes qt and themes
   environment.variables = {
     "QT_STYLE_OVERRIDE" = lib.mkForce "kvantum";
     "QT_QPA_PLATFORMTHEME" = lib.mkForce "Dracula";
+    "GTK_THEME" = "Dracula";
   };
   # open ports for kde connect
   networking.firewall = rec {
     allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
     allowedUDPPortRanges = allowedTCPPortRanges;
-  };
-  # fix session commands for sway
-  programs.sway = {
-    enable = true;
-    extraSessionCommands = ''
-      source /etc/profile
-      test -f $HOME/.profile && source $HOME/.profile
-      export MOZ_ENABLE_WAYLAND=1
-      systemctl --user import-environment
-    '';
-    wrapperFeatures.gtk = true;
   };
   # enable xdg portals for sway
   xdg.portal = {
@@ -31,6 +21,8 @@
   };
   # wayland keylogger needs setuid
   programs.wshowkeys.enable = true;
+  # home manager needs dconf
+  programs.dconf.enable = true;
   # fixes pam entries for swaylock
   security.pam.services.swaylock.text = ''
     # Account management.

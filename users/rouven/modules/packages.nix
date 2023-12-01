@@ -15,9 +15,6 @@
     appimage-run
     seafile-client
 
-    # printing
-    cups
-
     # graphics
     zathura
     gimp
@@ -37,8 +34,12 @@
 
     # internet
     google-chrome
+    tor-browser-bundle-bin
     filezilla
     dbeaver
+
+    # totp
+    numberstation
 
     # messaging
     discord
@@ -64,6 +65,7 @@
     powerline-fonts
     croc # send files anywhere
     xournalpp
+    rnote
     libreoffice
     mosh
 
@@ -84,10 +86,10 @@
     python311Packages.pyhanko
   ];
 
-  services.kdeconnect = {
-    enable = true;
-    indicator = true;
-  };
+  # services.kdeconnect = {
+  #   enable = true;
+  #   indicator = true;
+  # };
 
   programs.obs-studio.enable = true;
   programs.firefox.enable = true;

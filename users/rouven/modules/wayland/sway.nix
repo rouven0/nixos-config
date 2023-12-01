@@ -39,6 +39,7 @@
       keybindings =
         lib.mkOptionDefault {
           "Mod1+space" = "exec ${menu}";
+          "Mod4+a" = "exec ${pkgs.wofi-emoji}/bin/wofi-emoji";
           "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
           "XF86Launch2" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save area - | ${lib.getExe pkgs.swappy} -f -";
           "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 10";

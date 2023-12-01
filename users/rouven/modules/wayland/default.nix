@@ -15,6 +15,8 @@
     playerctl
     wdisplays
     wl-mirror
+    wtype
+    wofi
     jq
     (libinput.override { eventGUISupport = true; })
   ];
