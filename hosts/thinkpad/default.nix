@@ -8,6 +8,7 @@
       ./modules/graphics
       ./modules/greetd
       ./modules/networks
+      ./modules/printing
       ./modules/security
       ./modules/sound
       ./modules/virtualisation
@@ -15,7 +16,14 @@
 
   # Use the systemd-boot EFI boot loader.
   boot = {
+    kernelModules = [ "v4l2loopback" ];
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    extraModulePackages = [
+      config.boot.kernelPackages.v4l2loopback
+    ];
+    extraModprobeConfig = ''
+      options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+    '';
     tmp.useTmpfs = true;
   };
   systemd.package = pkgs.systemd.override { withHomed = false; };

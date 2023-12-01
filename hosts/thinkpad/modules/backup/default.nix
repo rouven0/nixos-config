@@ -2,6 +2,7 @@
 {
   age.secrets."borg/passphrase" = {
     file = ../../../../secrets/thinkpad/borg/passphrase.age;
+    owner = "rouven";
   };
   environment.systemPackages = [ pkgs.borgbackup ];
   services.borgmatic = {

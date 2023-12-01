@@ -40,6 +40,8 @@
     helix
     lsof
     python3
+    php
+    phpPackages.composer
   ];
   programs.git = {
     enable = true;

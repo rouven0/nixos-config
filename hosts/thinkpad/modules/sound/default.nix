@@ -8,7 +8,7 @@
     pulse.enable = true;
   };
   environment.systemPackages = with pkgs; [
-    qpwgraph
+    helvum
     easyeffects
   ];
 }
