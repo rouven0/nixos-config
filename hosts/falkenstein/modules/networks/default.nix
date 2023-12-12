@@ -17,6 +17,11 @@
     domain = "rfive.de";
     useNetworkd = true;
     enableIPv6 = true;
+    firewall = {
+      extraInputRules = ''
+        ip saddr 192.168.0.0/16 tcp dport 19531 accept comment "Allow journald gateway access from local networks"
+      '';
+    };
   };
   services.resolved = {
     dnssec = "true";
