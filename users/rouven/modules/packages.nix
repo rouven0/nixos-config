@@ -9,7 +9,6 @@
     zip
     unzip
     man-pages
-    wpa_supplicant_gui
     pcmanfm
     xdg-utils # used for xdg-open
     appimage-run
@@ -23,10 +22,10 @@
     drawio
     leafpad
     imv
+    remmina
 
     # sound
     pavucontrol
-    x32edit
     spotify
 
     # bluetooth
@@ -34,7 +33,6 @@
 
     # internet
     google-chrome
-    tor-browser-bundle-bin
     filezilla
     dbeaver
 
@@ -49,14 +47,14 @@
     gajim
 
     # games
-    prismlauncher # minecraft, but it actually works # not anymore lol
+    prismlauncher
     superTuxKart
 
     # yubikey and password stuff
     yubikey-manager
     yubikey-manager-qt
     yubioath-flutter
-    bitwarden
+    # bitwarden
 
     # misc
     neofetch # obligatory
@@ -68,6 +66,7 @@
     rnote
     libreoffice
     mosh
+    ansible
 
     # programming languages
     cargo

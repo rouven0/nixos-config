@@ -117,16 +117,16 @@ in
             farPattern = "Opal";
             extraConfig.Create = "near";
           };
-          channels.FSR = {
-            nearPattern = "FSR";
-            farPattern = "FSR";
-            extraConfig.Create = "near";
-          };
           channels.unispam = {
             nearPattern = "Uni Spam";
             farPattern = "Uni Spam";
             extraConfig.Create = "near";
           };
+          # channels.modules = {
+          #   nearPattern = "Module";
+          #   farPattern = "Module";
+          #   extraConfig.Create = "near";
+          # };
           channels.trash = {
             nearPattern = "Trash";
             farPattern = "Gel&APY-schte Elemente";
