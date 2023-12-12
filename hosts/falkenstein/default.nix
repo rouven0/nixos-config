@@ -31,7 +31,6 @@
   time.timeZone = "Europe/Berlin";
 
   i18n.defaultLocale = "en_US.UTF-8";
-  systemd.package = pkgs.systemd.override { withHomed = false; };
 
   environment.systemPackages = with pkgs; [
     vim
@@ -58,6 +57,7 @@
     enable = true;
     settings.PasswordAuthentication = false;
   };
+  services.journald.enableHttpGateway = true;
   programs.mosh.enable = true;
   security = {
     audit.enable = true;

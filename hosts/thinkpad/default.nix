@@ -26,7 +26,7 @@
     '';
     tmp.useTmpfs = true;
   };
-  systemd.package = pkgs.systemd.override { withHomed = false; };
+  # systemd.package = pkgs.systemd.override { withHomed = false; withUkify = true; };
 
   environment.persistence."/nix/persist/system" = {
     directories = [
@@ -60,23 +60,9 @@
   };
   hardware.bluetooth.enable = true;
 
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=2h
-  '';
-
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-    ensureUsers = [
-      {
-        name = "user1";
-      }
-    ];
-  };
-
   services.logind = {
     lidSwitch = "suspend-then-hibernate";
-    lidSwitchDocked = "suspend-then-hibernate";
+    lidSwitchDocked = "suspend";
     lidSwitchExternalPower = "suspend";
     extraConfig = ''
       HandlePowerKey = ignore

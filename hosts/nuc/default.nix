@@ -20,7 +20,6 @@
     loader.efi.canTouchEfiVariables = true;
     tmp.useTmpfs = true;
   };
-  systemd.package = pkgs.systemd.override { withHomed = false; };
   services.btrfs.autoScrub.enable = true;
 
   environment.persistence."/nix/persist/system" = {
@@ -61,6 +60,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.journald.enableHttpGateway = true;
   programs.mosh.enable = true;
   security = {
     audit.enable = true;
