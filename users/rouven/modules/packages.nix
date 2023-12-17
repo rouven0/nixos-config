@@ -17,12 +17,9 @@
     # graphics
     zathura
     gimp
-    krita
     ffmpeg
     drawio
-    leafpad
     imv
-    remmina
 
     # sound
     pavucontrol
@@ -54,16 +51,13 @@
     yubikey-manager
     yubikey-manager-qt
     yubioath-flutter
-    # bitwarden
 
     # misc
     neofetch # obligatory
     virt-manager
     jetbrains.idea-ultimate #😎
-    powerline-fonts
     croc # send files anywhere
     xournalpp
-    rnote
     libreoffice
     mosh
     ansible
@@ -77,18 +71,12 @@
     nodejs_20
     gnumake
 
-    plantuml
-
     # libs
     libyubikey
     libfido2
     python311Packages.pyhanko
   ];
 
-  # services.kdeconnect = {
-  #   enable = true;
-  #   indicator = true;
-  # };
 
   programs.obs-studio.enable = true;
   programs.firefox.enable = true;

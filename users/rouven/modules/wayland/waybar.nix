@@ -123,6 +123,10 @@
         background-color: #${config.colorScheme.colors.base04};
         box-shadow: inset 0 -3px #${config.colorScheme.colors.base05};
     }
+
+    #tags button.occupied {
+        box-shadow: inset 0 -3px #${config.colorScheme.colors.base05};
+    }
     
     #tags button.urgent {
         background-color: #eb4d4b;
