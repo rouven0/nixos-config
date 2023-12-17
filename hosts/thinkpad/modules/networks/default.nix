@@ -66,6 +66,9 @@
           psk = "@PIXEL_PSK@";
           authProtocols = [ "WPA-PSK" ];
         };
+        "WIFI@DB" = {
+          authProtocols = [ "NONE" ];
+        };
       };
     };
   };

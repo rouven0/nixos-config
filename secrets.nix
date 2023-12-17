@@ -8,6 +8,7 @@ in
   # thinkpad
   "secrets/thinkpad/wireless.age".publicKeys = [ rouven thinkpad ];
   "secrets/thinkpad/tud.age".publicKeys = [ rouven thinkpad ];
+  "secrets/thinkpad/agdsn.age".publicKeys = [ rouven thinkpad ];
   "secrets/thinkpad/wireguard/dorm/private.age".publicKeys = [ rouven thinkpad ];
   "secrets/thinkpad/wireguard/dorm/preshared.age".publicKeys = [ rouven thinkpad ];
   "secrets/thinkpad/borg/passphrase.age".publicKeys = [ rouven thinkpad ];

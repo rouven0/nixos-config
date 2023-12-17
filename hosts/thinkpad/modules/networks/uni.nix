@@ -1,7 +1,8 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
-  age.secrets.tud = {
-    file = ../../../../secrets/thinkpad/tud.age;
+  age.secrets = {
+    tud.file = ../../../../secrets/thinkpad/tud.age;
+    agdsn.file = ../../../../secrets/thinkpad/agdsn.age;
   };
   networking = {
     wireless.networks = {
@@ -79,6 +80,30 @@
           authgroup = "C-Tunnel-All-Networks";
           compression = "stateless";
         };
+      };
+    };
+  };
+  systemd.services = {
+    openfortivpn-agdsn = {
+      description = "AG DSN Fortinet VPN";
+      script = "${pkgs.openfortivpn}/bin/openfortivpn vpn.agdsn.de:443 --realm admin-vpn -u r5 -p $(cat $CREDENTIALS_DIRECTORY/password) --trusted-cert bbbe0df79764c5f1bd4b332e449e43a40e43eec57c983a1e75a1896e6eae4da5";
+      requires = [ "network-online.target" ];
+      after = [ "network.target" "network-online.target" ];
+      serviceConfig = {
+        Type = "simple";
+        LoadCredential = [
+          "password:${config.age.secrets.agdsn.path}"
+        ];
+        ProtectSystem = true;
+        ProtectKernelLogs = true;
+        ProtectKernelTunables = true;
+        ProtectKernelModules = true;
+
+        ProtectHome = true;
+        ProtectClock = true;
+        PrivateTmp = true;
+
+        LockPersonality = true;
       };
     };
   };
