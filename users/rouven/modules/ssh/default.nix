@@ -25,7 +25,7 @@ in
         hostname = "falkenstein.vpn.rfive.de";
         user = "root";
         extraOptions = {
-          VerifyHostKeyDNS = "ask";
+          VerifyHostKeyDNS = "yes";
         };
       };
       # used for nix remote building
@@ -58,10 +58,6 @@ in
         hostname = "tomate.ifsr.de";
         user = "root";
       };
-      "kaki" = {
-        hostname = "kaki.ifsr.de";
-        user = "root";
-      };
       "git@ifsr.de" = {
         match = "Host ifsr.de User git";
         identityFile = git;
@@ -71,11 +67,15 @@ in
       "dijkstra" = {
         hostname = "login.agdsn.tu-dresden.de";
         user = "r5";
+        extraOptions = {
+          VerifyHostKeyDNS = "yes";
+        };
       };
       "*.agdsn.network" = {
         user = "r5";
         extraOptions = {
           ProxyJump = "dijkstra";
+          VerifyHostKeyDNS = "yes";
         };
       };
       "git@git.agdsn.de" = {

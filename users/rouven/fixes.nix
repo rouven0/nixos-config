@@ -18,6 +18,14 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-wlr
     ];
+    config = {
+      common = {
+        default = [ "wlr" ];
+      };
+      "org.freedesktop.impl.portal.Secret" = {
+        default = [ "gnome-keyring" ];
+      };
+    };
   };
   # wayland keylogger needs setuid
   programs.wshowkeys.enable = true;
@@ -31,6 +39,7 @@
     # Authentication management.
 
     auth sufficient pam_unix.so nullok likeauth try_first_pass
+    auth sufficient ${pkgs.pam_u2f}/lib/security/pam_u2f.so
     auth sufficient ${pkgs.fprintd}/lib/security/pam_fprintd.so
     auth required pam_deny.so
 

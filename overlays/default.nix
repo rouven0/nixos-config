@@ -4,18 +4,10 @@ let
   inherit (prev) python3Packages;
   inherit (prev) fetchFromGitHub;
   inherit (prev) fetchPypi;
+  inherit (prev) fetchpatch;
   inherit (prev) makeWrapper;
 in
 {
-  wpa_supplicant_gui = prev.wpa_supplicant_gui.overrideAttrs
-    (old: {
-      # better desktop application name. "wpa_gui" kinda sucks
-      postInstall = old.postInstall + ''
-
-        substituteInPlace $out/share/applications/wpa_gui.desktop --replace "Name=wpa_gui" "Name=Wireless connections"
-      '';
-    });
-
   pcmanfm = prev.pcmanfm.overrideAttrs (_: {
     # remove deskop preferences shortcut
     postInstall = ''
@@ -25,6 +17,14 @@ in
 
   pww = callPackage ../pkgs/pww { };
 
+  river = prev.river.overrideAttrs (_: {
+    patches = [
+      (fetchpatch {
+        url = "https://patch-diff.githubusercontent.com/raw/riverwm/river/pull/735.patch";
+        hash = "sha256-7pwQfXurgJej0NZ+kD2qBQdrqD6pYA1PbHxzG+5rGac=";
+      })
+    ];
+  });
 
   tpm2-pkcs11 = prev.tpm2-pkcs11.override { fapiSupport = false; };
 

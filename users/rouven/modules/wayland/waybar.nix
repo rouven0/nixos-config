@@ -10,7 +10,7 @@
         layer = "top";
         position = "top";
         height = 26;
-        modules-left = [ "sway/workspaces" "custom/spotifytitle" "sway/window" ];
+        modules-left = [ "river/tags" "custom/spotifytitle" "river/window" ];
         modules-right = [ "network" "cpu" "pulseaudio" "battery" "tray" "custom/notification" "clock" ];
         network = {
           format-wifi = "  {essid} ({signalStrength}%)";
@@ -20,11 +20,11 @@
           format-disconnected = "Disconnected ⚠";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
-        "sway/workspaces" = {
+        "river/tags" = {
           format = "{icon}";
           on-click = "activate";
         };
-        "sway/window" = {
+        "river/window" = {
           format = "   {}";
           # separate-outputs = true;
         };
@@ -113,18 +113,18 @@
       background-color: transparent;
     }
 
-    #workspaces button {
+    #tags button {
         padding: 0 5px;
         background-color: transparent;
         color: #${config.colorScheme.colors.base05};
     }
 
-    #workspaces button.focused {
+    #tags button.focused {
         background-color: #${config.colorScheme.colors.base04};
         box-shadow: inset 0 -3px #${config.colorScheme.colors.base05};
     }
     
-    #workspaces button.urgent {
+    #tags button.urgent {
         background-color: #eb4d4b;
     }
     
