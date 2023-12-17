@@ -9,6 +9,15 @@
       abrmd.enable = true;
       tctiEnvironment.enable = true;
     };
+    pam = {
+      u2f = {
+        enable = true;
+      };
+      services = {
+        login.u2fAuth = true;
+        sudo.u2fAuth = true;
+      };
+    };
   };
   services = {
     fprintd.enable = true; # log in using fingerprint
