@@ -53,7 +53,7 @@
     devmon.enable = true; # automount stuff
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
     };
     fwupd.enable = true; # firmware updates
     zfs.autoScrub.enable = true;

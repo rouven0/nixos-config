@@ -50,7 +50,7 @@
         source ${pkgs.agdsn-zsh-config}/etc/zsh/zshrc
       
         function svpn() {
-          unit=$(systemctl list-unit-files | grep "openconnect\|wg-quick\|wireguard\|openvpn" | cut -d "." -f1 | fzf --preview 'systemctl status {}')
+          unit=$(systemctl list-unit-files | grep "openconnect\|wg-quick\|wireguard\|openvpn\|openfortivpn" | cut -d "." -f1 | fzf --preview 'systemctl status {}')
           if [ $(systemctl is-active $unit) = "inactive" ]; then
             systemctl start $unit
           else

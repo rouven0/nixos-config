@@ -66,6 +66,7 @@
         pww = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/pww { };
         gnome-break-timer = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/gnome-break-timer { };
         hashcash-milter = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/hashcash-milter { };
+        ianny = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/ianny { };
       };
       hydraJobs = self.packages;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
