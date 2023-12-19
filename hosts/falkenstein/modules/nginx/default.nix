@@ -62,14 +62,17 @@
         phpEnv."PATH" = lib.makeBinPath [ pkgs.php ];
       };
       networking.firewall.allowedTCPPorts = [ 80 443 ];
+      networking.firewall.allowedUDPPorts = [ 443 ];
       services.nginx = {
         enable = true;
+        package = pkgs.nginxQuic;
         recommendedTlsSettings = true;
         recommendedProxySettings = true;
         recommendedGzipSettings = true;
         recommendedOptimisation = true;
-
         virtualHosts."${config.networking.domain}" = {
+          quic = true;
+          http3 = true;
           enableACME = true;
           forceSSL = true;
           root = "/srv/web/${config.networking.domain}";

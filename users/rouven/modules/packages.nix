@@ -39,9 +39,9 @@
     # messaging
     discord
     tdesktop
-    element-desktop
-    mattermost-desktop
     gajim
+    gomuks
+    fractal
 
     # games
     prismlauncher
@@ -70,6 +70,7 @@
     gcc
     nodejs_20
     gnumake
+    go
 
     # libs
     libyubikey

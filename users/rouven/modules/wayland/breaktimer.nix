@@ -1,27 +1,16 @@
 { pkgs, lib, ... }:
 {
   systemd.user = {
-    services.breaktimer = {
+    services.ianny = {
       Unit = {
-        Description = "Simple notification to take a break";
+        Description = "Ianny break timer";
+        After = [ "graphical-session-pre.target" ];
+        PartOf = [ "graphical-session.target" ];
       };
       Service = {
-        Type = "oneshot";
-        ExecStart = ''${lib.getExe pkgs.libnotify} -i clock -e "It's time for a break" "Relax your eyes"'';
+        ExecStart = "${pkgs.ianny}/bin/ianny";
       };
-    };
-    timers.breaktimer = {
-      Unit = {
-        Description = "Timer for the break notification";
-      };
-      Timer = {
-        OnCalendar = "*:0/20";
-        Unit = "breaktimer.service";
-      };
-      Install = {
-        WantedBy = [ "timers.target" ];
-      };
-
+      Install = { WantedBy = [ "graphical-session.target" ]; };
     };
   };
 }

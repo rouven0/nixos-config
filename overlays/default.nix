@@ -16,6 +16,7 @@ in
   });
 
   pww = callPackage ../pkgs/pww { };
+  ianny = callPackage ../pkgs/ianny { };
 
   river = prev.river.overrideAttrs (_: {
     patches = [

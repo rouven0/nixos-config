@@ -51,7 +51,8 @@
 
           riverctl map-pointer normal Super BTN_RIGHT resize-view
 
-          riverctl map normal Alt Space spawn "${pkgs.fuzzel}/bin/fuzzel -w 50"
+          riverctl map normal Alt Space spawn "${pkgs.fuzzel}/bin/fuzzel"
+          riverctl map normal Alt A spawn "${pkgs.wofi-emoji}/bin/wofi-emoji";
           riverctl map normal Super Space toggle-float
 
           for i in $(seq 1 9)

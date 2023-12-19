@@ -67,6 +67,8 @@
         gnome-break-timer = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/gnome-break-timer { };
         hashcash-milter = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/hashcash-milter { };
         ianny = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/ianny { };
+        ssh3 = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/ssh3/client.nix { };
+        ssh3-server = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/ssh3/server.nix { };
       };
       hydraJobs = self.packages;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
