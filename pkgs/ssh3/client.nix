@@ -1,4 +1,4 @@
-{ lib, buildGoModule, makeWrapper, fetchFromGitHub, playerctl }:
+{ lib, buildGoModule, fetchFromGitHub, playerctl }:
 buildGoModule rec {
   pname = "ssh3";
   version = "0.1.4";
