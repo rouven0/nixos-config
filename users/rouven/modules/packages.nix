@@ -20,6 +20,7 @@
     ffmpeg
     drawio
     imv
+    remmina
 
     # sound
     pavucontrol

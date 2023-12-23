@@ -5,6 +5,7 @@
   environment.variables = {
     "QT_STYLE_OVERRIDE" = lib.mkForce "kvantum";
     "QT_QPA_PLATFORMTHEME" = lib.mkForce "Dracula";
+    "_JAVA_AWT_WM_NONREPARENTING" = "1";
     "GTK_THEME" = "Dracula";
   };
   # open ports for kde connect
