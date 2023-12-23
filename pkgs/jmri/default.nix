@@ -1,13 +1,13 @@
 { stdenv, fetchFromGitHub, lib, ant, jdk11, ... }:
 stdenv.mkDerivation rec {
   pname = "jmri";
-  version = "5.3.5";
+  version = "5.6";
 
   src = fetchFromGitHub {
     owner = "jmri";
     repo = "jmri";
     rev = "v${version}";
-    hash = "sha256-q3p9G16KhUjC3uUazNFDzAeKFIWu2BTds/Q1yhtSqPc=";
+    hash = "sha256-0FUdvwijRqYAlT6YgB+KzAMdZ6uZ/RGySFUp494Eob8=";
   };
 
   nativeBuildInputs = [
