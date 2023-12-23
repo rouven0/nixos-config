@@ -34,9 +34,13 @@
   };
   systemd.network = {
     enable = true;
+    config = {
+      networkConfig = {
+        SpeedMeter = true;
+      };
+    };
     networks."10-loopback" = {
       matchConfig.Name = "lo";
-      linkConfig.RequiredForOnline = false;
     };
     networks."10-wired" = {
       matchConfig.Name = "ens3";
@@ -56,6 +60,8 @@
       wireguardConfig = {
         PrivateKeyFile = config.age.secrets."wireguard/dorm/private".path;
         ListenPort = 51820;
+        RouteTable = "main";
+        RouteMetric = 30;
       };
       wireguardPeers = [
         {
@@ -72,17 +78,15 @@
       matchConfig.Name = "wg0";
       networkConfig = {
         DNS = "192.168.42.1";
+        DNSSEC = true;
+        BindCarrier = [ "ens3" ];
       };
       addresses = [
         {
           addressConfig = {
-            Address = "192.168.43.4/24";
-            RouteMetric = 30;
+            Address = "192.168.43.4/32";
           };
         }
-      ];
-      routes = [
-        { routeConfig = { Gateway = "0.0.0.0"; Destination = "192.168.42.0/24"; Metric = 30; }; }
       ];
     };
   };
