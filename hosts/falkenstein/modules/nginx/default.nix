@@ -5,6 +5,9 @@
     services.nginx.virtualHosts = mkOption {
       type = types.attrsOf (types.submodule
         ({ name, ... }: {
+          # enable http3 for all hosts
+          quic = true;
+          http3 = true;
           # split up nginx access logs per vhost
           extraConfig = ''
             access_log /var/log/nginx/${name}_access.log;
@@ -71,8 +74,6 @@
         recommendedGzipSettings = true;
         recommendedOptimisation = true;
         virtualHosts."${config.networking.domain}" = {
-          quic = true;
-          http3 = true;
           enableACME = true;
           forceSSL = true;
           root = "/srv/web/${config.networking.domain}";
