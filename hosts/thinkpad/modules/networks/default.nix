@@ -47,6 +47,8 @@
     wireless = {
       enable = true;
       userControlled.enable = true;
+      # sadly broken on my machine
+      scanOnLowSignal = false;
       environmentFile = config.age.secrets.wireless.path;
       networks = {
         "@HOME_SSID@" = {

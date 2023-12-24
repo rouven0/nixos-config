@@ -3,8 +3,16 @@
   age.secrets = {
     tud.file = ../../../../secrets/thinkpad/tud.age;
     agdsn.file = ../../../../secrets/thinkpad/agdsn.age;
+    ifsr-apb-auth = {
+      file = ../../../../secrets/thinkpad/ifsr-apb-auth.age;
+    };
   };
   networking = {
+    supplicant."enp0s31f6" = {
+      userControlled.enable = true;
+      driver = "wired";
+      configFile.path = config.age.secrets.ifsr-apb-auth.path;
+    };
     wireless.networks = {
       eduroam = {
         auth = ''
