@@ -19,6 +19,8 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     tmp.useTmpfs = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+
   };
   services.btrfs.autoScrub.enable = true;
 

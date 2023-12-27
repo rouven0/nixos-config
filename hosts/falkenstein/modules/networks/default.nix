@@ -44,6 +44,10 @@
     };
     networks."10-wired" = {
       matchConfig.Name = "ens3";
+      dns = [
+        "2a01:4ff:ff00::add:1"
+        "2a01:4ff:ff00::add:2"
+      ];
       networkConfig = {
         DHCP = "ipv4";
         IPv6AcceptRA = "yes";
@@ -77,17 +81,11 @@
     networks."30-dorm" = {
       matchConfig.Name = "wg0";
       networkConfig = {
+        Address = "192.168.43.4/32";
         DNS = "192.168.42.1";
         DNSSEC = true;
         BindCarrier = [ "ens3" ];
       };
-      addresses = [
-        {
-          addressConfig = {
-            Address = "192.168.43.4/32";
-          };
-        }
-      ];
     };
   };
 }

@@ -25,6 +25,7 @@
       efi.efiSysMountPoint = "/boot/efi";
     };
     initrd.systemd.enable = true;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
   zramSwap.enable = true;
 

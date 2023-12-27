@@ -12,7 +12,6 @@
       '';
     };
   };
-  services.lldpd.enable = true;
   services.resolved = {
     enable = true;
     # dnssec = "true";
@@ -39,6 +38,8 @@
       matchConfig.Name = "eno1";
       networkConfig = {
         DHCP = "yes";
+        LLDP = true;
+        EmitLLDP = "nearest-bridge";
       };
     };
   };

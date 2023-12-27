@@ -24,7 +24,6 @@
     wget
     dnsutils
   ];
-  services.lldpd.enable = true;
   services.resolved = {
     fallbackDns = [
       "9.9.9.9"
@@ -163,17 +162,11 @@
       matchConfig.Name = "wg0";
       linkConfig.RequiredForOnline = "carrier";
       networkConfig = {
+        Address = "192.168.43.3/32";
         DNS = "192.168.42.1";
         DNSSEC = true;
         BindCarrier = [ "wlp9s0" "enp0s31f6" ];
       };
-      addresses = [
-        {
-          addressConfig = {
-            Address = "192.168.43.3/32";
-          };
-        }
-      ];
     };
   };
   programs.wireshark = {
