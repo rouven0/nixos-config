@@ -18,7 +18,6 @@
     zathura
     gimp
     ffmpeg
-    drawio
     imv
     remmina
 
@@ -51,11 +50,10 @@
     # yubikey and password stuff
     yubikey-manager
     yubikey-manager-qt
-    yubioath-flutter
+    # yubioath-flutter # broken (again...)
 
     # misc
     neofetch # obligatory
-    virt-manager
     jetbrains.idea-ultimate #😎
     croc # send files anywhere
     xournalpp
