@@ -26,7 +26,6 @@
     '';
     tmp.useTmpfs = true;
   };
-  # systemd.package = pkgs.systemd.override { withHomed = false; withUkify = true; };
 
   environment.persistence."/nix/persist/system" = {
     directories = [
@@ -51,6 +50,7 @@
   services = {
     blueman.enable = true; # bluetooth
     devmon.enable = true; # automount stuff
+    upower.enable = true;
     avahi = {
       enable = true;
       nssmdns4 = true;
@@ -74,6 +74,7 @@
     settings = {
       START_CHARGE_THRESH_BAT0 = 70;
       STOP_CHARGE_THRESH_BAT0 = 90;
+      RESTORE_DEVICE_STATE_ON_STARTUP = 1;
     };
   };
 
