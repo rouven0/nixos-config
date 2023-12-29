@@ -32,8 +32,9 @@
         "/home/*/.wine*"
         "/home/*/.mypy_cache*"
         "/home/*/.local/share"
-        "/home/*/.local/share"
-        "/home/*/Linux/Isos"
+        # contains very big files that don't need to clutter up the backup
+        # if I ever happen to have important data in virtual machines, this can be reconsidered
+        "/var/lib/libvirt"
       ];
       encryption_passcommand = "${pkgs.coreutils}/bin/cat ${config.age.secrets."borg/passphrase".path}";
       compression = "lz4";

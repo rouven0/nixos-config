@@ -10,5 +10,6 @@
   environment.systemPackages = with pkgs; [
     helvum
     easyeffects
+    pavucontrol
   ];
 }

@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  home.packages = [ pkgs.spotify-tui ];
+  home.packages = with pkgs;[ spotify spotify-tui ];
   age.secrets.spotify = {
     file = ../../../../secrets/rouven/spotify.age;
   };

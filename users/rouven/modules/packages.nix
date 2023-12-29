@@ -5,7 +5,6 @@
     # essentials
     htop-vim
     lsof
-    killall
     zip
     unzip
     man-pages
@@ -21,10 +20,6 @@
     imv
     remmina
 
-    # sound
-    pavucontrol
-    spotify
-
     # bluetooth
     blueman
 
@@ -33,11 +28,7 @@
     filezilla
     dbeaver
 
-    # totp
-    numberstation
-
     # messaging
-    discord
     tdesktop
     gajim
     gomuks
@@ -47,10 +38,9 @@
     prismlauncher
     superTuxKart
 
-    # yubikey and password stuff
+    # cryptography
     yubikey-manager
-    yubikey-manager-qt
-    # yubioath-flutter # broken (again...)
+    python311Packages.pyhanko
 
     # misc
     neofetch # obligatory
@@ -71,10 +61,6 @@
     gnumake
     go
 
-    # libs
-    libyubikey
-    libfido2
-    python311Packages.pyhanko
   ];
 
 
