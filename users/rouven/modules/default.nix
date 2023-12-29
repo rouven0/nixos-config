@@ -2,13 +2,13 @@
 {
   imports = [
     ./accounts
-    # ./age
     ./foot
     ./git
     ./gpg
     ./helix
     ./wayland
     ./mpv
+    ./qutebrowser
     ./spotify
     ./ssh
     ./theme

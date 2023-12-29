@@ -41,6 +41,7 @@
     # cryptography
     yubikey-manager
     python311Packages.pyhanko
+    bitwarden-cli
 
     # misc
     neofetch # obligatory
