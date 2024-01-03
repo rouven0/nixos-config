@@ -14,11 +14,11 @@
       ./modules/virtualisation
     ];
 
-  # nixpkgs.hostPlatform = {
-  #   gcc.arch = "tigerlake";
-  #   gcc.tune = "tigerlake";
-  #   system = "x86_64-linux";
-  # };
+  nixpkgs.hostPlatform = {
+    gcc.arch = "tigerlake";
+    gcc.tune = "tigerlake";
+    system = "x86_64-linux";
+  };
 
   nix.settings.system-features = [ "gccarch-tigerlake" ];
 
