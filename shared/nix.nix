@@ -10,6 +10,12 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      substituters = [
+        "https://cache.rfive.de"
+      ];
+      trusted-public-keys = [
+        "cache.rfive.de:of5d+o6mfGXQSR3lk6ApfDBr4ampAUaNHux1O/XY3Tw="
+      ];
     };
   };
 }

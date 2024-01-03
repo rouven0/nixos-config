@@ -6,7 +6,9 @@
       ./hardware-configuration.nix
       ./modules/networks
       ./modules/backup
+      ./modules/cache
       ./modules/grafana
+      ./modules/hydra
       ./modules/prometheus
       ./modules/matrix
       ./modules/seafile
@@ -46,7 +48,6 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    wget
     htop-vim
     helix
     lsof
@@ -64,10 +65,6 @@
   services.openssh.enable = true;
   services.journald.enableHttpGateway = true;
   programs.mosh.enable = true;
-  security = {
-    audit.enable = true;
-    auditd.enable = true;
-  };
 
 
   # firmware updates
