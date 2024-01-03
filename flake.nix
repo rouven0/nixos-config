@@ -61,7 +61,7 @@
     }@attrs: {
       packages.x86_64-linux = {
         iso = self.nixosConfigurations.iso.config.system.build.isoImage;
-        thinkpad = self.nixosConfigurations.iso.config.system.build.toplevel;
+        thinkpad = self.nixosConfigurations.thinkpad.config.system.build.toplevel;
         jmri = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/jmri { };
         adguardian-term = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/adguardian-term { };
         pww = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/pww { };
