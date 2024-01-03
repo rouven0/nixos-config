@@ -21,8 +21,8 @@
     whois
     inetutils
     openssl
-    wget
     dnsutils
+    nmap
   ];
   services.resolved = {
     fallbackDns = [
@@ -40,9 +40,6 @@
     hostName = "thinkpad";
     hostId = "d8d34032";
     enableIPv6 = true;
-    firewall = {
-      logRefusedConnections = false;
-    };
     wireless = {
       enable = true;
       userControlled.enable = true;
@@ -163,7 +160,7 @@
       linkConfig.RequiredForOnline = "carrier";
       networkConfig = {
         Address = "192.168.43.3/32";
-        DNS = "192.168.42.1";
+        DNS = "192.168.43.1";
         DNSSEC = true;
         BindCarrier = [ "wlp9s0" "enp0s31f6" ];
       };
