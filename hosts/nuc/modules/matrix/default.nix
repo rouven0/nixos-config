@@ -43,13 +43,13 @@ in
           }];
         }];
       };
-      sliding-sync = {
-        enable = true;
-        settings = {
-          SYNCV3_SERVER = "https://${domain}";
-        };
-        environmentFile = config.age.secrets."matrix/sync".path;
+    };
+    matrix-sliding-sync = {
+      enable = true;
+      settings = {
+        SYNCV3_SERVER = "https://${domain}";
       };
+      environmentFile = config.age.secrets."matrix/sync".path;
     };
 
 

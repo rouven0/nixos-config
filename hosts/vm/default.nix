@@ -31,7 +31,6 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    wget
     htop-vim
   ];
   programs.git = {

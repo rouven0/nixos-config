@@ -35,13 +35,10 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    wget
     htop-vim
     helix
     lsof
     python3
-    php
-    phpPackages.composer
   ];
   programs.git = {
     enable = true;
@@ -60,10 +57,6 @@
   };
   services.journald.enableHttpGateway = true;
   programs.mosh.enable = true;
-  security = {
-    audit.enable = true;
-    auditd.enable = true;
-  };
   users.users.root.openssh.authorizedKeys.keyFiles = [
     ../../keys/ssh/rouven-thinkpad
     ../../keys/ssh/rouven-pixel
