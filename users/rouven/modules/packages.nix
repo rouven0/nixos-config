@@ -33,6 +33,7 @@
     gajim
     gomuks
     fractal
+    tuba # mastodon client
 
     # games
     prismlauncher

@@ -34,6 +34,18 @@
     systemdTarget = "graphical-session.target";
   };
 
+  systemd.user.services.swayidle-inhibit = {
+    Unit = {
+      Description = "Service preventing swayidle from sleeping while any application is outputting or receiving audio";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${lib.getExe pkgs.sway-audio-idle-inhibit}";
+    };
+    Install = { WantedBy = [ "graphical-session.target" ]; };
+  };
+
   systemd.user.services.swaync = {
     Install.WantedBy = [ "graphical-session.target" ];
     Service = {
