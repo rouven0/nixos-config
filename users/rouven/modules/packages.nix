@@ -67,7 +67,7 @@
 
 
   programs.obs-studio.enable = true;
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   services.gnome-keyring.enable = true;
 
   xdg.mimeApps = {

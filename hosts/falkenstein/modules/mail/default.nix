@@ -62,7 +62,7 @@ in
       domain = "${domain}";
       origin = "${domain}";
       destination = [ "${hostname}" "${domain}" "localhost" ];
-      networks = [ "127.0.0.1" "141.30.30.169" ];
+      networks = [ "127.0.0.1" ];
       sslCert = "/var/lib/acme/${hostname}/fullchain.pem";
       sslKey = "/var/lib/acme/${hostname}/key.pem";
       config = {
