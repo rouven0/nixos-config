@@ -48,6 +48,8 @@
         export MCFLY_PROMPT="❯"
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
         source ${pkgs.agdsn-zsh-config}/etc/zsh/zshrc
+        unsetopt extendedglob
+
       
         function svpn() {
           unit=$(systemctl list-unit-files | grep "openconnect\|wg-quick\|wireguard\|openvpn\|openfortivpn" | cut -d "." -f1 | fzf --preview 'systemctl status {}')
