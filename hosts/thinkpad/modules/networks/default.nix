@@ -162,7 +162,7 @@
         Address = "192.168.43.3/32";
         DNS = "192.168.43.1";
         DNSSEC = true;
-        BindCarrier = [ "wlp9s0" "enp0s31f6" ];
+        BindCarrier = [ "wlp9s0" ];
       };
     };
   };
