@@ -41,7 +41,7 @@
 
     # cryptography
     yubikey-manager
-    python311Packages.pyhanko
+    # python311Packages.pyhanko # broken, TODO fix
     bitwarden-cli
 
     # misc
