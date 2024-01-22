@@ -488,11 +488,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705882164,
-        "narHash": "sha256-HAjEar8nN4HtOTEeA6LRjq40SPS84YWrfXMBBh7jCF8=",
+        "lastModified": 1705882231,
+        "narHash": "sha256-OyWYOsl876tAJ443p9lKSDIrBtq80JZ/OlmrVVdIHF4=",
         "owner": "therealr5",
         "repo": "TruckSimulatorBot",
-        "rev": "b59e230bdec747dbff7e15447cf68791a31c323f",
+        "rev": "9ae3c21b72b1f49f0b15808eb61b10600e00a845",
         "type": "github"
       },
       "original": {
