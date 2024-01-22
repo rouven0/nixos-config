@@ -66,7 +66,14 @@
     fwupd.enable = true; # firmware updates
     zfs.autoScrub.enable = true;
   };
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    settings = {
+      General = {
+        Experimental = true;
+      };
+    };
+  };
 
   services.logind = {
     lidSwitch = "suspend-then-hibernate";

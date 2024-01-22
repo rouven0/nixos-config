@@ -18,15 +18,6 @@ in
   pww = callPackage ../pkgs/pww { };
   ianny = callPackage ../pkgs/ianny { };
 
-  river = prev.river.overrideAttrs (_: {
-    patches = [
-      (fetchpatch {
-        url = "https://patch-diff.githubusercontent.com/raw/riverwm/river/pull/735.patch";
-        hash = "sha256-7pwQfXurgJej0NZ+kD2qBQdrqD6pYA1PbHxzG+5rGac=";
-      })
-    ];
-  });
-
   tpm2-pkcs11 = prev.tpm2-pkcs11.override { fapiSupport = false; };
 
   gnome-break-timer = callPackage ../pkgs/gnome-break-timer { };

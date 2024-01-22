@@ -52,6 +52,7 @@
     libreoffice
     mosh
     ansible
+    plover.dev
 
     # programming languages
     cargo
