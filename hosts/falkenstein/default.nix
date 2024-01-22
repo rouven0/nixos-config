@@ -55,7 +55,7 @@
     enable = true;
     settings.PasswordAuthentication = false;
   };
-  services.journald.enableHttpGateway = true;
+  services.journald.gateway.enable = true;
   programs.mosh.enable = true;
   users.users.root.openssh.authorizedKeys.keyFiles = [
     ../../keys/ssh/rouven-thinkpad

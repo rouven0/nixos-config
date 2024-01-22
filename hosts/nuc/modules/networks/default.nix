@@ -14,7 +14,7 @@
   };
   services.resolved = {
     enable = true;
-    # dnssec = "true";
+    dnssec = "true";
     fallbackDns = [
       "9.9.9.9"
       "149.112.112.112"

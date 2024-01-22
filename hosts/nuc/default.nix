@@ -64,7 +64,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.journald.enableHttpGateway = true;
+  services.journald.gateway.enable = true;
   programs.mosh.enable = true;
 
 
