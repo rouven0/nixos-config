@@ -5,6 +5,7 @@
     lldb
     rust-analyzer
     rnix-lsp
+    typst-lsp
     (python3.withPackages (ps: with ps; [
       pyls-isort
       pylsp-mypy

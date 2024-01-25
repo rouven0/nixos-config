@@ -53,6 +53,7 @@
     mosh
     ansible
     plover.dev
+    typst
 
     # programming languages
     cargo
@@ -63,6 +64,7 @@
     nodejs_20
     gnumake
     go
+    just
 
   ];
 
