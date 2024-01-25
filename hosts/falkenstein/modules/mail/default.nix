@@ -12,6 +12,10 @@ let
     /^\s*X-Originating-IP/ IGNORE
     /^\s*Mime-Version/ IGNORE
   '';
+  login_maps = pkgs.writeText "login_maps.pcre" ''
+    # basic username => username@rfive.de
+    /^([^@+]*)(\+[^@]*)?@rfive\.de$/ ''${1}
+  '';
 in
 {
   networking.firewall.allowedTCPPorts = [
@@ -93,6 +97,10 @@ in
           "permit_mynetworks"
           "reject_unauth_destination"
         ];
+        smtpd_sender_restrictions = [
+          "reject_authenticated_sender_login_mismatch"
+        ];
+        smtpd_sender_login_maps = [ "pcre:${login_maps}" ];
         smtp_header_checks = "pcre:${header_cleanup}";
 
         alias_maps = [ "hash:/etc/aliases" ];
