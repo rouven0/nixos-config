@@ -10,7 +10,7 @@ in
         enable = true;
         enabledCollectors = [ "systemd" ];
       };
-      postgres.enable = true;
+      # postgres.enable = true;
     };
     scrapeConfigs = [
       {
@@ -21,14 +21,14 @@ in
           }
         ];
       }
-      {
-        job_name = "postgres";
-        static_configs = [
-          {
-            targets = [ "127.0.0.1:${toString exportersConfig.postgres.port}" ];
-          }
-        ];
-      }
+      # {
+      #   job_name = "postgres";
+      #   static_configs = [
+      #     {
+      #       targets = [ "127.0.0.1:${toString exportersConfig.postgres.port}" ];
+      #     }
+      #   ];
+      # }
     ];
 
   };

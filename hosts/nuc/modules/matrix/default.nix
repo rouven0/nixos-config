@@ -27,6 +27,9 @@ in
       enable = true;
       configureRedisLocally = true;
       extraConfigFiles = [ config.age.secrets."matrix/shared".path ];
+      log = {
+        root.level = "WARNING";
+      };
 
       settings = {
         server_name = config.networking.domain;
