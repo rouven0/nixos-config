@@ -93,6 +93,9 @@
     };
   };
 
-  documentation.dev.enable = true;
+  documentation = {
+    dev.enable = true;
+    man.generateCaches = true;
+  };
   system.stateVersion = "22.11";
 }

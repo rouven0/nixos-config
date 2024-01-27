@@ -53,18 +53,25 @@ in
           RequestTTY = "yes";
           RemoteCommand = "zsh -i";
         };
-
       };
       "quitte-notty" = {
         hostname = "quitte.ifsr.de";
         user = "root";
       };
-      "durian" = {
-        hostname = "durian.ifsr.de";
-        user = "root";
-      };
       "tomate" = {
         hostname = "tomate.ifsr.de";
+        user = "root";
+        extraOptions = {
+          RequestTTY = "yes";
+          RemoteCommand = "zsh -i";
+        };
+      };
+      "tomate-notty" = {
+        hostname = "tomate.ifsr.de";
+        user = "root";
+      };
+      "durian" = {
+        hostname = "durian.ifsr.de";
         user = "root";
       };
       "git@ifsr.de" = {

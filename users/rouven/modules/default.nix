@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./accounts
     ./foot
     ./git
     ./gpg

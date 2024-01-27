@@ -32,10 +32,5 @@ in
   "secrets/falkenstein/borg/key.age".publicKeys = [ rouven falkenstein ];
 
   # rouven (home manager)
-  "secrets/rouven/mail/rfive.age".publicKeys = [ rouven ];
-  "secrets/rouven/mail/ifsr.age".publicKeys = [ rouven ];
-  "secrets/rouven/mail/tu-dresden.age".publicKeys = [ rouven ];
-  "secrets/rouven/mail/agdsn.age".publicKeys = [ rouven ];
-  "secrets/rouven/mail/google.age".publicKeys = [ rouven ];
   "secrets/rouven/spotify.age".publicKeys = [ rouven ];
 }

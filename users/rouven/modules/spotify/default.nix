@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       global = {
-        username = config.accounts.email.accounts."gmail".address;
+        username = "seifertrouven@gmail.com";
         password_cmd = "${pkgs.coreutils}/bin/cat ${config.age.secrets.spotify.path}";
       };
       backend = "pulseaudio";
