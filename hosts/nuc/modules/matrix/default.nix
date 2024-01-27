@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 let
   domain = "matrix.${config.networking.domain}";
+  domainClient = "chat.${config.networking.domain}";
+  clientConfig = {
+    "m.homeserver" = {
+      base_url = "https://${domain}:443";
+    };
+  };
 in
 {
 
@@ -72,6 +78,23 @@ in
           locations."/".proxyPass = "http://[::1]:8008";
           locations."~ ^/(client/|_matrix/client/unstable/org.matrix.msc3575/sync)".proxyPass = "http://localhost:8009";
           # locations."/_synapse/client".proxyPass = "http://[::1]:8008";
+        };
+
+
+        # element
+        "${domainClient}" = {
+          enableACME = true;
+          forceSSL = true;
+
+          root = pkgs.element-web.override {
+            conf = {
+              default_server_config = {
+                inherit (clientConfig) "m.homeserver";
+                "m.identity_server".base_url = "";
+              };
+              disable_3pid_login = true;
+            };
+          };
         };
       };
     };
