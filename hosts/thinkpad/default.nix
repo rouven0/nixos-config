@@ -21,6 +21,10 @@
   # };
 
   nix.settings.system-features = [ "gccarch-tigerlake" ];
+  systemd.additionalUpstreamSystemUnits = [
+    "soft-reboot.target"
+    "systemd-soft-reboot.service"
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot = {
