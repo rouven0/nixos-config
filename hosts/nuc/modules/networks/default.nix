@@ -14,8 +14,7 @@
   };
   services.resolved = {
     enable = true;
-    # dnssec is broken
-    # dnssec = "true";
+    dnssec = "allow-downgrade";
     fallbackDns = [
       "9.9.9.9"
       "149.112.112.112"
