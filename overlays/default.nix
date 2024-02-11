@@ -1,7 +1,6 @@
 _final: prev:
 let
   inherit (prev) callPackage;
-  inherit (prev) python3Packages;
   inherit (prev) fetchFromGitHub;
   inherit (prev) fetchPypi;
   inherit (prev) fetchpatch;
