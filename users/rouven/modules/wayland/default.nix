@@ -79,12 +79,12 @@
       terminal=${pkgs.foot}/bin/foot
 
       [colors]
-      background=${config.colorScheme.colors.base00}ff
-      text=${config.colorScheme.colors.base05}ff
-      match=${config.colorScheme.colors.base08}ff
-      selection=${config.colorScheme.colors.base02}ff
-      selection-text=${config.colorScheme.colors.base04}ff
-      border=${config.colorScheme.colors.base01}ff
+      background=${config.colorScheme.palette.base00}ff
+      text=${config.colorScheme.palette.base05}ff
+      match=${config.colorScheme.palette.base08}ff
+      selection=${config.colorScheme.palette.base02}ff
+      selection-text=${config.colorScheme.palette.base04}ff
+      border=${config.colorScheme.palette.base01}ff
     '';
     "swappy/config".text = ''
       [Default]
@@ -95,10 +95,10 @@
       indicator-radius=200
       indicator-thickness=3
       inside-color=00000000
-      inside-ver-color=${config.colorScheme.colors.base0D}
-      inside-clear-color=${config.colorScheme.colors.base0B}
-      ring-color=${config.colorScheme.colors.base03}
-      ring-wrong-color=${config.colorScheme.colors.base08}
+      inside-ver-color=${config.colorScheme.palette.base0D}
+      inside-clear-color=${config.colorScheme.palette.base0B}
+      ring-color=${config.colorScheme.palette.base03}
+      ring-wrong-color=${config.colorScheme.palette.base08}
       screenshot
       effect-blur=7x5
     '';
@@ -110,8 +110,8 @@
         background-color: rgba(12, 12, 12, 0);
       }
       button {
-        color: #${config.colorScheme.colors.base05};
-        background-color: #${config.colorScheme.colors.base00};
+        color: #${config.colorScheme.palette.base05};
+        background-color: #${config.colorScheme.palette.base00};
         border-style: solid;
         border-width: 2px;
         border-radius: 30px;
@@ -122,7 +122,7 @@
       }
 
       button:active, button:hover {
-      background-color: #${config.colorScheme.colors.base03};
+      background-color: #${config.colorScheme.palette.base03};
         outline-style: none;
       }
 

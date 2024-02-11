@@ -53,7 +53,7 @@
       };
       colors =
         let
-          colors = config.colorScheme.colors;
+          colors = config.colorScheme.palette;
         in
         {
           # alpha = if (config.colorScheme.kind == "dark") then 0.0 else 1.0;

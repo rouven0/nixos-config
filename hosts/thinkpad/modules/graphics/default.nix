@@ -16,7 +16,7 @@
       ];
   };
   console = {
-    colors = let colors = config.home-manager.users.rouven.colorScheme.colors; in
+    colors = let colors = config.home-manager.users.rouven.colorScheme.palette; in
       [
         colors.base00
         colors.base08

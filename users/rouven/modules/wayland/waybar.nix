@@ -107,7 +107,7 @@
     
     window#waybar {
         background-color: transparent;
-        color: #${config.colorScheme.colors.base05};
+        color: #${config.colorScheme.palette.base05};
         transition-property: background-color;
         transition-duration: .5s;
     }
@@ -120,17 +120,17 @@
     #tags button {
         padding: 0 5px;
         background-color: transparent;
-        color: #${config.colorScheme.colors.base05};
+        color: #${config.colorScheme.palette.base05};
     }
 
     #workspaces button.focused,
     #tags button.focused {
-        background-color: #${config.colorScheme.colors.base04};
-        box-shadow: inset 0 -3px #${config.colorScheme.colors.base05};
+        background-color: #${config.colorScheme.palette.base04};
+        box-shadow: inset 0 -3px #${config.colorScheme.palette.base05};
     }
 
     #tags button.occupied {
-        box-shadow: inset 0 -3px #${config.colorScheme.colors.base05};
+        box-shadow: inset 0 -3px #${config.colorScheme.palette.base05};
     }
     
     #workspaces button.urgent,
@@ -151,7 +151,7 @@
     #tray{
         border-radius: 30px; 
         padding: 0 10px;
-        color: #${config.colorScheme.colors.base05};
+        color: #${config.colorScheme.palette.base05};
     }
     
     #window,
@@ -160,12 +160,12 @@
     }
 
     #window {
-        background-color: #${config.colorScheme.colors.base00};
+        background-color: #${config.colorScheme.palette.base00};
     }
 
     
     #clock {
-        background-color: #${config.colorScheme.colors.base00};
+        background-color: #${config.colorScheme.palette.base00};
     }
     
     #custom-spotifytitle {
@@ -182,53 +182,53 @@
     }
 
     #battery {
-        background-color: #${config.colorScheme.colors.base02};
-        color: #${config.colorScheme.colors.base05};
+        background-color: #${config.colorScheme.palette.base02};
+        color: #${config.colorScheme.palette.base05};
     }
     
     #battery.charging, #battery.plugged {
-        color: #${config.colorScheme.colors.base05};
-        background-color: #${config.colorScheme.colors.base02};
+        color: #${config.colorScheme.palette.base05};
+        background-color: #${config.colorScheme.palette.base02};
     }
     
     #battery.critical:not(.charging) {
-        background-color: #${config.colorScheme.colors.base08};
-        color: #${config.colorScheme.colors.base01};
+        background-color: #${config.colorScheme.palette.base08};
+        color: #${config.colorScheme.palette.base01};
     }
     
     #cpu {
-        background-color: #${config.colorScheme.colors.base05};
-        color: #${config.colorScheme.colors.base01};
+        background-color: #${config.colorScheme.palette.base05};
+        color: #${config.colorScheme.palette.base01};
     }
     
     #network {
-        background-color: #${config.colorScheme.colors.base06};
-        color: #${config.colorScheme.colors.base01};
+        background-color: #${config.colorScheme.palette.base06};
+        color: #${config.colorScheme.palette.base01};
     }
     
     #network.disconnected {
-        background-color: #${config.colorScheme.colors.base08};
+        background-color: #${config.colorScheme.palette.base08};
     }
     
     #pulseaudio {
-        background-color: #${config.colorScheme.colors.base03};
-        color: #${config.colorScheme.colors.base05};
+        background-color: #${config.colorScheme.palette.base03};
+        color: #${config.colorScheme.palette.base05};
     }
     
     #temperature {
-        background-color: #${config.colorScheme.colors.base05};
-        color: #${config.colorScheme.colors.base01};
+        background-color: #${config.colorScheme.palette.base05};
+        color: #${config.colorScheme.palette.base01};
     }
     
     #temperature.critical {
-        background-color: #${config.colorScheme.colors.base08};
-        color: #${config.colorScheme.colors.base01};
+        background-color: #${config.colorScheme.palette.base08};
+        color: #${config.colorScheme.palette.base01};
     }
     
     #custom-notification,
     #tray {
-        background-color: #${config.colorScheme.colors.base01};
-        color: #${config.colorScheme.colors.base05};
+        background-color: #${config.colorScheme.palette.base01};
+        color: #${config.colorScheme.palette.base05};
     }
 
   '';
