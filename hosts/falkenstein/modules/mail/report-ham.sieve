@@ -12,4 +12,4 @@ if environment :matches "imap.user" "*" {
   set "username" "${1}";
 }
 
-pipe :copy "sa-learn-ham.sh" [ "${username}" ];
+pipe :copy "learn-ham.sh" [ "${username}" ];

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   domain = config.networking.domain;
@@ -27,34 +27,6 @@ in
   users.users.rouven = {
     description = "Rouven Seifert";
     isNormalUser = true;
-  };
-  environment.etc = {
-    "dovecot/sieve-pipe/sa-learn-spam.sh" = {
-      text = ''
-        #!/bin/sh
-        ${pkgs.rspamd}/bin/rspamc learn_spam
-      '';
-      mode = "0555";
-    };
-    "dovecot/sieve-pipe/sa-learn-ham.sh" = {
-      text = ''
-        #!/bin/sh
-        ${pkgs.rspamd}/bin/rspamc learn_ham
-      '';
-      mode = "0555";
-    };
-    "dovecot/sieve/report-spam.sieve" = {
-      source = ./report-spam.sieve;
-      user = "dovecot2";
-      group = "dovecot2";
-      mode = "0544";
-    };
-    "dovecot/sieve/report-ham.sieve" = {
-      source = ./report-ham.sieve;
-      user = "dovecot2";
-      group = "dovecot2";
-      mode = "0544";
-    };
   };
 
   services = {
@@ -153,6 +125,36 @@ in
       modules = [
         pkgs.dovecot_pigeonhole
       ];
+      sieve = {
+        # just pot something in here to prevent empty strings
+        extensions = [ "notify" ];
+        # globalExtensions = [ "+vnd.dovecot.pipe" ];
+        pipeBins = map lib.getExe [
+          (pkgs.writeShellScriptBin "learn-ham.sh" "exec ${pkgs.rspamd}/bin/rspamc learn_ham")
+          (pkgs.writeShellScriptBin "learn-spam.sh" "exec ${pkgs.rspamd}/bin/rspamc learn_spam")
+        ];
+        plugins = [
+          "sieve_imapsieve"
+          "sieve_extprograms"
+        ];
+      };
+      imapsieve.mailbox = [
+        {
+          # Spam: From elsewhere to Spam folder or flag changed in Spam folder
+          name = "Spam";
+          causes = [ "COPY" "APPEND" "FLAG" ];
+          before = ./report-spam.sieve;
+
+        }
+        {
+          # From Junk folder to elsewhere
+          name = "*";
+          from = "Spam";
+          causes = [ "COPY" ];
+          before = ./report-ham.sieve;
+        }
+      ];
+
       extraConfig = ''
         auth_username_format = %Ln
         userdb {
@@ -184,23 +186,6 @@ in
             user = postfix
           }
           client_limit = 1
-        }
-        plugin {
-          sieve_plugins = sieve_imapsieve sieve_extprograms
-          sieve_global_extensions = +vnd.dovecot.pipe
-          sieve_pipe_bin_dir = /etc/dovecot/sieve-pipe
-
-          # Spam: From elsewhere to Spam folder or flag changed in Spam folder
-          imapsieve_mailbox1_name = Spam
-          imapsieve_mailbox1_causes = COPY APPEND FLAG
-          imapsieve_mailbox1_before = file:/etc/dovecot/sieve/report-spam.sieve
-
-          # From Junk folder to elsewhere
-          imapsieve_mailbox2_name = *
-          imapsieve_mailbox2_from = Spam
-          imapsieve_mailbox2_causes = COPY
-          imapsieve_mailbox2_before = file:/etc/dovecot/sieve/report-ham.sieve
-
         }
       '';
     };
