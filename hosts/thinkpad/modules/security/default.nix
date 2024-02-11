@@ -2,6 +2,8 @@
 {
   age.identityPaths = [ "/nix/persist/system/etc/ssh/ssh_host_ed25519_key" ];
   security = {
+    sudo.enable = false;
+    sudo-rs.enable = true;
     polkit.enable = true;
     tpm2 = {
       enable = true;
