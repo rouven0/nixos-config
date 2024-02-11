@@ -7,7 +7,7 @@ let
   inherit (prev) fetchpatch;
   inherit (prev) makeWrapper;
 in
-{
+rec {
   pcmanfm = prev.pcmanfm.overrideAttrs (_: {
     # remove deskop preferences shortcut
     postInstall = ''
@@ -18,6 +18,23 @@ in
   pww = callPackage ../pkgs/pww { };
   ianny = callPackage ../pkgs/ianny { };
 
+  python3 = prev.python3.override {
+    packageOverrides = _finel: prev: {
+      tpm2-pytss = prev.tpm2-pytss.overrideAttrs (old: {
+        # https://github.com/NixOS/nixpkgs/pull/287804/
+        patches = old.patches ++ [
+          (fetchpatch {
+            name = "fix-newer-cryptography-42-0-1-support.patch";
+            url = "https://github.com/tpm2-software/tpm2-pytss/commit/0fbb9d099370c0a7031dd13990986538f586836a.patch";
+            sha256 = "sha256-xnQIr4/iJra0+rn5estVqSvG8pXcuwWykmmayBpCzgw=";
+          })
+
+        ];
+      });
+    };
+
+  };
+  python3Packages = python3.pkgs;
   tpm2-pkcs11 = prev.tpm2-pkcs11.override { fapiSupport = false; };
 
   gnome-break-timer = callPackage ../pkgs/gnome-break-timer { };
