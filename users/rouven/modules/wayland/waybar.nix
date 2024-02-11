@@ -102,7 +102,6 @@
 
   xdg.configFile."waybar/style.css".text = ''
     * {
-        font-family: Roboto, Helvetica, Arial, sans-serif, Iosevka Nerd Font;
         font-size: 13px;
     }
     

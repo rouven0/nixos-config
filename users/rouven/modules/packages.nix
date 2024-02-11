@@ -14,19 +14,16 @@
     seafile-client
 
     # graphics
-    zathura
+    (zathura.override { plugins = [ zathuraPkgs.zathura_pdf_mupdf ]; })
     gimp
     ffmpeg
     imv
-    remmina
 
     # bluetooth
     blueman
 
     # internet
     google-chrome
-    filezilla
-    dbeaver
 
     # messaging
     tdesktop
@@ -51,9 +48,8 @@
     xournalpp
     libreoffice
     mosh
-    ansible
-    plover.dev
     typst
+    typst-preview
 
     # programming languages
     cargo
@@ -68,8 +64,6 @@
     # fancy tools
     just
     himalaya
-    zellij
-    nushell
     # strace but with colors
     (strace.overrideAttrs (_: {
       patches = [

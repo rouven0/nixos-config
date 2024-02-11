@@ -29,6 +29,13 @@
   programs.foot = {
     enable = true;
     server.enable = true;
+    package = pkgs.foot.overrideAttrs (old: {
+      # don't install systemd units
+      mesonFlags = old.mesonFlags ++ [
+        "-Dsystemd-units-dir=''"
+      ];
+    });
+
     settings = rec {
       main = {
         shell = "${pkgs.zsh}/bin/zsh";

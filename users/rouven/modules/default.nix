@@ -7,7 +7,8 @@
     ./helix
     ./wayland
     ./mpv
-    ./qutebrowser
+    # broken
+    # ./qutebrowser
     ./spotify
     ./ssh
     ./theme
