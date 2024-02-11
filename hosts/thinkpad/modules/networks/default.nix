@@ -23,6 +23,7 @@
     openssl
     dnsutils
     nmap
+    curlFull
   ];
   services.resolved = {
     fallbackDns = [

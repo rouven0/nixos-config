@@ -4,14 +4,14 @@
   programs.light.enable = true;
 
   fonts = {
-    enableDefaultPackages = false;
+    enableDefaultPackages = true;
     packages = with pkgs;
       [
         nerdfonts
         noto-fonts
         noto-fonts-cjk
         noto-fonts-emoji
-        dejavu_fonts
+        roboto
         fira
       ];
   };
