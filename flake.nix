@@ -94,7 +94,6 @@
               home-manager.users.rouven = {
                 imports = [
                   nix-colors.homeManagerModules.default
-                  agenix.homeManagerModules.default
                 ];
               };
             }

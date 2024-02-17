@@ -30,7 +30,4 @@ in
   "secrets/falkenstein/wireguard/dorm/preshared.age".publicKeys = [ rouven falkenstein ];
   "secrets/falkenstein/borg/passphrase.age".publicKeys = [ rouven falkenstein ];
   "secrets/falkenstein/borg/key.age".publicKeys = [ rouven falkenstein ];
-
-  # rouven (home manager)
-  "secrets/rouven/spotify.age".publicKeys = [ rouven ];
 }
