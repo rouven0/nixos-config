@@ -34,6 +34,7 @@ in
       enable = true;
       enableSubmission = true;
       enableSubmissions = true;
+      recipientDelimiter = "+";
       hostname = "${hostname}";
       domain = "${domain}";
       origin = "${domain}";

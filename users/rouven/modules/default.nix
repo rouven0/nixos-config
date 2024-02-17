@@ -9,7 +9,6 @@
     ./mpv
     # broken
     # ./qutebrowser
-    ./spotify
     ./ssh
     ./theme
     ./tex
