@@ -7,9 +7,9 @@
       ./modules/networks
       ./modules/backup
       ./modules/cache
-      ./modules/grafana
+      # ./modules/grafana
       ./modules/hydra
-      ./modules/prometheus
+      # ./modules/prometheus
       ./modules/matrix
       ./modules/seafile
       ./modules/uptime-kuma
