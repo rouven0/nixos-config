@@ -63,7 +63,7 @@
 
     # fancy tools
     just
-    himalaya
+    (himalaya.override { buildFeatures = [ "pgp-commands" ]; })
     # strace but with colors
     (strace.overrideAttrs (_: {
       patches = [
