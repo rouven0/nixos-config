@@ -24,6 +24,7 @@
     dnsutils
     nmap
     curlFull
+    wireguard-tools
   ];
   services.resolved = {
     fallbackDns = [

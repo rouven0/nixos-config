@@ -19,7 +19,7 @@
     spiceUSBRedirection.enable = true;
   };
   # allow libvirts internal network stuff
-  networking.firewall.trustedInterfaces = [ "virbr0" ];
+  networking.firewall.trustedInterfaces = [ "virbr0" "br0" ];
   programs.virt-manager.enable = true;
   environment.systemPackages = with pkgs; [
     virt-viewer
