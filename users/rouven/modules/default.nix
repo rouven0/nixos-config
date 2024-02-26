@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./aerc
     ./foot
     ./git
     ./gpg

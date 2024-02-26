@@ -122,6 +122,10 @@ in
           auto = "create";
           specialUse = "Trash";
         };
+        Archive = {
+          auto = "no";
+          specialUse = "Archive";
+        };
       };
       modules = [
         pkgs.dovecot_pigeonhole
