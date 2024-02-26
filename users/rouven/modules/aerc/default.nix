@@ -20,7 +20,8 @@
           icon-new = "";
           icon-old = "";
           icon-replied = "";
-          icon-marked = "";
+          icon-marked = "󰄳";
+          icon-flagged = "";
           icon-deleted = "";
         };
         filters = {

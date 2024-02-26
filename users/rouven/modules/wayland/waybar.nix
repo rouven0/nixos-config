@@ -4,13 +4,12 @@
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    # package = hyprland.packages.x86_64-linux.waybar-hyprland;
     settings = {
       mainBar = {
         layer = "top";
         position = "top";
         height = 26;
-        modules-left = [ "sway/workspaces" "river/tags" "custom/spotifytitle" "river/window" ];
+        modules-left = [ "sway/workspaces" "river/tags" "river/window" ];
         modules-right = [ "network" "cpu" "pulseaudio" "battery" "tray" "custom/notification" "clock" ];
         network = {
           format-wifi = "  {essid} ({signalStrength}%)";
@@ -54,12 +53,6 @@
           escape = true;
         };
 
-        "custom/spotifytitle" = {
-          format = "  {}";
-          max-length = 80;
-          return-type = "json";
-          exec = "${lib.getExe pkgs.pww} -w spotifyd:title -p None 2> /dev/null";
-        };
         cpu = {
           format = "{usage}% ";
         };
@@ -138,7 +131,6 @@
         background-color: #eb4d4b;
     }
     
-    #custom-spotifytitle,
     #custom-notification,
     #clock,
     #battery,
@@ -168,19 +160,6 @@
         background-color: #${config.colorScheme.palette.base00};
     }
     
-    #custom-spotifytitle {
-        background: #1db954;
-        color: #191414;
-        opacity: 1;
-        transition-property: opacity;
-        transition-duration: 0.25s;
-    }
-    
-    #custom-spotifytitle.Paused,
-    #custom-spotifytitle.Inactive {
-        opacity: 0.5;
-    }
-
     #battery {
         background-color: #${config.colorScheme.palette.base02};
         color: #${config.colorScheme.palette.base05};
@@ -230,6 +209,5 @@
         background-color: #${config.colorScheme.palette.base01};
         color: #${config.colorScheme.palette.base05};
     }
-
   '';
 }

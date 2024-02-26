@@ -8,7 +8,7 @@
     zip
     unzip
     man-pages
-    pcmanfm
+    cinnamon.nemo
     xdg-utils # used for xdg-open
     appimage-run
     seafile-client
@@ -42,6 +42,7 @@
     bitwarden-cli
 
     # misc
+    hugo
     neofetch # obligatory
     jetbrains.idea-ultimate #😎
     croc # send files anywhere
