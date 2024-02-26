@@ -26,15 +26,15 @@
     nix-colors.url = "github:Misterio77/nix-colors";
 
     purge = {
-      url = "github:therealr5/purge";
+      url = "github:rouven0/purge";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     trucksimulatorbot = {
-      url = "github:therealr5/TruckSimulatorBot";
+      url = "github:rouven0/TruckSimulatorBot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     pfersel = {
-      url = "github:therealr5/pfersel";
+      url = "github:rouven0/pfersel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

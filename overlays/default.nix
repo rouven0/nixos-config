@@ -8,17 +8,14 @@ let
   inherit (prev) python3Packages;
 in
 rec {
-  pcmanfm = prev.pcmanfm.overrideAttrs (_: {
-    # remove deskop preferences shortcut
-    postInstall = ''
-      rm $out/share/applications/pcmanfm-desktop-pref.desktop
-    '';
-  });
-
   pww = callPackage ../pkgs/pww { };
   ianny = callPackage ../pkgs/ianny { };
 
   tpm2-pkcs11 = prev.tpm2-pkcs11.override { fapiSupport = false; };
+  imv = prev.imv.override {
+    # freeimage is broken
+    withBackends = [ "libtiff" "libjpeg" "libpng" "librsvg" "libheif" ];
+  };
 
   gnome-break-timer = callPackage ../pkgs/gnome-break-timer { };
   jmri = callPackage ../pkgs/jmri { };
