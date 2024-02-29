@@ -11,6 +11,7 @@
       ./modules/hydra
       # ./modules/prometheus
       ./modules/matrix
+      ./modules/mautrix-telegram
       ./modules/seafile
       ./modules/uptime-kuma
       ./modules/vaultwarden

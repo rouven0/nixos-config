@@ -9,6 +9,7 @@ in
     initialAdminPassword = "unused garbage";
     ccnetSettings.General.SERVICE_URL = "https://${domain}";
     ccnetSettings.General.FILE_SERVER_ROOT = "https://${domain}/seafhttp";
+    seafileSettings.fileserver.port = 8083;
   };
   services.nginx.virtualHosts."${domain}" = {
     enableACME = true;

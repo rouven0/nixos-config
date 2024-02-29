@@ -18,6 +18,7 @@ in
   # nuc
   "secrets/nuc/matrix/shared.age".publicKeys = [ rouven nuc ];
   "secrets/nuc/matrix/sync.age".publicKeys = [ rouven nuc ];
+  "secrets/nuc/mautrix-telegram/env.age".publicKeys = [ rouven nuc ];
   "secrets/nuc/vaultwarden.age".publicKeys = [ rouven nuc ];
   "secrets/nuc/cache.age".publicKeys = [ rouven nuc ];
   "secrets/nuc/borg/passphrase.age".publicKeys = [ rouven nuc ];
