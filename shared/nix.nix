@@ -11,11 +11,12 @@
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
       substituters = [
         "https://cache.rfive.de"
-        "https://cache.ifsr.de"
+        # temp disabled until logging error is resolved
+        # "https://cache.ifsr.de"
       ];
       trusted-public-keys = [
         "cache.rfive.de:of5d+o6mfGXQSR3lk6ApfDBr4ampAUaNHux1O/XY3Tw="
-        "cache.ifsr.de:y55KBAMF4YkjIzXwYOKVk9fcQS+CZ9RM1zAAMYQJtsg="
+        # "cache.ifsr.de:y55KBAMF4YkjIzXwYOKVk9fcQS+CZ9RM1zAAMYQJtsg="
       ];
     };
   };
