@@ -29,6 +29,7 @@
     tdesktop
     gajim
     gomuks
+    profanity
     fractal
     tuba # mastodon client
 
