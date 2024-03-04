@@ -81,7 +81,6 @@ in
         smtpd_sasl_path = "/var/lib/postfix/auth";
         smtpd_sasl_type = "dovecot";
         mailbox_transport = "lmtp:unix:/run/dovecot2/dovecot-lmtp";
-
       };
     };
 
@@ -203,31 +202,26 @@ in
           password = "$2$g1jh7t5cxschj11set5wksd656ixd5ie$cgwrj53hfb87xndqbh5r3ow9qfi1ejii8dxok1ihbnhamccn1rxy";
         '';
         "redis.conf".text = ''
-          read_servers = "127.0.0.1";
-          write_servers = "127.0.0.1";
+          read_servers = "/run/redis-rspamd/redis.sock";
+          write_servers = "/run/redis-rspamd/redis.sock";
         '';
         "milter_headers.conf".text = ''
           use = ["x-spam-level", "x-spam-status", "x-spamd-result", "authentication-results" ];
         '';
         "dmarc.conf".text = ''
           reporting {
-            # Required attributes
-            enabled = true; # Enable reports in general
-            email = 'reports@${config.networking.domain}'; # Source of DMARC reports
-            domain = '${config.networking.domain}'; # Domain to serve
-            org_name = '${config.networking.domain}'; # Organisation
+            enabled = true;
+            email = 'reports@${config.networking.domain}';
+            domain = '${config.networking.domain}';
+            org_name = '${config.networking.domain}';
             from_name = 'DMARC Aggregate Report';
           }
         '';
         "dkim_signing.conf".text = ''
           selector = "rspamd";
           allow_username_mismatch = true;
-          domain {
-            rfive.de {
-              path = /var/lib/rspamd/dkim/rfive.key;
-              selector = "rspamd";
-            }
-          }
+          allow_hdrfrom_mismatch = true;
+          path = /var/lib/rspamd/dkim/$domain.key;
         '';
       };
     };
@@ -235,7 +229,6 @@ in
       vmOverCommit = true;
       servers.rspamd = {
         enable = true;
-        port = 6379;
       };
     };
   };
@@ -262,6 +255,7 @@ in
       };
     };
   };
+  users.users.rspamd.extraGroups = [ "redis-rspamd" ];
   systemd = {
     services.rspamd-dmarc-report = {
       description = "rspamd dmarc reporter";
@@ -271,16 +265,7 @@ in
         User = "rspamd";
         Group = "rspamd";
       };
+      startAt = "daily";
     };
-    timers.rspamd-dmarc-report = {
-      description = "Timer for daily dmarc reports";
-      wantedBy = [ "timers.target" ];
-      timerConfig = {
-        OnCalendar = "daily";
-        Unit = "rspamd-dmarc-report.service";
-      };
-
-    };
-
   };
 }
