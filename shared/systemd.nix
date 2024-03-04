@@ -13,6 +13,10 @@
       enableRootSlice = true;
       enableUserSlices = true;
     };
+    watchdog = {
+      runtimeTime = "30s";
+      rebootTime = "10m";
+    };
   };
 
 }
