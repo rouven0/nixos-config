@@ -7,7 +7,6 @@
       ./modules/networks
       ./modules/backup
       ./modules/cache
-      ./modules/keycloak
       ./modules/matrix
       ./modules/mautrix-telegram
       ./modules/seafile
