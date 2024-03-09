@@ -44,7 +44,8 @@ in
       sslKey = "/var/lib/acme/${hostname}/key.pem";
       config = {
         home_mailbox = "Maildir/";
-        smtp_helo_name = "falkenstein.vpn.rfive.de";
+        smtp_helo_name = config.networking.fqdn;
+        smtpd_banner = "${config.networking.fqdn} ESMTP $mail_name";
         smtp_use_tls = true;
         smtpd_use_tls = true;
         smtpd_tls_protocols = [
@@ -220,7 +221,6 @@ in
         "dkim_signing.conf".text = ''
           selector = "rspamd";
           allow_username_mismatch = true;
-          allow_hdrfrom_mismatch = true;
           path = /var/lib/rspamd/dkim/$domain.key;
         '';
       };

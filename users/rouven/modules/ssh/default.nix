@@ -22,7 +22,7 @@ in
         identityFile = git;
       };
       "rfive.de" = {
-        hostname = "falkenstein.vpn.rfive.de";
+        hostname = "falkenstein.rfive.de";
         user = "root";
         extraOptions = {
           VerifyHostKeyDNS = "yes";

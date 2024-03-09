@@ -31,6 +31,10 @@
       "2620:fe::fe"
       "2620:fe::9"
     ];
+    extraConfig = ''
+      [Resolve]
+      DNSStubListener=no
+    '';
   };
   systemd.network = {
     enable = true;
@@ -72,7 +76,7 @@
           wireguardPeerConfig = {
             PublicKey = "Z5lwwHTCDr6OF4lfaCdSHNveunOn4RzuOQeyB+El9mQ=";
             PresharedKeyFile = config.age.secrets."wireguard/dorm/preshared".path;
-            Endpoint = "dorm.vpn.rfive.de:51820";
+            Endpoint = "nuc.rfive.de:51820";
             AllowedIPs = "192.168.42.0/24, 192.168.43.0/24";
           };
         }
