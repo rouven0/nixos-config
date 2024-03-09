@@ -7,14 +7,10 @@
       ./modules/networks
       ./modules/backup
       ./modules/cache
-      # ./modules/grafana
-      # ./modules/hydra
       ./modules/keycloak
-      # ./modules/prometheus
       ./modules/matrix
       ./modules/mautrix-telegram
       ./modules/seafile
-      ./modules/uptime-kuma
       ./modules/vaultwarden
       ./modules/nginx
     ];
