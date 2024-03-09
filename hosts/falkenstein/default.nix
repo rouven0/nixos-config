@@ -5,6 +5,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/backup
+      ./modules/dns
       ./modules/fail2ban
       ./modules/mail
       ./modules/networks
@@ -27,7 +28,6 @@
     initrd.systemd.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };
-  zramSwap.enable = true;
 
   time.timeZone = "Europe/Berlin";
 
