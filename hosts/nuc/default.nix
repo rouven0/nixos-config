@@ -8,7 +8,8 @@
       ./modules/backup
       ./modules/cache
       # ./modules/grafana
-      ./modules/hydra
+      # ./modules/hydra
+      ./modules/keycloak
       # ./modules/prometheus
       ./modules/matrix
       ./modules/mautrix-telegram
@@ -69,8 +70,6 @@
   programs.mosh.enable = true;
 
 
-  # firmware updates
-  services.fwupd.enable = true;
   users.users.root.initialHashedPassword = "$y$j9T$hYM7FT2hn3O7OWBn9uz8e0$XquxONcPSke6YjdRGwOzGxC0/92hgP7PIB0y0K.Qdr/";
   users.users.root.openssh.authorizedKeys.keyFiles = [
     ../../keys/ssh/rouven-thinkpad
