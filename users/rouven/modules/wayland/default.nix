@@ -29,7 +29,7 @@
       { event = "lock"; command = lib.getExe pkgs.swaylock-effects; }
     ];
     timeouts = [
-      { timeout = 300; command = lib.getExe pkgs.swaylock-effects; }
+      # { timeout = 300; command = lib.getExe pkgs.swaylock-effects; }
     ];
     systemdTarget = "graphical-session.target";
   };

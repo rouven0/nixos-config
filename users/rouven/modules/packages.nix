@@ -8,7 +8,7 @@
     zip
     unzip
     man-pages
-    cinnamon.nemo
+    pcmanfm
     xdg-utils # used for xdg-open
     appimage-run
     seafile-client
