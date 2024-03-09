@@ -1,6 +1,6 @@
 { config, pkgs, trucksimulatorbot, ... }:
 let
-  domain = "trucksimulatorbot.${config.networking.domain}";
+  domain = "trucks.${config.networking.domain}";
 in
 {
   services.trucksimulatorbot = {
@@ -24,7 +24,7 @@ in
     ensureDatabases = [ "trucksimulator" ];
   };
   services.nginx.virtualHosts = {
-    "images.${domain}" = {
+    "img.${domain}" = {
       enableACME = true;
       forceSSL = true;
       locations."/" = {

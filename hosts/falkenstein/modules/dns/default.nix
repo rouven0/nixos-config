@@ -6,8 +6,6 @@
       "rfive.de" = {
         master = true;
         slaves = [
-          "192.174.68.104"
-          "176.97.158.104"
           "185.181.104.96"
         ];
         extraConfig = ''
@@ -16,7 +14,7 @@
         file = pkgs.writeText "rfive.de_zone.txt" ''
           $TTL 3600
         
-          rfive.de.  86400  IN  SOA ns.rfive.de. hostmaster.rfive.de. 2024030827 10800 3600 604800 3600
+          rfive.de.  86400  IN  SOA ns.rfive.de. hostmaster.rfive.de. 2024030829 10800 3600 604800 3600
           @  3600   IN  NS  ns.rfive.de.
           @  3600   IN  NS  ns.inwx.de.
           @  3600   IN  NS  ns2.inwx.de.
@@ -47,18 +45,17 @@
           rspamd._domainkey IN TXT "v=DKIM1; k=rsa;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDoirUMubro4nlmY6a8JMwK9QB2agAXiJzexDU/7ba6KCggONfoSTfUHlrM/XeM1GG/9oKpngApxDPP97adJuxc8/EELyo4HjTyYD8GBFZhg0AN7V8IPaJ1o5k6dGDk8ZLh41ZCnlAVWkhVSKs5pYtzkrlJIfUSzyuoe8nuFsVe3QIDAQAB"
           _dmarc            IN TXT "v=DMARC1; p=none; adkim=s; fo=1; rua=mailto:dmarc@rfive.de; ruf=mailto:dmarc@rfive.de"
 
-          auth                     IN CNAME nuc.rfive.de.
-          test                     IN CNAME nuc.rfive.de.
-          cache                    IN CNAME nuc.rfive.de.
-          chat                     IN CNAME nuc.rfive.de.
-          images.trucksimulatorbot IN CNAME falkenstein.rfive.de.
-          matrix                   IN CNAME nuc.rfive.de.
-          purge                    IN CNAME falkenstein.rfive.de.
-          rspamd                   IN CNAME falkenstein.rfive.de.
-          seafile                  IN CNAME nuc.rfive.de.
-          trucksimulatorbot        IN CNAME falkenstein.rfive.de.
-          uptime                   IN CNAME nuc.rfive.de.
-          vault                    IN CNAME nuc.rfive.de.
+          auth       IN CNAME nuc.rfive.de.
+          cache      IN CNAME nuc.rfive.de.
+          chat       IN CNAME nuc.rfive.de.
+          img.trucks IN CNAME falkenstein.rfive.de.
+          matrix     IN CNAME nuc.rfive.de.
+          purge      IN CNAME falkenstein.rfive.de.
+          rspamd     IN CNAME falkenstein.rfive.de.
+          seafile    IN CNAME nuc.rfive.de.
+          trucks     IN CNAME falkenstein.rfive.de.
+          uptime     IN CNAME nuc.rfive.de.
+          vault      IN CNAME nuc.rfive.de.
 
           _discord IN TXT "dh=0bcca75b0a56c304f0c23fbdb3f12009411e8c0c"
         '';
