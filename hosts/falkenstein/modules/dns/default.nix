@@ -4,7 +4,7 @@ let
     $TTL 3600
     $ORIGIN rfive.de.
         
-    rfive.de.  86400  IN  SOA ns.inwx.de. hostmaster.rfive.de. 2024031009 10800 3600 604800 3600
+    rfive.de.  86400  IN  SOA ns.rfive.de. hostmaster.rfive.de. 2024031010 10800 3600 604800 3600
     @ NS ns.inwx.de.
     @ NS ns2.inwx.de.
     @ NS ns3.inwx.eu.
@@ -15,6 +15,9 @@ let
     @   CAA 0 iodef "mailto:ca@rfive.de"
     @   CAA 0 issue "letsencrypt.org"
     @   CAA 0 issuewild ";"
+
+    ns   A    23.88.121.184
+    ns   AAAA 2a01:4f8:c012:49de::1
 
     nuc         A     141.30.227.6
     falkenstein A     23.88.121.184
