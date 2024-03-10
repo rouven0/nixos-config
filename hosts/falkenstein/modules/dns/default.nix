@@ -1,5 +1,6 @@
 { pkgs, config, ... }:
 let
+  secondary = "185.181.104.96";
   zonefile = pkgs.writeText "rfive.de.zone.txt" ''
     $TTL 3600
     $ORIGIN rfive.de.
@@ -56,10 +57,10 @@ in
       "rfive.de" = {
         master = true;
         slaves = [
-          "185.181.104.96"
+          secondary
         ];
         extraConfig = ''
-          also-notify {185.181.104.96;};
+          also-notify {${secondary};};
           dnssec-policy default;
           inline-signing yes;
           serial-update-method date;
@@ -72,6 +73,8 @@ in
     # copy the file manually to its destination since signing requires a writable directory
     ${pkgs.coreutils}/bin/cp ${zonefile} ${config.services.bind.directory}/rfive.de.zone.txt
   '';
-  networking.firewall.allowedUDPPorts = [ 53 ];
-  networking.firewall.allowedTCPPorts = [ 53 ];
+  networking.firewall.extraInputRules = ''
+    ip saddr ${secondary}/32 tcp dport 53 accept comment "Allow DNS AXFR access from INWX Servers"
+    ip saddr ${secondary}/32 udp dport 53 accept comment "Allow DNS access from INWX Servers"
+  '';
 }
