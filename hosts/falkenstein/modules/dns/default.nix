@@ -4,14 +4,10 @@ let
     $TTL 3600
     $ORIGIN rfive.de.
         
-    rfive.de.  86400  IN  SOA ns.rfive.de. hostmaster.rfive.de. 2024030838 10800 3600 604800 3600
-    @ NS ns0.rfive.de.
+    rfive.de.  86400  IN  SOA ns.inwx.de. hostmaster.rfive.de. 2024031009 10800 3600 604800 3600
     @ NS ns.inwx.de.
     @ NS ns2.inwx.de.
     @ NS ns3.inwx.eu.
-
-    ns0 A 23.88.121.184
-    ns0 AAAA 2a01:4f8:c012:49de::1
 
     @   A    23.88.121.184
     @   AAAA 2a01:4f8:c012:49de::1
@@ -40,13 +36,13 @@ let
 
     cache      CNAME nuc.rfive.de.
     chat       CNAME nuc.rfive.de.
-    img.trucks CNAME falkenstein.rfive.de.
     matrix     CNAME nuc.rfive.de.
+    seafile    CNAME nuc.rfive.de.
+    vault      CNAME nuc.rfive.de.
+
     purge      CNAME falkenstein.rfive.de.
     rspamd     CNAME falkenstein.rfive.de.
-    seafile    CNAME nuc.rfive.de.
     trucks     CNAME falkenstein.rfive.de.
-    vault      CNAME nuc.rfive.de.
   '';
 in
 {
@@ -63,6 +59,7 @@ in
           also-notify {185.181.104.96;};
           dnssec-policy default;
           inline-signing yes;
+          serial-update-method date;
         '';
         file = "${directory}/rfive.de.zone.txt";
       };
