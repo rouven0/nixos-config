@@ -4,7 +4,8 @@
     gdb
     lldb
     rust-analyzer
-    rnix-lsp
+    nil
+    nixpkgs-fmt
     typst-lsp
     (python3.withPackages (ps: with ps; [
       pyls-isort
@@ -28,14 +29,15 @@
     enable = true;
 
     languages = {
-      language-server.rnix-lsp = {
-        command = "rnix-lsp";
+      language-server.nil = {
+        command = "nil";
+        config = { nil.formatting.command = [ "nixpkgs-fmt" ]; };
       };
       language = [
         {
           name = "nix";
           auto-format = true;
-          language-servers = [ "rnix-lsp" ];
+          language-servers = [ "nil" ];
         }
       ];
     };
@@ -46,6 +48,7 @@
         color-modes = true;
         line-number = "relative";
         cursor-shape.insert = "bar";
+        completion-trigger-len = 0;
         lsp = {
           display-messages = true;
           display-inlay-hints = true;

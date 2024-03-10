@@ -5,6 +5,7 @@
     # essentials
     htop-vim
     lsof
+
     zip
     unzip
     man-pages
@@ -31,7 +32,6 @@
     gomuks
     profanity
     fractal
-    tuba # mastodon client
 
     # games
     prismlauncher
@@ -43,10 +43,7 @@
     bitwarden-cli
 
     # misc
-    hugo
     neofetch # obligatory
-    jetbrains.idea-ultimate #😎
-    croc # send files anywhere
     xournalpp
     libreoffice
     mosh
