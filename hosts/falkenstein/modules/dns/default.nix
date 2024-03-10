@@ -4,8 +4,14 @@ let
   zonefile = pkgs.writeText "rfive.de.zone.txt" ''
     $TTL 3600
     $ORIGIN rfive.de.
-        
-    rfive.de.  86400  IN  SOA ns.rfive.de. hostmaster.rfive.de. 2024031010 10800 3600 604800 3600
+
+    rfive.de.   86400  IN  SOA ns.rfive.de. hostmaster.rfive.de. (
+      2024031013 ; serial
+      10800      ; refresh
+      3600       ; retry
+      604800     ; expire
+      3600 )     ; negatives caching, ehem. minimum
+    
     @ NS ns.inwx.de.
     @ NS ns2.inwx.de.
     @ NS ns3.inwx.eu.
