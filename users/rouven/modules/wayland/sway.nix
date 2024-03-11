@@ -7,9 +7,6 @@
     config = rec {
       startup = [
         {
-          command = "${lib.getExe pkgs.swaybg} -i ${../../../../images/wallpaper.png} -m fill";
-        }
-        {
           command = "${pkgs.autotiling-rs}/bin/autotiling-rs";
         }
         {

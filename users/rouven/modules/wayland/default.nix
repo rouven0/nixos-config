@@ -60,6 +60,18 @@
     };
   };
 
+  systemd.user.services.swaybg = {
+    Unit = {
+      Description = "Wallpaper tool for Wayland compositors";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.swaybg}/bin/swaybg -i ${../../../../images/wallpaper.png} -m fill";
+    };
+    Install = { WantedBy = [ "graphical-session.target" ]; };
+  };
+
   services.wlsunset = {
     enable = true;
     longitude = "13";

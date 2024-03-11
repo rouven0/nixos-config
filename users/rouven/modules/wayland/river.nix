@@ -23,6 +23,7 @@
           "Super" = {
             Return = "spawn footclient";
             Space = "toggle-float";
+            A = "spawn\"${pkgs.wofi-emoji}/bin/wofi-emoji\"";
             F = "toggle-fullscreen";
             H = "focus-output previous";
             J = "focus-view previous";
@@ -41,7 +42,6 @@
           };
           "Alt" = builtins.mapAttrs (_key: bind: "spawn " + bind) {
             Space = "${pkgs.fuzzel}/bin/fuzzel";
-            A = "${pkgs.wofi-emoji}/bin/wofi-emoji";
           };
           "None" = builtins.mapAttrs (_key: bind: "spawn \"" + bind + "\"") {
             Print = "${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
@@ -80,7 +80,6 @@
 
       spawn = [
         "rivertile"
-        ''"${pkgs.swaybg}/bin/swaybg -i ${../../../../images/wallpaper.png} -m fill"''
       ];
     };
   };
