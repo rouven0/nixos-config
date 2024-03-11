@@ -6,7 +6,7 @@ let
     $ORIGIN rfive.de.
 
     rfive.de.   86400  IN  SOA ns.rfive.de. hostmaster.rfive.de. (
-      2024031013 ; serial
+      2024031014 ; serial
       10800      ; refresh
       3600       ; retry
       604800     ; expire
@@ -59,6 +59,16 @@ in
   services.bind = rec {
     enable = true;
     directory = "/var/lib/bind";
+    extraConfig = ''
+      dnssec-policy "split-keys" {
+        keys {
+          ksk lifetime unlimited algorithm ecdsap256sha256;
+          zsk lifetime 60d algorithm ecdsap256sha256;
+        };
+        publish-safety 1d;
+        retire-safety 1d;
+      };
+    '';
     zones = {
       "rfive.de" = {
         master = true;
@@ -67,7 +77,7 @@ in
         ];
         extraConfig = ''
           also-notify {${secondary};};
-          dnssec-policy default;
+          dnssec-policy split-keys;
           inline-signing yes;
           serial-update-method date;
         '';
@@ -83,4 +93,5 @@ in
     ip saddr ${secondary}/32 tcp dport 53 accept comment "Allow DNS AXFR access from INWX Servers"
     ip saddr ${secondary}/32 udp dport 53 accept comment "Allow DNS access from INWX Servers"
   '';
+  environment.systemPackages = with pkgs; [ dig.out ];
 }
