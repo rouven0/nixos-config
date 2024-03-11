@@ -3,11 +3,10 @@ let
   inherit (prev) callPackage;
   inherit (prev) fetchFromGitHub;
   inherit (prev) fetchPypi;
-  inherit (prev) fetchpatch;
   inherit (prev) makeWrapper;
   inherit (prev) python3Packages;
 in
-rec {
+{
   pww = callPackage ../pkgs/pww { };
   ianny = callPackage ../pkgs/ianny { };
 

@@ -39,11 +39,11 @@
             K = ''send-layout-cmd rivertile "main-count +1"'';
             L = ''send-layout-cmd rivertile "main-ratio +0.05"'';
           };
-          "Alt" = builtins.mapAttrs (key: bind: "spawn " + bind) {
+          "Alt" = builtins.mapAttrs (_key: bind: "spawn " + bind) {
             Space = "${pkgs.fuzzel}/bin/fuzzel";
             A = "${pkgs.wofi-emoji}/bin/wofi-emoji";
           };
-          "None" = builtins.mapAttrs (key: bind: "spawn \"" + bind + "\"") {
+          "None" = builtins.mapAttrs (_key: bind: "spawn \"" + bind + "\"") {
             Print = "${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
             XF86Launch2 = "${pkgs.sway-contrib.grimshot}/bin/grimshot save area - | ${pkgs.swappy}/bin/swappy -f -";
             XF86MonBrightnessUp = "${pkgs.light}/bin/light -A 10";
@@ -56,7 +56,7 @@
             XF86Messenger = "${pkgs.swaynotificationcenter}/bin/swaync-client --toggle-panel";
             Cancel = "${pkgs.swaynotificationcenter}/bin/swaync-client --hide-latest";
           };
-          "Shift" = builtins.mapAttrs (key: bind: "spawn \"" + bind + "\"") {
+          "Shift" = builtins.mapAttrs (_key: bind: "spawn \"" + bind + "\"") {
             XF86AudioRaiseVolume = "${pkgs.pulseaudio}/bin/pactl set-source-volume @DEFAULT_SOURCE@ +5%";
             XF86AudioLowerVolume = "${pkgs.pulseaudio}/bin/pactl set-source-volume @DEFAULT_SOURCE@ -5%";
             Cancel = "${pkgs.swaynotificationcenter}/bin/swaync-client --cloes-all";
@@ -64,7 +64,7 @@
         }
         # fuckery. Encodes https://github.com/riverwm/river/blob/c474be1537c833da35682ef54194c3d6ddf1eee0/example/init#L77 in nix
         (lib.attrsets.mapAttrs
-          (mod: value: lib.attrsets.genAttrs (lib.lists.forEach (lib.lists.range 1 9) (num: toString num))
+          (_mod: value: lib.attrsets.genAttrs (lib.lists.forEach (lib.lists.range 1 9) (num: toString num))
             (tag: value + builtins.replaceStrings [ "TAG" ] [ tag ] " $((1 << (TAG - 1)))"))
           {
             "Super" = "set-focused-tags";

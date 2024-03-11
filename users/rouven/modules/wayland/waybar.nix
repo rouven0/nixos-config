@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 {
   systemd.user.services.waybar.Service.Environment = "PATH=${pkgs.swaynotificationcenter}/bin";
   programs.waybar = {
