@@ -5,6 +5,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/networks
+      ./modules/adguard
       ./modules/backup
       ./modules/cache
       ./modules/matrix

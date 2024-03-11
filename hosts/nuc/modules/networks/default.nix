@@ -21,12 +21,10 @@
       "2620:fe::fe"
       "2620:fe::9"
     ];
-    # make room for the adguard dns
-    # extraConfig = ''
-    #   [Resolve]
-    #   DNS=127.0.0.1
-    #   DNSStubListener=no
-    # '';
+    extraConfig = ''
+      [Resolve]
+      DNSStubListener=no
+    '';
   };
   systemd.network = {
     enable = true;
