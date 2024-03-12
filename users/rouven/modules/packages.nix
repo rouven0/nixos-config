@@ -8,7 +8,6 @@
 
     zip
     unzip
-    man-pages
     pcmanfm
     xdg-utils # used for xdg-open
     appimage-run
