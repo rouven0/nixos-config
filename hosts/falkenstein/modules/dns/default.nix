@@ -88,6 +88,7 @@ in
   systemd.services.bind.preStart = ''
     # copy the file manually to its destination since signing requires a writable directory
     ${pkgs.coreutils}/bin/cp ${zonefile} ${config.services.bind.directory}/rfive.de.zone.txt
+    ${pkgs.coreutils}/bin/chown named:named ${config.services.bind.directory}/rfive.de.zone.txt
   '';
   networking.firewall.extraInputRules = ''
     ip saddr ${secondary}/32 tcp dport 53 accept comment "Allow DNS AXFR access from INWX Servers"
