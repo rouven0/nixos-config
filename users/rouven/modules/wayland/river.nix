@@ -23,7 +23,7 @@
           "Super" = {
             Return = "spawn footclient";
             Space = "toggle-float";
-            A = "spawn\"${pkgs.wofi-emoji}/bin/wofi-emoji\"";
+            A = "spawn ${pkgs.wofi-emoji}/bin/wofi-emoji";
             F = "toggle-fullscreen";
             H = "focus-output previous";
             J = "focus-view previous";
@@ -73,9 +73,9 @@
             "Super+Shift+Control" = "toggle-view-tags";
           })
       ];
-      map-pointer.normal = {
-        "Super BTN_LEFT" = "move-view";
-        "Super BTN_RIGHT" = "resize-view";
+      map-pointer.normal."Super" = {
+        "BTN_LEFT" = "move-view";
+        "BTN_RIGHT" = "resize-view";
       };
 
       spawn = [

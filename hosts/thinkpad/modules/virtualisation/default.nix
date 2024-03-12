@@ -8,11 +8,7 @@
         runAsRoot = false;
         swtpm.enable = true;
         ovmf.packages = [
-          (pkgs.OVMF.override ({
-            tpmSupport = true;
-            secureBoot =
-              true;
-          })).fd
+          (pkgs.OVMF.override ({ tpmSupport = true; secureBoot = true; })).fd
         ];
       };
     };
