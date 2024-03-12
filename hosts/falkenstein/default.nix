@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports =
     [
@@ -27,6 +27,11 @@
     };
     initrd.systemd.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
+  };
+
+  users.users.rouven = {
+    description = "Rouven Seifert";
+    isNormalUser = true;
   };
 
   time.timeZone = "Europe/Berlin";
