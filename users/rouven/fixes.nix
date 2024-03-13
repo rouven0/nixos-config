@@ -58,7 +58,7 @@
   # global wrapper for ausweisapp
   programs.ausweisapp = {
     enable = true;
-    openFirewall = true;
+    # openFirewall = true;
   };
   # home manager steam is borderline broken
   programs.steam.enable = true;

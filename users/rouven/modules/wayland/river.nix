@@ -1,8 +1,16 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, river, ... }:
 {
   wayland.windowManager.river = {
     enable = true;
-    systemd.extraCommands = [ "systemctl --user start river-session.target" ];
+    package = with pkgs; pkgs.river.overrideAttrs (old: {
+      src = river;
+      buildInputs = lib.lists.remove wlroots_0_16 old.buildInputs ++ [
+        (wlroots.overrideAttrs (_: {
+          version = "0.17.2";
+        }))
+      ];
+    });
+    systemd. extraCommands = [ "systemctl --user start river-session.target" ];
     settings = {
       focus-follows-cursor = "always";
       set-cursor-warp = "on-focus-change";
@@ -30,7 +38,6 @@
             K = "focus-view next";
             L = "focus-output next";
             O = "send-to-output next";
-            S = "send-to-output next";
           };
           "Super+Shift" = {
             Return = "zoom";

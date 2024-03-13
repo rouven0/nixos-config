@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
 
   imports =
@@ -58,10 +58,6 @@
     blueman.enable = true; # bluetooth
     devmon.enable = true; # automount stuff
     upower.enable = true;
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-    };
     fwupd.enable = true; # firmware updates
     zfs.autoScrub.enable = true;
   };
@@ -96,5 +92,6 @@
     dev.enable = true;
     man.generateCaches = true;
   };
+  environment.systemPackages = [ pkgs.man-pages ];
   system.stateVersion = "22.11";
 }

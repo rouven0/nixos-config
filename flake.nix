@@ -43,6 +43,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    river = {
+      url = "https://github.com/riverwm/river";
+      flake = false;
+      type = "git";
+      submodules = true;
+    };
+
   };
 
   outputs =
@@ -57,6 +64,7 @@
     , purge
     , trucksimulatorbot
     , pfersel
+    , river
     , ...
     }@attrs: {
       packages.x86_64-linux = {
