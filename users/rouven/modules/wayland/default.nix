@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./sway.nix
     ./river.nix
     ./breaktimer.nix
     ./waybar.nix
