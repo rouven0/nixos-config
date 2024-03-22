@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
   virtualisation = {
-    docker.enable = true;
+    docker = {
+      enable = true;
+      extraOptions = "--iptables=false";
+    };
     libvirtd = {
       enable = true;
       qemu = {
@@ -15,7 +18,7 @@
     spiceUSBRedirection.enable = true;
   };
   # allow libvirts internal network stuff
-  networking.firewall.trustedInterfaces = [ "virbr0" "br0" ];
+  networking.firewall.trustedInterfaces = [ "virbr0" "br0" "docker0" ];
   programs.virt-manager.enable = true;
   environment.systemPackages = with pkgs; [
     virt-viewer

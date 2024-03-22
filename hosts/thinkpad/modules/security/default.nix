@@ -35,13 +35,13 @@
     # This setting is usually set to true in configuration.nix
     # generated at installation time. So we force it to false
     # for now.
-    loader.systemd-boot.enable = lib.mkForce true;
-    # lanzaboote = {
-    #   enable = true;
-    #   pkiBundle = "/etc/secureboot";
-    #   configurationLimit = 10;
-    # };
-    # loader.systemd-boot.editor = false;
-    # loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = lib.mkForce false;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+      configurationLimit = 10;
+    };
+    loader.systemd-boot.editor = false;
+    loader.efi.canTouchEfiVariables = true;
   };
 }

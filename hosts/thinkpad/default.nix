@@ -25,12 +25,12 @@
   boot = {
     kernelModules = [ "v4l2loopback" ];
     kernelPackages = pkgs.linuxPackages_latest;
-    extraModulePackages = [
-      config.boot.kernelPackages.v4l2loopback
-    ];
-    extraModprobeConfig = ''
-      options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
-    '';
+    # extraModulePackages = [
+    #   config.boot.kernelPackages.v4l2loopback
+    # ];
+    # extraModprobeConfig = ''
+    #   options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+    # '';
     tmp.useTmpfs = true;
   };
 
