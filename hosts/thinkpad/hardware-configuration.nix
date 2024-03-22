@@ -35,39 +35,47 @@
   };
 
 
-  fileSystems."/nix" =
-    {
-      device = "rpool/nixos/nix";
-      fsType = "zfs";
+#  fileSystems."/" =
+#    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
+#      fsType = "btrfs";
+#      options = [ "subvol=root" ];
+ #   };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" ];
     };
 
-  fileSystems."/var/lib" =
-    {
-      device = "rpool/nixos/var/lib";
-      fsType = "zfs";
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
+      fsType = "btrfs";
+      options = [ "subvol=nix" "compress=zstd" "noatime"];
     };
 
   fileSystems."/var/log" =
-    {
-      device = "rpool/nixos/var/log";
-      fsType = "zfs";
+    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
+      fsType = "btrfs";
+      options = [ "subvol=log" "compress=zstd" ];
     };
 
-  fileSystems."/home" =
-    {
-      device = "rpool/nixos/home";
-      fsType = "zfs";
+  fileSystems."/var/lib" =
+    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
+      fsType = "btrfs";
+      options = [ "subvol=lib" "compress=zstd" ];
     };
-  fileSystems."/" =
-    {
-      device = "tmpfs";
-      fsType = "tmpfs";
-      options = [ "mode=755" ];
-    };
+
+
+   fileSystems."/" =
+     {
+       device = "tmpfs";
+       fsType = "tmpfs";
+       options = [ "mode=755" ];
+     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/DF86-7611";
+      device = "/dev/disk/by-uuid/12CE-A600";
       fsType = "vfat";
     };
 

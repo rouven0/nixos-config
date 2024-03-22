@@ -24,7 +24,7 @@
   # Use the systemd-boot EFI boot loader.
   boot = {
     kernelModules = [ "v4l2loopback" ];
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
     extraModulePackages = [
       config.boot.kernelPackages.v4l2loopback
     ];
@@ -59,7 +59,7 @@
     devmon.enable = true; # automount stuff
     upower.enable = true;
     fwupd.enable = true; # firmware updates
-    zfs.autoScrub.enable = true;
+    btrfs.autoScrub.enable = true;
   };
   hardware.bluetooth = {
     enable = true;
