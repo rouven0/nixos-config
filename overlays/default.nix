@@ -15,6 +15,30 @@ in
     # freeimage is broken
     withBackends = [ "libtiff" "libjpeg" "libpng" "librsvg" "libheif" ];
   };
+  # don't compile the bloat
+  rsyslog = prev.rsyslog.override {
+    withMysql = false;
+    withJemalloc = false;
+    withPostgres = false;
+    withUuid = false;
+    withCurl = false;
+    withDbi = false;
+    withNetSnmp = false;
+    withGnutls = false;
+    withGcrypt = false;
+    withLognorm = false;
+    withMaxminddb = false;
+    withOpenssl = false;
+    withRelp = false;
+    withKsi = false;
+    withLogging = false;
+    withHadoop = false;
+    withRdkafka = false;
+    withMongo = false;
+    withCzmq = false;
+    withRabbitmq = false;
+    withHiredis = false;
+  };
 
   gnome-break-timer = callPackage ../pkgs/gnome-break-timer { };
   jmri = callPackage ../pkgs/jmri { };
