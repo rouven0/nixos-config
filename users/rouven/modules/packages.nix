@@ -27,7 +27,6 @@
 
     # messaging
     tdesktop
-    gajim
     gomuks
     profanity
     fractal

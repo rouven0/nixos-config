@@ -8,7 +8,6 @@
     ./helix
     ./wayland
     ./mpv
-    ./qutebrowser
     ./ssh
     ./theme
     ./tex
