@@ -10,6 +10,13 @@ in
   pww = callPackage ../pkgs/pww { };
   ianny = callPackage ../pkgs/ianny { };
 
+  fprintd = prev.fprintd.overrideAttrs (_: {
+    mesonCheckFlags = [
+      "--no-suite"
+      "fprintd:TestPamFprintd"
+    ];
+  });
+
   tpm2-pkcs11 = prev.tpm2-pkcs11.override { fapiSupport = false; };
   imv = prev.imv.override {
     # freeimage is broken
