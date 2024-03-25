@@ -6,6 +6,8 @@
       type = types.attrsOf (types.submodule
         ({ name, ... }: {
           # split up nginx access logs per vhost
+          enableACME = true;
+          forceSSL = true;
           extraConfig = ''
             access_log /var/log/nginx/${name}_access.log;
             error_log /var/log/nginx/${name}_error.log;

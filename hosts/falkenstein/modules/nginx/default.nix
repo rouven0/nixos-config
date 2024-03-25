@@ -5,6 +5,8 @@
     services.nginx.virtualHosts = mkOption {
       type = types.attrsOf (types.submodule
         ({ name, ... }: {
+          enableACME = true;
+          forceSSL = true;
           # enable http3 for all hosts
           quic = true;
           http3 = true;
