@@ -52,8 +52,6 @@
         recommendedGzipSettings = true;
         recommendedOptimisation = true;
         virtualHosts."${config.networking.domain}" = {
-          enableACME = true;
-          forceSSL = true;
           root = "/srv/web/${config.networking.domain}";
           locations = {
             "/.well-known/matrix/client".extraConfig = mkWellKnown clientConfig;

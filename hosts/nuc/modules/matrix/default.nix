@@ -67,10 +67,6 @@ in
       virtualHosts = {
         # synapse
         "${domain}" = {
-          enableACME = true;
-          forceSSL = true;
-
-
           # locations."/".extraConfig = "return 404;";
 
           # # proxy to synapse
@@ -83,9 +79,6 @@ in
 
         # element
         "${domainClient}" = {
-          enableACME = true;
-          forceSSL = true;
-
           root = pkgs.element-web.override {
             conf = {
               default_server_config = {
