@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     nvme-cli
     intel-gpu-tools
+    nvtopPackages.intel
     lm_sensors
     pciutils
   ];
@@ -35,43 +36,47 @@
   };
 
 
-#  fileSystems."/" =
-#    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
-#      fsType = "btrfs";
-#      options = [ "subvol=root" ];
- #   };
+  #  fileSystems."/" =
+  #    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
+  #      fsType = "btrfs";
+  #      options = [ "subvol=root" ];
+  #   };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
+    {
+      device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
+    {
+      device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
       fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime"];
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
+    {
+      device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
       fsType = "btrfs";
       options = [ "subvol=log" "compress=zstd" ];
     };
 
   fileSystems."/var/lib" =
-    { device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
+    {
+      device = "/dev/disk/by-uuid/43e42607-bc44-45de-a2c1-a09a4e34daf1";
       fsType = "btrfs";
       options = [ "subvol=lib" "compress=zstd" ];
     };
 
 
-   fileSystems."/" =
-     {
-       device = "tmpfs";
-       fsType = "tmpfs";
-       options = [ "mode=755" ];
-     };
+  fileSystems."/" =
+    {
+      device = "tmpfs";
+      fsType = "tmpfs";
+      options = [ "mode=755" ];
+    };
 
   fileSystems."/boot" =
     {
