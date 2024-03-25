@@ -398,11 +398,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711389856,
-        "narHash": "sha256-fz75+eNnBgYnLvH1PlG6Rxr+YU7mvltyz0MyQQbG1CA=",
+        "lastModified": 1711391819,
+        "narHash": "sha256-sNI0PLFXvFM5M6h9PYrbF+IfL199OYLRz875lNZ9Y0Q=",
         "owner": "rouven0",
         "repo": "purge",
-        "rev": "4efddb7c14ac11e20f1fa7cfc98711c47ad75bad",
+        "rev": "e82088390a446b6ad1f4df92d62478ea557d98de",
         "type": "github"
       },
       "original": {
@@ -414,11 +414,11 @@
     "river": {
       "flake": false,
       "locked": {
-        "lastModified": 1711277167,
-        "narHash": "sha256-i+5wQkGsiyN/LaGfuj306tdiv+7vcbgahL9JvscM4iw=",
+        "lastModified": 1711393006,
+        "narHash": "sha256-vwOJIc2gUUa8MuiEzV/phB2sAl5pWdC6mnivNimmXqk=",
         "ref": "refs/heads/master",
-        "rev": "12de175e115f08d1a77b438910ba6dc58a3d80af",
-        "revCount": 1216,
+        "rev": "4d0315b56596868d5ae39d18fe74d8be5c4ac50d",
+        "revCount": 1220,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/riverwm/river"
@@ -507,11 +507,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710096282,
-        "narHash": "sha256-t4190TfQUJoqaFEUX4DNGMDaQ+rJJxffwir0EEwnfDY=",
+        "lastModified": 1711395032,
+        "narHash": "sha256-2fH6TXdPKZaTx6NXucFn7HaFDZ9vC1ebTql5XkdkWTI=",
         "owner": "rouven0",
         "repo": "TruckSimulatorBot",
-        "rev": "da4e4e1908aebc93744cbbe9a7867a9b60da02e9",
+        "rev": "4776a2235fffb96aa8fcc8e33d39af17907754ae",
         "type": "github"
       },
       "original": {
