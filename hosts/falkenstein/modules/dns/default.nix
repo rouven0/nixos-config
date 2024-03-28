@@ -6,7 +6,7 @@ let
     $ORIGIN rfive.de.
 
     rfive.de.   86400  IN  SOA ns.rfive.de. hostmaster.rfive.de. (
-      2024031014 ; serial
+      2024032601 ; serial
       10800      ; refresh
       3600       ; retry
       604800     ; expire
@@ -41,8 +41,6 @@ let
     @                 TXT "v=spf1 mx ~all"
     rspamd._domainkey TXT "v=DKIM1; k=rsa;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDoirUMubro4nlmY6a8JMwK9QB2agAXiJzexDU/7ba6KCggONfoSTfUHlrM/XeM1GG/9oKpngApxDPP97adJuxc8/EELyo4HjTyYD8GBFZhg0AN7V8IPaJ1o5k6dGDk8ZLh41ZCnlAVWkhVSKs5pYtzkrlJIfUSzyuoe8nuFsVe3QIDAQAB"
     _dmarc            TXT "v=DMARC1; p=none; adkim=s; fo=1; rua=mailto:dmarc@rfive.de; ruf=mailto:dmarc@rfive.de"
-
-    _discord          TXT "dh=0bcca75b0a56c304f0c23fbdb3f12009411e8c0c"
 
     cache      CNAME nuc.rfive.de.
     chat       CNAME nuc.rfive.de.
