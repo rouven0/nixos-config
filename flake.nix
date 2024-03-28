@@ -64,7 +64,6 @@
     , purge
     , trucksimulatorbot
     , pfersel
-    , river
     , ...
     }@attrs: {
       packages.x86_64-linux = {
