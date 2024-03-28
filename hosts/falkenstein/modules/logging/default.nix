@@ -18,9 +18,6 @@
       delaycompress
       weekly
       rotate 156
-      dateext
-      dateformat .%Y-%m-%d
-      extension log
     }
     "/var/log/nginx/*.log" {
       compress
