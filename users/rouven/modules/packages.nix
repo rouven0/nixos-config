@@ -27,9 +27,6 @@
 
     # messaging
     tdesktop
-    gomuks
-    profanity
-    fractal
 
     # games
     prismlauncher
