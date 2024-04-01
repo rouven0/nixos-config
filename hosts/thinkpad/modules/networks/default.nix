@@ -163,6 +163,7 @@
       networkConfig = {
         Address = "192.168.43.3/32";
         DNS = "192.168.43.1";
+        Domains = "~lan";
         DNSSEC = true;
         BindCarrier = [ "wlp9s0" ];
       };
