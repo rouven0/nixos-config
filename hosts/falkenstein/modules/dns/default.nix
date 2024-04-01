@@ -6,7 +6,7 @@ let
     $ORIGIN rfive.de.
 
     rfive.de.   86400  IN  SOA ns.rfive.de. hostmaster.rfive.de. (
-      2024040102 ; serial
+      2024040103 ; serial
       10800      ; refresh
       3600       ; retry
       604800     ; expire
@@ -29,10 +29,6 @@ let
     nuc         A     141.30.227.6
     falkenstein A     23.88.121.184
     falkenstein AAAA  2a01:4f8:c012:49de::1
-    falkenstein SSHFP 1 1 DE42CA418093CF94EABC124E101AE4D8DE02C69F
-    falkenstein SSHFP 1 2 149100F5C3CA333E20E7B03EB463B0FB23D34FFE1FC65EFAADDDBE51 8EC35990
-    falkenstein SSHFP 4 1 70A38677DEE50C5B67AA11400A6BCD4984355C2A
-    falkenstein SSHFP 4 2 B25AD18A23C885AE965875C4C9EDA4E4EDFD3503334B10F0BFE7527B EB178CB2
 
     @    MX 1 mail.rfive.de.
     mail A 23.88.121.184
