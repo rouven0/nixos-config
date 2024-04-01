@@ -3,14 +3,14 @@ let
   git = "~/.ssh/git";
 in
 {
-  programs.ssh = rec {
+  programs.ssh = {
     enable = true;
     compression = true;
     controlMaster = "auto";
     controlPersist = "10m";
     extraConfig = ''
       CanonicalizeHostname yes
-      CanonicalDomains agdsn.network
+      CanonicalDomains agdsn.network vpn.rfive.de
       PKCS11Provider /run/current-system/sw/lib/libtpm2_pkcs11.so
       IdentityFile ~/.ssh/id_ed25519
       VisualHostKey = yes
@@ -21,26 +21,6 @@ in
         match = "Host github.com User git";
         identityFile = git;
       };
-      "rfive.de" = {
-        hostname = "falkenstein.rfive.de";
-        user = "root";
-        extraOptions = {
-          VerifyHostKeyDNS = "yes";
-        };
-      };
-      # used for nix remote building
-      falkenstein = matchBlocks."rfive.de";
-
-      "nuc" = {
-        hostname = "192.168.42.2";
-        user = "root";
-      };
-
-      "router" = {
-        hostname = "192.168.42.1";
-        user = "root";
-      };
-
       # iFSR
       "fsr" = {
         hostname = "ifsr.de";
@@ -70,10 +50,6 @@ in
         hostname = "tomate.ifsr.de";
         user = "root";
       };
-      "durian" = {
-        hostname = "durian.ifsr.de";
-        user = "root";
-      };
       "git@ifsr.de" = {
         match = "Host ifsr.de User git";
         identityFile = git;
@@ -93,6 +69,9 @@ in
           ProxyJump = "dijkstra";
           VerifyHostKeyDNS = "yes";
         };
+      };
+      "*.vpn.rfive.de" = {
+        user = "root";
       };
       "git@git.agdsn.de" = {
         match = "Host git.agdsn.de User git";

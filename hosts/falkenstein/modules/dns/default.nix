@@ -6,7 +6,7 @@ let
     $ORIGIN rfive.de.
 
     rfive.de.   86400  IN  SOA ns.rfive.de. hostmaster.rfive.de. (
-      2024032601 ; serial
+      2024040102 ; serial
       10800      ; refresh
       3600       ; retry
       604800     ; expire
