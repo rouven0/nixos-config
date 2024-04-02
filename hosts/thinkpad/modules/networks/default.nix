@@ -163,7 +163,7 @@
       networkConfig = {
         Address = "192.168.43.3/32";
         DNS = "192.168.43.1";
-        Domains = "~vpn.rfive.de";
+        Domains = "~vpn.rfive.de ~43.168.192.in-addr.arpa";
         DNSSEC = false;
         BindCarrier = [ "wlp9s0" ];
       };
