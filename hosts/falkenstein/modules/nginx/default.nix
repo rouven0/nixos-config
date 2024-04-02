@@ -14,6 +14,7 @@
           extraConfig = ''
             access_log /var/log/nginx/${name}_access.log;
             error_log /var/log/nginx/${name}_error.log;
+            add_header Alt-Svc 'h3=":443"; ma=86400';
           '';
         })
       );
