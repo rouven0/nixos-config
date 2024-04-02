@@ -31,6 +31,7 @@
     # games
     prismlauncher
     superTuxKart
+    space-cadet-pinball
 
     # cryptography
     yubikey-manager
