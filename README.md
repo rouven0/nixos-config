@@ -1,8 +1,8 @@
 # This Project moved to Sourcehut
 https://git.sr.ht/~rouven/nixos-config
 
-
-# Rouven's NixOS configuration files
+-------------
+## Rouven's NixOS configuration files
 
 ![image](https://user-images.githubusercontent.com/72568063/213921069-670965f7-ad51-43ad-a211-63bb45a02648.png)
 
